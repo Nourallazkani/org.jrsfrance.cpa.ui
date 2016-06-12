@@ -1,0 +1,9 @@
+<template>
+  <span repeat.for="row of router.navigation">
+    <a href.bind="row.href">${row.title}</a>
+  </span>
+  <hr/>
+  <div>
+    <router-view></router-view>
+  </div>
+</template>

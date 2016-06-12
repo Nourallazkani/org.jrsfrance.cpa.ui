@@ -1,0 +1,10 @@
+<template>
+  <form submit.delegate="find()">
+    <input type="text" value.bind="filter.name"/>
+    <button>Find</button>
+  </form>
+  <hr/>
+  <ul>
+      <li repeat.for="p of results">${p.firstname} ${p.lastname}</li>
+  </ul>
+</template>

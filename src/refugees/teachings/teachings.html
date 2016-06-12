@@ -1,12 +1,40 @@
 <template>
-  Teachings :
+  Enseignements supérieurs :
   <br/><br/>
   <form submit.delegate="find()">
     <input type="text" value.bind="filter.city" />
-    <button>Find</button>
+    <select value.bind="filter.fieldOfStudyId">
+      <option/>
+      <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
+    </select>
+    <button>Rechercher</button>
   </form>
   <hr/>
-  <ul>
-    <li repeat.for="r of results">${r.organisation} (${r.address.city}) ${r.fieldOfStudy}</li>
-  </ul>
+  <table style="width:100%" if.bind="results.length>0">
+    <thead>
+      <tr>
+        <td>Discipline</td>
+        <td>Organisation</td>
+        <td>Contact</td>
+        <td>Ville</td>
+        <td>Adresse</td>
+        <td>License</td>
+        <td>Master</td>
+        <td>Lien</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="r of results">
+        <td>${r.fieldOfStudy}</td>
+        <td>${r.organisation}</td>
+        <td>${r.contact.name} ${r.contact.phoneNumber} ${r.contact.mailAddress}</td>
+        <td>${r.address.city}</td>
+        <td>${r.address.street1} ${r.address.street2} ${r.address.zipcode} ${r.address.city} ${r.address.country}</td>
+        <td>${r.licence}</td>
+        <td>${r.master}</td>
+        <td>${r.link}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </template>

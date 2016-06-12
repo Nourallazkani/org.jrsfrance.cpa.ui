@@ -1,3 +1,28 @@
 <template>
-  Libraries
+  Auto apprentissages :
+  <br/><br/>
+  <form submit.delegate="find()">
+    <input type="text" value.bind="filter.city" />
+    <button>Rechercher</button>
+  </form>
+  <hr/>
+  <table style="width:100%" if.bind="results.length>0">
+    <thead>
+      <tr>
+        <td>Nom</td>
+        <td>Ville</td>
+        <td>Adresse</td>
+        <td>Contact</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="r of results">
+        <td>${r.name}</td>
+        <td>${r.address.city}</td>
+        <td>${r.address.street1} ${r.address.street2} ${r.address.zipcode} ${r.address.city} ${r.address.country}</td>
+        <td>${r.contact.name} ${r.contact.phoneNumber} ${r.contact.mailAddress}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </template>

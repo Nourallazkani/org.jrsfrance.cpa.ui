@@ -1,3 +1,38 @@
 <template>
-  Cursus
+  Cursus :
+  <br/><br/>
+  <form submit.delegate="find()">
+    <input type="text" value.bind="filter.city" />
+    <select value.bind="filter.levelId">
+      <option/>
+      <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
+    </select>
+    <button>Rechercher</button>
+  </form>
+  <hr/>
+  <table style="width:100%" if.bind="results.length>0">
+    <thead>
+      <tr>
+        <td>Niveau requis</td>
+        <td>Organisation</td>
+        <td>Contact</td>
+        <td>Ville</td>
+        <td>Adresse</td>
+        <td>Date début</td>
+        <td>Date fin</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="r of results">
+        <td>${r.level}</td>
+        <td>${r.organisation}</td>
+        <td>${r.contact.name} ${r.contact.phoneNumber} ${r.contact.mailAddress}</td>
+        <td>${r.address.city}</td>
+        <td>${r.address.street1} ${r.address.street2} ${r.address.zipcode} ${r.address.city} ${r.address.country}</td>
+        <td>${r.startDate}</td>
+        <td>${r.endDate}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </template>

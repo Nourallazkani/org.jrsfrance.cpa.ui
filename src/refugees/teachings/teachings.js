@@ -5,15 +5,15 @@ import {HttpClient} from 'aurelia-fetch-client';
 @inject(HttpClient)
 export class Teachings {
 
-  buildQuery(uri, values){
-    if(values){
-      var params=[]
-      for(var p in values){
-        params.push(encodeURIComponent(p)+"="+encodeURIComponent(values[p]))
+  buildQuery(uri, values) {
+    if (values) {
+      var params = []
+      for (var p in values) {
+        params.push(encodeURIComponent(p) + "=" + encodeURIComponent(values[p]))
       }
-      return uri+"?"+params.join("&")
+      return uri + "?" + params.join("&")
     }
-    else{
+    else {
       return uri;
     }
   }
@@ -26,7 +26,9 @@ export class Teachings {
 
   find() {
     var self = this
-    
-    this.fetchClient.fetch(self.buildQuery("teachings", self.filter)).then(response => response.json()).then(teachings => self.results = teachings)
+    this.fetchClient
+      .fetch(self.buildQuery("teachings", self.filter))
+      .then(response => response.json())
+      .then(teachings => self.results = teachings)
   }
 }

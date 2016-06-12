@@ -16,7 +16,6 @@ export class Teachings {
 
 
   find() {
-    this.global.city = this.filter.city;
     var self = this
 
     this.fetchClient

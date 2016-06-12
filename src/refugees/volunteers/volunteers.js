@@ -12,7 +12,6 @@ export class Volunteers {
   constructor(fetchClient, global) {
     this.fetchClient = fetchClient
     this.global = global;
-    this.filter.city = global.city;
   }
 
   find() {

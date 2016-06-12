@@ -8,7 +8,7 @@ export class App {
 
   constructor(router, httpClient) {
     httpClient.configure(config => {
-      config.withBaseUrl('http://127.0.0.1:8080/src')
+      config.withBaseUrl('http://127.0.0.1:8080/api/')
         .withDefaults({
           headers: {}
         })

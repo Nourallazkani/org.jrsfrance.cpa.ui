@@ -15,10 +15,9 @@ export class Cursus {
   }
 
   find() {
-    var self = this
     this.fetchClient
-      .fetch(self.global.getUri("cursus", self.filter))
+      .fetch(this.global.getUri("cursus", self.filter))
       .then(response => response.json())
-      .then(teachings => self.results = teachings)
+      .then(json => this.results = json)
   }
 }

@@ -15,10 +15,9 @@ export class Volunteers {
   }
 
   find() {
-    var self = this
     this.fetchClient
-      .fetch(self.global.getUri("volunteers", self.filter))
+      .fetch(this.global.getUri("volunteers", self.filter))
         .then(response => response.json())
-        .then(json => self.results = json)
+        .then(json => this.results = json)
   }
 }

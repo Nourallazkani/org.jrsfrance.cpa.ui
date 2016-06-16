@@ -1,0 +1,55 @@
+.choseLanguageBody{
+    min-width: 500px;
+}
+.mainHeader{
+    background-color: #333333;
+    height: 100px;
+    text-align: center;
+}
+
+.logoCpa{
+    margin-left: 100px;
+    width: 250px;
+    height: 100px;
+}
+.signInButton{
+    width: 80px;
+    height: 20px;
+    border-radius: 20px;
+    border-width: 0px;
+    cursor: pointer;
+    background-color: #ffffff;
+    padding-bottom: 5px;
+    float: right;
+    margin: 27px 40px 0px 0px;
+
+}
+
+.signInButton >  img{
+    width: 15px;
+    height: 15px;
+}
+.signInButton >  span{
+    float: right;
+    margin-right: 7px;
+}
+
+.mainBody{
+
+}
+
+.languageChoiceButton {
+    display: block;
+    border-width: 0px;
+    border-radius: 50px;
+    width: 200px;
+    height: 50px;
+    margin: 55px auto;
+    cursor: pointer;
+    background-color: #4d4d4d;
+    color: #ffffff;
+    font-size: 20px;
+}
+#firstButton{
+    margin-top: 200px;
+}

@@ -1,7 +1,31 @@
 <template>
-  <span repeat.for="row of router.navigation">
-    <a href.bind="row.href">${row.title}</a>
-  </span>
+ 
+ <div style="  background-color: #999999;     text-align:center;" > 
+    <div style=" display:inline; float:left;   margin-top:40px;        margin-left: 40px;"> <a href="#"> <img src="/src/images/Menu.jpg" alt="Menu" title="The Menu"> </a> </div>
+    <a href="http://localhost:8090">     <img src="/src/images/LogoCpa.jpg" alt="Menu" title="The Menu">       </a>
+    <div style=" display:inline;       float: right;    margin-right:40px;        margin-top:15px; " > <button style=" width:280px; height: 80px; border-radius:20px; font-size: 30px ; font-family:Arial; font-weight:bold;" > SE CONNECTER </button> </div>
+  </div>
+
+  <div style=" height: 450px;      margin-top:20px;        margin-bottom:20px;    padding-top: 40px; ">
+    <img style="float : left;      margin-right:20px;      width:500px;           height:400px; " src="/src/images/refugie.jpg" alt="réfugiée-photo" title="ALI" />  
+    <p style=" margin-top:150px;   font-family: georgia;   font-size:40px;        word-spacing: 5px;    font-weight: bold; "> Je suis réfugié</p>
+    <p> ---------  ------ ----------------- <br> -------------------------- -------- ----------- <br> ------------------- </p>
+  </div>
+
+
+  <div style=" text-align:center;    padding-top:20px;    ">
+      <a href="http://localhost:8090/#/teachings"> <img class="img-menu" src="/src/images/etude Superieur.jpg" alt="études Superieur" title="chercher des études Superieurs" /> </a>    
+      <a href="http://localhost:8090/#/cursus"> <img class="img-menu" src="/src/images/cursus.jpg" alt="cursus languistique" title="chercher des cursus languistique"/> </a>
+      <a href="#"> <img class="img-menu" src="/src/images/formation pro.jpg" alt="formations professionelle" title="chercher des formations professionelle" /> </a>
+      <a href="http://localhost:8090/#/workshops "> <img class="img-menu" src="/src/images/atelier.jpg" alt="atelier socio-langustique" title="chercher des atelier socio-langustique" /> </a>
+      <a href="http://localhost:8090/#/libraries"> <img class="img-menu" src="/src/images/annuaire.jpg" alt="annuaire de bibliotéques" title="chercher dans l'annuaire de bibliotéques" /> </a>
+      <a href="http://localhost:8090/#/volunteers"> <img class="img-menu" src="/src/images/interprete.jpg" alt="interprete" title="Recherch des interpretes " /> </a>
+      <a href="#"> <img class="img-menu" src="/src/images/evenement.jpg" alt="evenement" title="Recherch des evenement" />  </a>
+  </div>
+  
+  <div style="     height:40px;        background-color: #999999;         margin-top: 40px;       margin-bottom: 40px; ">  </div>
+ 
+ 
   <hr/>
   <div>
     <router-view></router-view>

@@ -8,34 +8,45 @@
 }
 
 .logoCpa{
-    margin-left: 100px;
+    margin-left: 150px;
     width: 250px;
     height: 100px;
 }
 .signInButton{
-    width: 80px;
-    height: 20px;
+    text-align: center;
+    width: 120px;
+    height: 35px;
     border-radius: 20px;
     border-width: 0px;
     cursor: pointer;
-    background-color: #ffffff;
-    padding-bottom: 5px;
+    background-color: #ffffff; 
     float: right;
-    margin: 27px 40px 0px 0px;
+    margin: 30px 40px 0px 0px;
 
 }
 
 .signInButton >  img{
-    width: 15px;
-    height: 15px;
+    width: 30px;
+    height: 30px;
 }
 .signInButton >  span{
-    float: right;
-    margin-right: 7px;
+    float:right;
+    margin: 5px 20px 0px 0px ;
+    font-size: 20px;
 }
 
 .mainBody{
-
+    background-image: url("motif2_choix_de_langue.svg");
+    background-repeat: no-repeat; 
+    background-size: 130%;
+    background-position: -8% 55%;
+}
+.secoundBackground{
+    padding: 150px 0px 150px 0px;
+     background-image: url("motif_choix_de_langue.svg");
+     background-repeat: no-repeat;
+     background-size: 85%;
+     background-position: -419px 62%;
 }
 
 .languageChoiceButton {
@@ -44,12 +55,21 @@
     border-radius: 50px;
     width: 200px;
     height: 50px;
-    margin: 55px auto;
+    margin: 55px auto 0px auto;
     cursor: pointer;
     background-color: #4d4d4d;
     color: #ffffff;
     font-size: 20px;
+    -webkit-transition: all 0.5s  ;
+    -moz-transition: all 0.5s  ;
+    transition: all 0.5s  ;
+}
+.languageChoiceButton:focus {
+    background-color: #cccccc;
+}
+.languageChoiceButton:hover {
+    background-color: #cccccc;
 }
 #firstButton{
-    margin-top: 200px;
+    margin-top: 0px;
 }

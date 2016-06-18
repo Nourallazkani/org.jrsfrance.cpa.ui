@@ -1,5 +1,6 @@
 .choseLanguageBody{
     min-width: 500px;
+    margin: 0px;
 }
 .mainHeader{
     background-color: #333333;
@@ -9,7 +10,7 @@
 
 .logoCpa{
     margin-left: 150px;
-    width: 250px;
+    width: 150px;
     height: 100px;
 }
 .signInButton{
@@ -35,7 +36,7 @@
     font-size: 20px;
 }
 
-.mainBody{
+.bodyLanguage{
     background-image: url("motif2_choix_de_langue.svg");
     background-repeat: no-repeat; 
     background-size: 130%;
@@ -72,4 +73,46 @@
 }
 #firstButton{
     margin-top: 0px;
+
+}
+.choseLanguageBody{
+   
+    min-width: 1330px;
+}
+.choosingStatus{
+    text-align: center;
+    height: 600px;
+}
+.choosingStatus>div {
+    display: inline-block;
+    margin: 150px 50px;
+    
+}
+#first{
+    margin-left:0px;
+}
+#last{
+    margin-right: 0px;
+}
+.circleImage {
+    height: 265px;
+    width: 265px;
+    background-size: 250px ;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.choosingStatus figcaption {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+#I {
+ background-image: url("je suis re_fugie_.svg");
+}
+#hiii {
+background-image: url("je suis re_fugie_.svg");
+}
+#III {
+background-image: url("je suis re_fugie_.svg");
 }

@@ -2,16 +2,25 @@
     font-family: Archer;
     src: url(Fonts/Archer/Archer-Medium-Pro.otf)
 }
+@font-face{
+    font-family: Cavorting;
+    src: url(Fonts/Cavorting.otf)
+}
+html{
+    margin: auto;
+    max-width:1600px;
+    min-width: 1400px;  
+}
 .choseLanguageBody{
-    min-width: 500px;
     margin: 0px;
+     max-width: inherit;
+    min-width: inherit;
 }
 .mainHeader{
     background-color: #333333;
     height: 100px;
     text-align: center;
 }
-
 .logoCpa{
     margin-left: 150px;
     width: 150px;
@@ -19,7 +28,7 @@
 }
 .signInButton{
     text-align: center;
-    width: 120px;
+    width: 125px;
     height: 35px;
     border-radius: 20px;
     border-width: 0px;
@@ -49,8 +58,6 @@
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
-
-
 .bodyLanguage{
     background-image: url("icones/motif2_choix_de_langue.svg");
     background-repeat: no-repeat; 
@@ -93,18 +100,15 @@
     margin-top: 0px;
 
 }
-.choseLanguageBody{
-   
-    min-width: 1330px;
-}
 .choosingStatus{
     text-align: center;
     height: 600px;
+    z-index: 1;
+    margin-bottom: 150px;
 }
 .choosingStatus>div {
     display: inline-block;
-    margin: 150px 50px;
-    
+    margin: 130px 50px; 
 }
 #first{
     margin-left:0px;
@@ -113,24 +117,61 @@
     margin-right: 0px;
 }
 .circleImage {
-    height: 265px;
-    width: 265px;
-    background-size: 250px ;
-    background-repeat: no-repeat;
-    background-position: center center;
+    height: 250 px;
+    width: 250px;
+    border-radius: 100%;
+    border-width: 20px;
+    border-style: solid;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#refugie {
+ border-color: #0FC6C6;
+}
+#benevole {
+border-color: #F4B821;
+}
+#institution {
+border-color: #F21C4F;
+}
+.circleImage:hover{
+    border-width: 35px;
+}
+.circleImage:focus{
+    border-width: 35px;
 }
 .choosingStatus figcaption {
     text-align: center;
+    font-family: Cavorting;
+    color: #4D4D4D;
     font-size: 30px;
     margin-top: 40px;
 }
 
-#I {
- background-image: url("je suis re_fugie_.svg");
+.sidePart{
+    background-color: #F4B821;
+    height: 500px;
+    width: inherit;
+    text-align: center;
 }
-#hiii {
-background-image: url("je suis re_fugie_.svg");
+.sideText{
+    width: 53.7%;
+    display:inline-block;
+    text-align: center;
+    }
+.sideImg {
+    width: 46.3%;
+    height: inherit;
 }
-#III {
-background-image: url("je suis re_fugie_.svg");
+#left{
+    float: left;
 }
+.sideHeader{
+    display: inline-block;
+    font-family: Cavorting ;
+    margin: 0px auto;
+    font-size: 100pt;
+    font-weight: normal;
+}
+

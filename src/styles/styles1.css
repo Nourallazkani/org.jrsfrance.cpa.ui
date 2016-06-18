@@ -1,3 +1,7 @@
+@font-face{
+    font-family: Archer;
+    src: url(Fonts/Archer/Archer-Medium-Pro.otf)
+}
 .choseLanguageBody{
     min-width: 500px;
     margin: 0px;
@@ -23,7 +27,13 @@
     background-color: #ffffff; 
     float: right;
     margin: 30px 40px 0px 0px;
-
+    font-size: 23px;
+}
+.signInButton:hover{
+    font-size: 27px;
+}
+.signInButton:focus{
+    font-size: 27px;
 }
 
 .signInButton >  img{
@@ -32,25 +42,31 @@
 }
 .signInButton >  span{
     float:right;
-    margin: 5px 20px 0px 0px ;
-    font-size: 20px;
+    margin: 0px 6px 0px 0px ;
+    
+    font-family: Archer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
 }
 
+
 .bodyLanguage{
-    background-image: url("motif2_choix_de_langue.svg");
+    background-image: url("icones/motif2_choix_de_langue.svg");
     background-repeat: no-repeat; 
     background-size: 130%;
     background-position: -8% 55%;
 }
 .secoundBackground{
     padding: 150px 0px 150px 0px;
-     background-image: url("motif_choix_de_langue.svg");
+     background-image: url("icones/motif_choix_de_langue.svg");
      background-repeat: no-repeat;
      background-size: 85%;
      background-position: -419px 62%;
 }
 
 .languageChoiceButton {
+    font-family: Archer;
     display: block;
     border-width: 0px;
     border-radius: 50px;
@@ -60,16 +76,18 @@
     cursor: pointer;
     background-color: #4d4d4d;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 19pt;
     -webkit-transition: all 0.5s  ;
     -moz-transition: all 0.5s  ;
     transition: all 0.5s  ;
 }
 .languageChoiceButton:focus {
     background-color: #cccccc;
+    font-size: 23pt;
 }
 .languageChoiceButton:hover {
     background-color: #cccccc;
+    font-size: 23pt;
 }
 #firstButton{
     margin-top: 0px;

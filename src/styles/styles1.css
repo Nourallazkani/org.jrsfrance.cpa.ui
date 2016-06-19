@@ -6,6 +6,15 @@
     font-family: Cavorting;
     src: url(Fonts/Cavorting.otf)
 }
+@font-face{
+    font-family: Abadi;
+    src: url(Fonts/ufonts.com_abadi-mt-condensed-light.ttf)
+}
+@font-face{
+    font-family: AbadiBold;
+    src: url(Fonts/abadi-mt-condensed-extra-bold.ttf)
+}
+
 html{
     margin: auto;
     max-width:1600px;
@@ -138,20 +147,17 @@ border-color: #F21C4F;
 .circleImage:hover{
     border-width: 35px;
 }
-.circleImage:focus{
-    border-width: 35px;
-}
+
 .choosingStatus figcaption {
     text-align: center;
     font-family: Cavorting;
     color: #4D4D4D;
-    font-size: 30px;
+    font-size: 35px;
     margin-top: 40px;
 }
-
-.sidePart{
+.containerLaSituation {
     background-color: #F4B821;
-    height: 500px;
+    height: 576.844px;
     width: inherit;
     text-align: center;
 }
@@ -159,19 +165,122 @@ border-color: #F21C4F;
     width: 53.7%;
     display:inline-block;
     text-align: center;
-    }
+    
+}
+.sideParagraph{
+    font-family: Abadi;
+    font-size: 20pt;
+}
+#laSituationParagraph{
+    padding : 0px 120px 0px 120px;
+    text-align: left;
+}
+#AbadiBold {
+    font-family: AbadiBold;
+}
 .sideImg {
     width: 46.3%;
-    height: inherit;
+    height: 576.844px;
+    
 }
 #left{
     float: left;
 }
+#right{
+    float: right;
+}
 .sideHeader{
-    display: inline-block;
     font-family: Cavorting ;
     margin: 0px auto;
     font-size: 100pt;
     font-weight: normal;
 }
+#laSituation{
+    position: relative;
+    z-index: 3;
+    bottom: 85px;
+    transform: rotate(-3deg);
+}
+.containerNosAction {
+    background-color: #0FC6C6;
+    height: 576.844px;
+    width: inherit;
+}
+#nosActions{
+    transform: rotate(-3deg);
+}
+#nosActionsParagraph{
+    text-align: left;
+    padding: 40px 150px 0px 150px;
+}
+.containerNotreObjectif{
+    background-color: #ffffff;
+    height: 576.844px;
+    width: inherit;
+    text-align: center;
+}
+.containerNotreObjectif p {
+    display: inline-block;
+    padding: 20px; 
+    width: 40%;
+    text-align: left;
+}
+#notreObjectifParagraph{
+    padding-top: 0px;
+    margin-top: 0px;
+}
 
+
+.containerNosMoyens {
+    background-color: #F4B821;
+    height: 576.844px;
+    width: inherit;
+    text-align: center;
+}
+#nosMoyens{
+    position: relative;
+    z-index: 3;
+    bottom: 85px;
+    transform: rotate(-3deg);
+}
+#nosMoyensParagraph{
+    padding: 0px 100px 40px 100px;
+    margin-top: 0px;
+    text-align: left;
+}
+.containerRejoignezNous {
+    background-color: #ED4C7B;
+    height: 576.844px;
+    width: inherit;
+    text-align: center;
+}
+#RejoignezNousParagraph{
+    padding: 20px 100px 00px 100px;
+    text-align: left;
+}
+.partners{
+    background-color: white;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;    
+    margin: auto;
+}
+.partners img{
+    padding: 0px 10px;
+    width: 100px;
+    height: 100px;
+}
+.footer{
+    width: inherit;
+    font-size: 30px;
+    background-color: #333333;
+    text-align: center;
+    height: 150;
+    vertical-align: 50%;
+    padding-top: 100px;
+}
+.footer a{
+    text-decoration: initial;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}

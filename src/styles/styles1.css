@@ -173,6 +173,7 @@ border-color: #F21C4F;
 }
 #laSituationParagraph{
     padding : 0px 120px 0px 120px;
+    margin-top: 0px;
     text-align: left;
 }
 #AbadiBold {
@@ -211,7 +212,7 @@ border-color: #F21C4F;
 }
 #nosActionsParagraph{
     text-align: left;
-    padding: 40px 150px 0px 150px;
+    padding: 0px 150px 0px 150px;
 }
 .containerNotreObjectif{
     background-color: #ffffff;

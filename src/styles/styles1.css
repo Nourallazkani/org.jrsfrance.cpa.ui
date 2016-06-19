@@ -276,9 +276,10 @@ border-color: #F21C4F;
     font-size: 30px;
     background-color: #333333;
     text-align: center;
-    height: 150;
+    height: 80px;
     vertical-align: 50%;
-    padding-top: 100px;
+    padding-top: 40px;
+    color: gray;
 }
 .footer a{
     text-decoration: initial;

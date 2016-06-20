@@ -1,4 +1,16 @@
 <template>
+    <div class="searchingContainer">
+     <p class="searchDomain"> <img class="searchDomainIcon" id="workshops" src="src/icones/ateliers sociaux linguistiques-seul.svg"/>Ateliers sociaux linguistiques </p>
+     <div class="searchCriteria" >
+     <form class="searchCriteriaForm" submit.delegate="find()">
+       <img id="location" src="src/icones/localisation.svg"/>
+        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city" />
+        <button class="searchBotton">Trouver</button>
+     </form>
+  </div>
+  <br/>
+  
+
   <form submit.delegate="find()">
     <input type="text" value.bind="filter.city" />
 
@@ -15,7 +27,6 @@
         <td>Début</td>
         <td>Fin</td>
         <td>Adresse</td>
-        
       </tr>
     </thead>
     <tbody>

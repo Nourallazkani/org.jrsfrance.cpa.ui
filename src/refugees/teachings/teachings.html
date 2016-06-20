@@ -1,4 +1,18 @@
 <template>
+    <div class="searchingContainer">
+     <p class="searchDomain" > <img class="searchDomainIcon" id="teachings" src="src/icones/e_tudes supe_rieures-seul.svg"/> &Eacute;tudes sup&eacute;rieurs </p>
+     <div class="searchCriteria" >
+     <form class="searchCriteriaForm" submit.delegate="find()">
+       <img id="location" src="src/icones/localisation.svg"/>
+        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city" />
+        <select class="selectMenu" value.bind="filter.fieldOfStudyId" >
+          <option value="" disabled selected>Choisissez votre discipline</option>
+          <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
+        </select>
+        <button class="searchBotton">Rechercher</button>
+      </form>
+  </div>
+
   Enseignements supérieurs :
   <br/><br/>
   <form submit.delegate="find()">

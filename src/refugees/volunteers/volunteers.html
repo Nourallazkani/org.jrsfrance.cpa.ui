@@ -1,4 +1,22 @@
 <template>
+    <div class="searchingContainer">
+     <p class="searchDomain"> <img class="searchDomainIcon" id="volunteers" src="src/icones/interpe_tes-seul.svg"/> Interpr&egrave;tes </p>
+     <div class="searchCriteria" >
+     <form class="searchCriteriaForm" submit.delegate="find()">
+       <img id="location" src="src/icones/localisation.svg"/>
+        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city" />
+        <select class="selectMenu" value.bind="filter.languageId" >
+          <option value="" disabled selected>Choisissez votre langue</option>
+          <option repeat.for="x of global.referenceData.languages" value.bind="x.id">${x.name}</option>
+        </select>
+        <select id="volunteerDemain" class="selectMenu" value.bind="filter.fieldOfStudyId" >
+          <option value="" disabled selected>Choisissez votre discipline(facultatif)</option>
+          <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
+        </select>
+        <button class="searchBotton">Rechercher</button>
+      </form>
+  </div>
+
   <form submit.delegate="find()">
     <input type="text" value.bind="filter.city" />
     <select value.bind="filter.languageId">

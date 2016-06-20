@@ -454,7 +454,7 @@ border-color: #F21C4F;
 }
 .footer{
     width: inherit;
-    font-size: 30px;
+    font-size: 25px;
     background-color: #333333;
     text-align: center;
     height: 80px;
@@ -469,7 +469,7 @@ border-color: #F21C4F;
 }
 .containerId{
   width: inherit;
-  height: 400px;
+  height: 425px;
   background-color: #ffffff;
   padding-top: 50px; 
 }
@@ -555,7 +555,10 @@ border-color: #F21C4F;
   transition: all 0.5s;
 }
 .idCalendar a:hover{
-  color: red;
+  color: #4D4D4D;
+}
+.idCalendar a:focus{
+  color: #4D4D4D;
 }
 #arrowRight{
   position: relative;
@@ -570,4 +573,164 @@ border-color: #F21C4F;
   top: 13px;
   height: 35px;
   width: 35px;
+}
+.figuresContainer{
+    width: 100%;
+    height: 470px;
+    background-color: white;
+    text-align: center;
+}
+.figureContainer{
+    display: inline-block;
+    margin: 15px 20px
+}
+.CircleContainer{
+    display: inline-block;
+    border-radius: 100%;
+    border: 0px solid;
+    margin: 0px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.CircleContainer:hover{
+    border-width: 10px;
+}
+.CircleContainer:focus{
+    border-width: 10px;
+}
+.typeIcon{
+    height: 150px;
+    width: 150px;
+}
+.circleCaption{
+    text-align: center;
+    font-family: Cavorting;
+    color: #4D4D4D;
+    padding-top: 20px;
+    font-size: 20px;
+}
+#teachings{
+    background-color: #1B1464 ; 
+    border-color: #1B1464 ;
+}
+#cursus{
+    background-color: #F74D2B ; 
+    border-color: #F74D2B;
+}
+#professionalFormation{
+    background-color: #8CC63F ; 
+    border-color: #8CC63F;
+}
+#workshops{
+    background-color: #9E005D ; 
+    border-color: #9E005D;
+}
+#libraries{
+    background-color: #D4145A ; 
+    border-color: #D4145A;
+}
+#volunteers{
+    background-color:#F4B821 ; 
+    border-color: #F4B821;
+}
+#events{
+    background-color: #29ABE2 ; 
+    border-color: #29ABE2;
+}
+.separator{
+    height: 40px;
+    width: inherit;
+    background-color: #333333;
+}
+.index{
+    text-align: center;  
+}
+.index p{
+    font-family: Cavorting;
+    font-size: 80px;
+    color: #4D4D4D;
+    margin: 10px auto 60px auto;
+}
+.index img{
+    display: block;
+    margin: 10px auto 10px auto;
+    height: 40px;
+    width: 40px;
+    transform: rotate(-90deg);
+}
+.searchingContainer{
+    width: 90%;
+    text-align: center;
+    margin: 20px auto;
+}
+.searchDomain{
+    font-family: Cavorting;
+    font-size: 50px;
+    text-align: inherit;
+    margin-bottom: 20px;
+}
+.searchDomainIcon{
+    height: 60px;
+    width: 60px;
+    position: relative;
+    top: 15px;
+    border-radius: 500px;
+}
+.searchCriteria{
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 30px;
+}
+.searchCriteriaForm{
+    float: left;
+    margin-bottom: 30px;
+}
+.cityCriteria{
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    border-width: 0px;
+    background-color: #F2F2F2;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 15px;
+    font-size: 20px;
+    margin-right: 20px; 
+}
+#location{
+    display: inline-block;
+    position: relative;
+    bottom: -15px;
+    width: 50px;
+    height: 50px;
+}
+.selectMenu{
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border-width: 0px;
+    background-color: #F2F2F2;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 20px;
+}
+.searchBotton{
+    margin-left: 50px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    border-width: 0px;
+    background-color: #CCC;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.searchBotton:hover, .searchBotton:focus{
+     background-color: #4d4d4d;
+}
+#volunteerDemain{
+    width: 250px;
 }

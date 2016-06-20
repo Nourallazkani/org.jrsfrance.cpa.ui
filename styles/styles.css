@@ -682,8 +682,8 @@ border-color: #F21C4F;
     overflow: auto;
     margin-bottom: 30px;
 }
+
 .searchCriteriaForm{
-    float: left;
     margin-bottom: 30px;
 }
 .cityCriteria{
@@ -733,4 +733,31 @@ border-color: #F21C4F;
 }
 #volunteerDemain{
     width: 250px;
+}
+.resultContainer{
+    width: 100%;
+    background-color: #F2F2F2 ;
+    text-align: inherit;
+    margin-bottom: 30px;
+    border-radius: 50px 500px;
+}
+.halfResultContainer{
+    display: inline-block;
+    width: 40%;
+    margin: 0px auto;
+}
+#leftContainer{
+    border-right: 2px solid black;
+}
+.informationContainer{
+    display: -webkit-flex;
+    display: flex;
+    padding: 15px;
+}
+.information{
+    width: 50%;
+    text-align: left;
+    margin: auto  ;
+    font-family: ArcherBold;
+    font-size: 23px;
 }

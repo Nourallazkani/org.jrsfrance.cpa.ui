@@ -16,7 +16,7 @@ export class Cursus {
 
   find() {
     this.fetchClient
-      .fetch(this.global.getUri("cursus", self.filter))
+      .fetch(this.global.getUri("cursus", this.filter))
       .then(response => response.json())
       .then(json => this.results = json)
   }

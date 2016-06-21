@@ -16,7 +16,7 @@ export class Volunteers {
 
   find() {
     this.fetchClient
-      .fetch(this.global.getUri("volunteers", self.filter))
+      .fetch(this.global.getUri("volunteers", this.filter))
         .then(response => response.json())
         .then(json => this.results = json)
   }

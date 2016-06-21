@@ -19,7 +19,7 @@ export class Libraries {
 
   find() {
     this.fetchClient
-      .fetch(this.global.getUri("organisations", self.filter))
+      .fetch(this.global.getUri("organisations", this.filter))
       .then(response => response.json())
       .then(json => this.results = json)
   }

@@ -15,6 +15,7 @@ export class Cursus {
   }
 
   find() {
+    console.log(this.filter)
     this.fetchClient
       .fetch(this.global.getUri("cursus", this.filter))
       .then(response => response.json())

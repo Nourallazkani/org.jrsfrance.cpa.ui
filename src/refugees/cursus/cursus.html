@@ -7,7 +7,7 @@
        <img id="location" src="src/icones/localisation.svg"/>
       <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city" />
         <select class="selectMenu" value.bind="filter.levelId">
-          <option value="" disabled selected>Choisissez votre niveau</option>
+          <option value="">Choisissez votre niveau</option>
           <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
         </select>
         <button class="searchBotton">Rechercher</button>
@@ -40,11 +40,15 @@
                   <div class="information">
                     Adresse :
                   </div>
-                  <div class="information">
-                    ${r.address.street1}<br/>
-                    ${r.address.street2}<br/>
-                    ${r.address.zipcode}, ${r.address.city}<br/>
-                    ${r.address.country}
+                  <div class="information"> <!--
+                    <span style="display:block" >${r.address}</span>}</span>
+                     <span style="display:block" >${r.address.street2}</span>
+                     <span style="display:block" >${r.address.zipcode}, ${r.address.city}</span>
+                     <span style="display:block" >${r.address.country}</span> -->
+                     ${r.address.street1}<br/>
+                     ${r.address.street2}<br if.bind= "r.address.street2 != null "/>
+                     ${r.address.zipcode}, ${r.address.city}<br/>
+                     ${r.address.country}<br/>
                   </div>
                 </div>
                 

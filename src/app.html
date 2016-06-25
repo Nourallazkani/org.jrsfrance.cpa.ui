@@ -1,28 +1,58 @@
 <template>
- 
-      <div style="  background-color: #999999;     text-align:center;" > 
-        <div style=" display:inline; float:left;   margin-top:40px;        margin-left: 40px;"> <a href="#"> <img src="/src/images/Menu.jpg" alt="Menu" title="The Menu"> </a> </div>
-        <a href="http://localhost:8090">     <img src="/src/images/LogoCpa.jpg" alt="Menu" title="The Menu">       </a>
-        <div style=" display:inline;       float: right;    margin-right:40px;        margin-top:15px; " > <button style=" width:280px; height: 80px; border-radius:20px; font-size: 30px ; font-family:Arial; font-weight:bold;" > SE CONNECTER </button> </div>
-      </div>
-      <div style=" height: 450px;      margin-top:20px;        margin-bottom:20px;    padding-top: 40px; ">
-        <img style="float : left;      margin-right:20px;      width:500px;           height:400px; " src="/src/images/refugie.jpg" alt="réfugiée-photo" title="ALI" />  
-        <p style=" margin-top:150px;   font-family: georgia;   font-size:40px;        word-spacing: 5px;    font-weight: bold; "> Je suis réfugié</p>
-        <p> ---------  ------ ----------------- <br> -------------------------- -------- ----------- <br> ------------------- </p>
-      </div>
-      <div style=" text-align:center;    padding-top:20px;    ">
-          <a href="http://localhost:8090/#/teachings"> <img class="img-menu" src="/src/images/etude Superieur.jpg" alt="études Superieur" title="chercher des études Superieurs" /> </a>    
-          <a href="http://localhost:8090/#/cursus"> <img class="img-menu" src="/src/images/cursus.jpg" alt="cursus languistique" title="chercher des cursus languistique"/> </a>
-          <a href="#"> <img class="img-menu" src="/src/images/formation pro.jpg" alt="formations professionelle" title="chercher des formations professionelle" /> </a>
-          <a href="http://localhost:8090/#/workshops "> <img class="img-menu" src="/src/images/atelier.jpg" alt="atelier socio-langustique" title="chercher des atelier socio-langustique" /> </a>
-          <a href="http://localhost:8090/#/libraries"> <img class="img-menu" src="/src/images/annuaire.jpg" alt="annuaire de bibliotéques" title="chercher dans l'annuaire de bibliotéques" /> </a>
-          <a href="http://localhost:8090/#/volunteers"> <img class="img-menu" src="/src/images/interprete.jpg" alt="interprete" title="Recherch des interpretes " /> </a>
-          <a href="#"> <img class="img-menu" src="/src/images/evenement.jpg" alt="evenement" title="Recherch des evenement" />  </a>
-      </div>
-      <div style="     height:40px;        background-color: #999999;         margin-top: 40px;       margin-bottom: 40px; ">  </div>
-      <hr/>
-      <div>
-        <router-view></router-view>
-      </div>
+ <body class="choseLanguageBody">
+        <div class="mainHeader" > 
+            <a href="#">
+                <img class="LogoCpa" src="src/icones/logo_1.svg" alt="Logo" title="Comprendre pour Apprendre"/>
+            </a>
+            <button class="signInButton" >
+                <img src="src/icones/login.svg" alt="sign in" title="click to sign in" />
+                <span>Login</span>
+            </button> 
+        </div>
+        <div class="containerId">
+          <div class="containerIdPhoto">
+            <div class="idPhoto"> <div class="changePhoto"> <p> <a href="#">Changer votre Photo </a> </p> </div> </div>
+          </div>
+          <p class="idStatus"> Je suis r&eacute;fugi&eacute;/ demandeur d'asile </p>
+          <div class="idCalendar"> <img id="smallCalenderIcone" src="src/icones/idCal.svg"/> <p> Retourner a<a href="#"> mon calendrier <img id="arrowRight" src="src/icones/aller vers _ te_le_charger - Copy.svg" /></a></p> </div>
+        </div>
+        <div class="figuresContainer">
+          <figure class=" figureContainer">
+            <a href="#/teachings" class="CircleContainer" id="teachings"> <img class="typeIcon" src="src/icones/e_tudes supe_rieures-seul.svg"/></a>
+            <figcaption class="circleCaption"> &Eacute;tudes sup&eacute;rieurs  </figcaption>
+          </figure>
+          <figure class=" figureContainer">
+            <a href="#/cursus" class="CircleContainer" id="cursus"> <img class="typeIcon" src="src/icones/cursus d'apprentissage-seul.svg"/></a>
+            <figcaption class="circleCaption"> Cursus d'apprentissage </figcaption>
+          </figure>
+          <figure class=" figureContainer">
+            <a href="#" class="CircleContainer" id="professionalFormation"> <img class="typeIcon" src="src/icones/formations professionnelles-seul.svg"/></a>
+            <figcaption class="circleCaption"> Formation professionelle </figcaption>
+          </figure>
+          <figure class=" figureContainer">
+            <a href="#/workshops" class="CircleContainer" id="workshops"> <img class="typeIcon" src="src/icones/ateliers sociaux linguistiques-seul.svg"/></a>
+            <figcaption class="circleCaption"> Ateliers sociaux linguistiques </figcaption>
+          </figure>
+          <figure class=" figureContainer">
+            <a href="#/libraries" class="CircleContainer" id="libraries"> <img class="typeIcon" src="src/icones/annuaires des bibliothe_ques-seul.svg"/></a>
+            <figcaption class="circleCaption"> Annuaires des bibliot&egrave;que </figcaption>
+          </figure>
+          <figure class=" figureContainer">
+            <a href="#/volunteers" class="CircleContainer" id="volunteers"> <img class="typeIcon" src="src/icones/interpe_tes-seul.svg"/></a>
+            <figcaption class="circleCaption"> Interpr&egrave;tes </figcaption>
+          </figure>
+          <figure class=" figureContainer">
+            <a href="#" class="CircleContainer" id="events"> <img class="typeIcon" src="src/icones/date.svg"/></a>
+            <figcaption class="circleCaption"> &Eacute;v&egrave;nements </figcaption>
+          </figure>
+        </div>
+        <div class="separator"> </div>
+  </body>
+  <div>
+    <router-view></router-view>
+  </div>
+  <div class="footer"> 
+            <a href="#"> Cr&eacute;dits </a> - <a href="#"> A proopose </a> - <a href="https://www.facebook.com/search/top/?q=comprendre%20pour%20apprendre"> Facebook</a>
+  </div>
     
 </template>

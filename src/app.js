@@ -30,6 +30,7 @@ export class App {
 
     this.router = router
     this.router.configure(config => {
+      //config.options.pushState = true;
       config.title = "CPA";
       config.map([
         { route: ['', 'Welcome'], moduleId: 'refugees/index', nav: true, title: 'Accueil' },

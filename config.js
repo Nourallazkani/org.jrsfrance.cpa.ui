@@ -34,6 +34,7 @@ System.config({
     "core-js": "npm:core-js@2.1.0",
     "fetch": "github:github/fetch@0.10.1",
     "font-awesome": "npm:font-awesome@4.5.0",
+    "moment": "npm:moment@2.14.1",
     "text": "github:systemjs/plugin-text@0.0.4",
     "github:aurelia/binding@0.11.4": {
       "aurelia-metadata": "github:aurelia/metadata@0.10.1",

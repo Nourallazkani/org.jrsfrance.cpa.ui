@@ -33,12 +33,13 @@ export class App {
       //config.options.pushState = true;
       config.title = "CPA";
       config.map([
-        { route: ['', 'Welcome'], moduleId: 'refugees/index', nav: true, title: 'Accueil' },
-        { route: ['teachings'], moduleId: 'refugees/teachings/teachings', nav: true, title: 'Enseignements supérieurs' },
-        { route: ['cursus'], moduleId: 'refugees/cursus/cursus', nav: true, title: 'Apprentissage du français' },
-        { route: ['workshops'], moduleId: 'refugees/workshops/workshops', nav: true, title: 'Ateliers socio linguistiques' },
-        { route: ['libraries'], moduleId: 'refugees/libraries/libraries', nav: true, title: 'Auto apprentissage' },
-        { route: ['volunteers'], moduleId: 'refugees/volunteers/volunteers', nav: true, title: 'Bénévoles' }
+        { route: ['', 'Welcome'], moduleId: 'views/refugees/index', nav: true, title: 'Accueil' },
+        { route: ['events'], moduleId: 'views/refugees/events/events', nav: true, title: 'Evenements' },
+        { route: ['teachings'], moduleId: 'views/refugees/teachings/teachings', nav: true, title: 'Enseignements supérieurs' },
+        { route: ['cursus'], moduleId: 'views/refugees/cursus/cursus', nav: true, title: 'Apprentissage du français' },
+        { route: ['workshops'], moduleId: 'views/refugees/workshops/workshops', nav: true, title: 'Ateliers socio linguistiques' },
+        { route: ['libraries'], moduleId: 'views/refugees/libraries/libraries', nav: true, title: 'Auto apprentissage' },
+        { route: ['volunteers'], moduleId: 'views/refugees/volunteers/volunteers', nav: true, title: 'Bénévoles' }
       ])
 
     })

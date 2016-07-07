@@ -25,6 +25,6 @@ paths: {
     "npm:*": "jspm_packages/npm/*"
   }
 
-4) Start the server :
+* Start the server :
 http-server -p 8090 -c-1
 

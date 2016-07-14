@@ -1,4 +1,6 @@
 <template>
+  <require from="/assets/css/refugee.css"></require>
+
   <div class="mainHeader">
     <a href="#">
       <img class="LogoCpa" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" />
@@ -25,41 +27,59 @@
     </div>
   </div>
 
-  <div class="figuresContainer">
-    <figure class=" figureContainer">
-      <a  route-href="route: refugees/teachings" class="CircleContainer" id="teachings"> <img class="typeIcon" src="assets/img/refugee/icon-teaching.svg" /></a>
-      <figcaption class="circleCaption"> &Eacute;tudes sup&eacute;rieurs </figcaption>
+  <div class="menu">
+    
+    <figure id="menu-item-teachings">
+      <a route-href="route: refugees/teachings">
+        <img src="assets/img/refugee/icon-teaching.svg"/>
+      </a>
+      <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
     </figure>
-    <figure class=" figureContainer">
-      <a  route-href="route: refugees/cursus" class="CircleContainer" id="cursus"> <img class="typeIcon" src="assets/img/refugee/icon-cursus.svg" /></a>
-      <figcaption class="circleCaption"> Cursus d'apprentissage </figcaption>
+    
+    <figure id="menu-item-cursus">
+      <a route-href="route: refugees/cursus">
+        <img src="assets/img/refugee/icon-cursus.svg" />
+      </a>
+      <figcaption> Cursus d'apprentissage </figcaption>
     </figure>
-    <figure class=" figureContainer">
-      <a href="#" class="CircleContainer" id="professionalFormation"> <img class="typeIcon" src="assets/img/refugee/formations professionnelles-seul.svg" /></a>
-      <figcaption class="circleCaption"> Formation professionelle </figcaption>
+    <figure id="menu-item-professional-trainings">
+      <a href="#"> 
+        <img src="assets/img/refugee/formations professionnelles-seul.svg" />
+      </a>
+      <figcaption> Formation professionelle </figcaption>
     </figure>
-    <figure class=" figureContainer">
-      <a  route-href="route: refugees/workshops" class="CircleContainer" id="workshops"> <img class="typeIcon" src="assets/img/refugee/icon-workshop.svg" /></a>
-      <figcaption class="circleCaption"> Ateliers sociaux linguistiques </figcaption>
+    <figure id="menu-item-workshops">
+      <a route-href="route: refugees/workshops"> 
+        <img src="assets/img/refugee/icon-workshop.svg" />
+      </a>
+      <figcaption> Ateliers sociaux linguistiques </figcaption>
     </figure>
-    <figure class=" figureContainer">
-      <a route-href="route: refugees/libraries" class="CircleContainer" id="libraries"> <img class="typeIcon" src="assets/img/refugee/icon-library.svg" /></a>
-      <figcaption class="circleCaption"> Annuaires des bibliot&egrave;que </figcaption>
+    <figure id="menu-item-libraries">
+      <a route-href="route: refugees/libraries"> 
+        <img src="assets/img/refugee/icon-library.svg" />
+      </a>
+      <figcaption> Annuaires des bibliot&egrave;que </figcaption>
     </figure>
-    <figure class=" figureContainer">
-      <a route-href="route: refugees/volunteers" class="CircleContainer" id="volunteers"> <img class="typeIcon" src="assets/img/refugee/icon-volunteer.svg" /></a>
-      <figcaption class="circleCaption"> Interpr&egrave;tes </figcaption>
+    <figure id="menu-item-volunteers">
+      <a route-href="route: refugees/volunteers">
+        <img src="assets/img/refugee/icon-volunteer.svg" />
+      </a>
+      <figcaption> Interpr&egrave;tes </figcaption>
     </figure>
-    <figure class=" figureContainer">
-      <a route-href="route: refugees/events" class="CircleContainer" id="events"> <img class="typeIcon" src="assets/img/refugee/icon-date.svg" /></a>
-      <figcaption class="circleCaption"> &Eacute;v&egrave;nements </figcaption>
+    <figure id="menu-item-events">
+      <a route-href="route: refugees/events"> 
+        <img src="assets/img/refugee/icon-date.svg" />
+      </a>
+      <figcaption> &Eacute;v&egrave;nements </figcaption>
     </figure>
+    
   </div>
 
   <div class="separator"> </div>
 
   <router-view></router-view>
-  <div class="index">
+
+  <div class="index" if.bind="router.history.fragment=='/Refugees'">
     <img src="assets/img/common/arrow.svg" class="common-arrow-top" />
     <p> Veuillez choisir un domaine de recherche </p>
   </div>

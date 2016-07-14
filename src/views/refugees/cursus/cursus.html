@@ -1,11 +1,16 @@
 <template>
-   <div class="searchingContainer">
-     <p class="searchDomain"> <img class="searchDomainIcon" id="cursus" src="src/icones/cursus d'apprentissage-seul.svg"/> Cursus d'apprentissage </p>
-     <div class="searchCriteria" >
+  <require from="/assets/css/refugee.css"></require>
 
-     <form class="searchCriteriaForm" submit.delegate="find()">
-       <img id="location" src="src/icones/localisation.svg"/>
-      <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city" />
+  <div class="searchingContainer">
+    <p class="searchDomain">
+      <img class="searchDomainIcon" id="cursus" src="assets/img/refugee/icon-cursus.svg" /> Cursus d'apprentissage
+    </p>
+    <div class="searchCriteria">
+
+      <form class="searchCriteriaForm" submit.delegate="find()">
+        <img id="location" src="assets/img/localisation.svg" />
+        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
+          value.bind="filter.city" />
         <select class="selectMenu" value.bind="filter.levelId">
           <option value="">Choisissez votre niveau</option>
           <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
@@ -13,82 +18,78 @@
         <button class="searchBotton">Rechercher</button>
       </form>
 
-           <div class="resultContainer" repeat.for="r of results" >
-              <div class="halfResultContainer" id="leftContainer">
+      <div class="resultContainer" repeat.for="r of results">
+        <div class="halfResultContainer" id="leftContainer">
 
-                <div class="informationContainer">
-                  <div class="information">
-                    Niveau de langue :
-                  </div>
-                  <div class="information">
-                    ${r.level}
-                  </div>
-                </div>
+          <div class="informationContainer">
+            <div class="information">
+              Niveau de langue :
+            </div>
+            <div class="information">
+              ${r.level}
+            </div>
+          </div>
 
-                <div class="informationContainer">
-                  <div class="information">
-                    Date de d&eacute;but :<br/>
-                    Date de fin :
-                  </div>
-                  <div class="information">
-                    ${r.startDate}<br/>
-                    ${r.endDate}
-                  </div>
-                </div>
+          <div class="informationContainer">
+            <div class="information">
+              Date de d&eacute;but :<br/> Date de fin :
+            </div>
+            <div class="information">
+              ${r.startDate}<br/> ${r.endDate}
+            </div>
+          </div>
 
-                <div class="informationContainer">
-                  <div class="information">
-                    Adresse :
-                  </div>
-                  <div class="information"> <!--
+          <div class="informationContainer">
+            <div class="information">
+              Adresse :
+            </div>
+            <div class="information">
+              <!--
                     <span style="display:block" >${r.address}</span>}</span>
                      <span style="display:block" >${r.address.street2}</span>
                      <span style="display:block" >${r.address.zipcode}, ${r.address.city}</span>
                      <span style="display:block" >${r.address.country}</span> -->
-                     ${r.address.street1}<br/>
-                     ${r.address.street2}<br if.bind= "r.address.street2 != null "/>
-                     ${r.address.zipcode}, ${r.address.city}<br/>
-                     ${r.address.country}<br/>
-                  </div>
-                </div>
-                
+              ${r.address.street1}<br/> ${r.address.street2}
+              <br if.bind="r.address.street2 != null " /> ${r.address.zipcode}, ${r.address.city}<br/> ${r.address.country}
+              <br/>
+            </div>
+          </div>
+
+        </div>
+        <div class="halfResultContainer">
+          <div class="informationContainer">
+            <div class="information">
+              Organisation :
+            </div>
+            <div class="information">
+              ${r.organisation}
+            </div>
+          </div>
+          <div class="leftContainer">
+            <div class="informationContainer">
+              <div class="information">
+                Contact :
               </div>
-              <div class="halfResultContainer">
-                <div class="informationContainer">
-                  <div class="information">
-                    Organisation :
-                  </div>
-                  <div class="information">
-                    ${r.organisation}
-                  </div>
-              </div>
-              <div class="leftContainer">
-                <div class="informationContainer">
-                  <div class="information">
-                    Contact :
-                  </div>
-                  <div class="information">
-                    Nom : ${r.contact.name}<br/>
-                    T&eacute;l&eacute;phone : ${r.contact.phoneNumber}<br/>
-                    Mail : <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
-                  </div>
-              </div>
-              <div class="leftContainer">
-                <div class="informationContainer">
-                  <div class="information">
-                    
-                  </div>
-                  <div class="information">
-                    
-                  </div>
+              <div class="information">
+                Nom : ${r.contact.name}<br/> T&eacute;l&eacute;phone : ${r.contact.phoneNumber}<br/> Mail : <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
               </div>
             </div>
+            <div class="leftContainer">
+              <div class="informationContainer">
+                <div class="information">
+
+                </div>
+                <div class="information">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
-     </div>
+      </div>
+    </div>
 
-<!--
+    <!--
     <form submit.delegate="find()">
     <input type="text" value.bind="filter.city" />
     <select value.bind="filter.levelId">

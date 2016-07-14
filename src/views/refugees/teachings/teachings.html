@@ -1,55 +1,59 @@
 <template>
-    <div class="searchingContainer">
-     <p class="searchDomain" > <img class="searchDomainIcon" id="teachings" src="src/icones/e_tudes supe_rieures-seul.svg"/> &Eacute;tudes sup&eacute;rieurs </p>
-     <div class="searchCriteria" >
-     <form class="searchCriteriaForm" submit.delegate="find()">
-       <img id="location" src="src/icones/localisation.svg"/>
-        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city" />
-        <select class="selectMenu" value.bind="filter.fieldOfStudyId" >
+  <require from="/assets/css/refugee.css"></require>
+
+  <div class="searchingContainer">
+    <p class="searchDomain"> <img class="searchDomainIcon" id="teachings" src="assets/img/refugee/icon-teaching.svg" /> &Eacute;tudes sup&eacute;rieurs
+    </p>
+    <div class="searchCriteria">
+      <form class="searchCriteriaForm" submit.delegate="find()">
+        <img id="location" src="assets/img/localisation.svg" />
+        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
+          value.bind="filter.city" />
+        <select class="selectMenu" value.bind="filter.fieldOfStudyId">
           <option value="" disabled selected>Choisissez votre discipline</option>
           <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
         </select>
         <button class="searchBotton">Rechercher</button>
       </form>
-  </div>
+    </div>
 
-  Enseignements supérieurs :
-  <br/><br/>
-  <form submit.delegate="find()">
-    <input type="text" value.bind="filter.city" />
-    <select value.bind="filter.fieldOfStudyId">
+    Enseignements supérieurs :
+    <br/><br/>
+    <form submit.delegate="find()">
+      <input type="text" value.bind="filter.city" />
+      <select value.bind="filter.fieldOfStudyId">
       <option/>
       <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
     </select>
-    <button>Rechercher</button>
-  </form>
-  <hr/>
-  
-  <table style="width:100%" if.bind="results.length>0">
-    <thead>
-      <tr>
-        <td>Discipline</td>
-        <td>Organisation</td>
-        <td>Contact</td>
-        <td>Ville</td>
-        <td>Adresse</td>
-        <td>License</td>
-        <td>Master</td>
-        <td>Lien</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr repeat.for="r of results">
-        <td>${r.fieldOfStudy}</td>
-        <td>${r.organisation}</td>
-        <td>${r.contact.name} ${r.contact.phoneNumber} ${r.contact.mailAddress}</td>
-        <td>${r.address.city}</td>
-        <td>${r.address.street1} ${r.address.street2} ${r.address.zipcode} ${r.address.city} ${r.address.country}</td>
-        <td>${r.licence}</td>
-        <td>${r.master}</td>
-        <td>${r.link}</td>
-      </tr>
-    </tbody>
-  </table>
+      <button>Rechercher</button>
+    </form>
+    <hr/>
+
+    <table style="width:100%" if.bind="results.length>0">
+      <thead>
+        <tr>
+          <td>Discipline</td>
+          <td>Organisation</td>
+          <td>Contact</td>
+          <td>Ville</td>
+          <td>Adresse</td>
+          <td>License</td>
+          <td>Master</td>
+          <td>Lien</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="r of results">
+          <td>${r.fieldOfStudy}</td>
+          <td>${r.organisation}</td>
+          <td>${r.contact.name} ${r.contact.phoneNumber} ${r.contact.mailAddress}</td>
+          <td>${r.address.city}</td>
+          <td>${r.address.street1} ${r.address.street2} ${r.address.zipcode} ${r.address.city} ${r.address.country}</td>
+          <td>${r.licence}</td>
+          <td>${r.master}</td>
+          <td>${r.link}</td>
+        </tr>
+      </tbody>
+    </table>
 
 </template>

@@ -1,55 +1,58 @@
 <template>
-    <div class="searchingContainer">
-     <p class="searchDomain"> <img class="searchDomainIcon" id="volunteers" src="src/icones/interpe_tes-seul.svg"/> Interpr&egrave;tes </p>
-     <div class="searchCriteria" >
-     <form class="searchCriteriaForm" submit.delegate="find()">
-       <img id="location" src="src/icones/localisation.svg"/>
-        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city" />
-        <select class="selectMenu" value.bind="filter.languageId" >
+  <require from="/assets/css/refugee.css"></require>
+
+  <div class="searchingContainer">
+    <p class="searchDomain"> <img class="searchDomainIcon" id="volunteers" src="assets/img/refugee/icon-volunteer.svg" /> Interpr&egrave;tes </p>
+    <div class="searchCriteria">
+      <form class="searchCriteriaForm" submit.delegate="find()">
+        <img id="location" src="assets/img/localisation.svg" />
+        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
+          value.bind="filter.city" />
+        <select class="selectMenu" value.bind="filter.languageId">
           <option value="" disabled selected>Choisissez votre langue</option>
           <option repeat.for="x of global.referenceData.languages" value.bind="x.id">${x.name}</option>
         </select>
-        <select id="volunteerDemain" class="selectMenu" value.bind="filter.fieldOfStudyId" >
+        <select id="volunteerDemain" class="selectMenu" value.bind="filter.fieldOfStudyId">
           <option value="" disabled selected>Choisissez votre discipline(facultatif)</option>
           <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
         </select>
         <button class="searchBotton">Rechercher</button>
       </form>
-  </div>
+    </div>
 
-  <form submit.delegate="find()">
-    <input type="text" value.bind="filter.city" />
-    <select value.bind="filter.languageId">
+    <form submit.delegate="find()">
+      <input type="text" value.bind="filter.city" />
+      <select value.bind="filter.languageId">
       <option/>
       <option repeat.for="x of global.referenceData.languages" value.bind="x.id">${x.name}</option>
     </select>
-    <select value.bind="filter.fieldOfStudyId">
+      <select value.bind="filter.fieldOfStudyId">
       <option/>
       <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
     </select>
-    <button>Find</button>
-  </form>
-  <hr/>
-  <table style="width:100%" if.bind="results.length>0">
-    <thead>
-      <tr>
-        <td>Nom</td>
-        <td>Téléphone</td>
-        <td>Mail</td>
-        <td>Ville</td>
-        <td>Spécialité</td>
-        <td>Interprétariat</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr repeat.for="r of results">
-        <td>${r.firstname} ${r.lastname}</td>
-        <td>${r.phoneNumber}</td>
-        <td>${r.mailAddress}</td>
-        <td>${r.city}</td>
-        <td>${r.fieldsOfStudy.join()}</td>
-        <td>${r.languages.join()}</td>
-      </tr>
-    </tbody>
-  </table>
+      <button>Find</button>
+    </form>
+    <hr/>
+    <table style="width:100%" if.bind="results.length>0">
+      <thead>
+        <tr>
+          <td>Nom</td>
+          <td>Téléphone</td>
+          <td>Mail</td>
+          <td>Ville</td>
+          <td>Spécialité</td>
+          <td>Interprétariat</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="r of results">
+          <td>${r.firstname} ${r.lastname}</td>
+          <td>${r.phoneNumber}</td>
+          <td>${r.mailAddress}</td>
+          <td>${r.city}</td>
+          <td>${r.fieldsOfStudy.join()}</td>
+          <td>${r.languages.join()}</td>
+        </tr>
+      </tbody>
+    </table>
 </template>

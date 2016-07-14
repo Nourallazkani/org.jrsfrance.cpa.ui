@@ -32,3 +32,10 @@ contains global style, their name should start by 'common-'
     width: 40px;
     transform: rotate(90deg);
 }
+
+.common-location{
+    background-image: url(../img/refugee/localisation.svg);
+    width:100px;
+    height:100px
+
+}

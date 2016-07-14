@@ -1,6 +1,66 @@
 <template>
-  <div class="index" >
+  <div class="mainHeader">
+    <a href="#">
+      <img class="LogoCpa" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" />
+    </a>
+    <button class="signInButton">
+      <img src="/assets/img/common/login.svg" alt="sign in" title="click to sign in" />
+      <span>Login</span>
+    </button>
+  </div>
+
+  <div class="containerId">
+    <div class="containerIdPhoto">
+      <div class="idPhoto">
+        <div class="changePhoto">
+          <p> <a href="#">Changer votre Photo </a> </p>
+        </div>
+      </div>
+    </div>
+    <p class="idStatus"> Je suis r&eacute;fugi&eacute;/ demandeur d'asile </p>
+    <div class="idCalendar"> <img id="smallCalenderIcone" src="assets/img/refugee/icon-calendar.svg" />
+      <p> Retourner a
+        <a href="#"> mon calendrier <img id="arrowRight" src="assets/img/common/arrow.svg" /></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="figuresContainer">
+    <figure class=" figureContainer">
+      <a  route-href="route: refugees/teachings" class="CircleContainer" id="teachings"> <img class="typeIcon" src="assets/img/refugee/icon-teaching.svg" /></a>
+      <figcaption class="circleCaption"> &Eacute;tudes sup&eacute;rieurs </figcaption>
+    </figure>
+    <figure class=" figureContainer">
+      <a  route-href="route: refugees/cursus" class="CircleContainer" id="cursus"> <img class="typeIcon" src="assets/img/refugee/icon-cursus.svg" /></a>
+      <figcaption class="circleCaption"> Cursus d'apprentissage </figcaption>
+    </figure>
+    <figure class=" figureContainer">
+      <a href="#" class="CircleContainer" id="professionalFormation"> <img class="typeIcon" src="assets/img/refugee/formations professionnelles-seul.svg" /></a>
+      <figcaption class="circleCaption"> Formation professionelle </figcaption>
+    </figure>
+    <figure class=" figureContainer">
+      <a  route-href="route: refugees/workshops" class="CircleContainer" id="workshops"> <img class="typeIcon" src="assets/img/refugee/icon-workshop.svg" /></a>
+      <figcaption class="circleCaption"> Ateliers sociaux linguistiques </figcaption>
+    </figure>
+    <figure class=" figureContainer">
+      <a route-href="route: refugees/libraries" class="CircleContainer" id="libraries"> <img class="typeIcon" src="assets/img/refugee/icon-library.svg" /></a>
+      <figcaption class="circleCaption"> Annuaires des bibliot&egrave;que </figcaption>
+    </figure>
+    <figure class=" figureContainer">
+      <a route-href="route: refugees/volunteers" class="CircleContainer" id="volunteers"> <img class="typeIcon" src="assets/img/refugee/icon-volunteer.svg" /></a>
+      <figcaption class="circleCaption"> Interpr&egrave;tes </figcaption>
+    </figure>
+    <figure class=" figureContainer">
+      <a route-href="route: refugees/events" class="CircleContainer" id="events"> <img class="typeIcon" src="assets/img/refugee/icon-date.svg" /></a>
+      <figcaption class="circleCaption"> &Eacute;v&egrave;nements </figcaption>
+    </figure>
+  </div>
+
+  <div class="separator"> </div>
+
+  <router-view></router-view>
+  <div class="index">
     <img src="assets/img/common/arrow.svg" class="common-arrow-top" />
-    <p> Veuillez choisir un domaine de recherche </p>  
-  </div> 
+    <p> Veuillez choisir un domaine de recherche </p>
+  </div>
 </template>

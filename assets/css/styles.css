@@ -249,14 +249,14 @@ html{
     transition: all 0.5s;
 }
 .bodyLanguage{
-    background-image: url("icones/motif2_choix_de_langue.svg");
+    background-image: url("../img/motif2_choix_de_langue.svg");
     background-repeat: no-repeat; 
     background-size: 130%;
     background-position: -8% 55%;
 }
 .secoundBackground{
     padding: 150px 0px 150px 0px;
-     background-image: url("icones/motif_choix_de_langue.svg");
+     background-image: url("../img/motif_choix_de_langue.svg");
      background-repeat: no-repeat;
      background-size: 85%;
      background-position: -419px 62%;

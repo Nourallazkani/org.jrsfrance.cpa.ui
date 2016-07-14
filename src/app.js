@@ -33,13 +33,16 @@ export class App {
       //config.options.pushState = true;
       config.title = "CPA";
       config.map([
-        { route: ['', 'Welcome'], moduleId: 'views/refugees/index', nav: true, title: 'Accueil' },
-        { route: ['events'], moduleId: 'views/refugees/events/events', nav: true, title: 'Evenements' },
-        { route: ['teachings'], moduleId: 'views/refugees/teachings/teachings', nav: true, title: 'Enseignements supérieurs' },
-        { route: ['cursus'], moduleId: 'views/refugees/cursus/cursus', nav: true, title: 'Apprentissage du français' },
-        { route: ['workshops'], moduleId: 'views/refugees/workshops/workshops', nav: true, title: 'Ateliers socio linguistiques' },
-        { route: ['libraries'], moduleId: 'views/refugees/libraries/libraries', nav: true, title: 'Auto apprentissage' },
-        { route: ['volunteers'], moduleId: 'views/refugees/volunteers/volunteers', nav: true, title: 'Bénévoles' }
+        { route: ['', 'Index'], name: 'index', moduleId: 'views/index', nav: true, title: 'Index' },
+        { route: ['Home'], name: 'home', moduleId: 'views/home', nav: true, title: 'Accueil' },
+        { route: ['Refugees'], name: 'refugees/index', moduleId: 'views/refugees/index', nav: true, title: 'Réfugiés' }
+        /*
+        { route: ['events'], moduleId: 'views/refugees/events/events', nav: true, title: 'Réfugiés > Evenements' },
+        { route: ['teachings'], moduleId: 'views/refugees/teachings/teachings', nav: true, title: 'Réfugiés > Enseignements supérieurs' },
+        { route: ['cursus'], moduleId: 'views/refugees/cursus/cursus', nav: true, title: 'Réfugiés > Apprentissage du français' },
+        { route: ['workshops'], moduleId: 'views/refugees/workshops/workshops', nav: true, title: 'Réfugiés > Ateliers socio linguistiques' },
+        { route: ['libraries'], moduleId: 'views/refugees/libraries/libraries', nav: true, title: 'Réfugiés > Auto apprentissage' },
+        { route: ['volunteers'], moduleId: 'views/refugees/volunteers/volunteers', nav: true, title: 'Réfugiés > Bénévoles' }*/
       ])
 
     })

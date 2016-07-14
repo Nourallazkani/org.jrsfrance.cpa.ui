@@ -1,10 +1,6 @@
 /*
 contains global style, their name should start by 'common-'
 */
-.common-button{
-    font-size: 34pt
-}
-
 .common-arrow-top{
     display: block;
     margin: 10px auto 10px auto;

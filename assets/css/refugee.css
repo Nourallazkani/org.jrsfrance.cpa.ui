@@ -3,18 +3,18 @@ contains styles related to refugees views (/views/refugees).
 view specific styles should start by the name of the view (cursus-, teaching-, library-, etc...). Exemple : cursus-style1
 */
 
-.menu{
+.refugee-menu{
     width: 100%;
     height: 470px;
     background-color: white;
     text-align: center;
 }
-.menu > figure {
+.refugee-menu > figure {
     display: inline-block;
     margin: 15px 20px
 }
 
-.menu > figure > a{
+.refugee-menu > figure > a{
     display: inline-block;
     border-radius: 100%;
     border: 0px solid;
@@ -24,53 +24,53 @@ view specific styles should start by the name of the view (cursus-, teaching-, l
     transition: all 0.5s;
 }
 
-.menu > figure > a:hover{
+.refugee-menu > figure > a:hover{
     border-width: 10px;
 }
 
-.menu > figure > a:focus{
+.refugee-menu > figure > a:focus{
     border-width: 10px;
 }
 
-.menu > figure#menu-item-teachings > a{
+.refugee-menu > figure#menu-item-teachings > a{
     background-color: #1B1464 ; 
     border-color: #1B1464 ;
 }
-.menu > figure#menu-item-cursus > a{
+.refugee-menu > figure#menu-item-cursus > a{
     background-color: #F74D2B ; 
     border-color: #F74D2B;
 }
 
-.menu > figure#menu-item-professional-trainings > a{
+.refugee-menu > figure#menu-item-professional-trainings > a{
     background-color: #8CC63F ; 
     border-color: #8CC63F;
 }
 
-.menu > figure#menu-item-workshops > a{
+.refugee-menu > figure#menu-item-workshops > a{
     background-color: #9E005D ; 
     border-color: #9E005D;
 }
-.menu > figure#menu-item-events > a{
+.refugee-menu > figure#menu-item-events > a{
     background-color: #29ABE2 ; 
     border-color: #29ABE2;
 }
 
-.menu > figure#menu-item-libraries > a{
+.refugee-menu > figure#menu-item-libraries > a{
     background-color: #D4145A ; 
     border-color: #D4145A;
 }
 
-.menu > figure#menu-item-volunteers > a{
+.refugee-menu > figure#menu-item-volunteers > a{
     background-color:#F4B821 ; 
     border-color: #F4B821;
 }
 
-.menu > figure > a > img{
+.refugee-menu > figure > a > img{
     height: 150px;
     width: 150px;
 }
 
-.menu > figure > figcaption {
+.refugee-menu > figure > figcaption {
     text-align: center;
     font-family: Cavorting;
     color: #4D4D4D;

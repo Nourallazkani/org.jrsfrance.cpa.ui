@@ -1,11 +1,7 @@
 <template>
   <require from="/assets/css/common.css"></require>
 
-    <!--
-    <div class="test ${authz.action=='sign-in' ? 'test2' : 'test1'}">
-        test
-    </div>
-    -->
+  <!-- sign-in-modal-->
     <div class="modal ${authz.action=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
         <div class="modal-dialog">
             <div class="modal-dialog-header" style="text-align:right">
@@ -29,7 +25,7 @@
                 <span>Login</span>
         </button>
     </div>
-    
+
   <router-view></router-view>
 <!---
   <body class="choseLanguageBody">

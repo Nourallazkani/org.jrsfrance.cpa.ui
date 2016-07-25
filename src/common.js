@@ -19,4 +19,10 @@ export class Global {
             }
         }
     }
+
+    
+}
+// this class provides common properties and methods for all controllers, it is meant to be the parent class of all controllers.
+export class ViewModel{
+    
 }

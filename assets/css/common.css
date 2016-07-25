@@ -1,6 +1,7 @@
 /*
-contains global style, their name should start by 'common-'
+contains global and reusable styles
 */
+
 .common-arrow-top{
     display: block;
     margin: 10px auto 10px auto;
@@ -38,4 +39,55 @@ contains global style, their name should start by 'common-'
     width:100px;
     height:100px
 
+}
+
+a{
+    cursor: pointer
+}
+.modal{
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.4s ease-in-out;
+}
+
+.modal-hidden{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.modal-visible{ 
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal > .modal-dialog{
+    background: #fefefe;
+    border: black solid 1px;
+    border-radius: 5px;
+    position: relative; 
+    margin:20vh auto auto auto;
+    z-index: 101; 
+    width: 360px;
+}
+
+.modal > .modal-dialog > .modal-dialog-header, .modal-dialog-footer{
+    background-color:black;    
+    padding:10px;
+    font-size:14pt;
+    color:white;
+}
+
+.modal > .modal-dialog > .modal-dialog-header > .close:before {
+    content: "\d7";
+    font-size:24pt
+}
+
+.modal > .modal-dialog > .modal-dialog-body{
+    background-color: #ebebeb;
+    padding: 25px;
 }

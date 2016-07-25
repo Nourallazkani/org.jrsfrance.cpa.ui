@@ -1,4 +1,6 @@
-export class Index {
+import {ViewModel} from 'common';
+
+export class Index extends ViewModel {
 
   configureRouter(config, router) {
     config.map([

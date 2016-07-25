@@ -2,30 +2,30 @@
   <require from="/assets/css/common.css"></require>
 
   <!-- sign-in-modal-->
-    <div class="modal ${authz.action=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
-        <div class="modal-dialog">
-            <div class="modal-dialog-header" style="text-align:right">
-                <a click.trigger="cancelSignIn()"  class="close"></a>
-            </div>
-            <div class="modal-dialog-body">
-                sign in form
-            </div>
-            <div class="modal-dialog-footer">footer</div>
-        </div>
+  <div class="modal ${authz.action=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
+    <div class="modal-dialog">
+      <div class="modal-dialog-header" style="text-align:right">
+        <a click.trigger="cancelSignIn()" class="close"></a>
+      </div>
+      <div class="modal-dialog-body">
+        sign in form
+      </div>
+      <div class="modal-dialog-footer">footer</div>
     </div>
-    <!-- end sign-in-modal-->
+  </div>
+  <!-- end sign-in-modal-->
 
-    <!-- header -->
-    <div class="mainHeader">
-        <a href="#">
-            <img class="LogoCpa" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" />
-        </a>
-        <button class="signInButton" click.trigger="startSignIn()">
-                <img src="/assets/img/common/login.svg" alt="sign in" title="click to sign in" />
-                <span>Login</span>
-        </button>
-    </div>
-    <!-- end header -->
+  <!-- header -->
+  <div class="mainHeader">
+    <a href="#">
+      <img class="LogoCpa" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" />
+    </a>
+    <button class="signInButton" click.trigger="startSignIn()">
+      <img src="/assets/img/common/login.svg" alt="sign in" title="click to sign in" />
+      <span>Login</span>
+    </button>
+  </div>
+  <!-- end header -->
 
   <router-view></router-view>
 </template>

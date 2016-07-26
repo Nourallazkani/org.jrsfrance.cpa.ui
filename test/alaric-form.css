@@ -1,0 +1,88 @@
+form > .form-entry {
+    font-size: 12pt;
+    font-family: Arial, Helvetica;
+}
+
+form > .form-entry > label {
+    font-weight: bold;
+}
+
+form > .form-entry > .input-container > input[type=text], form > .form-entry > .input-container > select {
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+form > .form-entry > .input-container > input[type=checkbox] {
+
+}
+
+form > .form-entry > .input-container > button{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+form > .form-entry > .input-container > select {
+    background-color: white;
+}
+/* end of common styles to default-form and inline form */
+
+
+/* styles for default form (each label / field pair appears on a separate line) */
+.default-form > .form-entry {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+}
+
+.default-form > .form-entry > label {
+    padding-top: 7px;
+    padding-right: 20px;
+    width:20%;
+    text-align: right;
+
+}
+
+.default-form > .form-entry > .input-container {
+    width:80%;
+    vertical-align:middle;
+}
+
+.default-form > .form-entry > .input-container > input[type=text], .default-form > .form-entry > .input-container > select {
+    display: block;
+    width: 100%;
+}
+/* end of styles for default form  */
+
+
+/* styles for inline form */
+
+.inline-form > .form-entry {
+    padding: 8px;
+    display: inline;
+}
+
+.inline-form > .form-entry > label {
+    padding-top: 7px;
+    padding-right: 20px;
+}
+
+.inline-form > .form-entry > .input-container {
+    display: inline;
+}
+/* end of styles for inline form */

@@ -1,6 +1,6 @@
 
 import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {Global} from 'common'
 
@@ -24,7 +24,9 @@ export class App {
       config
         .withBaseUrl('http://127.0.0.1:8080/api/')
         .withDefaults({
-          headers: {}
+          headers: {
+
+          }
         })
         .withInterceptor({
           request(request) {
@@ -33,18 +35,49 @@ export class App {
           },
           response(response) {
             console.log(`Received ${response.status} ${response.url}`);
-            return response;
+            if (response.status >= 400 && response.status <= 599) {
+              throw response;
+            }
+            else {
+              return response;
+            }
           }
         });
     })
 
     httpClient.fetch("referenceData").then(x => x.json()).then(x => global.referenceData = x)
+    this.httpClient = httpClient;
+    this.global = global;
+
+    let accessKey = global.cookies.get("accessKey")
+    if (accessKey) {
+      this.authz.action = { type: "auto-sign-in", input: { accessKey: accessKey } };
+      this.processSignIn();
+    }
   }
 
   authz = {};
-  
+
   startSignIn() {
-    this.authz.action = "sign-in";
+    this.authz.action = { type: "sign-in", input: {realm:'R'}, outcome: null };
+  }
+
+  processSignIn() {
+    this.httpClient
+      .fetch("authz/signIn", { method: "POST", body: json(this.authz.action.input) })
+      .then(x => x.json()).then(user => {
+        this.global.user = user;
+        this.authz.user = user;
+
+        if (this.authz.action.rememberMe) {
+          this.global.cookies.put("accessKey", user.accessKey);
+        }
+        this.authz.action = null;
+      })
+      .catch(err => {
+        this.authz.action.outcome = "failure";
+      });
+
   }
 
   cancelSignIn() {
@@ -52,7 +85,5 @@ export class App {
   }
 
   // call this method when the user  submit the sign in form.
-  processSignIn() {
 
-  }
 }

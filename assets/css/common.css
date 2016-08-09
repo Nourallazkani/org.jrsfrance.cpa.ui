@@ -2,6 +2,10 @@
 contains global and reusable styles
 */
 
+a{
+    cursor: pointer
+}
+
 .common-arrow-top{
     display: block;
     margin: 10px auto 10px auto;
@@ -41,53 +45,41 @@ contains global and reusable styles
 
 }
 
-a{
-    cursor: pointer
-}
-.modal{
-    z-index: 100;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 0.4s ease-in-out;
-}
-
-.modal-hidden{
-    visibility: hidden;
-    opacity: 0;
+@media(min-width:768px){
+    .width-sm-10{width:10%}
+    .width-sm-20{width:20%}
+    .width-sm-30{width:30%}
+    .width-sm-40{width:40%}
+    .width-sm-50{width:50%}
+    .width-sm-60{width:60%}
+    .width-sm-70{width:70%}
+    .width-sm-80{width:80%}
+    .width-sm-90{width:90%}
+    .width-sm-100{width:100%}
 }
 
-.modal-visible{ 
-    visibility: visible;
-    opacity: 1;
+@media(min-width:960px){
+    .width-md-10{width:10%}
+    .width-md-20{width:20%}
+    .width-md-30{width:30%}
+    .width-md-40{width:40%}
+    .width-md-50{width:50%}
+    .width-md-60{width:60%}
+    .width-md-70{width:70%}
+    .width-md-80{width:80%}
+    .width-md-90{width:90%}
+    .width-md-100{width:100%}
 }
 
-.modal > .modal-dialog{
-    background: #fefefe;
-    border: black solid 1px;
-    border-radius: 5px;
-    position: relative; 
-    margin:20vh auto auto auto;
-    z-index: 101; 
-    width: 360px;
-}
-
-.modal > .modal-dialog > .modal-dialog-header, .modal-dialog-footer{
-    background-color:black;    
-    padding:10px;
-    font-size:14pt;
-    color:white;
-}
-
-.modal > .modal-dialog > .modal-dialog-header > .close:before {
-    content: "\d7";
-    font-size:24pt
-}
-
-.modal > .modal-dialog > .modal-dialog-body{
-    background-color: #ebebeb;
-    padding: 25px;
+@media(min-width:1024px){
+    .width-lg-10{width:10%}
+    .width-lg-20{width:20%}
+    .width-lg-30{width:30%}
+    .width-lg-40{width:40%}
+    .width-lg-50{width:50%}
+    .width-lg-60{width:60%}
+    .width-lg-70{width:70%}
+    .width-lg-80{width:80%}
+    .width-lg-90{width:90%}
+    .width-lg-100{width:100%}
 }

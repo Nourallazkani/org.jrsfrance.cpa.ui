@@ -1,14 +1,50 @@
 <template>
   <require from="/assets/css/common.css"></require>
+  <require from="/assets/css/modal-dialog.css"></require>
+  <require from="/assets/css/form.css"></require>
 
   <!-- sign-in-modal-->
-  <div class="modal ${authz.action=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
+  <div class="modal ${authz.action.type=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
     <div class="modal-dialog">
       <div class="modal-dialog-header" style="text-align:right">
         <a click.trigger="cancelSignIn()" class="close"></a>
       </div>
       <div class="modal-dialog-body">
-        sign in form
+        <form class="default-form" submit.delegate="processSignIn()">
+          <div class="form-entry">
+              <label class="width-lg-20">Adresse mail</label>
+              <div class="input-container width-lg-80">
+                  <input type="text" value.bind="authz.action.input.mailAddress"/>
+              </div>
+          </div>
+          <div class="form-entry">
+              <label class="width-lg-20">Mot de passe</label>
+              <div class="input-container width-lg-80">
+                  <input type="password" value.bind="authz.action.input.password"/>
+              </div>
+          </div>          
+          <div class="form-entry">
+              <label class="width-lg-20">&nbsp;</label>
+              <div class="input-container width-lg-80">
+                  <input type="checkbox" /> se souvenir de moi
+              </div>
+          </div>
+          <div class="form-entry">
+              <label class="width-lg-20">&nbsp;</label>
+              <div class="input-container width-lg-80">
+                  <button>Sign in</button>
+              </div>
+          </div>
+        </form>
+    <!--
+        <form submit.delegate="processSignIn()">
+            <input type="text" value.bind="authz.action.input.realm"/><br/>
+            
+            <input type="password" value.bind="authz.action.input.password"/><br/>
+            <input type="checkbox" checked.bind="authz.action.rememberMe"/><br/>
+            <button>sign in</button>
+            ${authz.signIn.outcome.status}
+        </form>-->
       </div>
       <div class="modal-dialog-footer">footer</div>
     </div>

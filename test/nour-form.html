@@ -7,26 +7,49 @@
 <body>
     <form class="default-form">
         <div class="form-entry">
-            <label class="width-lg-20 width-md-50">Text</label>
-            <div class="input-container width-lg-80 width-md-50">
+            <label class="width-lg-10 width-md-10 width-sm-10">Text</label>
+            <div class="input-container width-lg-70 width-md-60 width-sm-50">
+                <div class="width-controller width-lg-60 width-md-50 width-sm-60">
                 <input type="text" />
+                </div>
+                 <div class="width-controller width-lg-30 width-md-40 width-sm-30">
+                <input type="text" />
+                </div>
             </div>
         </div>
+
+        <div class="form-entry criterions-search-container" submit.delegate="find()">
+        <div class="input-container">
+          <div class="width-controller " > <img src="img/refugee/localisation.svg" /> </div>
+          <div class="width-controller width-30 " > <input type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
+            value.bind="filter.city" /> </div>
+          <div class="width-controller " > <select class="selectMenu" value.bind="filter.levelId">
+            <option value="">Choisissez votre niveau</option>
+            <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
+          </select> </div>
+          <div class="width-controller " > <button>Rechercher</button> </div>
+        </div>
+  </div>
+
+
         <div class="form-entry">
-            <label class="width-lg-20 width-md-50">Checkbox</label>
-            <div class="input-container width-lg-80 width-md-50">
+            <label class="width-lg-10 width-md-10 width-sm-10">Checkbox</label>
+            <div class="input-container width-lg-70 width-md-60 width-sm-50">
                 <input type="checkbox" />
             </div>
         </div>
         <div class="form-entry">
-            <label class="width-lg-20 width-md-50">Select</label>
-            <div class="input-container width-lg-80 width-md-50">
-                <select></select>
+            <label class="width-lg-10 width-md-10 width-sm-10">Select</label>
+            <div class="input-container width-lg-70 width-md-60 width-sm-50">
+                <select>
+                    <option> France </option>
+                    <option > Syrie</option>
+                </select>
             </div>
-        </div>
+        </div>  
         <div class="form-entry">
-            <label class="width-lg-20 width-md-50">Button</label>
-            <div class="input-container width-lg-80 width-md-50">
+            <label class="width-lg-10 width-md-10 width-sm-10">Button</label>
+            <div class="input-container width-lg-70 width-md-60 width-sm-50">
                 <button>button</button>
             </div>
         </div>

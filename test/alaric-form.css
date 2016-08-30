@@ -21,6 +21,7 @@ form > .form-entry > .input-container > input[type=checkbox] {
 }
 
 form > .form-entry > .input-container > button{
+    
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;

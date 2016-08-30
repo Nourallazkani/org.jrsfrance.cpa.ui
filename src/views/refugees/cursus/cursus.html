@@ -1,5 +1,7 @@
 <template>
   <require from="/assets/css/refugee.css"></require>
+  <require from="/assets/css/search-container.css"></require>
+  
 
   <div class="searchingContainer">
     <p class="searchDomain">
@@ -17,7 +19,7 @@
           <option value="">Choisissez votre niveau</option>
           <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
         </select>
-        <button class="searchBotton">Rechercher</button>
+        <button class="searchBotton" >Rechercher</button>
       </form>
 
       <div class="resultContainer" repeat.for="r of results">
@@ -91,6 +93,43 @@
       </div>
     </div>
 
+<!-- -----------------------test area---------------------------- !-->
+
+<form class="default-form search-container">
+
+  <div class="form-entry head-search-container ">
+    <img id="cursus" src="assets/img/refugee/icon-cursus.svg" />
+    <h1> Cursus d'apprentissage </h1>
+  </div>
+
+  <div class="form-entry criterions-search-container" submit.delegate="find()">
+        <div class="input-container">
+          <div class="width-controller " > <img src="assets/img/refugee/localisation.svg" /> </div>
+          <div class="width-controller" > <input type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
+            value.bind="filter.city" /> </div>
+          <div class="width-controller" style="margin: 0px 15px;" > <select class="selectMenu" value.bind="filter.levelId">
+            <option value="">Choisissez votre niveau</option>
+            <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
+          </select> </div>
+          <div class="width-controller" style="margin: 0px 25px;" > <button>Rechercher</button> </div>
+        </div>
+  </div>
+
+  <div class="form-entry result-search-container" >
+    <div class="default-form">
+
+    </div>
+    <div class="default-form">
+
+    </div>
+  </div>
+</form>
+
+
+<!-- ----------------------- end of test area---------------------------- !-->
+    
+    
+    
     <!--
     <form submit.delegate="find()">
     <input type="text" value.bind="filter.city" />

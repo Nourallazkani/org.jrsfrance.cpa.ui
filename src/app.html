@@ -1,7 +1,8 @@
 <template>
   <require from="/assets/css/common.css"></require>
-  <require from="/assets/css/modal-dialog.css"></require>
-  <require from="/assets/css/form-nour.css"></require>
+  <require from="/assets/css/common-modal-dialog.css"></require>
+  <require from="/assets/css/common-form.css"></require>
+  <require from="/assets/css/common-search-results.css"></require>
 
   <!-- sign-in-modal-->
   <div class="modal ${authz.action.type=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
@@ -22,7 +23,8 @@
               <div class="input-container width-lg-70">
                   <input type="password" value.bind="authz.action.input.password"/>
               </div>
-          </div>          
+          </div>
+
           <div class="form-entry">
               <label class="width-lg-20">&nbsp;</label>
               <div class="input-container width-lg-70">
@@ -36,15 +38,6 @@
               </div>
           </div>
         </form>
-    <!--
-        <form submit.delegate="processSignIn()">
-            <input type="text" value.bind="authz.action.input.realm"/><br/>
-            
-            <input type="password" value.bind="authz.action.input.password"/><br/>
-            <input type="checkbox" checked.bind="authz.action.rememberMe"/><br/>
-            <button>sign in</button>
-            ${authz.signIn.outcome.status}
-        </form>-->
       </div>
       <div class="modal-dialog-footer">footer</div>
     </div>

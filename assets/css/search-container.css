@@ -1,0 +1,60 @@
+.search-container{
+    width: 90%;
+}
+
+.search-container img {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* starting of head search container section */
+
+.head-search-container {
+    margin: 20px 0px;
+}
+
+.head-search-container > img{
+    height: 80px;
+    width: 80px;
+    border-radius: 500px;
+}
+
+ .head-search-container > h1{
+     font-family: Cavorting;
+     margin-left: 20px;
+     font-size: 50px;
+     font-weight: initial;
+     letter-spacing: 1px;
+     display: inline-block;
+ }
+
+
+ /* ending of head search container section */
+/* ------------------------------------------------ */
+ /* starting of criterions search container section */
+
+.criterions-search-container img {
+    width: 50px;
+    height: 50px;
+}
+
+ /* ending of criterions search container section */
+ /* ------------------------------------------------ */
+
+ /* starting of criterions result search container */
+
+.result-search-container {
+    background-color: blue;
+    border-radius:  50px 500px;
+}
+
+.result-search-container > .default-form{
+    background-color: green;
+    opacity: 0.5;
+    width: 49%;
+    border: 1px solid ;
+    height: 100px;
+    display: inline-block;
+
+}
+ /* ending of criterions result search container */

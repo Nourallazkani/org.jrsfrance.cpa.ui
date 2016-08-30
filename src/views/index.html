@@ -1,10 +1,10 @@
 <template class="choseLanguageBody">
     <div class="bodyLanguage">
         <div class="secoundBackground">
-            <a route-href="route: home"> <button class="languageChoiceButton" id="firstButton"> Fran&ccedil;ais </button> </a>
-            <button class="languageChoiceButton"> English </button>
-            <button class="languageChoiceButton"> العربية </button>
-            <button class="languageChoiceButton"> Dari </button>
+            <a route-href="route: home" > <button class="languageChoiceButton" id="firstButton"> Fran&ccedil;ais </button> </a>
+            <button class="languageChoiceButton" click.trigger="setLanguage('en')"> English </button>
+            <button class="languageChoiceButton" click.trigger="setLanguage('arabe')"> العربية </button>
+            <button class="languageChoiceButton" click.trigger="setLanguage('dari')"> Dari </button>
         </div>
     </div>
 </template>

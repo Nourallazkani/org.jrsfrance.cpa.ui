@@ -2,9 +2,9 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
-import {Global} from 'common'
+import {Global, UserDetails} from 'common'
 
-@inject(HttpClient, Global)
+@inject(HttpClient, Global, UserDetails)
 export class App {
 
   configureRouter(config, router) {
@@ -19,7 +19,8 @@ export class App {
     this.router = router;
   }
 
-  constructor(httpClient, global) {
+  constructor(httpClient, global, userDetails) {
+
     httpClient.configure(config => {
       config
         .withBaseUrl('http://127.0.0.1:8080/api/')
@@ -48,6 +49,7 @@ export class App {
     httpClient.fetch("referenceData").then(x => x.json()).then(x => global.referenceData = x)
     this.httpClient = httpClient;
     this.global = global;
+    this.userDetails = userDetails;
 
     let accessKey = global.cookies.get("accessKey")
     if (accessKey) {
@@ -58,19 +60,22 @@ export class App {
 
   authz = {};
 
+  get user() {
+    return this.userDetails;
+  }
+
   startSignIn() {
-    this.authz.action = { type: "sign-in", input: {realm:'R'}, outcome: null };
+    this.authz.action = { type: "sign-in", input: { realm: 'R' }, outcome: null };
   }
 
   processSignIn() {
     this.httpClient
       .fetch("authz/signIn", { method: "POST", body: json(this.authz.action.input) })
-      .then(x => x.json()).then(user => {
-        this.global.user = user;
-        this.authz.user = user;
+      .then(x => x.json()).then(account => {
+        this.userDetails.account = account;
 
         if (this.authz.action.rememberMe) {
-          this.global.cookies.put("accessKey", user.accessKey);
+          this.global.cookies.put("accessKey", account.accessKey);
         }
         this.authz.action = null;
       })
@@ -86,4 +91,23 @@ export class App {
 
   // call this method when the user  submit the sign in form.
 
+  messages = {
+    "common": {
+      "Rechercher": { "en": "Search" }
+    },
+    "cursus": {
+      "Niveau": { "en": "Level" }
+    }
+  }
+
+  i18n(key, domain) {
+    var translations = this.messages[domain == null ? "common" : domain][key];
+    console.log(translations)
+    if (this.userDetails.language == "fr") {
+      return key;
+    }
+    else {
+      return translations[this.userDetails.language];
+    }
+  }
 }

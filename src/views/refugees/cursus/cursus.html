@@ -1,145 +1,115 @@
 <template>
-  <require from="/assets/css/refugee.css"></require>
-  <require from="/assets/css/search-container.css"></require>
-  
 
+  <!--
   <div class="searchingContainer">
     <p class="searchDomain">
+     
       <img class="searchDomainIcon" id="cursus" src="assets/img/refugee/icon-cursus.svg" /> Cursus d'apprentissage
+     
     </p>
-    <div class="searchCriteria">
-
-      <form class="searchCriteriaForm" submit.delegate="find()">
-        
-        <img id="location" src="assets/img/refugee/localisation.svg" />
-        
-        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
-          value.bind="filter.city" />
-        <select class="selectMenu" value.bind="filter.levelId">
-          <option value="">Choisissez votre niveau</option>
-          <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
-        </select>
-        <button class="searchBotton" >Rechercher</button>
-      </form>
-
-      <div class="resultContainer" repeat.for="r of results">
-        <div class="halfResultContainer" id="leftContainer">
-
-          <div class="informationContainer">
-            <div class="information">
-              Niveau de langue :
-            </div>
-            <div class="information">
-              ${r.level}
-            </div>
-          </div>
-
-          <div class="informationContainer">
-            <div class="information">
-              Date de d&eacute;but :<br/> Date de fin :
-            </div>
-            <div class="information">
-              ${r.startDate}<br/> ${r.endDate}
-            </div>
-          </div>
-
-          <div class="informationContainer">
-            <div class="information">
-              Adresse :
-            </div>
-            <div class="information">
-              <!--
-                    <span style="display:block" >${r.address}</span>}</span>
-                     <span style="display:block" >${r.address.street2}</span>
-                     <span style="display:block" >${r.address.zipcode}, ${r.address.city}</span>
-                     <span style="display:block" >${r.address.country}</span> -->
-              ${r.address.street1}<br/> ${r.address.street2}
-              <br if.bind="r.address.street2 != null " /> ${r.address.zipcode}, ${r.address.city}<br/> ${r.address.country}
-              <br/>
-            </div>
-          </div>
-
-        </div>
-        <div class="halfResultContainer">
-          <div class="informationContainer">
-            <div class="information">
-              Organisation :
-            </div>
-            <div class="information">
-              ${r.organisation}
-            </div>
-          </div>
-          <div class="leftContainer">
-            <div class="informationContainer">
-              <div class="information">
-                Contact :
-              </div>
-              <div class="information">
-                Nom : ${r.contact.name}<br/> T&eacute;l&eacute;phone : ${r.contact.phoneNumber}<br/> Mail : <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
-              </div>
-            </div>
-            <div class="leftContainer">
-              <div class="informationContainer">
-                <div class="information">
-
-                </div>
-                <div class="information">
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+     -->
+  <form class="inline-form" submit.delegate="find()" style="text-align:center">
+    <div class="form-entry">
+      <!--
+          <img src="assets/img/refugee/localisation.svg" style=""/> !-->
+    </div>
+    <div class="form-entry">
+      <label>Ville</label>
+      <div class="input-container">
+        <input type="text" placeholder="Paris, Lyon, 69, 75001..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city"
+        />
       </div>
     </div>
-
-<!-- -----------------------test area---------------------------- !-->
-
-<form class="default-form search-container">
-
-  <div class="form-entry head-search-container ">
-    <img id="cursus" src="assets/img/refugee/icon-cursus.svg" />
-    <h1> Cursus d'apprentissage </h1>
-  </div>
-
-  <div class="form-entry criterions-search-container" submit.delegate="find()">
-        <div class="input-container">
-          <div class="width-controller " > <img src="assets/img/refugee/localisation.svg" /> </div>
-          <div class="width-controller" > <input type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
-            value.bind="filter.city" /> </div>
-          <div class="width-controller" style="margin: 0px 15px;" > <select class="selectMenu" value.bind="filter.levelId">
-            <option value="">Choisissez votre niveau</option>
+    <div class="form-entry">
+      <label>Niveau</label>
+      <div class="input-container">
+        <select value.bind="filter.levelId">
+            <option value=""></option>
             <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
-          </select> </div>
-          <div class="width-controller" style="margin: 0px 25px;" > <button>Rechercher</button> </div>
-        </div>
-  </div>
-
-  <div class="form-entry result-search-container" >
-    <div class="default-form">
-
+          </select>
+      </div>
     </div>
-    <div class="default-form">
-
+    <div class="form-entry" style="margin: 0px 25px;">
+      <div class="input-container">
+        <button>Rechercher</button>
+      </div>
     </div>
-  </div>
-</form>
-
-
-<!-- ----------------------- end of test area---------------------------- !-->
-    
-    
-    
-    <!--
-    <form submit.delegate="find()">
-    <input type="text" value.bind="filter.city" />
-    <select value.bind="filter.levelId">
-      <option/>
-      <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
-    </select>
-    <button>Rechercher</button>
+    </div>
   </form>
-  <hr/>
+
+  <div class="results">
+    <div class="result" repeat.for="r of results">
+      <h1 style="text-align:left"> ${r.item.organisation} </h1>
+      <!--
+      <div class="width-lg-50 inline-block-lg" style="border-right: 2px solid">
+    -->
+      <div class="result-infos-container">
+        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
+          <div> Ouvert aux inscriptions </div><br/>
+          <div> Niveau requis : ${r.item.level} </div><br/>
+        </div>
+        <div class="result-infos-block inline-block-lg" style="width:500px">
+          <div>
+            <label>Date </label>
+            <p>du ${r.item.startDate} au ${r.item.endDate}</p>
+          </div>
+          <div>
+            <label>
+              Adresse 
+            </label>
+            <p>
+              ${r.item.address.street1}<br/> 
+              ${r.item.address.street2}<br if.bind="r.item.address.street2 != null " /> 
+              ${r.item.address.zipcode}, ${r.item.address.city}<br/> 
+              <a href="#">Itineraire</a>
+            </p>
+          </div>
+          <div>
+            <label>Contact </label>
+            <p>
+              ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
+              <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+            </p>
+          </div>
+        </div>
+        <!--
+        <div style="padding:15px">
+          contact : <br/>
+          ${r.contact.name} <br/>
+          ${r.contact.phoneNumber} <br/> 
+          <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a> 
+        </div> !-->
+
+      </div>
+      <!--
+      <div class="width-lg-50 inline-block-lg" >
+        
+        <div class="field">
+          <label>Dates :	</label>
+          <p>du ${r.startDate} au ${r.endDate}</p>
+        </div>
+
+        <div class="field">
+          <label> Adresse :</label>
+            <p> 
+                ${r.address.street1}<br/>
+                ${r.address.street2}<br if.bind="r.address.street2 != null " />
+                ${r.address.zipcode}, ${r.address.city}<br/>
+                ${r.address.country}<br/>
+	          </p>
+        </div>
+
+        <div class="field">
+          <label> Contact :</label>
+          <p>Nom : ${r.contact.name}<br/> T&eacute;l&eacute;phone : ${r.contact.phoneNumber}<br/> Mail : <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a></p>
+        </div>
+
+      </div>
+    </div>
+    -->
+
+
+      <!--
   <table style="width:100%" if.bind="results.length>0">
     <thead>
       <tr>

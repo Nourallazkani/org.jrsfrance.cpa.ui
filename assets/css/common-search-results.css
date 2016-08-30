@@ -1,0 +1,71 @@
+.results{
+
+    width: 1000px;
+    margin: 60px auto;
+}
+
+.result > h1 {
+    margin: 0px;
+}
+
+.result {
+    margin-bottom: 40px;
+    font-family:ArcherBold;
+}
+
+.result > div {
+    white-space: nowrap;
+}
+
+.result > .result-infos-container{
+    font-size: 18px;
+    background-color: #ccc;
+    border-width: 0px;
+    border-radius: 5px ;
+    white-space: nowrap;
+    background-color: #1Fa0b1;
+}
+/*#e6fafd
+ #1Fa0b1*/
+
+.result > .result-infos-container > .result-image-block{
+    width:500px;
+    height:250px;
+}
+
+.result > .result-infos-container > .result-image-block > div{
+    display:inline-block;
+    margin-bottom:10px;
+    background-color: rgba(247,77,43,0.7);;
+}
+
+
+
+.result > .result-infos-container > .result-image-block > div:first-child{
+    margin-top:10px;
+}
+
+.result > .result-infos-container > .result-infos-block{
+    vertical-align: top;
+}
+
+.result > .result-infos-container > .result-infos-block > div{
+    width: 100%;
+    padding: 8px;
+    display: flex;
+}
+
+.result > .result-infos-container > .result-infos-block > div > label{
+    padding-top: 7px;
+    padding-right: 20px;
+    text-align: right; 
+    width: 20%;
+}
+
+.result > .result-infos-container > .result-infos-block > div > p{
+     padding-top: 7px;
+     margin: 0px;
+     box-sizing : border-box;
+     text-align: left;
+     width: 80%;
+}

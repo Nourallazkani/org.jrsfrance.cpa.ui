@@ -1,3 +1,7 @@
+export class UserDetails {
+    language = "fr";
+}   
+
 export class Global {
     getUri(path, params) {
         if (!params) {

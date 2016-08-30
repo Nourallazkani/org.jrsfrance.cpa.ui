@@ -16,7 +16,6 @@ export class Cursus extends ViewModel {
   }
 
   find() {
-    console.log(this.filter)
     this.fetchClient
       .fetch(this.global.getUri("cursus", this.filter))
       .then(response => response.json())

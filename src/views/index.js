@@ -7,16 +7,29 @@ import {UserDetails} from 'common'
 
 @inject(UserDetails, Router)
 export class Index extends ViewModel {
-    
+
 
     constructor(userDetails, router) {
         super();
-        this.userDetails = userDetails;
         this.router = router;
+        this.userDetails = userDetails;
     }
 
-    goForward(languageKey) {
+    setPreferedLanguage(languageKey) {
         this.userDetails.language = languageKey;
-        this.router.navigateToRoute('home');
+    }
+    setProfile(profile) {
+        this.userDetails.profile = profile;
+        localStorage.setItem("profile", profile);
+
+        if (profile === "R") {
+            this.router.navigateToRoute('refugees/index');
+        }
+        else if (profile === "V") {
+            this.router.navigateToRoute('organisations/index');
+        }
+        else if (profile === "O") {
+            this.router.navigateToRoute('volunteers/index');
+        }
     }
 }

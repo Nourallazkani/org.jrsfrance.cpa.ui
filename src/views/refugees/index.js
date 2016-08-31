@@ -13,7 +13,7 @@ export class Index extends ViewModel {
   }
   configureRouter(config, router) {
     config.map([
-      { route: '', name: 'refugees', moduleId: 'views/refugees/teachings/teachings', nav: true, title: 'Réfugiés > Enseignements supérieurs' },
+      { route: '', name: 'refugees', moduleId: 'views/refugees/welcome', nav: true, title: 'Réfugiés > Index' },
       { route: 'events', name: 'refugees/events', moduleId: 'views/refugees/events/events', nav: true, title: 'Réfugiés > Evenements' },
       { route: 'teachings', name: 'refugees/teachings', moduleId: 'views/refugees/teachings/teachings', nav: true, title: 'Réfugiés > Enseignements supérieurs' },
       { route: 'cursus', name: 'refugees/cursus', moduleId: 'views/refugees/cursus/cursus', nav: true, title: 'Réfugiés > Apprentissage du français' },

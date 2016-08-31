@@ -7,21 +7,13 @@ import {Global, UserDetails} from 'common'
 @inject(HttpClient, Global, UserDetails)
 export class App {
 
-  configureRouter(config, router) {
-    config.title = 'CPA';
-    //config.options.pushState = true;
-    //config.options.hashChange = false;
-    config.map([
-      { route: ['', 'index'], name: 'index', moduleId: './views/index', nav: true, title: 'Index' },
-      { route: ['home'], name: 'home', moduleId: './views/home', nav: true, title: 'Accueil' },
-      { route: ['refugees'], name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' }
-    ]);
-    this.router = router;
-  }
-
   constructor(httpClient, global, userDetails) {
 
-    httpClient.configure(config => {
+    this.httpClient = httpClient;
+    this.global = global;
+    this.userDetails = userDetails;
+
+    this.httpClient.configure(config => {
       config
         .withBaseUrl('http://127.0.0.1:8080/api/')
         .withDefaults({
@@ -46,26 +38,27 @@ export class App {
         });
     })
 
-    httpClient.fetch("referenceData").then(x => x.json()).then(x => global.referenceData = x)
-    this.httpClient = httpClient;
-    this.global = global;
-    this.userDetails = userDetails;
+    this.httpClient.fetch("referenceData").then(x => x.json()).then(x => global.referenceData = x)
 
-    let accessKey = global.cookies.get("accessKey")
-    console.log(accessKey);
-    if (accessKey) {
+    if (localStorage.getItem("accessKey")!=null) {
       this.authz.action = "auto-sign-in";
-      this.authz.input = { accessKey: accessKey };
+      this.authz.input = { accessKey: localStorage.getItem("accessKey") };
       this.processSignIn();
     }
   }
 
-  authz = {};
-
-  get user() {
-    return this.userDetails;
+  configureRouter(config, router) {
+    config.title = 'CPA';
+    //config.options.pushState = true;
+    //config.options.hashChange = false;
+    config.map([
+      { route: ['', 'index'], name: 'index', moduleId: './views/index', nav: true, title: 'Index' },
+      { route: ['refugees'], name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' }
+    ]);
+    this.router = router;
   }
 
+  authz = {};
 
   startSignIn() {
     this.authz.action = "sign-in";
@@ -80,9 +73,9 @@ export class App {
       .then(x => x.json()).then(account => {
 
         this.userDetails.account = account;
-
+        this.userDetails.accessKey = account.accessKey;
         if (this.authz.rememberMe) {
-          this.global.cookies.put("accessKey", account.accessKey);
+          localStorage.setItem("accessKey", account.accessKey);
         }
         this.authz.action = null;
       })
@@ -98,7 +91,8 @@ export class App {
 
   signOut() {
     this.userDetails.account = null;
-    this.global.cookies.remove("accessKey");
+    this.userDetails.accessKey = null;
+    localStorage.removeItem("accessKey");
   }
 
   messages = {

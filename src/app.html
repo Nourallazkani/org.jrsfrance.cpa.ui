@@ -13,29 +13,29 @@
       <div class="modal-dialog-body">
         <form class="default-form" submit.delegate="processSignIn()">
           <div class="form-entry">
-              <label class="width-lg-20">Adresse mail</label>
-              <div class="input-container width-lg-70">
-                  <input type="text" value.bind="authz.input.mailAddress"/>
-              </div>
+            <label class="width-lg-20">Adresse mail</label>
+            <div class="input-container width-lg-70">
+              <input type="text" value.bind="authz.input.mailAddress" />
+            </div>
           </div>
           <div class="form-entry">
-              <label class="width-lg-20">Mot de passe</label>
-              <div class="input-container width-lg-70">
-                  <input type="password" value.bind="authz.input.password"/>
-              </div>
+            <label class="width-lg-20">Mot de passe</label>
+            <div class="input-container width-lg-70">
+              <input type="password" value.bind="authz.input.password" />
+            </div>
           </div>
 
           <div class="form-entry">
-              <label class="width-lg-20">&nbsp;</label>
-              <div class="input-container width-lg-70">
-                  <input type="checkbox" checked.bind="authz.rememberMe" /> se souvenir de moi
-              </div>
+            <label class="width-lg-20">&nbsp;</label>
+            <div class="input-container width-lg-70">
+              <input type="checkbox" checked.bind="authz.rememberMe" /> se souvenir de moi
+            </div>
           </div>
           <div class="form-entry">
-              <label class="width-lg-20">&nbsp;</label>
-              <div class="input-container width-lg-70">
-                  <button>Sign in</button>
-              </div>
+            <label class="width-lg-20">&nbsp;</label>
+            <div class="input-container width-lg-70">
+              <button>Sign in</button>
+            </div>
           </div>
         </form>
       </div>
@@ -46,28 +46,34 @@
 
   <!-- header -->
 
-<header class="head">
-  <div>  </div>
- <div class="logo">
-  <a href="#"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
-</div>
-<div class="menu">
-  <p> Vous etes connecte comme Nour </p>
-  <a href="#"> Mon profile</a> <a href="#"> Mon Calandrier</a> <a> Deconnection </a>
-</div>
-</header>
+  <header class="main-menu" if.bind="userDetails.account!=null">
+    <div></div>
+
+    <div class="logo">
+      <a href="#"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
+    </div>
+    
+    <div class="menu-items">
+      <p>Hello ${userDetails.account.name} </p>
+      <a href="#"> Mon profile</a> <a href="#"> Mon Calandrier</a> 
+      <a click.delegate="signOut()"> Deconnexion </a>
+    </div>
+  </header>
 
 
 
-<header class="head">
-  <div>  </div>
-  <div class="logo"> <a href="#"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>  </div>
-  <div class="menu">
-      <button class="button-test"> S'inscrire </button> <button> Connection </button>
-  </div>
-</header>
-
-   <!--
+  <header class="main-menu" if.bind="userDetails.account==null">
+    <div> </div>
+    <div class="logo">
+      <a href="#"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
+    </div>
+    <div class="menu-items">
+      <button class="button-test"> S'inscrire </button> 
+      <button click.delegate="startSignIn()" if.bind="userDetails.profile!=null"> Connexion </button>
+    </div>
+  </header>
+${userDetails.account}
+  <!--
   <div class="mainHeader">
     <a href="#">
       <img class="LogoCpa" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" />

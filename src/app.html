@@ -49,11 +49,11 @@
     <a href="#">
       <img class="LogoCpa" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" />
     </a>
-    <button class="signInButton" click.delegate="startSignIn()" if.bind="!userDetails.account">
+    <button class="signInButton" click.delegate="startSignIn()" if.bind="userDetails.account==null">
       <img src="/assets/img/common/login.svg" alt="sign in" title="click to sign in" />
       <span>Login</span>
     </button>
-    <span if.bind="userDetails.account">
+    <span if.bind="userDetails.account!=null">
       ${userDetails.account.name}
       <button click.delegate="signOut()">[deconnexion]</button>
     </span>

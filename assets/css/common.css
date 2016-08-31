@@ -15,65 +15,30 @@ a{
     cursor: pointer
 }
 /*  -------start of header----------   */
-.main-menu {
-    background-color: #333333;
-    margin: 20px auto ;
-    text-align: center;
-    margin-bottom: 0px;
-    font-family: Archer;
-    font-size: 20px;
-    color: white;
-}
 
-.main-menu > div {
-    width: 33%;
-    display: inline-block;
-}
-
-.main-menu > .logo {
-    text-align: center;
-    vertical-align: middle;
-}
-
-.main-menu > .menu-items {
-    text-align: right;
-    vertical-align: middle;
-    line-height: 35px;   
-}
-
-.main-menu > .menu-items > p{
-    margin: 0px;
-}
-
-.main-menu > .menu-items > a {
-     margin: 0px 5px;
-     text-decoration: underline;
-     cursor: pointer;
-     color: white;
-}
-
-.main-menu > div > button {
-    border-radius: 20px;
-    border-width: 0px;
-    cursor: pointer;
-    background-color: #ffffff;
-    font-family: Archer;
-    font-size: 23px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-    margin: 0px 10px;
-    padding: 5px 10px;
-}
-
-.button-test :hover{
-    font-size: 25px;
-}
 
 
 /*  -------end of header----------   */
 
 body {min-height: 5000px}
+
+button{
+    
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
 
 .common-arrow-top{
     display: block;
@@ -174,14 +139,3 @@ body {min-height: 5000px}
     .inline-block-lg{display: inline-block}
     .inline-lg{display: inline}
 }
-
-.width-10 {width:10% ;}
-.width-20 {width:20% ;}
-.width-30 {width:30% ;}
-.width-40 {width:40% ;}
-.width-50 {width:50% ;}
-.width-60 {width:60% ;}
-.width-70 {width:70% ;}
-.width-80 {width:80% ;}
-.width-90 {width:90% ;}
-.width-100{width:100%;}

@@ -27,6 +27,8 @@
     margin:20vh auto auto auto;
     z-index: 101; 
     width: 700px;
+    font-size: 12pt;
+    font-family: Arial, Helvetica;
 }
 
 .modal > .modal-dialog > .modal-dialog-header, .modal-dialog-footer{
@@ -34,12 +36,25 @@
     padding:10px;
     font-size:14pt;
     color:white;
+    display:flex;
 }
 
-.modal > .modal-dialog > .modal-dialog-header > .close:before {
-    content: "\d7";
-    font-size:24pt
+.modal > .modal-dialog > .modal-dialog-header  .close:before {
+    content: "\d7"
 }
+
+.modal > .modal-dialog > .modal-dialog-header  > div  {
+    width:50%
+}
+
+.modal > .modal-dialog > .modal-dialog-header  > div:first-child  {
+    text-align: left
+}
+
+.modal > .modal-dialog > .modal-dialog-header  > div:last-child  {
+    text-align: right
+}
+
 
 .modal > .modal-dialog > .modal-dialog-body{
     background-color: #ebebeb;

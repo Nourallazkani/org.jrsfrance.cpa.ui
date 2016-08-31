@@ -54,7 +54,8 @@ export class App {
 
     config.map([
       { route: this.userDetails.profile==null ? ['', 'index'] : 'index', name: 'index', moduleId: './views/index', nav: true, title: 'Index' },
-      { route: this.userDetails.profile=="R" ? ['', 'refugees'] : 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' }
+      { route: this.userDetails.profile=="R" ? ['', 'refugees'] : 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' },
+      { route: this.userDetails.profile=="O" ? ['', 'organisations'] : 'organisations', name: 'organisations/index', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
     ]);
     this.router = router;
   }

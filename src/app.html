@@ -1,5 +1,6 @@
 <template>
   <require from="/assets/css/common.css"></require>
+  <require from="/assets/css/common-menu.css"></require>
   <require from="/assets/css/common-modal-dialog.css"></require>
   <require from="/assets/css/common-form.css"></require>
   <require from="/assets/css/common-search-results.css"></require>
@@ -8,7 +9,10 @@
   <div class="modal ${authz.action=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
     <div class="modal-dialog">
       <div class="modal-dialog-header" style="text-align:right">
-        <a click.trigger="cancelSignIn()" class="close"></a>
+        <div>Connexion</div>
+        <div>
+          <a click.trigger="cancelSignIn()" class="close"></a>
+        </div>
       </div>
       <div class="modal-dialog-body">
         <form class="default-form" submit.delegate="processSignIn()">
@@ -39,36 +43,33 @@
           </div>
         </form>
       </div>
-      <div class="modal-dialog-footer">footer</div>
+      <div class="modal-dialog-footer"></div>
     </div>
   </div>
   <!-- end sign-in-modal-->
 
   <!-- header -->
 
-  <header class="main-menu" if.bind="userDetails.account!=null">
-    <div></div>
+  <header class="main-menu">
+    <div class="languages">
+      <a click.delegate="userDetails.language='fr'">FR </a> |
+      <a click.delegate="userDetails.language='en'"> EN </a> |
+      <a click.delegate="userDetails.language='ar'"> ع </a> |
+      <a click.delegate="userDetails.language='prs'"> درى </a>
+    </div>
 
     <div class="logo">
-      <a href="#"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
+      <a route-href="route: index"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
     </div>
-    
-    <div class="menu-items">
+
+    <div class="menu-items" if.bind="userDetails.account!=null">
       <p>Hello ${userDetails.account.name} </p>
-      <a href="#"> Mon profile</a> <a href="#"> Mon Calandrier</a> 
+      <a href="#"> Mon profil</a> <a href="#"> Mon Calandrier</a>
       <a click.delegate="signOut()"> Deconnexion </a>
     </div>
-  </header>
 
-
-
-  <header class="main-menu" if.bind="userDetails.account==null">
-    <div> </div>
-    <div class="logo">
-      <a href="#"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
-    </div>
-    <div class="menu-items">
-      <button class="button-test"> S'inscrire </button> 
+    <div class="menu-items" if.bind="userDetails.account==null">
+      <button class="button-test"> S'inscrire </button>
       <button click.delegate="startSignIn()" if.bind="userDetails.profile!=null"> Connexion </button>
     </div>
   </header>

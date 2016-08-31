@@ -34,48 +34,7 @@ html{
      max-width: inherit;
     min-width: inherit;
 }
-.mainHeader{
-    background-color: #333333;
-    height: 100px;
-    text-align: center;
-}
-.LogoCpa{
-    margin-left: 150px;
-    width: 150px;
-    height: 100px;
-}
-.signInButton{
-    text-align: center;
-    width: 125px;
-    height: 35px;
-    border-radius: 20px;
-    border-width: 0px;
-    cursor: pointer;
-    background-color: #ffffff; 
-    float: right;
-    margin: 30px 40px 0px 0px;
-    font-size: 23px;
-}
-.signInButton:hover{
-    font-size: 27px;
-}
-.signInButton:focus{
-    font-size: 27px;
-}
 
-.signInButton >  img{
-    width: 30px;
-    height: 30px;
-}
-.signInButton >  span{
-    float:right;
-    margin: 0px 6px 0px 0px ;
-    
-    font-family: Archer;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-}
 .bodyLanguage{
     background-image: url("../img/motif2_choix_de_langue.svg");
     background-repeat: no-repeat; 

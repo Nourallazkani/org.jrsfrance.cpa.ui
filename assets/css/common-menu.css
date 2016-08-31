@@ -1,7 +1,56 @@
-/*
-contains styles related to refugees views (/views/refugees).
-view specific styles should start by the name of the view (cursus-, teaching-, library-, etc...). Exemple : cursus-style1
-*/
+.main-menu {
+    background-color: #333333;
+    margin: 20px auto ;
+    margin-bottom: 0px;
+    font-family: Archer;
+    font-size: 20px;
+    color: white;
+}
+
+.main-menu > div {
+    width: 33%;
+    display: inline-block;
+}
+
+.main-menu > .logo {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.main-menu > .menu-items {
+    text-align: right;
+    vertical-align: middle;
+    line-height: 35px;   
+}
+
+.main-menu > .menu-items > p{
+    margin: 0px;
+}
+
+.main-menu  a {
+     margin: 0px 5px;
+     text-decoration: underline;
+     cursor: pointer;
+     color: white;
+}
+.main-menu > div > button {
+    border-radius: 20px;
+    border-width: 0px;
+    cursor: pointer;
+    background-color: #ffffff;
+    font-family: Archer;
+    font-size: 23px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 0px 10px;
+    padding: 5px 10px;
+}
+
+.button-test :hover{
+    font-size: 25px;
+}
+
 
 .refugee-menu{
     width: 100%;
@@ -73,4 +122,3 @@ view specific styles should start by the name of the view (cursus-, teaching-, l
     padding-top: 20px;
     font-size: 20px;
 }
-

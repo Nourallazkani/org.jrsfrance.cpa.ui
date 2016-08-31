@@ -20,15 +20,14 @@ export class Index extends ViewModel {
     }
     setProfile(profile) {
         this.userDetails.profile = profile;
-        localStorage.setItem("profile", profile);
 
         if (profile === "R") {
             this.router.navigateToRoute('refugees/index');
         }
-        else if (profile === "V") {
+        else if (profile === "O") {
             this.router.navigateToRoute('organisations/index');
         }
-        else if (profile === "O") {
+        else if (profile === "V") {
             this.router.navigateToRoute('volunteers/index');
         }
     }

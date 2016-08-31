@@ -8,7 +8,7 @@ import {Global, UserDetails} from 'common'
 export class App {
 
   configureRouter(config, router) {
-    config.title = 'Aurelia';
+    config.title = 'CPA';
     //config.options.pushState = true;
     //config.options.hashChange = false;
     config.map([
@@ -52,8 +52,10 @@ export class App {
     this.userDetails = userDetails;
 
     let accessKey = global.cookies.get("accessKey")
+    console.log(accessKey);
     if (accessKey) {
-      this.authz.action = { type: "auto-sign-in", input: { accessKey: accessKey } };
+      this.authz.action = "auto-sign-in";
+      this.authz.input = { accessKey: accessKey };
       this.processSignIn();
     }
   }
@@ -64,17 +66,22 @@ export class App {
     return this.userDetails;
   }
 
+
   startSignIn() {
-    this.authz.action = { type: "sign-in", input: { realm: 'R' }, outcome: null };
+    this.authz.action = "sign-in";
+    this.authz.input = { realm: this.userDetails.profile };
+    this.authz.outcome = null;
   }
 
+  // call this method when the user  submit the sign in form.
   processSignIn() {
     this.httpClient
-      .fetch("authz/signIn", { method: "POST", body: json(this.authz.action.input) })
+      .fetch("authz/signIn", { method: "POST", body: json(this.authz.input) })
       .then(x => x.json()).then(account => {
+
         this.userDetails.account = account;
 
-        if (this.authz.action.rememberMe) {
+        if (this.authz.rememberMe) {
           this.global.cookies.put("accessKey", account.accessKey);
         }
         this.authz.action = null;
@@ -89,7 +96,10 @@ export class App {
     this.authz.action = "";
   }
 
-  // call this method when the user  submit the sign in form.
+  signOut() {
+    this.userDetails.account = null;
+    this.global.cookies.remove("accessKey");
+  }
 
   messages = {
     "common": {
@@ -102,7 +112,6 @@ export class App {
 
   i18n(key, domain) {
     var translations = this.messages[domain == null ? "common" : domain][key];
-    console.log(translations)
     if (this.userDetails.language == "fr") {
       return key;
     }

@@ -9,6 +9,7 @@ contains global and reusable styles
 @font-face{font-family:ProximaNova;src:url(http://fr.agencecm.ffp.ui.s3.amazonaws.com/fonts/ProximaNovaCond-RegularIt.otf);font-weight:400;font-style:italic}
 @font-face{font-family:ProximaNova;src:url(http://fr.agencecm.ffp.ui.s3.amazonaws.com/fonts/ProximaNovaCond-Semibold.otf);font-weight:700}
 @font-face{font-family:ProximaNova;src:url(http://fr.agencecm.ffp.ui.s3.amazonaws.com/fonts/ProximaNovaCond-SemiboldIt.otf);font-weight:700;font-style:italic}
+@import 'https://fonts.googleapis.com/css?family=Fira+Sans';
 
 a{
     cursor: pointer
@@ -16,6 +17,7 @@ a{
 
 
 body {min-height: 5000px}
+
 .common-arrow-top{
     display: block;
     margin: 10px auto 10px auto;

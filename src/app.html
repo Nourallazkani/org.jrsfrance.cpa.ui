@@ -5,7 +5,7 @@
   <require from="/assets/css/common-search-results.css"></require>
 
   <!-- sign-in-modal-->
-  <div class="modal ${authz.action.type=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
+  <div class="modal ${authz.action=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
     <div class="modal-dialog">
       <div class="modal-dialog-header" style="text-align:right">
         <a click.trigger="cancelSignIn()" class="close"></a>
@@ -15,20 +15,20 @@
           <div class="form-entry">
               <label class="width-lg-20">Adresse mail</label>
               <div class="input-container width-lg-70">
-                  <input type="text" value.bind="authz.action.input.mailAddress"/>
+                  <input type="text" value.bind="authz.input.mailAddress"/>
               </div>
           </div>
           <div class="form-entry">
               <label class="width-lg-20">Mot de passe</label>
               <div class="input-container width-lg-70">
-                  <input type="password" value.bind="authz.action.input.password"/>
+                  <input type="password" value.bind="authz.input.password"/>
               </div>
           </div>
 
           <div class="form-entry">
               <label class="width-lg-20">&nbsp;</label>
               <div class="input-container width-lg-70">
-                  <input type="checkbox" /> se souvenir de moi
+                  <input type="checkbox" checked.bind="authz.rememberMe" /> se souvenir de moi
               </div>
           </div>
           <div class="form-entry">
@@ -49,10 +49,14 @@
     <a href="#">
       <img class="LogoCpa" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" />
     </a>
-    <button class="signInButton" click.trigger="startSignIn()">
+    <button class="signInButton" click.delegate="startSignIn()" if.bind="!userDetails.account">
       <img src="/assets/img/common/login.svg" alt="sign in" title="click to sign in" />
       <span>Login</span>
     </button>
+    <span if.bind="userDetails.account">
+      ${userDetails.account.name}
+      <button click.delegate="signOut()">[deconnexion]</button>
+    </span>
   </div>
   <!-- end header -->
 

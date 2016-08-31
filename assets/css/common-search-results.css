@@ -18,7 +18,7 @@
 }
 
 .result > .result-infos-container{
-    font-size: 18px;
+    font-size: 17px;
     background-color: #ccc;
     border-width: 0px;
     border-radius: 5px ;
@@ -36,7 +36,12 @@
 .result > .result-infos-container > .result-image-block > div{
     display:inline-block;
     margin-bottom:10px;
-    background-color: rgba(247,77,43,0.7);;
+    background-color:rgba(247,77,43,0.7);
+    color:white;
+    padding:5px;
+    font-size: 14px;
+    text-transform: uppercase
+    /*background-color: rgba(247,77,43,0.7);;*/
 }
 
 

@@ -7,8 +7,12 @@ form > .form-entry > label {
     font-weight: bold;
 }
 
-form > .form-entry > .input-container > input[type=text], form > .form-entry > .input-container > input[type=password], form > .form-entry > .input-container > select,
-form > .form-entry > .inputs-container > input[type=text], form > .form-entry > .inputs-container > input[type=password], form > .form-entry > .inputs-container > select {
+form > .form-entry > .input-container > input[type=text], 
+form > .form-entry > .input-container > input[type=password], 
+form > .form-entry > .input-container > select,
+form > .form-entry > .inputs-container > input[type=text], 
+form > .form-entry > .inputs-container > input[type=password], 
+form > .form-entry > .inputs-container > select {
     font-family: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -91,7 +95,9 @@ form > .form-entry > .input-container > select {
     display: inline-block;
 }
 
-.default-form > .form-entry > .input-container > input[type=text], .default-form > .form-entry > .input-container > input[type=password], .default-form > .form-entry > .input-container > select {
+.default-form > .form-entry > .input-container > input[type=text], 
+.default-form > .form-entry > .input-container > input[type=password], 
+.default-form > .form-entry > .input-container > select {
     display: block;
     width: 100%;
 }

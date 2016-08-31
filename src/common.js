@@ -27,17 +27,24 @@ export class Global {
     cookies = {
         get: function (name) {
             if (document.cookie) {
-                console.log(document.cookie);
                 let value = document.cookie.split(";").find(x => x.indexOf(name + "=") >= 0).split("=")[1];
                 return value!=null && value.substring(0,1)=="{" ? JSON.parse(value) : value;
             }
             return null;
         },
         put: function (name, value) {
-            let elements = document.cookie ? document.cookie.split(";") : [];
+            console.log("cookies before put : "+document.cookie);
+            let elements = document.cookie ? document.cookie.split(";").filter(x=>x.indexOf(name+"=")==-1) : [];
             elements.push(name + "=" + (value!=null && typeof value==='object' ? JSON.stringify(value) : value));
             document.cookie = elements.join(";");
-            console.log(document.cookie);
+            console.log("cookies after put : "+document.cookie);
+        },
+        remove : function(name){
+            console.log("cookies before delete : "+document.cookie);
+            let elements = document.cookie.split(";").filter(x=>x.indexOf(name+"=")==-1);
+            elements.push(name+"=");
+            document.cookie = elements.join(";");
+            console.log("cookies after delete : "+document.cookie);
         },
         exists: function (name) {
             return document.cookie && document.cookie.split(";").some(x => x.indexOf(name + "=") >= 0);

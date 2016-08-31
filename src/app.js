@@ -51,9 +51,10 @@ export class App {
     config.title = 'CPA';
     //config.options.pushState = true;
     //config.options.hashChange = false;
+
     config.map([
-      { route: ['', 'index'], name: 'index', moduleId: './views/index', nav: true, title: 'Index' },
-      { route: ['refugees'], name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' }
+      { route: this.userDetails.profile==null ? ['', 'index'] : 'index', name: 'index', moduleId: './views/index', nav: true, title: 'Index' },
+      { route: this.userDetails.profile=="R" ? ['', 'refugees'] : 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' }
     ]);
     this.router = router;
   }

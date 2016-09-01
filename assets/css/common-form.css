@@ -26,7 +26,7 @@ form > .form-entry > .input-container > input[type=checkbox] {
 }
 
 form > .form-entry > .input-container  button:hover, form > .form-entry > .input-container  button:focus{
-         background-color: #4d4d4d;
+         background-color: rgba(51, 51, 51, 0.5);
 }
 
 form > .form-entry > .input-container > select {

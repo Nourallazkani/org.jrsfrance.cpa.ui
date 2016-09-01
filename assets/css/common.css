@@ -89,6 +89,7 @@ button{
 
 .no-margin{
     margin:0px;
+    display: fl
 }
 
 @media(min-width:768px){

@@ -33,9 +33,9 @@
     <div class="result" repeat.for="r of results">
       <h1 style="text-align:left"> ${r.item.organisation} </h1>
       <div class="result-infos-container">
-        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
+        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
+          <div> Niveau :<span style="font-size:25px"> ${r.item.level} </span> </div><br/>
           <div> Ouvert aux inscriptions </div><br/>
-          <div> Niveau requis : ${r.item.level} </div><br/>
         </div>
         <div class="result-infos-block inline-block-lg" style="width:500px">
           <div>
@@ -64,69 +64,7 @@
             </p>
           </div>
         </div>
-        <!--
-        <div style="padding:15px">
-          contact : <br/>
-          ${r.contact.name} <br/>
-          ${r.contact.phoneNumber} <br/> 
-          <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a> 
-        </div> !-->
-
-      </div>
-      <!--
-      <div class="width-lg-50 inline-block-lg" >
-        
-        <div class="field">
-          <label>Dates :	</label>
-          <p>du ${r.startDate} au ${r.endDate}</p>
-        </div>
-
-        <div class="field">
-          <label> Adresse :</label>
-            <p> 
-                ${r.address.street1}<br/>
-                ${r.address.street2}<br if.bind="r.address.street2 != null " />
-                ${r.address.zipcode}, ${r.address.city}<br/>
-                ${r.address.country}<br/>
-	          </p>
-        </div>
-
-        <div class="field">
-          <label> Contact :</label>
-          <p>Nom : ${r.contact.name}<br/> T&eacute;l&eacute;phone : ${r.contact.phoneNumber}<br/> Mail : <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a></p>
-        </div>
-
       </div>
     </div>
-    -->
-
-
-      <!--
-  <table style="width:100%" if.bind="results.length>0">
-    <thead>
-      <tr>
-        <td>Niveau requis</td>
-        <td>Organisation</td>
-        <td>Contact</td>
-        <td>Ville</td>
-        <td>Adresse</td>
-        <td>Date début</td>
-        <td>Date fin</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr repeat.for="r of results">
-        <td>${r.level}</td>
-        <td>${r.organisation}</td>
-        <td>${r.contact.name} ${r.contact.phoneNumber} ${r.contact.mailAddress}</td>
-        <td>${r.address.city}</td>
-        <td>${r.address.street1} ${r.address.street2} ${r.address.zipcode} ${r.address.city} ${r.address.country}</td>
-        <td>${r.startDate}</td>
-        <td>${r.endDate}</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  !-->
-
+  </div>
 </template>

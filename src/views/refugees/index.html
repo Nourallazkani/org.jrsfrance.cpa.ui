@@ -1,49 +1,50 @@
+
 <template>
 
   <div id="menu" class="refugee-menu" >
 
     <figure id="menu-item-teachings">
       <a route-href="route: refugees/teachings">
-        <img src="assets/img/refugee/icon-teaching.svg"/>
+        <img class="size-150-lg size-100-md" src="/assets/img/refugee/icon-teaching.svg"/>
       </a>
-      <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
+      <figcaption  > &Eacute;tudes sup&eacute;rieurs </figcaption>
     </figure>
     
     <figure id="menu-item-cursus">
       <a route-href="route: refugees/cursus" onclick="scrollToElement('menu')">
-        <img src="assets/img/refugee/icon-cursus.svg" />
+        <img class="size-150-lg size-100-md" src="/assets/img/refugee/icon-cursus.svg" />
       </a>
-      <figcaption> Cursus d'apprentissage </figcaption>
+      <figcaption  > Cursus d'apprentissage </figcaption>
     </figure>
     <figure id="menu-item-professional-trainings">
       <a href="#"> 
-        <img src="assets/img/refugee/formations professionnelles-seul.svg" />
+        <img class="size-150-lg size-100-md" src="/assets/img/refugee/formations professionnelles-seul.svg" />
       </a>
-      <figcaption> Formation professionelle </figcaption>
+      <figcaption  > Formation professionelle </figcaption>
     </figure>
     <figure id="menu-item-workshops">
       <a route-href="route: refugees/workshops"> 
-        <img src="assets/img/refugee/icon-workshop.svg" />
+        <img class="size-150-lg size-100-md" src="/assets/img/refugee/icon-workshop.svg" />
       </a>
-      <figcaption> Ateliers sociaux linguistiques </figcaption>
+      <figcaption  > Ateliers sociaux linguistiques </figcaption>
     </figure>
     <figure id="menu-item-libraries">
       <a route-href="route: refugees/libraries"> 
-        <img src="assets/img/refugee/icon-library.svg" />
+        <img class="size-150-lg size-100-md" src="/assets/img/refugee/icon-library.svg" />
       </a>
-      <figcaption> Annuaires des bibliot&egrave;que </figcaption>
+      <figcaption  > Annuaires des bibliot&egrave;que </figcaption>
     </figure>
     <figure id="menu-item-volunteers">
       <a route-href="route: refugees/volunteers">
-        <img src="assets/img/refugee/icon-volunteer.svg" />
+        <img class="size-150-lg size-100-md"  src="/assets/img/refugee/icon-volunteer.svg" />
       </a>
-      <figcaption> Interpr&egrave;tes </figcaption>
+      <figcaption  > Interpr&egrave;tes </figcaption>
     </figure>
     <figure id="menu-item-events">
       <a route-href="route: refugees/events"> 
-        <img src="assets/img/refugee/icon-date.svg" />
+        <img class="size-150-lg size-100-md"  src="/assets/img/refugee/icon-date.svg" />
       </a>
-      <figcaption> &Eacute;v&egrave;nements </figcaption>
+      <figcaption  > &Eacute;v&egrave;nements </figcaption>
     </figure>
 
   </div>
@@ -53,7 +54,7 @@
   <router-view></router-view>
 
   <div class="index" if.bind="router.history.fragment=='/Refugees'">
-    <img src="assets/img/common/arrow.svg" class="common-arrow-top" />
+    <img src="/assets/img/common/arrow.svg" class="common-arrow-top" />
     <p> Veuillez choisir un domaine de recherche </p>
   </div>
   

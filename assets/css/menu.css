@@ -52,6 +52,7 @@
     font-size: 25px;
 }
 
+
 .refugee-menu{
     width: 100%;
     background-color: white;
@@ -59,6 +60,7 @@
     margin: 30px 0px;
 }
 .refugee-menu > figure {
+    vertical-align: top;
     display: inline-block;
     margin: 15px 20px
 }
@@ -110,15 +112,38 @@
     border-color: #F4B821;
 }
 
-.refugee-menu > figure > a > img{
-    height: 150px;
-    width: 150px;
-}
-
-.refugee-menu > figure > figcaption {
+ .refugee-menu > figure > a > img{
+        height: 50px;
+        width: 50px;
+    }
+    .refugee-menu > figure > figcaption {
     text-align: center;
+    margin: 0px auto;
+    width: 50px;
     font-family: Cavorting;
     color: #4D4D4D;
     padding-top: 20px;
-    font-size: 20px;
+    font-size: 17px;
+}
+
+@media(min-width:1024px){
+    .refugee-menu > figure > a > img{
+        height: 100px;
+        width: 100px;
+    }
+    .refugee-menu > figure > figcaption{
+        width:100px;
+        font-size: 20px;
+    }
+}
+
+@media(min-width:1465px){
+    .refugee-menu > figure > a > img{
+        height: 150px;
+        width: 150px;
+    }
+    .refugee-menu > figure > figcaption{
+        width:150px;
+        font-size: 20px;
+    }
 }

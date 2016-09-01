@@ -1,59 +1,69 @@
 <template>
-  <require from="/assets/css/refugee.css"></require>
-
-  <div class="searchingContainer">
-    <p class="searchDomain"> <img class="searchDomainIcon" id="teachings" src="assets/img/refugee/icon-teaching.svg" /> &Eacute;tudes sup&eacute;rieurs
-    </p>
-    <div class="searchCriteria">
-      <form class="searchCriteriaForm" submit.delegate="find()">
-        <img id="location" src="assets/img/refugee/localisation.svg" />
-        <input class="cityCriteria" type="text" placeholder="ex:Paris" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
-          value.bind="filter.city" />
-        <select class="selectMenu" value.bind="filter.fieldOfStudyId">
-          <option value="" disabled selected>Choisissez votre discipline</option>
-          <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
-        </select>
-        <button class="searchBotton">Rechercher</button>
-      </form>
+  <form class="inline-form" submit.delegate="find()" style="text-align:center">
+    <div class="form-entry">
+      <!--
+          <img src="assets/img/refugee/localisation.svg" style=""/> !-->
     </div>
+    <div class="form-entry">
+      <label>Ville</label>
+      <div class="input-container">
+        <input type="text" placeholder="Paris, Lyon, 69, 75001..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
+          value.bind="filter.city" />
+      </div>
+    </div>
+    <div class="form-entry">
+      <label>discipline </label>
+      <div class="input-container">
+        <select value.bind="filter.fieldOfStudyId">
+            <option value=""></option>
+            <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
+          </select>
+      </div>
+    </div>
+    <div class="form-entry" style="margin: 0px 25px;">
+      <div class="input-container">
+        <button>Rechercher</button>
+      </div>
+    </div>
+    </div>
+  </form>
 
-    Enseignements supérieurs :
-    <br/><br/>
-    <form submit.delegate="find()">
-      <input type="text" value.bind="filter.city" />
-      <select value.bind="filter.fieldOfStudyId">
-      <option/>
-      <option repeat.for="x of global.referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
-    </select>
-      <button>Rechercher</button>
-    </form>
-    <hr/>
+  <div class="results">
+    <div class="result" repeat.for="r of results">
+      <h1 style="text-align:left"> ${r.item.organisation} </h1>
+      <div class="result-infos-container">
+        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
+          <div> Niveau Requis : ${r.languageLevelRequired} </div><br/>
+          <div> License : ${r.licence ? "Oui" : "Non"} </div><br/>
+          <div> Master : ${r.master ? "Oui" : "Non"} </div><br/>
+        </div>
+        <div class="result-infos-block inline-block-lg" style="width:500px">
 
-    <table style="width:100%" if.bind="results.length>0">
-      <thead>
-        <tr>
-          <td>Discipline</td>
-          <td>Organisation</td>
-          <td>Contact</td>
-          <td>Ville</td>
-          <td>Adresse</td>
-          <td>License</td>
-          <td>Master</td>
-          <td>Lien</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr repeat.for="r of results">
-          <td>${r.fieldOfStudy}</td>
-          <td>${r.organisation}</td>
-          <td>${r.contact.name} ${r.contact.phoneNumber} ${r.contact.mailAddress}</td>
-          <td>${r.address.city}</td>
-          <td>${r.address.street1} ${r.address.street2} ${r.address.zipcode} ${r.address.city} ${r.address.country}</td>
-          <td>${r.licence}</td>
-          <td>${r.master}</td>
-          <td>${r.link}</td>
-        </tr>
-      </tbody>
-    </table>
-
+          <div>
+            <label>
+              Adresse 
+            </label>
+            <p>
+              ${r.address.street1}<br/> ${r.address.street2}
+              <br if.bind="r.item.address.street2 != null " /> ${r.address.zipcode}, ${r.address.city}<br/>
+              <a href="#">Itineraire</a>
+            </p>
+          </div>
+          <div>
+            <label>Contact </label>
+            <p>
+              ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
+              <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
+            </p>
+          </div>
+          <div>
+            <label>lien de l'offre : </label>
+            <p>
+              <a href="${r.link}"> Ouvrir</a> | <a href="${r.link}"> Telecharger </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

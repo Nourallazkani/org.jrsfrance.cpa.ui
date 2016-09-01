@@ -1,6 +1,6 @@
 .main-menu {
     background-color: #333333;
-    margin: 20px auto ;
+    margin: 0px;
     margin-bottom: 0px;
     font-family: Archer;
     font-size: 20px;
@@ -33,6 +33,7 @@
      cursor: pointer;
      color: white;
 }
+
 .main-menu > div > button {
     border-radius: 20px;
     border-width: 0px;

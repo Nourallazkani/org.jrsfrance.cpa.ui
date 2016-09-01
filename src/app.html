@@ -6,42 +6,81 @@
   <require from="/assets/css/common-search-results.css"></require>
 
   <!-- sign-in-modal-->
-  <div class="modal ${authz.action=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
+  <div class="modal ${authz.action!=null && !authz.silent ? 'modal-visible' : 'modal-hidden'}">
     <div class="modal-dialog">
-      <div class="modal-dialog-header" style="text-align:right">
+      <div class="modal-dialog-header">
         <div>Connexion</div>
         <div>
           <a click.trigger="cancelSignIn()" class="close"></a>
         </div>
       </div>
-      <div class="modal-dialog-body">
-        <form class="default-form" submit.delegate="processSignIn()">
-          <div class="form-entry">
-            <label class="width-lg-20">Adresse mail</label>
-            <div class="input-container width-lg-80">
-              <input type="text" value.bind="authz.input.mailAddress" />
+      <div class="modal-dialog-body" style="height:200px">
+        <div if.bind="authz.action=='sign-in'">
+
+          <form class="default-form" submit.delegate="processSignIn()" if.bind="authz.outcome==null">
+            <div class="form-entry">
+              <label class="width-lg-20">Adresse mail</label>
+              <div class="input-container width-lg-80">
+                <input type="text" value.bind="authz.input.mailAddress" />
+              </div>
             </div>
-          </div>
-          <div class="form-entry">
-            <label class="width-lg-20">Mot de passe</label>
-            <div class="input-container width-lg-80">
-              <input type="password" value.bind="authz.input.password" />
+            <div class="form-entry">
+              <label class="width-lg-20">Mot de passe</label>
+              <div class="input-container width-lg-80">
+                <input type="password" value.bind="authz.input.password" />
+              </div>
             </div>
+
+            <div class="form-entry">
+              <label class="width-lg-20">&nbsp;</label>
+              <div class="input-container width-lg-80">
+                <input type="checkbox" checked.bind="authz.rememberMe" /> se souvenir de moi
+              </div>
+            </div>
+            <div class="form-entry">
+              <label class="width-lg-20">&nbsp;</label>
+              <div class="input-container width-lg-80">
+                <button>Connexion</button>
+              </div>
+            </div>
+          </form>
+
+          <div if.bind="authz.outcome=='failure'" style="text-align:center">
+            <div class="red-alert" style="margin-bottom:25px">L'authentification a échouée.</div>
+            Voulez vous :
+            <ul style="text-align:left">
+              <li style="margin:20px auto"><a click.delegate="authz.outcome=null">Réessayer de vous authentifier</a></li>
+              <li style="margin:20px auto"><a click.delegate="startPasswordRecoveryRequest()">Réinitialiser votre mot de passe</a></li>
+            </ul>
           </div>
 
-          <div class="form-entry">
-            <label class="width-lg-20">&nbsp;</label>
-            <div class="input-container width-lg-80">
-              <input type="checkbox" checked.bind="authz.rememberMe" /> se souvenir de moi
-            </div>
+        </div>
+
+        <div if.bind="authz.action=='recover-password'">
+          <div if.bind="authz.outcome==null">
+            <form class="default-form" submit.delegate="processPasswordRecovery()" if.bind="authz.outcome==null">
+              <div class="form-entry">
+                <label class="width-lg-20">Adresse mail</label>
+                <div class="input-container width-lg-80">
+                  <input type="text" value.bind="authz.input.mailAddress" />
+                </div>
+              </div>
+              <div class="form-entry">
+                <label class="width-lg-20">&nbsp;</label>
+                <div class="input-container width-lg-80">
+                  <button>Réinitialiser mont mot de passe</button>
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="form-entry">
-            <label class="width-lg-20">&nbsp;</label>
-            <div class="input-container width-lg-70">
-              <button>Sign in</button>
-            </div>
+          <div if.bind="authz.outcome=='accepted'" style="text-align:center">
+            <p>Un mail vous a été envoyé, il contient un lien permettant de réinitialiser votre mot de passe.</p>
+            <button click.delegate="cancelSignIn()">Fermer</button>
           </div>
-        </form>
+        </div>
+
+
+
       </div>
       <div class="modal-dialog-footer"></div>
     </div>
@@ -68,27 +107,11 @@
       <a click.delegate="signOut()"> Deconnexion </a>
     </div>
 
-    <div class="menu-items" if.bind="userDetails.account==null">
-      <button class="button-test"> S'inscrire </button>
+    <div class="menu-items" if.bind="userDetails.account==null && router.currentInstruction.config.name!='index'">
+      <button class="button-test"> S'inscrire</button>
       <button click.delegate="startSignIn()" if.bind="userDetails.profile!=null"> Connexion </button>
     </div>
   </header>
-
-  <!--
-  <div class="mainHeader">
-    <a href="#">
-      <img class="LogoCpa" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" />
-    </a>
-    <button class="signInButton" click.delegate="startSignIn()" if.bind="userDetails.account==null">
-      <img src="/assets/img/common/login.svg" alt="sign in" title="click to sign in" />
-      <span>Login</span>
-    </button>
-    <span if.bind="userDetails.account!=null">
-      ${userDetails.account.name}
-      <button click.delegate="signOut()">[deconnexion]</button>
-    </span>
-  </div>
-  end header -->
 
   <router-view></router-view>
 </template>

@@ -4,13 +4,6 @@ import {inject} from 'aurelia-framework';
 @inject(UserDetails)
 export class Index extends ViewModel {
 
-
-  constructor(userDetails) {
-    super();
-    if (userDetails.profile == null) {
-      userDetails.profile = "R";
-    }
-  }
   configureRouter(config, router) {
     config.map([
       { route: '', name: 'refugees', moduleId: 'views/refugees/welcome', nav: true, title: 'Réfugiés > Index' },

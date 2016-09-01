@@ -8,13 +8,27 @@ import {UserDetails} from 'common'
 @inject(UserDetails, Router)
 export class Index extends ViewModel {
 
-
     constructor(userDetails, router) {
         super();
         this.router = router;
         this.userDetails = userDetails;
+        if (this.userDetails.profile === "R") {
+            //this.router.navigateToRoute('refugees/index');
+        }
+        else if (this.userDetails.profile === "V") {
+
+        }
+        else if (this.userDetails.profile === "O") {
+
+        }
+        //console.log(this.router);
     }
 
+    activate(params, navigationInstruction) {
+        if (navigationInstruction.route == "" && this.userDetails.profile === "R") {
+            this.router.navigateToRoute('refugees/index');
+        }
+    }
     setPreferedLanguage(languageKey) {
         this.userDetails.language = languageKey;
     }
@@ -23,12 +37,6 @@ export class Index extends ViewModel {
 
         if (profile === "R") {
             this.router.navigateToRoute('refugees/index');
-        }
-        else if (profile === "O") {
-            this.router.navigateToRoute('organisations/index');
-        }
-        else if (profile === "V") {
-            this.router.navigateToRoute('volunteers/index');
         }
     }
 }

@@ -4,10 +4,10 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {Global, UserDetails} from 'common'
 
-@inject(HttpClient, Global, UserDetails)
+@inject(HttpClient, Global, UserDetails, Router)
 export class App {
 
-  constructor(httpClient, global, userDetails) {
+  constructor(httpClient, global, userDetails, router) {
 
     this.httpClient = httpClient;
     this.global = global;
@@ -40,55 +40,88 @@ export class App {
 
     this.httpClient.fetch("referenceData").then(x => x.json()).then(x => global.referenceData = x)
 
-    if (localStorage.getItem("accessKey")!=null) {
-      this.authz.action = "auto-sign-in";
+    if (localStorage.getItem("accessKey") != null) {
+      // auto sign in
+      this.authz.silent = true;
+      this.authz.action = "sign-in";
       this.authz.input = { accessKey: localStorage.getItem("accessKey") };
+      this.processSignIn();
+    }
+    else if (false) {
+      this.authz.silent = true;
+      this.authz.action = "sign-in";
+      this.authz.input = { accessKey: "" };
       this.processSignIn();
     }
   }
 
   configureRouter(config, router) {
+
     config.title = 'CPA';
-    //config.options.pushState = true;
-    //config.options.hashChange = false;
+    config.options.pushState = true;
+    config.options.hashChange = false;
 
     config.map([
-      { route: this.userDetails.profile==null ? ['', 'index'] : 'index', name: 'index', moduleId: './views/index', nav: true, title: 'Index' },
-      { route: this.userDetails.profile=="R" ? ['', 'refugees'] : 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' },
-      { route: this.userDetails.profile=="O" ? ['', 'organisations'] : 'organisations', name: 'organisations/index', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
+      { route: ['', 'index'], name: 'index', moduleId: './views/index', nav: true, title: 'Index' },
+      { route: 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' },
+      { route: 'organisations', name: 'organisations/index', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
     ]);
     this.router = router;
+
+
+    /* immediate redirect if profile is known 
+    if (this.userDetails.profile == "R") {
+      this.router.navigate('/refugees');
+    }
+    else if (this.userDetails.profile == "O") {
+      this.router.navigate('organisations/index');
+    }*/
   }
 
-  authz = {};
+  authz = { silent: false, input: null, outcome: null };
 
+  // manual sign in
   startSignIn() {
     this.authz.action = "sign-in";
     this.authz.input = { realm: this.userDetails.profile };
     this.authz.outcome = null;
   }
 
-  // call this method when the user  submit the sign in form.
-  processSignIn() {
+  processSignIn(routeOnSuccess) {
     this.httpClient
       .fetch("authz/signIn", { method: "POST", body: json(this.authz.input) })
       .then(x => x.json()).then(account => {
 
         this.userDetails.account = account;
         this.userDetails.accessKey = account.accessKey;
+        this.authz.action = null;
         if (this.authz.rememberMe) {
           localStorage.setItem("accessKey", account.accessKey);
         }
-        this.authz.action = null;
+        if (routeOnSuccess != null) {
+          this.router.navigateToRoute(routeOnSuccess);
+        }
       })
       .catch(err => {
-        this.authz.action.outcome = "failure";
+        this.authz.outcome = "failure";
       });
+  }
 
+  startPasswordRecoveryRequest() {
+    this.authz.action = "recover-password";
+    this.authz.input.password = null;
+    this.authz.outcome = null;
+  }
+
+  processPasswordRecovery() {
+    console.log(this.authz.input);
+    this.httpClient
+      .fetch("authz/passwordRecovery", { method: "POST", body: json(this.authz.input) })
+      .then(() => this.authz.outcome = "accepted")
   }
 
   cancelSignIn() {
-    this.authz.action = "";
+    this.authz.action = null;
   }
 
   signOut() {

@@ -40,6 +40,8 @@ button{
     border-color: #ccc;
 }
 
+.red-alert {font-weight: bold;color:red}
+
 .common-arrow-top{
     display: block;
     margin: 10px auto 10px auto;

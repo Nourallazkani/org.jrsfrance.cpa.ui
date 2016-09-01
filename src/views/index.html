@@ -12,23 +12,25 @@
 
     <div if.bind="userDetails.language!=null"> 
         <div class="choosingStatus">
-            <div id="first">
+            <div id="first" if.bind="userDetails.profile==null || userDetails.profile=='V'">
+                <figure>
+                    <a click.delegate="setProfile('V')"> 
+                        <img class="circleImage" id="benevole" src="/assets/img/home/je_suis_benevole.png" /> </a>
+                    <figcaption> je suis b&eacute;n&eacute;vole </figcaption>
+                </figure>
+            </div>
+            <div if.bind="userDetails.profile==null || userDetails.profile=='R'">
                 <figure>
                     <a click.delegate="setProfile('R')">
                         <img class="circleImage" id="refugie" src="/assets/img/home/je_suis_refugie.png" />
                     </a>
                     <figcaption> je suis r&eacute;fugi&eacute </figcaption>
                 </figure>
-            </div>
-            <div>
+            </div>            
+            <div id="last" if.bind="userDetails.profile==null || userDetails.profile=='O'">
                 <figure>
-                    <a href="#"> <img class="circleImage" id="benevole" src="/assets/img/home/je_suis_benevole.png" /> </a>
-                    <figcaption> je suis b&eacute;n&eacute;vole </figcaption>
-                </figure>
-            </div>
-            <div id="last">
-                <figure>
-                    <a click.delegate="setProfile('O')"> <img class="circleImage" id="institution" src="/assets/img/home/je_suis_institution.png" /> </a>
+                    <a click.delegate="setProfile('O')"> 
+                        <img class="circleImage" id="institution" src="/assets/img/home/je_suis_institution.png" /> </a>
                     <figcaption> je repr&eacute;sente une institution </figcaption>
                 </figure>
             </div>

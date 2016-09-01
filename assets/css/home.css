@@ -1,0 +1,103 @@
+.nav-container{
+    position:relative;height:450px;overflow:hidden;margin-top:25px;margin-bottom:50px;
+}
+
+.nav-volunteer-image , .nav-refugee-image , .nav-organisation-image {
+    position:absolute;
+    width:33%;
+    text-align: center
+}
+.nav-volunteer-image {
+    left:0px;
+    padding-right:25px;
+}
+
+.nav-refugee-image{
+    left:33%;    
+}
+
+.nav-organisation-image{
+    right:0px;
+    padding-left:25px;
+}
+
+.nav-volunteer-image, .nav-organisation-image, .nav-refugee-image{
+    margin:0px;
+}
+.nav-volunteer-image > figcaption, .nav-organisation-image > figcaption, .nav-refugee-image > figcaption{
+    text-align: center;
+    font-family: Cavorting;
+    color: #4D4D4D;
+    font-size: 35px;
+    margin-top: 40px;
+}
+
+.nav-volunteer-image img, .nav-organisation-image img, .nav-refugee-image img{
+    height: 250 px;
+    width: 250px;
+    border-radius: 100%;
+    border-width: 20px;
+    border-style: solid;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.nav-volunteer-image img{
+    border-color: #F4B821;    
+}
+
+.nav-organisation-image img{
+    border-color: #F21C4F;    
+}
+
+.nav-refugee-image img{
+    border-color: #0FC6C6;   
+}
+
+.nav-volunteer-image img:hover, .nav-volunteer-image-active img, 
+.nav-organisation-image img:hover, .nav-organisation-image-active img,
+.nav-refugee-image img:hover{
+    border-width: 35px;
+}
+
+.nav-volunteer-text, .nav-organisation-text {
+    position:absolute;
+    width:67%;
+    padding:20px;
+    text-align: justify;
+    box-sizing:border-box;
+}
+
+.nav-volunteer-text {
+    background-color: #F4B821;
+}
+
+.nav-organisation-text {
+    background-color: #F21C4F;
+}
+
+.nav-volunteer-text-visible {
+    left:33%;
+}
+
+.nav-volunteer-text-hidden {
+    left:100%;
+}
+
+.nav-organisation-text-visible {
+    left:0%;
+}
+
+.nav-organisation-text-hidden {
+    left:-100%
+}
+
+
+.with-transition{
+    transition:all 0.5s linear
+}
+
+.no-transition{
+    transition:all 0s linear
+}

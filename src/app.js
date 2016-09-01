@@ -62,7 +62,7 @@ export class App {
     config.options.hashChange = false;
 
     config.map([
-      { route: ['', 'index'], name: 'index', moduleId: './views/index', nav: true, title: 'Index' },
+      { route: ['', 'home', 'about'], name: 'home', moduleId: './views/home', nav: true, title: 'Home' },
       { route: 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' },
       { route: 'organisations', name: 'organisations/index', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
     ]);

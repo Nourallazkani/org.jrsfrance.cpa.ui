@@ -10,7 +10,6 @@ jspm init -y
 
 2) Add dependencies :
 jspm install aurelia-bootstrapper aurelia-fetch-client moment
-jspm install text npm:aurelia-bundler --dev
 
 3) Customize config.js :
 babelOptions: {

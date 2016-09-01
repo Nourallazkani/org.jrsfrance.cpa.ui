@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function show1(){
+            document.getElementById('div-1-text').style.width='67%';
+            document.getElementById('div-1-text').style.visibility='visible';
+
+            var container = document.getElementById('container');
+            container.removeChild(document.getElementById('div-2'));
+            container.removeChild(document.getElementById('div-3'));
+            container.removeChild(document.getElementById('div-3-text'));
+        }
+
+        function show3(){
+            document.getElementById('div-3-text').style.width='67%';
+            document.getElementById('div-3-text').style.visibility='visible';
+
+            var container = document.getElementById('container');
+            container.removeChild(document.getElementById('div-2'));
+            container.removeChild(document.getElementById('div-1'));
+            container.removeChild(document.getElementById('div-1-text'));            
+        }
+    </script>
+
+</head>
+
+<body>
+    <div style="position:relative;height:70px" id="container">
+        <div style="position:absolute;left:0px;width:33%;" id="div-1">
+            <a onclick="show1()">image 1</a>
+        </div>
+        <div style="position:absolute;left:33%;width:0%;visibility:hidden;background-color:red;transition:all 0.5s linear" id="div-1-text">
+            text 1
+        </div>
+        <div style="width:33%;left:33%;position:absolute" id="div-2">
+            image 2
+        </div>
+        <div style="position:absolute;left:0%;width:0%;visibility:hidden;background-color:red;transition:all 0.5s linear"  id="div-3-text">
+            text 3
+        </div>
+        <div style="width:33%;right:0px;position:absolute" id="div-3">
+            <a onclick="show3()">image 3</a>
+        </div>
+    </div>
+
+    
+    <hr/>
+
+    <!--
+    <div style="display:flex">
+        <div style="width:33%">
+            image 1
+        </div>
+        <div style="width:67%">
+            text 1
+        </div>
+    </div>
+
+    <hr/>
+
+    <div style="display:flex">
+        <div style="width:67%">
+            texte 3
+        </div>
+        <div style="width:33%">
+            image 3
+        </div>
+    </div>
+    -->
+</body>
+
+</html>

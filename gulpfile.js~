@@ -1,6 +1,5 @@
 var gulp = require('gulp');
-var bundler = require('aurelia-bundler');
-var text = require('text');
+var bundle = require('aurelia-bundler').bundle;
 
 var config = {
   force: true,
@@ -40,6 +39,5 @@ var config = {
 };
 
 gulp.task('bundle', function() {
-console.log("hello "+bundler);
-  //return bundle(config);
+  return bundle(config);
 });

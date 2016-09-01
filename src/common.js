@@ -12,7 +12,12 @@ export class UserDetails {
     }
 
     set profile(value) {
-        localStorage.setItem("profile", value);
+        if (value == null) {
+            localStorage.removeItem("profile");
+        }
+        else {
+            localStorage.setItem("profile", value);
+        }
     }
 
     accessKey;
@@ -40,8 +45,4 @@ export class Global {
             }
         }
     }
-}
-// this class provides common methods for all controllers, it is meant to be the parent class of all view models
-export class ViewModel {
-
 }

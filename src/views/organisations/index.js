@@ -1,14 +1,12 @@
-import {ViewModel, UserDetails} from 'common';
+import {UserDetails} from 'common';
 import {inject} from 'aurelia-framework';
 
 @inject(UserDetails)
-export class Index extends ViewModel {
-
+export class Index {
 
   constructor(userDetails) {
-    super();
     if (userDetails.profile == null) {
-      userDetails.profile = "R";
+      userDetails.profile = "O";
     }
   }
   configureRouter(config, router) {

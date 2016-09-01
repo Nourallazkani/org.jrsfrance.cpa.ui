@@ -6,14 +6,11 @@
       "aurelia-framework": "npm:aurelia-framework@^1.0.2"
     },
     "devDependencies": {
-      "aurelia-bundler": "npm:aurelia-bundler@^0.4.0",
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4",
       "text": "github:systemjs/plugin-text@^0.0.8"
     }
   },
-  "devDependencies": {
-    "gulp": "^3.9.1"
-  }
+  "devDependencies": {}
 }

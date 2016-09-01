@@ -1,9 +1,10 @@
 <template>
   <require from="/assets/css/common.css"></require>
-  <require from="/assets/css/common-menu.css"></require>
   <require from="/assets/css/common-modal-dialog.css"></require>
   <require from="/assets/css/common-form.css"></require>
   <require from="/assets/css/common-search-results.css"></require>
+
+  <require from="/assets/css/menu.css"></require>
 
   <!-- sign-in-modal-->
   <div class="modal ${authz.action!=null && !authz.silent ? 'modal-visible' : 'modal-hidden'}">
@@ -98,7 +99,7 @@
     </div>
 
     <div class="logo">
-      <a route-href="route: index"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
+      <a route-href="route: home"> <img style="width:100px; height:80px;" src="/assets/img/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
     </div>
 
     <div class="menu-items" if.bind="userDetails.account!=null">
@@ -107,7 +108,7 @@
       <a click.delegate="signOut()"> Deconnexion </a>
     </div>
 
-    <div class="menu-items" if.bind="userDetails.account==null && router.currentInstruction.config.name!='index'">
+    <div class="menu-items" if.bind="userDetails.account==null && router.currentInstruction.config.name!='home'">
       <button class="button-test"> S'inscrire</button>
       <button click.delegate="startSignIn()" if.bind="userDetails.profile!=null"> Connexion </button>
     </div>

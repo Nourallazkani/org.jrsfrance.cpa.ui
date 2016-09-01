@@ -1,17 +1,16 @@
 
-import {Global, ViewModel} from 'common'
+import {Global} from 'common'
 
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 
 @inject(HttpClient, Global)
-export class Libraries extends ViewModel {
+export class Libraries {
   
   results = []
   filter = {}
 
   constructor(fetchClient, global) {
-    super();
     this.fetchClient = fetchClient
     this.global = global;
     this.filter.stereotype="LIBRARY";

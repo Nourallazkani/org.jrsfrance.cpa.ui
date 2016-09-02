@@ -58,7 +58,7 @@
 
         <div if.bind="authz.action=='recover-password'">
           <div if.bind="authz.outcome==null">
-            <form class="default-form" submit.delegate="processPasswordRecovery()" if.bind="authz.outcome==null">
+            <form class="default-form" submit.delegate="processPasswordRecoveryRequest()" if.bind="authz.outcome==null">
               <div class="form-entry">
                 <label class="width-lg-20">Adresse mail</label>
                 <div class="input-container width-lg-80">

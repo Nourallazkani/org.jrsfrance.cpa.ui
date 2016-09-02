@@ -113,8 +113,7 @@ export class App {
     this.authz.outcome = null;
   }
 
-  processPasswordRecovery() {
-    console.log(this.authz.input);
+  processPasswordRecoveryRequest() {
     this.httpClient
       .fetch("authz/passwordRecovery", { method: "POST", body: json(this.authz.input) })
       .then(() => this.authz.outcome = "accepted")

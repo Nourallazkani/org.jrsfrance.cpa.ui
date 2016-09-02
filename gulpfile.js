@@ -3,6 +3,7 @@ var watch = require('gulp-watch');
 var del = require('del');
 var aureliaBundler = require('aurelia-bundler');
 var browserSync = require('browser-sync');
+var historyApiFallback = require('connect-history-api-fallback')
 
 var config = {
   force: true,
@@ -85,10 +86,7 @@ gulp.task('serve-bundle', function (done) {
       port: 9000,
       server: {
         baseDir: ['.'],
-        middleware: function (req, res, next) {
-          res.setHeader('Access-Control-Allow-Origin', '*');
-          next();
-        }
+        middleware: [ historyApiFallback() ]
       }
     }, done);
   });
@@ -105,10 +103,7 @@ gulp.task('serve', function (done) {
         port: 9000,
         server: {
           baseDir: ['.'],
-          middleware: function (req, res, next) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            next();
-          }
+          middleware: [ historyApiFallback() ]
         }
       }, done)
     })

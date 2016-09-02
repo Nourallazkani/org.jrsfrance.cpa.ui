@@ -107,7 +107,7 @@
       <a click.delegate="signOut()"> Deconnexion </a>
     </div>
 
-    <div class="menu-items" if.bind="userDetails.account==null && router.currentInstruction.config.name!='home'">
+    <div class="menu-items" if.bind="userDetails.account==null && userDetails.profile!=null">
       <button class="button-test"> S'inscrire</button>
       <button click.delegate="startSignIn()" if.bind="userDetails.profile!=null"> Connexion </button>
     </div>

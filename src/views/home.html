@@ -2,6 +2,14 @@
 
     <require from="/assets/css/specific/home.css"></require>
 
+    <div class="language-selection" if.bind="!userDetails.language">
+        <button click.delegate="setPreferedLanguage('fr')"> Fran&ccedil;ais </button>
+        <button click.delegate="setPreferedLanguage('en')"> English </button>
+        <button click.delegate="setPreferedLanguage('arabe')"> العربية </button>
+        <button click.delegate="setPreferedLanguage('dari')"> Dari </button>
+    </div>
+
+    <!--  test   
     <div if.bind="router.currentInstruction.config.route!='about'" class="choseLanguageBody">
         <div class="bodyLanguage" if.bind="userDetails.language==null">
             <div class="secoundBackground">
@@ -12,82 +20,88 @@
                 <button class="languageChoiceButton" click.delegate="setPreferedLanguage('dari')"> Dari </button>
             </div>
         </div>
+    </div>
 
-        <div class="nav-container" if.bind="userDetails.language!=null">
-            <figure class="nav-volunteer-image ${userDetails.profile=='V' ? 'nav-volunteer-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='V'">
-                <a click.delegate="setProfile('V')">
-                    <img src="/assets/img/home/profile-volunteer.png" />
-                </a>
-                <figcaption> je suis b&eacute;n&eacute;vole</figcaption>
-            </figure>
-            <div class="nav-volunteer-text ${userDetails.profile=='V' ? 'nav-volunteer-text-visible with-transition' : 'nav-volunteer-text-hidden no-transition'}">
-                <div style="text-align:right">
-                    <a click.delegate="setProfile(null)">Fermer</a>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
+  test   !-->
 
-                <ul>
-                    <li>Je regarde la vidéo de présentation</li>
-                    <li>Je me connecte</li>
-                    <li>Je m'inscrit</li>
-                </ul>
-
+    <div class="nav-container" if.bind="userDetails.language!=null">
+        <figure class="nav-volunteer-image ${userDetails.profile=='V' ? 'nav-volunteer-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='V'">
+            <a click.delegate="setProfile('V')">
+                <img src="/assets/img/home/profile-volunteer.png" />
+            </a>
+            <figcaption> je suis b&eacute;n&eacute;vole</figcaption>
+        </figure>
+        <div class="nav-volunteer-text ${userDetails.profile=='V' ? 'nav-volunteer-text-visible with-transition' : 'nav-volunteer-text-hidden no-transition'}">
+            <div style="text-align:right">
+                <a click.delegate="setProfile(null)">Fermer</a>
             </div>
-            <figure class="nav-refugee-image" if.bind="userDetails.profile==null || userDetails.profile=='R'">
-                <a click.delegate="setProfile('R')">
-                    <img src="/assets/img/home/profile-refugee.png" />
-                </a>
-                <figcaption> je suis r&eacute;fugi&eacute </figcaption>
-            </figure>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
 
-            <div class="nav-organisation-text ${userDetails.profile=='O' ? 'nav-organisation-text-visible with-transition' : 'nav-organisation-text-hidden no-transition'}">
-                <div style="text-align:right">
-                    <a click.delegate="setProfile(null)">Fermer</a>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
-
-                <ul>
-                    <li>Je regarde la vidéo de présentation</li>
-                    <li>Je me connecte</li>
-                    <li>Je m'inscrit</li>
-                </ul>
-
-            </div>
-            <figure class="nav-organisation-image ${userDetails.profile=='O' ? 'nav-organisation-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='O'">
-                <a click.delegate="setProfile('O')">
-                    <img src="/assets/img/home/profile-organisation.png" /> 
-                </a>
-                <figcaption> je repr&eacute;sente une institution </figcaption>
-            </figure>
+            <ul>
+                <li>Je regarde la vidéo de présentation</li>
+                <li>Je me connecte</li>
+                <li>Je m'inscrit</li>
+            </ul>
 
         </div>
+        <figure class="nav-refugee-image" if.bind="userDetails.profile==null || userDetails.profile=='R'">
+            <a click.delegate="setProfile('R')">
+                <img src="/assets/img/home/profile-refugee.png" />
+            </a>
+            <figcaption> 
+                <p>je suis r&eacute;fugi&eacute </p>
+                <p> أنـا لاجئ </p>
+                <p> I'm Refugee </p>
+                <p>من یک پناهنده هستم </p> 
+
+
+                </figcaption>
+        </figure>
+
+        <div class="nav-organisation-text ${userDetails.profile=='O' ? 'nav-organisation-text-visible with-transition' : 'nav-organisation-text-hidden no-transition'}">
+            <div style="text-align:right">
+                <a click.delegate="setProfile(null)">Fermer</a>
+            </div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+            <ul>
+                <li>Je regarde la vidéo de présentation</li>
+                <li>Je me connecte</li>
+                <li>Je m'inscrit</li>
+            </ul>
+
+        </div>
+        <figure class="nav-organisation-image ${userDetails.profile=='O' ? 'nav-organisation-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='O'">
+            <a click.delegate="setProfile('O')">
+                <img src="/assets/img/home/profile-organisation.png" />
+            </a>
+            <figcaption> je repr&eacute;sente une institution </figcaption>
+        </figure>
+
     </div>
+
     <div if.bind="userDetails.language!=null">
         <compose view="./about.html"></compose>
     </div>

@@ -102,43 +102,22 @@
 .no-transition{
     transition:all 0s linear
 }
-
-
-
-
-
-
-
-
-
-.choseLanguageBody{
+.language-selection{
     margin: 0px;
-     max-width: inherit;
-    min-width: inherit;
-}
-
-.bodyLanguage{
-    background-image: url("/assets/img/home/motif2_choix_de_langue.svg");
+    padding: 150px 0px;
+    background-image: url("/assets/img/home/motif_choix_de_langue.svg") ,url("/assets/img/home/motif2_choix_de_langue.svg");
     background-repeat: no-repeat; 
-    background-size: 130%;
-    background-position: -8% 55%;
+    background-size:85%,130%;
+    background-position: -419px 62%, -8% 55% ;
 }
-.secoundBackground{
-    padding: 150px 0px 150px 0px;
-     background-image: url("/assets/img/home/motif_choix_de_langue.svg");
-     background-repeat: no-repeat;
-     background-size: 85%;
-     background-position: -419px 62%;
-}
-
-.languageChoiceButton {
+.language-selection > button {
     font-family: Archer;
     display: block;
     border-width: 0px;
     border-radius: 50px;
     width: 200px;
     height: 50px;
-    margin: 55px auto 0px auto;
+    margin: 0px auto 50px auto;
     cursor: pointer;
     background-color: #4d4d4d;
     color: #ffffff;
@@ -147,15 +126,8 @@
     -moz-transition: all 0.5s  ;
     transition: all 0.5s  ;
 }
-.languageChoiceButton:focus {
-    background-color: #cccccc;
-    font-size: 23pt;
-}
-.languageChoiceButton:hover {
-    background-color: #cccccc;
-    font-size: 23pt;
-}
-#firstButton{
-    margin-top: 0px;
 
+.language-selection button:hover , .language-selection button:focus{
+     background-color: #cccccc;
+    font-size: 23pt;
 }

@@ -1,5 +1,9 @@
 .nav-container{
-    position:relative;height:450px;overflow:hidden;margin-top:25px;margin-bottom:50px;
+    position:relative;
+    height:650px;
+    overflow:hidden;
+    margin-top:25px;
+    margin-bottom:50px;
 }
 
 .nav-volunteer-image , .nav-refugee-image , .nav-organisation-image {
@@ -101,33 +105,4 @@
 
 .no-transition{
     transition:all 0s linear
-}
-.language-selection{
-    margin: 0px;
-    padding: 150px 0px;
-    background-image: url("/assets/img/home/motif_choix_de_langue.svg") ,url("/assets/img/home/motif2_choix_de_langue.svg");
-    background-repeat: no-repeat; 
-    background-size:85%,130%;
-    background-position: -419px 62%, -8% 55% ;
-}
-.language-selection > button {
-    font-family: Archer;
-    display: block;
-    border-width: 0px;
-    border-radius: 50px;
-    width: 200px;
-    height: 50px;
-    margin: 0px auto 50px auto;
-    cursor: pointer;
-    background-color: #4d4d4d;
-    color: #ffffff;
-    font-size: 19pt;
-    -webkit-transition: all 0.5s  ;
-    -moz-transition: all 0.5s  ;
-    transition: all 0.5s  ;
-}
-
-.language-selection button:hover , .language-selection button:focus{
-     background-color: #cccccc;
-    font-size: 23pt;
 }

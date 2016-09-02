@@ -31,6 +31,7 @@
 .result > .result-infos-container > .result-image-block{
     width:500px;
     height:250px;
+    padding-top:20px;
 }
 
 .result > .result-infos-container > .result-image-block > div{
@@ -43,12 +44,6 @@
     font-size: 14px;
     text-transform: uppercase
     /*background-color: rgba(247,77,43,0.7);;*/
-}
-
-
-
-.result > .result-infos-container > .result-image-block > div:first-child{
-    margin-top:20px;
 }
 
 .result > .result-infos-container > .result-infos-block{

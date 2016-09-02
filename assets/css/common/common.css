@@ -2,6 +2,12 @@
 contains global and reusable styles
 */
 
+/* Nour's code */
+@font-face{font-family: Archer; src: url(/assets/fonts/Archer/Archer-Medium-Pro.otf)}
+@font-face{font-family: ArcherBold;src: url(/assets/fonts/Archer/Archer-Bold-Pro.otf)}
+@font-face{font-family: Cavorting;src: url(/assets/fonts/Cavorting.otf)}
+@font-face{font-family: Abadi;src: url(/assets/fonts/ufonts.com_abadi-mt-condensed-light.ttf)}
+@font-face{font-family: AbadiBold;src: url(/assets/fonts/abadi-mt-condensed-extra-bold.ttf)}
 
 @font-face{font-family:ProximaNova;src:url(http://fr.agencecm.ffp.ui.s3.amazonaws.com/fonts/ProximaNovaCond-Light.otf);font-weight:200}
 @font-face{font-family:ProximaNova;src:url(http://fr.agencecm.ffp.ui.s3.amazonaws.com/fonts/ProximaNovaCond-LightIt.otf);font-weight:200;font-style:italic}
@@ -11,19 +17,21 @@ contains global and reusable styles
 @font-face{font-family:ProximaNova;src:url(http://fr.agencecm.ffp.ui.s3.amazonaws.com/fonts/ProximaNovaCond-SemiboldIt.otf);font-weight:700;font-style:italic}
 @import 'https://fonts.googleapis.com/css?family=Fira+Sans';
 
+html{
+    margin: auto;
+    max-width:1600px;
+    min-width: 1400px;  
+}
+
+body {
+  margin: 0;
+}
+
 a{
     cursor: pointer
 }
-/*  -------start of header----------   */
-
-
-
-/*  -------end of header----------   */
-
-body {min-height: 5000px}
 
 button{
-    
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
@@ -40,7 +48,9 @@ button{
     border-color: #ccc;
 }
 
-.red-alert {font-weight: bold;color:red}
+.red-alert {
+    font-weight: bold;color:red
+}
 
 .common-arrow-top{
     display: block;

@@ -1,18 +1,28 @@
-prerequisite : 
-package manager : jspm (npm install jspm -g)
-http server : http-server (npm install http-server -g)
-task runner : gulp (npm install gulp -g)
+*********** prerequisite *********** 
+
+package manager : jspm (npm install jspm -g or npm install jspm)
+superstatic : http-server (npm install superstatic -g or npm install superstatic)
+task runner : gulp (npm install gulp)
+
+
+*********** installation ***********
 
 On a new empty directory : 
 
 1) Configure project for jspm :
 jspm init -y
 
-2) Add dependencies :
-jspm install aurelia-bootstrapper aurelia-fetch-client moment
-jspm install text npm:aurelia-bundler --dev
+2) Add mandatory dependencies :
+  mandatory dependencies :
+  jspm install aurelia-bootstrapper aurelia-fetch-client text
 
-3) Customize config.js :
+  mandatory dependencies for production
+  jspm install text
+
+  other dependencies
+  jspm install moment
+
+4) Customize config.js :
 babelOptions: {
     "optional": [
       "es7.decorators",
@@ -26,6 +36,15 @@ paths: {
     "npm:*": "jspm_packages/npm/*"
   }
 
-4) Start the server :
-http-server -p 8090 -c-1
 
+*********** run locally ***********
+
+Start the server : superstatic
+
+
+*********** bundle and deploy ***********
+
+1) add libs for tasks
+npm install gulp gulp-watch del browser-sync aurelia-bundler  --save-dev
+
+2) run gulp serve for local dev, gulp gulp deploy for deployment

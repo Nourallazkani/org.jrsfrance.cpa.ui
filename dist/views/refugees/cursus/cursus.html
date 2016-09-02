@@ -1,0 +1,70 @@
+<template>
+
+  <form class="inline-form" submit.delegate="find()" style="text-align:center">
+    <div class="form-entry">
+      <!--
+          <img src="assets/img/refugee/localisation.svg" style=""/> !-->
+    </div>
+    <div class="form-entry">
+      <label>Ville</label>
+      <div class="input-container">
+        <input type="text" placeholder="Paris, Lyon, 69, 75001..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city"
+        />
+      </div>
+    </div>
+    <div class="form-entry">
+      <label>Niveau</label>
+      <div class="input-container">
+        <select value.bind="filter.levelId">
+            <option value=""></option>
+            <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
+          </select>
+      </div>
+    </div>
+    <div class="form-entry" style="margin: 0px 25px;">
+      <div class="input-container">
+        <button>Rechercher</button>
+      </div>
+    </div>
+    </div>
+  </form>
+
+  <div class="results">
+    <div class="result" repeat.for="r of results">
+      <h1 style="text-align:left"> ${r.item.organisation} </h1>
+      <div class="result-infos-container">
+        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
+          <div> Niveau :<span style="font-size:25px"> ${r.item.level} </span> </div><br/>
+          <div> Ouvert aux inscriptions </div><br/>
+        </div>
+        <div class="result-infos-block inline-block-lg" style="width:500px">
+          <div>
+            <label>Date </label>
+            <p>
+              du ${r.item.startDate} au ${r.item.endDate}<br/>
+              <a href="#">Voir le calendrier des cours</a>
+            </p>
+          </div>
+          <div>
+            <label>
+              Adresse 
+            </label>
+            <p>
+              ${r.item.address.street1}<br/> 
+              ${r.item.address.street2}<br if.bind="r.item.address.street2 != null " /> 
+              ${r.item.address.zipcode}, ${r.item.address.city}<br/> 
+              <a href="#">Itineraire</a>
+            </p>
+          </div>
+          <div>
+            <label>Contact </label>
+            <p>
+              ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
+              <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

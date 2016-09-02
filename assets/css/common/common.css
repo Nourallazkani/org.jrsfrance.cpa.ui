@@ -2,7 +2,6 @@
 contains global and reusable styles
 */
 
-/* Nour's code */
 @font-face{font-family: Archer; src: url(/assets/fonts/Archer/Archer-Medium-Pro.otf)}
 @font-face{font-family: ArcherBold;src: url(/assets/fonts/Archer/Archer-Bold-Pro.otf)}
 @font-face{font-family: Cavorting;src: url(/assets/fonts/Cavorting.otf)}
@@ -29,6 +28,11 @@ body {
 
 a{
     cursor: pointer
+}
+
+input[place-autocomplete] {
+    width:200px;
+    text-overflow: ellipsis
 }
 
 button{

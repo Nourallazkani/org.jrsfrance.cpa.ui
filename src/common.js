@@ -20,10 +20,44 @@ export class UserDetails {
         }
     }
 
+
+    get address() {
+        let _address = localStorage.getItem("address");
+        return _address ? JSON.parse(_address) : null;
+    }
+
+    set address(value) {
+        if (value) {
+            localStorage.setItem("address", JSON.stringify(value));
+        }
+        else {
+            localStorage.removeItem("address");
+        }
+    }
+
     accessKey;
     account;
 }
-
+export function getUri(path, params) {
+    if (!params) {
+        return path
+    }
+    else {
+        var paramsAsArray = []
+        for (let p in params) {
+            let value = params[p]
+            if (value) {
+                paramsAsArray.push(p + "=" + value)
+            }
+        }
+        if (paramsAsArray.length > 0) {
+            return path + "?" + paramsAsArray.join("&")
+        }
+        else {
+            return path;
+        }
+    }
+}
 export class Global {
     getUri(path, params) {
         if (!params) {

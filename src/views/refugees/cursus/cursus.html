@@ -1,5 +1,7 @@
 <template>
 
+  <require from="views/_components/place-autocomplete"></require>
+
   <form class="inline-form" submit.delegate="find()" style="text-align:center">
     <div class="form-entry">
       <!--
@@ -8,8 +10,8 @@
     <div class="form-entry">
       <label>Ville</label>
       <div class="input-container">
-        <input type="text" placeholder="Paris, Lyon, 69, 75001..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'" value.bind="filter.city"
-        />
+        <input type="text" placeholder="Paris, Lyon, 69, 75001..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
+          value.bind="filter.city" />
       </div>
     </div>
     <div class="form-entry">
@@ -29,7 +31,17 @@
     </div>
   </form>
 
-  <div class="results">
+  <div class="results" if.bind="results.length>0">
+    <div style="text-align:right">
+      <form class="inline-form" submit.delegate="sort()">
+        <div class="form-entry">
+          <div class="input-container">
+            <input type="text" placeholder="votre adresse" place-autocomplete />
+            <button>Classer par proximité</button>
+          </div>
+        </div>
+      </form>
+    </div>
     <div class="result" repeat.for="r of results">
       <h1 style="text-align:left"> ${r.item.organisation} </h1>
       <div class="result-infos-container">
@@ -46,21 +58,20 @@
             </p>
           </div>
           <div>
-            <label>
-              Adresse 
-            </label>
-            <p>
-              ${r.item.address.street1}<br/> 
-              ${r.item.address.street2}<br if.bind="r.item.address.street2 != null " /> 
-              ${r.item.address.zipcode}, ${r.item.address.city}<br/> 
-              <a href="#">Itineraire</a>
-            </p>
-          </div>
-          <div>
             <label>Contact </label>
             <p>
               ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
               <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+            </p>
+          </div>
+          <div>
+            <label>
+              Adresse 
+            </label>
+            <p>
+              ${r.item.address.street1}<br/> ${r.item.address.street2}
+              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.zipcode}, ${r.item.address.city}<br/>
+              <a href="#">Itineraire</a>
             </p>
           </div>
         </div>

@@ -9,17 +9,13 @@ export class Index {
     constructor(userDetails, router) {
         this.router = router;
         this.userDetails = userDetails;
-        this.setProfile(null);
+        this.setUserDetails(null);
     }
 
-    setPreferedLanguage(languageKey) {
-        this.userDetails.language = languageKey;
-    }
-
-    setProfile(profile) {
+    setUserDetails(profile, languageKey) {
+        this.userDetails.language = languageKey || "fr";
         this.userDetails.profile = profile;
-
-        if (profile === "R") {
+        if (profile == "R") {
             this.router.navigateToRoute('refugees/index');
         }
     }

@@ -1,14 +1,18 @@
 import {inject} from 'aurelia-framework';
+import {UserDetails} from 'common';
 
-@inject(Element)
+@inject(Element, UserDetails)
 export class PlaceAutocompleteCustomAttribute {
 
     element;
     bounds;
 
-    constructor(element) {
+    constructor(element, userDetails) {
         this.element = element;
-
+        this.userDetails = userDetails;
+        if (this.userDetails.address && this.userDetails.address.formattedAddress){
+            element.value = this.userDetails.address.formattedAddress;
+        }
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 let geolocation = {
@@ -28,7 +32,9 @@ export class PlaceAutocompleteCustomAttribute {
         let autocomplete = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
         autocomplete.addListener('place_changed', () => {
             let place = autocomplete.getPlace();
-            let googleObject = {};
+            console.log(place)
+            let googleObject = { formatted_address: place.formatted_address };
+            console.log(googleObject);
             // extract array elements and map them to object properties.
             place.address_components.forEach(x => {
                 let googlePropertyName = x.types[0];
@@ -39,7 +45,9 @@ export class PlaceAutocompleteCustomAttribute {
 
             // home made object, will be use for API calls.
             var appPlace = {};
+            appPlace.formattedAddress = googleObject.formatted_address;
 
+            console.log(appPlace)
             if (googleObject.street_number || googleObject.route) {
                 appPlace.street1 = googleObject.street_number ? googleObject.street_number + " " + googleObject.route : googleObject.route;
             }
@@ -51,9 +59,8 @@ export class PlaceAutocompleteCustomAttribute {
 
             appPlace.lat = googleObject.lat
             appPlace.lng = googleObject.lng;
-            
-            this.appPlace = appPlace;
-            console.log(appPlace);
+
+            this.userDetails.address = appPlace;
         });
     }
 }

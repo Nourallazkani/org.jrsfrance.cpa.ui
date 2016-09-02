@@ -1,22 +1,28 @@
 
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
-import {Global} from 'common'
+import {UserDetails, getUri} from 'common'
 
-@inject(HttpClient, Global)
+
+@inject(HttpClient, UserDetails)
 export class Cursus {
-
-  results = []
+  
   filter = {}
-  constructor(fetchClient, global) {
+  results = []
+
+  constructor(fetchClient, userDetails) {
     this.fetchClient = fetchClient
-    this.global = global;
+    this.userDetails = userDetails;
   }
 
   find() {
     this.fetchClient
-      .fetch(this.global.getUri("cursus", this.filter))
+      .fetch(getUri("cursus", this.filter))
       .then(response => response.json())
       .then(json => this.results = json)
+  }
+
+  sort(){
+    console.log(this.userDetails.address);
   }
 }

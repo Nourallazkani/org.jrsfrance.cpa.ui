@@ -62,7 +62,6 @@ export class App {
 
     config.map([
       { route: ['', 'home'], name: 'home', moduleId: './views/home', nav: true, title: 'Home' },
-      { route: ['map'], name: 'map', moduleId: './views/map', nav: true, title: 'Map' },
       { route: ['about'], name: 'about', moduleId: './views/about', nav: true, title: 'About' },
       { route: 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' },
       { route: 'organisations', name: 'organisations/index', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }

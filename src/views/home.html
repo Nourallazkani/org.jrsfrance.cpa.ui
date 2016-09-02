@@ -16,7 +16,7 @@
         <div class="nav-container" if.bind="userDetails.language!=null">
             <figure class="nav-volunteer-image ${userDetails.profile=='V' ? 'nav-volunteer-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='V'">
                 <a click.delegate="setProfile('V')">
-                    <img src="/assets/img/home/je_suis_benevole.png" />
+                    <img src="/assets/img/home/profile-volunteer.png" />
                 </a>
                 <figcaption> je suis b&eacute;n&eacute;vole</figcaption>
             </figure>
@@ -48,7 +48,7 @@
             </div>
             <figure class="nav-refugee-image" if.bind="userDetails.profile==null || userDetails.profile=='R'">
                 <a click.delegate="setProfile('R')">
-                    <img src="/assets/img/home/je_suis_refugie.png" />
+                    <img src="/assets/img/home/profile-refugee.png" />
                 </a>
                 <figcaption> je suis r&eacute;fugi&eacute </figcaption>
             </figure>
@@ -81,7 +81,8 @@
             </div>
             <figure class="nav-organisation-image ${userDetails.profile=='O' ? 'nav-organisation-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='O'">
                 <a click.delegate="setProfile('O')">
-                    <img src="/assets/img/home/je_suis_institution.png" /> </a>
+                    <img src="/assets/img/home/profile-organisation.png" /> 
+                </a>
                 <figcaption> je repr&eacute;sente une institution </figcaption>
             </figure>
 

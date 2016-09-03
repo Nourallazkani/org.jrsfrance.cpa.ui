@@ -1,4 +1,8 @@
 export class UserDetails {
+
+    accessKey;
+    account;
+
     get language() {
         return localStorage.getItem("language");
     }
@@ -34,9 +38,6 @@ export class UserDetails {
             localStorage.removeItem("address");
         }
     }
-
-    accessKey;
-    account;
 }
 export function getUri(path, params) {
     if (!params) {
@@ -57,26 +58,11 @@ export function getUri(path, params) {
             return path;
         }
     }
-}
-export class Global {
-    getUri(path, params) {
-        if (!params) {
-            return path
-        }
-        else {
-            var paramsAsArray = []
-            for (let p in params) {
-                let value = params[p]
-                if (value) {
-                    paramsAsArray.push(p + "=" + value)
-                }
-            }
-            if (paramsAsArray.length > 0) {
-                return path + "?" + paramsAsArray.join("&")
-            }
-            else {
-                return path;
-            }
-        }
-    }
+};
+
+
+export function addDistance(element){
+    return {
+        item:element
+    };
 }

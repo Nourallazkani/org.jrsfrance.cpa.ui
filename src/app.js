@@ -2,15 +2,16 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
-import {Global, UserDetails} from 'common'
+import {UserDetails} from 'common'
 
-@inject(HttpClient, Global, UserDetails, Router)
+@inject(HttpClient, UserDetails, Router)
 export class App {
 
-  constructor(httpClient, global, userDetails, router) {
+  referenceData;
+  
+  constructor(httpClient, userDetails, router) {
 
     this.httpClient = httpClient;
-    this.global = global;
     this.userDetails = userDetails;
 
     this.httpClient.configure(config => {
@@ -38,7 +39,7 @@ export class App {
         });
     })
 
-    this.httpClient.fetch("referenceData").then(x => x.json()).then(x => global.referenceData = x)
+    this.httpClient.fetch("referenceData").then(x => x.json()).then(x => this.referenceData = x)
 
     if (localStorage.getItem("accessKey") != null) {
       // auto sign in

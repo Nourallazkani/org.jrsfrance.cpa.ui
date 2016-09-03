@@ -19,7 +19,7 @@
       <div class="input-container">
         <select value.bind="filter.levelId">
             <option value=""></option>
-            <option repeat.for="x of global.referenceData.levels" value.bind="x.id">${x.name}</option>
+            <option repeat.for="x of referenceData.levels" value.bind="x.id">${x.name}</option>
           </select>
       </div>
     </div>

@@ -43,7 +43,15 @@
       </form>
     </div>
     <div class="result" repeat.for="r of results">
-      <h1 style="text-align:left"> ${r.item.organisation} </h1>
+      <div>
+        <div style="display:inline-block;text-align:left;width:80%">
+          <h1> ${r.item.organisation}</h1>
+        </div>
+        <div style="display:inline-block;text-align:right;width:20%">
+          <h1 if.bind="r.distance">${r.distance} km</h1>
+        </div>
+      </div>
+
       <div class="result-infos-container">
         <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
           <div> Niveau :<span style="font-size:25px"> ${r.item.level} </span> </div><br/>

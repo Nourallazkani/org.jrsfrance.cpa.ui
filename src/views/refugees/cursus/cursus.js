@@ -1,7 +1,7 @@
 
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
-import {UserDetails, getUri, addDistance} from 'common'
+import {UserDetails, getUri, getDistance} from 'common'
 
 
 @inject(HttpClient, UserDetails)
@@ -16,14 +16,17 @@ export class Cursus {
   }
 
   find() {
-    console.log("xx")
     this.fetchClient
       .fetch(getUri("cursus", this.filter))
       .then(response => response.json())
-      .then(json => this.results = json.map(addDistance))
+      .then(json => json.map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) })))
+      .then(results => this.results = results);
   }
 
   sort() {
-    console.log(this.userDetails.address);
+    if (this.userDetails.address) {
+      this.results.forEach(x => x.distance = getDistance(x.item.address, this.userDetails.address));
+      this.results = this.results.sort((x, y) => x.distance - y.distance);
+    }
   }
 }

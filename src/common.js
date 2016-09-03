@@ -60,9 +60,35 @@ export function getUri(path, params) {
     }
 };
 
+if (typeof (Number.prototype.toRad) === "undefined") {
+    Number.prototype.toRad = function () {
+        return this * Math.PI / 180;
+    }
+}
 
-export function addDistance(element){
-    return {
-        item:element
-    };
+export function getDistance(from, to) {
+    if (!(from && to && from.lat && from.lat && to.lng && to.lng)) {
+        return null;
+    }
+
+    var lat1 = from.lat;
+    var lng1 = from.lng;
+    var lat2 = to.lat;
+    var lng2 = to.lng;
+
+    var R = 6371e3; // metres
+    var φ1 = lat1.toRad();
+    var φ2 = lat2.toRad();
+    var Δφ = (lat2 - lat1).toRad();
+    var Δλ = (lng2 - lng1).toRad();
+
+    var a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    var dM = R * c;
+    var dKm = (R * c) / 1000;
+
+    return Math.round(dKm * 100) / 100;
 }

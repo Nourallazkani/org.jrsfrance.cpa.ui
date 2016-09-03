@@ -10,7 +10,7 @@ export class PlaceAutocompleteCustomAttribute {
     constructor(element, userDetails) {
         this.element = element;
         this.userDetails = userDetails;
-        if (this.userDetails.address && this.userDetails.address.formattedAddress){
+        if (this.userDetails.address && this.userDetails.address.formattedAddress) {
             element.value = this.userDetails.address.formattedAddress;
         }
         if (navigator.geolocation) {
@@ -32,9 +32,8 @@ export class PlaceAutocompleteCustomAttribute {
         let autocomplete = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
         autocomplete.addListener('place_changed', () => {
             let place = autocomplete.getPlace();
-            console.log(place)
-            let googleObject = { formatted_address: place.formatted_address };
-            console.log(googleObject);
+            let googleObject = { formatted_address: place.formatted_address, placeId: place.place_id };
+
             // extract array elements and map them to object properties.
             place.address_components.forEach(x => {
                 let googlePropertyName = x.types[0];
@@ -47,7 +46,7 @@ export class PlaceAutocompleteCustomAttribute {
             var appPlace = {};
             appPlace.formattedAddress = googleObject.formatted_address;
 
-            console.log(appPlace)
+            
             if (googleObject.street_number || googleObject.route) {
                 appPlace.street1 = googleObject.street_number ? googleObject.street_number + " " + googleObject.route : googleObject.route;
             }
@@ -56,9 +55,10 @@ export class PlaceAutocompleteCustomAttribute {
             }
             appPlace.locality = googleObject.locality;
             appPlace.country = googleObject.country;
-
+            
             appPlace.lat = googleObject.lat
             appPlace.lng = googleObject.lng;
+            appPlace.googleMapId = googleObject.placeId;
 
             this.userDetails.address = appPlace;
         });

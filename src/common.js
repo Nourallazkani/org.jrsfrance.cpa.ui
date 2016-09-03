@@ -40,6 +40,7 @@ export class UserDetails {
     }
 }
 export function getUri(path, params) {
+    console.log(params)
     if (!params) {
         return path
     }
@@ -47,7 +48,7 @@ export function getUri(path, params) {
         var paramsAsArray = []
         for (let p in params) {
             let value = params[p]
-            if (value) {
+            if (value!=null) {
                 paramsAsArray.push(p + "=" + value)
             }
         }

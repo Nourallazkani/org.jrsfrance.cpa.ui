@@ -17,6 +17,10 @@
     white-space: nowrap;
 }
 
+.result .result-header > div {
+    display:inline-block;
+}
+
 .result > .result-infos-container{
     font-size: 17px;
     background-color: #ccc;
@@ -31,7 +35,6 @@
 .result > .result-infos-container > .result-image-block{
     width:500px;
     height:250px;
-    padding-top:20px;
 }
 
 .result > .result-infos-container > .result-image-block > div{

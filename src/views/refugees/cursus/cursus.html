@@ -1,6 +1,7 @@
 <template>
 
   <require from="views/_components/place-autocomplete"></require>
+  <require from="views/_formatters/date-format"></require>
 
   <form class="inline-form" submit.delegate="find()" style="text-align:center">
     <div class="form-entry">
@@ -10,8 +11,12 @@
     <div class="form-entry">
       <label>Ville</label>
       <div class="input-container">
-        <input type="text" placeholder="Paris, Lyon, 69, 75001..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ex:Paris'"
-          value.bind="filter.city" />
+        <select value.bind="filter.city">
+            <option value=""></option>
+            <option>Paris</option>
+            <option>Lyon</option>
+            <option>Marseille</option>
+        </select>
       </div>
     </div>
     <div class="form-entry">
@@ -20,7 +25,7 @@
         <select value.bind="filter.levelId">
             <option value=""></option>
             <option repeat.for="x of referenceData.levels" value.bind="x.id">${x.name}</option>
-          </select>
+        </select>
       </div>
     </div>
     <div class="form-entry" style="margin: 0px 25px;">
@@ -36,32 +41,41 @@
       <form class="inline-form" submit.delegate="sort()">
         <div class="form-entry">
           <div class="input-container">
-            <input type="text" placeholder="votre adresse" place-autocomplete />
+            <input type="text" placeholder="Votre adresse" place-autocomplete />
             <button>Classer par proximité</button>
           </div>
         </div>
       </form>
     </div>
     <div class="result" repeat.for="r of results">
-      <div>
-        <div style="display:inline-block;text-align:left;width:80%">
+      <div class="result-header">
+        <div style="text-align:left;width:80%">
           <h1> ${r.item.organisation}</h1>
         </div>
-        <div style="display:inline-block;text-align:right;width:20%">
+        <div style="text-align:right;width:20%">
           <h1 if.bind="r.distance">${r.distance} km</h1>
         </div>
       </div>
 
       <div class="result-infos-container">
         <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
-          <div> Niveau :<span style="font-size:25px"> ${r.item.level} </span> </div><br/>
-          <div> Ouvert aux inscriptions </div><br/>
+          <div if.bind="moment(r.item.registrationStartDate).diff()>0">
+            Ouverture des inscriptions le ${r.item.registrationStartDate | myDateFormat:'DD/MM'}
+          </div>
+          <div if.bind="moment(r.item.registrationStartDate).diff()<0">
+            Ouvert aux inscriptions
+          </div>
+          <br/>
+
+          <div> Niveau : ${r.item.level}</div><br/>
+
+
         </div>
         <div class="result-infos-block inline-block-lg" style="width:500px">
           <div>
             <label>Date </label>
             <p>
-              du ${r.item.startDate} au ${r.item.endDate}<br/>
+              du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}<br/>
               <a href="#">Voir le calendrier des cours</a>
             </p>
           </div>
@@ -79,7 +93,7 @@
             <p>
               ${r.item.address.street1}<br/> ${r.item.address.street2}
               <br if.bind="r.item.address.street2 != null " /> ${r.item.address.zipcode}, ${r.item.address.city}<br/>
-              <a href="#">Itineraire</a>
+              <a click.delegate="viewItinerary(r.item.address)">Itineraire</a> | <a click.delegate="viewLocation(r.item.address)">Carte</a>
             </p>
           </div>
         </div>

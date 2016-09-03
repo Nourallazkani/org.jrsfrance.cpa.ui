@@ -1,5 +1,6 @@
 
 import {inject} from 'aurelia-framework';
+import moment from 'moment';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {UserDetails} from 'common'
@@ -8,9 +9,11 @@ import {UserDetails} from 'common'
 export class App {
 
   referenceData;
-  
-  constructor(httpClient, userDetails, router) {
 
+  constructor(httpClient, userDetails, router) {
+    this.moment = moment;
+    this.moment.isFuture = () => true;
+    this.moment.isPast = () => true;
     this.httpClient = httpClient;
     this.userDetails = userDetails;
 

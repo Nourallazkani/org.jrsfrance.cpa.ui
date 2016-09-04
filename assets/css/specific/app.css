@@ -48,3 +48,14 @@
     margin: 0px 10px;
     padding: 5px 10px;
 }
+
+.footer{
+    position:fixed;
+    height:50px;
+    background-color: black;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
+    color:white;
+}

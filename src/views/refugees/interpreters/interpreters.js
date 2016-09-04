@@ -1,32 +1,31 @@
 
-import {inject} from 'aurelia-framework';
-import moment from 'moment';
-import {HttpClient} from 'aurelia-fetch-client';
-import {UserDetails, getUri, getDistance} from 'common'
+import {getUri, getDistance, UserDetails} from 'common'
 
+import {inject} from 'aurelia-framework';
+import {HttpClient} from 'aurelia-fetch-client';
 
 @inject(HttpClient, UserDetails)
-export class LanguagePrograms {
+export class Interpreters {
 
-  filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true }
   results = []
+  filter = {}
 
   constructor(fetchClient, userDetails) {
-    this.fetchClient = fetchClient
+    this.fetchClient = fetchClient;
     this.userDetails = userDetails;
     this.find();
   }
 
   find() {
     this.fetchClient
-      .fetch(getUri("learnings/language-programs", this.filter))
+      .fetch(getUri("volunteers", this.filter))
       .then(response => response.json())
       .then(json => json
         .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))
-        .sort((x, y) => moment(x.item.startDate) - moment(y.item.startDate))
       )
-      .then(results => this.results = results);
+      .then(results => { this.results = results; console.log(JSON.stringify(results, null, 2)) });
   }
+
 
   sortByDistance() {
     if (this.userDetails.address) {

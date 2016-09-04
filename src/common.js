@@ -48,7 +48,7 @@ export function getUri(path, params) {
         var paramsAsArray = []
         for (let p in params) {
             let value = params[p]
-            if (value!=null) {
+            if (value != null) {
                 paramsAsArray.push(p + "=" + value)
             }
         }
@@ -65,6 +65,15 @@ if (typeof (Number.prototype.toRad) === "undefined") {
     Number.prototype.toRad = function () {
         return this * Math.PI / 180;
     }
+}
+export function viewLocation(address) {
+    let url = `https://www.google.com/maps/place/${address.lat},${address.lng}`;
+    window.open(url, 'map', "width=1200,height=600");
+};
+
+export function viewItinerary(address1, address2) {
+    let url = `https://www.google.com/maps/dir/${address1.lat},${address1.lng}/${address2.lat},${address2.lng}`;
+    window.open(url, 'map', "width=1200,height=600");
 }
 
 export function getDistance(from, to) {

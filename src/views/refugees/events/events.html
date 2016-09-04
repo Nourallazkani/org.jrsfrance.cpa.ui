@@ -1,34 +1,4 @@
 <template>
 
-  <form submit.delegate="find()">
-    <input type="text" value.bind="filter.city" />
-    <button>Rechercher</button>
-  </form>
-
-  <hr/>
-
-  <require from="views/_formatters/date-format"></require>
-
-  <table if.bind="results.length>0">
-    <thead>
-      <tr>
-        <td>sujet</td>
-        <td>description</td>
-        <td>organisateur</td>
-        <td>date</td>
-        <td>contact</td>
-        <td>adresse</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr repeat.for="r of results">
-        <td>${r.subject}</td>
-        <td>${r.description}</td>
-        <td>${r.organizedBy}</td>
-        <td>${r.startDate | myDateFormat:'YYYY'} ${r.endDate}</td>
-        <td>contact</td>
-        <td>adresse</td>
-      </tr>
-    </tbody>
-  </table>
+  events search form + events list
 </template>

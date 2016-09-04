@@ -6,7 +6,7 @@ import {UserDetails, getUri, getDistance} from 'common'
 
 
 @inject(HttpClient, UserDetails)
-export class LanguagePrograms {
+export class ProfessionalPrograms {
 
   filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true }
   results = []
@@ -19,7 +19,7 @@ export class LanguagePrograms {
 
   find() {
     this.fetchClient
-      .fetch(getUri("learnings/language-programs", this.filter))
+      .fetch(getUri("learnings/professional-programs", this.filter))
       .then(response => response.json())
       .then(json => json
         .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))

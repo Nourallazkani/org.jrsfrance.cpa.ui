@@ -6,7 +6,7 @@ import {UserDetails, getUri, getDistance} from 'common'
 
 
 @inject(HttpClient, UserDetails)
-export class LanguagePrograms {
+export class ProfessionalPrograms {
 
   filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true }
   results = []
@@ -21,17 +21,6 @@ export class LanguagePrograms {
     this.fetchClient
       .fetch(getUri("learnings/language-programs", this.filter))
       .then(response => response.json())
-      .then(json => json
-        .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))
-        .sort((x, y) => moment(x.item.startDate) - moment(y.item.startDate))
-      )
-      .then(results => this.results = results);
-  }
-
-  sortByDistance() {
-    if (this.userDetails.address) {
-      this.results.forEach(x => x.distance = getDistance(x.item.address, this.userDetails.address));
-      this.results = this.results.sort((x, y) => x.distance - y.distance);
-    }
+      .then(results => { this.results = results; console.log(JSON.stringify(results, null, 2)) });
   }
 }

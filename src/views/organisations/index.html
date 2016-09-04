@@ -1,54 +1,40 @@
+
 <template>
 
-<!--
-  <div class="containerId">
-    <div class="containerIdPhoto">
-      <div class="idPhoto">
-        <div class="changePhoto">
-          <p> <a href="#">Changer votre Photo </a> </p>
-        </div>
-      </div>
-    </div>
-    <p class="idStatus"> Je suis r&eacute;fugi&eacute;/ demandeur d'asile </p>
-    <div class="idCalendar"> <img id="smallCalenderIcone" src="assets/img/refugee/icon-calendar.svg" />
-      <p> Retourner a
-        <a href="#"> mon calendrier <img id="arrowRight" src="assets/img/common/arrow.svg" /></a>
-      </p>
-    </div>
-  </div>
--->
+  <require from="/assets/css/specific/refugee-index.css"></require>
+
   <div id="menu" class="refugee-menu" >
 
-    <figure id="menu-item-teachings">
-      <a route-href="route: organisations/cursus">
-        <img src="/assets/img/refugee/icon-teaching.svg"/>
+       <figure id="menu-item-teachings">
+      <a route-href="route: organisations/teachings">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-teaching.svg"/>
       </a>
       <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
     </figure>
     
-    <figure id="menu-item-cursus">
-      <a route-href="route: organisations/cursus" onclick="scrollToElement('menu')">
-        <img src="/assets/img/refugee/icon-cursus.svg" />
+    <figure id="menu-item-language-programs">
+      <a route-href="route: organisations/language-programs" onclick="scrollToElement('menu')">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-language-program.svg" />
       </a>
-      <figcaption> Cursus d'apprentissage </figcaption>
+      <figcaption>Apprentissage du français</figcaption>
     </figure>
-    <figure id="menu-item-professional-trainings">
-      <a href="#"> 
-        <img src="/assets/img/refugee/formations professionnelles-seul.svg" />
+    <figure id="menu-item-professional-programs">
+      <a route-href="route: organisations/professional-programs"> 
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-professional-program.svg" />
       </a>
       <figcaption> Formation professionelle </figcaption>
     </figure>
     <figure id="menu-item-workshops">
-      <a route-href="route: organisations/cursus"> 
-        <img src="/assets/img/refugee/icon-workshop.svg" />
+      <a route-href="route: organisations/workshops"> 
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-workshop.svg" />
       </a>
       <figcaption> Ateliers sociaux linguistiques </figcaption>
     </figure>
     <figure id="menu-item-events">
-      <a route-href="route: organisations/cursus"> 
-        <img src="/assets/img/refugee/icon-date.svg" />
+      <a route-href="route: organisations/events"> 
+        <img class="size-150-lg size-100-md"  src="/assets/img/menu/icon-event.svg" />
       </a>
-      <figcaption> &Eacute;v&egrave;nements </figcaption>
+      <figcaption  > &Eacute;v&egrave;nements </figcaption>
     </figure>
 
   </div>
@@ -57,9 +43,5 @@
 
   <router-view></router-view>
 
-  <div class="index" if.bind="router.history.fragment=='/Refugees'">
-    <img src="assets/img/common/arrow.svg" class="common-arrow-top" />
-    <p> Veuillez choisir un domaine de recherche </p>
-  </div>
   
 </template>

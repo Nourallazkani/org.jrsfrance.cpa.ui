@@ -21,10 +21,6 @@ export class Events {
         this.fetchClient
             .fetch(getUri("events", this.filter))
             .then(response => response.json())
-            .then(json => json
-                .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))
-                .sort((x, y) => moment(x.item.startDate) - moment(y.item.startDate))
-            )
             .then(results => { this.results = results; console.log(JSON.stringify(results, null, 2)) });
     }
 }

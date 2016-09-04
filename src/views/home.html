@@ -4,7 +4,7 @@
     <require from="views/_components/place-autocomplete"></require>
 
     <div class="nav-container">
-        <figure class="nav-volunteer-image ${userDetails.profile=='V' ? 'nav-volunteer-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='V'">
+        <figure class="nav-volunteer ${userDetails.profile=='V' ? 'nav-volunteer-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='V'">
 
             <img src="/assets/img/home/profile-volunteer.png" />
 
@@ -51,90 +51,13 @@
                     <a click.delegate="authz.action=null">< Retour</a>
                 </div>
                 <div style="max-width:700px">
-
-                    <form class="default-form" submit.delegate="processSignUp()" if.bind="authz.outcome==null">
-                        <div class="form-entry">
-                            <label class="width-lg-30">Prénom</label>
-                            <div class="input-container width-lg-70">
-                                <input type="text" value.bind="authz.input.firstnname" autofocus />
-                            </div>
-                        </div>
-                        <div class="form-entry">
-                            <label class="width-lg-30">Nom</label>
-                            <div class="input-container width-lg-70">
-                                <input type="text" value.bind="authz.input.lastname" />
-                            </div>
-                        </div>
-                        <div class="form-entry">
-                            <label class="width-lg-30">Adresse mail</label>
-                            <div class="input-container width-lg-70">
-                                <input type="text" value.bind="authz.input.mailAddress" />
-                            </div>
-                        </div>
-                        <div class="form-entry">
-                            <label class="width-lg-30">Mot de passe</label>
-                            <div class="inputs-container width-lg-70" style="white-space:nowrap">
-                                <input type="password" value.bind="authz.input.password" style="width:50%" />
-                                <input type="password" value.bind="authz.input.password" style="width:49%" />
-                            </div>
-                        </div>
-                        <div class="form-entry">
-                            <label class="width-lg-30">Ville ou code postal</label>
-                            <div class="input-container width-lg-70">
-                                <input type="text" place-autocomplete="target.bind : authz.input" />
-                            </div>
-                        </div>
-                        
-                        <div class="form-entry">
-                            <label class="width-lg-30">Je propose</label>
-                            <div class="input-container width-lg-30">
-                                <input type="checkbox" checked.bind="a" />Soutien <br/>
-                                <input type="checkbox" checked.bind="b" />Interprétariat 
-                            </div>
-                            <div class="input-container width-lg-30">
-                                <input type="checkbox" checked.bind="c" />Répétition <br/>
-                                <input type="checkbox" checked.bind="d" />Activités culturelles
-                            </div>
-                        </div>      
-                        <div class="form-entry" if.bind="a">
-                            <label class="width-lg-30">Soutien</label>
-                            <div class="input-container width-lg-70">
-                                <input type="text" placeholder="Domaines maitrisés" />
-                            </div>
-                        </div>
-                        <div class="form-entry" if.bind="b">
-                            <label class="width-lg-30">Interprétariat</label>
-                            <div class="input-container width-lg-70">
-                                <input type="text" placeholder="Langues maitrisées en plus de français" />
-                            </div>
-                        </div>                        
-                        <div class="form-entry" if.bind="d">
-                            <label class="width-lg-30">Activités culturelles</label>
-                            <div class="input-container width-lg-70">
-                                <input type="text" placeholder="Théatre, visites, sports, randonnées..."/>
-                            </div>
-                        </div>                                                                                      
-                        <div class="form-entry">
-                            <div class="input-container width-lg-70 offset-lg-30">
-                                <button>Inscription</button>
-                            </div>
-                        </div>
-                    </form>
-                    <div if.bind="authz.outcome=='ok'" style="text-align:center">
-                        welcome !
-                    </div>
-                    <div if.bind="authz.outcome=='failure'" style="text-align:center">
-                        <div class="red-alert" style="margin-bottom:25px">L'inscription a échoué a échouée.</div>
-                        Voulez vous :
-                        <ul style="text-align:left">
-                            <li style="margin:20px auto"><a click.delegate="retrySignUp()">Réessayer avec une autre adresse mail</a></li>
-                        </ul>
-                    </div>
+                    <compose view="./volunteers/sign-up.html"></compose>
+                    
                 </div>
             </div>
 
         </div>
-        <figure class="nav-refugee-image" if.bind="userDetails.profile==null || userDetails.profile=='R'">
+        <figure class="nav-refugee" if.bind="userDetails.profile==null || userDetails.profile=='R'">
 
             <img src="/assets/img/home/profile-refugee.png" />
 
@@ -180,7 +103,7 @@
                 <compose view="./_components/sign-in.html"></compose>
             </div>
         </div>
-        <figure class="nav-organisation-image ${userDetails.profile=='O' ? 'nav-organisation-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='O'">
+        <figure class="nav-organisation ${userDetails.profile=='O' ? 'nav-organisation-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='O'">
 
             <img src="/assets/img/home/profile-organisation.png" />
 

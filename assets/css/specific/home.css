@@ -6,29 +6,29 @@
     margin-bottom:50px;
 }
 
-.nav-volunteer-image , .nav-refugee-image , .nav-organisation-image {
+.nav-volunteer , .nav-refugee , .nav-organisation {
     position:absolute;
     width:33%;
     text-align: center
 }
-.nav-volunteer-image {
+.nav-volunteer {
     left:0px;
     padding-right:25px;
 }
 
-.nav-refugee-image{
+.nav-refugee{
     left:33%;    
 }
 
-.nav-organisation-image{
+.nav-organisation{
     right:0px;
     padding-left:25px;
 }
 
-.nav-volunteer-image, .nav-organisation-image, .nav-refugee-image{
+.nav-volunteer, .nav-organisation, .nav-refugee{
     margin:0px;
 }
-.nav-volunteer-image > figcaption, .nav-organisation-image > figcaption, .nav-refugee-image > figcaption{
+.nav-volunteer > figcaption, .nav-organisation > figcaption, .nav-refugee > figcaption{
     text-align: center;
     font-family: Cavorting;
     color: #4D4D4D;
@@ -36,7 +36,7 @@
     margin-top: 40px;
 }
 
-.nav-volunteer-image img, .nav-organisation-image img, .nav-refugee-image img{
+.nav-volunteer img, .nav-organisation img, .nav-refugee img{
     height: 250 px;
     width: 250px;
     border-radius: 100%;
@@ -47,22 +47,28 @@
     transition: all 0.5s;
 }
 
-.nav-volunteer-image img{
+.nav-volunteer img{
     border-color: #F4B821;    
 }
 
-.nav-organisation-image img{
+.nav-organisation img{
     border-color: #F21C4F;    
 }
 
-.nav-refugee-image img{
+.nav-refugee img{
     border-color: #0FC6C6;   
 }
 
-.nav-volunteer-image img:hover, .nav-volunteer-image-active img, 
-.nav-organisation-image img:hover, .nav-organisation-image-active img,
-.nav-refugee-image img:hover{
+.nav-volunteer-active img, .nav-organisation-active img {
     border-width: 35px;
+}
+
+.nav-container figcaption  a {
+    transition:all 0.3s linear
+}
+
+.nav-container figcaption  a:hover, .nav-volunteer-active a, .nav-organisation-active a {
+    font-size: larger;
 }
 
 .nav-volunteer-text, .nav-organisation-text {

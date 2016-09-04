@@ -1,160 +1,49 @@
-.containerLaSituation {
-    background-color: #F4B821;
-    height: 576.844px;
-    width: inherit;
-    text-align: center;
-}
-.sideText{
-    width: 53.7%;
-    display:inline-block;
-    text-align: center;
-    
-}
-.sideParagraph{
+
+.about-container {
     font-family: Abadi;
     font-size: 20pt;
 }
-#laSituationParagraph{
-    padding : 0px 120px 0px 120px;
-    margin-top: 0px;
-    text-align: left;
+
+.about-block{
+    width: 100%;
+    height: 600px;
+    white-space: nowrap;
+    display: flex
 }
-#AbadiBold {
+.image-block{
+    overflow: hidden;
+    height: inherit;
+    vertical-align: top;
+    
+    width :45%;
+}
+
+.bg-yellow{
+    background-color: #F4B821;
+}
+.bg-blue{
+    background-color: #0FC6C6;
+}
+.bg-rose{
+    background-color: #ED4C7B;
+}
+
+.text-block {
+    padding: 20px 100px 0px 100px;
+    height: inherit;
+    box-sizing: border-box;
+    white-space: initial;
+    
+    width :55%;
+}
+.text-block > b{
     font-family: AbadiBold;
 }
-.sideImg {
-    width: 46.3%;
-    height: 576.844px;
-    
-}
-#left{
-    float: left;
-}
-#right{
-    float: right;
-}
-.sideHeader{
+
+.about-block  h1 {
     font-family: Cavorting ;
-    margin: 0px auto;
     font-size: 100pt;
     font-weight: normal;
-}
-#laSituation{
-    position: relative;
-    z-index: 3;
-    bottom: 85px;
-    transform: rotate(-3deg);
-}
-.containerNosAction {
-    background-color: #0FC6C6;
-    height: 576.844px;
-    width: inherit;
-}
-#nosActions{
-    transform: rotate(-3deg);
-}
-#nosActionsParagraph{
-    text-align: left;
-    padding: 0px 150px 0px 150px;
-}
-.containerNotreObjectif{
-    background-color: #ffffff;
-    height: 576.844px;
-    width: inherit;
     text-align: center;
-}
-.containerNotreObjectif p {
-    display: inline-block;
-    padding: 20px; 
-    width: 40%;
-    text-align: left;
-}
-#notreObjectifParagraph{
-    padding-top: 0px;
-    margin-top: 0px;
-}
-
-
-.containerNosMoyens {
-    background-color: #F4B821;
-    height: 576.844px;
-    width: inherit;
-    text-align: center;
-}
-#nosMoyens{
-    position: relative;
-    z-index: 3;
-    bottom: 85px;
-    transform: rotate(-3deg);
-}
-#nosMoyensParagraph{
-    padding: 0px 100px 40px 100px;
-    margin-top: 0px;
-    text-align: left;
-}
-.containerRejoignezNous {
-    background-color: #ED4C7B;
-    height: 576.844px;
-    width: inherit;
-    text-align: center;
-}
-#RejoignezNousParagraph{
-    padding: 20px 100px 00px 100px;
-    text-align: left;
-}
-.partners{
-    background-color: white;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 10px;    
-    margin: auto;
-}
-.partners img{
-    padding: 0px 10px;
-    width: 100px;
-    height: 100px;
-}
-.footer{
-    width: inherit;
-    font-size: 25px;
-    background-color: #333333;
-    text-align: center;
-    height: 80px;
-    vertical-align: 50%;
-    padding-top: 40px;
-    color: gray;
-}
-.footer a{
-    text-decoration: initial;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-
-
-.typeIcon{
-    height: 150px;
-    width: 150px;
-}
-
-.index{
-    text-align: center;  
-}
-.index p{
-    font-family: Cavorting;
-    font-size: 80px;
-    color: #4D4D4D;
-    margin: 10px auto 60px auto;
-}
-/*
-.index img{
-    display: block;
-    margin: 10px auto 10px auto;
-    height: 40px;
-    width: 40px;
-    transform: rotate(-90deg);
-}*/
-
-
-#volunteerDemain{
-    width: 250px;
+    margin: 0px auto 30px auto;
 }

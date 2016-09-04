@@ -14,7 +14,6 @@ export class Cursus {
   constructor(fetchClient, userDetails) {
     this.fetchClient = fetchClient
     this.userDetails = userDetails;
-    console.log(moment);
   }
 
   find() {
@@ -41,8 +40,8 @@ export class Cursus {
     window.open(url, 'map', "width=1200,height=600");
   }
 
-  viewItinerary(address) {
-    let url = `https://www.google.com/maps/dir/${this.userDetails.address.lat},${this.userDetails.address.lng}/${address.lat},${address.lng}`;
+  viewItinerary(address1, address2) {
+    let url = `https://www.google.com/maps/dir/${address1.lat},${address1.lng}/${address2.lat},${address2.lng}`;
     window.open(url, 'map', "width=1200,height=600");
   }
 }

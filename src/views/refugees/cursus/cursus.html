@@ -30,6 +30,7 @@
     </div>
     <div class="form-entry" style="margin: 0px 25px;">
       <div class="input-container">
+        <input type="text" autofocus/>
         <button>Rechercher</button>
       </div>
     </div>
@@ -41,7 +42,11 @@
       <form class="inline-form" submit.delegate="sort()">
         <div class="form-entry">
           <div class="input-container">
-            <input type="text" placeholder="Votre adresse" place-autocomplete />
+            
+            <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
+            <!--
+            <xx target.bind="userDetails"></xx>
+            -->
             <button>Classer par proximité</button>
           </div>
         </div>
@@ -58,25 +63,25 @@
       </div>
 
       <div class="result-infos-container">
-        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
-          <div if.bind="moment(r.item.registrationStartDate).diff()>0">
-            Ouverture des inscriptions le ${r.item.registrationStartDate | myDateFormat:'DD/MM'}
-          </div>
-          <div if.bind="moment(r.item.registrationStartDate).diff()<0">
-            Ouvert aux inscriptions
-          </div>
+        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
+          <span>
+            Cours de français pour études supérieures
+          </span>
           <br/>
-
-          <div> Niveau : ${r.item.level}</div><br/>
-
-
+          <span if.bind="moment(r.item.registrationStartDate).diff()>0">
+            Ouverture des inscriptions le ${r.item.registrationStartDate | myDateFormat:'DD/MM'}
+          </span>
+          <span if.bind="moment(r.item.registrationStartDate).diff()<0">
+            Ouvert aux inscriptions
+          </span>
+          <br/>
+          <span> Niveau : ${r.item.level}</span>
         </div>
         <div class="result-infos-block inline-block-lg" style="width:500px">
           <div>
             <label>Date </label>
             <p>
-              du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}<br/>
-              <a href="#">Voir le calendrier des cours</a>
+              du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
             </p>
           </div>
           <div>
@@ -93,9 +98,26 @@
             <p>
               ${r.item.address.street1}<br/> ${r.item.address.street2}
               <br if.bind="r.item.address.street2 != null " /> ${r.item.address.zipcode}, ${r.item.address.city}<br/>
-              <a click.delegate="viewItinerary(r.item.address)">Itineraire</a> | <a click.delegate="viewLocation(r.item.address)">Carte</a>
+
+              <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">Itineraire</a>
+              <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
+              <a click.delegate="viewLocation(r.item.address)">Carte</a><br/>
             </p>
           </div>
+          <!--
+              <div>
+                <form class="inline-form">
+                  <div class="form-entry">
+                    <div class="input-container">
+                      <input type="text" placeholder="Votre adresse" place-autocomplete />
+                      <button click.delegate="viewItinerary(r.item.address)">Voir l'itinéraire</button>
+                      <button click.delegate="startingPoint=null">Annuler</button>
+                    </div>
+                  </div>
+                </form>
+              </div>-->
+
+
         </div>
       </div>
     </div>

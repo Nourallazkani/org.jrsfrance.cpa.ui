@@ -1,18 +1,14 @@
 import {inject} from 'aurelia-framework';
-import {UserDetails} from 'common';
-
-@inject(Element, UserDetails)
+import {bindable} from 'aurelia-framework'
+@inject(Element)
 export class PlaceAutocompleteCustomAttribute {
 
+    @bindable target;
     element;
     bounds;
 
-    constructor(element, userDetails) {
+    constructor(element) {
         this.element = element;
-        this.userDetails = userDetails;
-        if (this.userDetails.address && this.userDetails.address.formattedAddress) {
-            element.value = this.userDetails.address.formattedAddress;
-        }
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 let geolocation = {
@@ -27,8 +23,11 @@ export class PlaceAutocompleteCustomAttribute {
             });
         }
     }
-
+    
     attached() {
+        if (this.target.address && this.target.address.formattedAddress) {
+            this.element.value = this.target.address.formattedAddress;
+        }
         let autocomplete = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
         autocomplete.addListener('place_changed', () => {
             let place = autocomplete.getPlace();
@@ -46,7 +45,7 @@ export class PlaceAutocompleteCustomAttribute {
             var appPlace = {};
             appPlace.formattedAddress = googleObject.formatted_address;
 
-            
+
             if (googleObject.street_number || googleObject.route) {
                 appPlace.street1 = googleObject.street_number ? googleObject.street_number + " " + googleObject.route : googleObject.route;
             }
@@ -55,12 +54,12 @@ export class PlaceAutocompleteCustomAttribute {
             }
             appPlace.locality = googleObject.locality;
             appPlace.country = googleObject.country;
-            
+
             appPlace.lat = googleObject.lat
             appPlace.lng = googleObject.lng;
             appPlace.googleMapId = googleObject.placeId;
 
-            this.userDetails.address = appPlace;
+            this.target.address = appPlace;
         });
     }
 }

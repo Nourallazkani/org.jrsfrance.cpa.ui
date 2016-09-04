@@ -1,0 +1,63 @@
+<template>
+
+    <div if.bind="authz.action=='sign-in'">    
+        <form class="default-form" submit.delegate="processSignIn()" if.bind="authz.outcome==null">
+            <div class="form-entry">
+                <label class="width-lg-30">Adresse mail</label>
+                <div class="input-container width-lg-70">
+                    <input type="text" value.bind="authz.input.mailAddress" autofocus />
+                </div>
+            </div>
+            <div class="form-entry">
+                <label class="width-lg-30">Mot de passe</label>
+                <div class="input-container width-lg-70">
+                    <input type="password" value.bind="authz.input.password" />
+                </div>
+            </div>
+
+            <div class="form-entry">
+                <label class="width-lg-30">&nbsp;</label>
+                <div class="input-container width-lg-70">
+                    <input type="checkbox" checked.bind="authz.rememberMe" /> se souvenir de moi
+                </div>
+            </div>
+            <div class="form-entry">
+                <div class="input-container width-lg-70 offset-lg-30">
+                    <button>Connexion</button>
+                </div>
+            </div>
+        </form>
+
+        <div if.bind="authz.outcome=='failure'" style="text-align:center">
+            <div class="red-alert" style="margin-bottom:25px">L'authentification a échouée.</div>
+            Voulez vous :
+            <ul style="text-align:left">
+                <li style="margin:20px auto"><a click.delegate="retrySignIn()">Réessayer de vous authentifier</a></li>
+                <li style="margin:20px auto"><a click.delegate="startPasswordRecoveryRequest()">Réinitialiser votre mot de passe</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div if.bind="authz.action=='recover-password'">
+        <div if.bind="authz.outcome==null">
+            <form class="default-form" submit.delegate="processPasswordRecoveryRequest()" if.bind="authz.outcome==null">
+                <div class="form-entry">
+                    <label class="width-lg-20">Adresse mail</label>
+                    <div class="input-container width-lg-80">
+                        <input type="text" value.bind="authz.input.mailAddress" />
+                    </div>
+                </div>
+                <div class="form-entry">
+                    <div class="input-container width-lg-80 offset-lg-20">
+                        <button>Réinitialiser mon mot de passe</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div if.bind="authz.outcome=='accepted'" style="text-align:center">
+            <p>Un mail vous a été envoyé, il contient un lien permettant de réinitialiser votre mot de passe.</p>
+            <button click.delegate="retrySignIn()">Réessayer de m'authentifier</button>
+        </div>
+    </div>
+</template>

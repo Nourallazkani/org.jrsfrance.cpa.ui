@@ -51,7 +51,7 @@ export class App {
       this.authz.input = { accessKey: localStorage.getItem("accessKey") };
       this.processSignIn();
     }
-    else if (false) {
+    else if (false) /*look in the query string */{
       this.authz.silent = true;
       this.authz.action = "sign-in";
       this.authz.input = { accessKey: "" };
@@ -68,6 +68,7 @@ export class App {
       { route: ['', 'home'], name: 'home', moduleId: './views/home', nav: true, title: 'Home' },
       { route: ['about'], name: 'about', moduleId: './views/about', nav: true, title: 'About' },
       { route: 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' },
+      { route: 'volunteers', name: 'volunteers/index', moduleId: './views/volunteers/index', nav: true, title: 'Bénévoles' },
       { route: 'organisations', name: 'organisations/index', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
     ]);
     this.router = router;
@@ -84,14 +85,27 @@ export class App {
 
   authz = { silent: false, input: null, outcome: null };
 
-  // manual sign in
-  startSignIn() {
+  startSignUp() {
+    this.authz.action = "sign-up";
+    this.authz.input = {};
+  }
+  processSignUp() {
+    this.authz.outcome = "ok";
+  }
+
+  retrySignUp() {
+    this.authz.outcome = null;
+    this.authz.input.mailAddress = null;
+  }
+
+  startSignIn(successUrl) {
     this.authz.action = "sign-in";
     this.authz.input = { realm: this.userDetails.profile };
     this.authz.outcome = null;
+    this.authz.successUrl = successUrl;
   }
 
-  processSignIn(routeOnSuccess) {
+  processSignIn() {
     this.httpClient
       .fetch("authz/signIn", { method: "POST", body: json(this.authz.input) })
       .then(x => x.json()).then(account => {
@@ -102,13 +116,19 @@ export class App {
         if (this.authz.rememberMe) {
           localStorage.setItem("accessKey", account.accessKey);
         }
-        if (routeOnSuccess != null) {
-          this.router.navigateToRoute(routeOnSuccess);
+        if (this.authz.successUrl != null) {
+          this.router.navigateToRoute(this.authz.successUrl);
         }
       })
       .catch(err => {
         this.authz.outcome = "failure";
       });
+  }
+
+  retrySignIn() {
+    this.authz.outcome = null;
+    this.authz.action = "sign-in";
+    this.authz.input.password = null;
   }
 
   startPasswordRecoveryRequest() {

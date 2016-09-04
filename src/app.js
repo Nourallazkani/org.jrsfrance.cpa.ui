@@ -43,7 +43,8 @@ export class App {
     })
 
     this.httpClient.fetch("referenceData").then(x => x.json()).then(x => this.referenceData = x)
-
+    //setTimeout(x => this.abcd = "abcd", 2000);
+    //this.abcd="abcd";
     if (localStorage.getItem("accessKey") != null) {
       // auto sign in
       this.authz.silent = true;
@@ -51,7 +52,7 @@ export class App {
       this.authz.input = { accessKey: localStorage.getItem("accessKey") };
       this.processSignIn();
     }
-    else if (false) /*look in the query string */{
+    else if (false) /*look in the query string */ {
       this.authz.silent = true;
       this.authz.action = "sign-in";
       this.authz.input = { accessKey: "" };

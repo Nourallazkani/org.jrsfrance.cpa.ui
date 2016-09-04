@@ -2,7 +2,6 @@
 
     <require from="/assets/css/specific/home.css"></require>
     <require from="views/_components/place-autocomplete"></require>
-    
 
     <div class="nav-container">
         <figure class="nav-volunteer-image ${userDetails.profile=='V' ? 'nav-volunteer-image-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='V'">
@@ -82,7 +81,7 @@
                         <div class="form-entry">
                             <label class="width-lg-30">Ville ou code postal</label>
                             <div class="input-container width-lg-70">
-                                <input type="text" place-autocomplete="target.bind:authz.input" />
+                                <input type="text" place-autocomplete="target.bind : authz.input" />
                             </div>
                         </div>
                         

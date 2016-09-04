@@ -21,8 +21,24 @@
       <div class="modal-dialog-footer"></div>
     </div>
   </div>
-  
   <!-- end sign-in-modal-->
+
+  <!-- sign-up-modal for refugees -->
+  <div class="modal ${userDetails.profile=='R' && authz.action=='sign-up' ? 'modal-visible' : 'modal-hidden'}">
+    <div class="modal-dialog">
+      <div class="modal-dialog-header">
+        <div>Inscription</div>
+        <div>
+          <a click.trigger="cancelSignUp()" class="close"></a>
+        </div>
+      </div>
+      <div class="modal-dialog-body" style="height:200px">
+        <compose view="./views/_components/sign-up.html"></compose>
+      </div>
+      <div class="modal-dialog-footer"></div>
+    </div>
+  </div>
+  <!-- end sign-in-modal-->  
 
   <!-- header -->
 
@@ -45,7 +61,7 @@
     </div>
 
     <div class="menu-items" if.bind="userDetails.account==null && userDetails.profile=='R'">
-      <button class="button-test"> S'inscrire</button>
+      <button click.delegate="startSignUp()"> S'inscrire</button>
       <button click.delegate="startSignIn()" if.bind="userDetails.profile!=null"> Connexion </button>
     </div>
   </header>

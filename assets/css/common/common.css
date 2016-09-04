@@ -56,6 +56,10 @@ button{
     font-weight: bold;color:red
 }
 
+.close:before {
+    content: "\d7"
+}
+
 .common-arrow-top{
     display: block;
     margin: 10px auto 10px auto;

@@ -90,6 +90,11 @@ export class App {
     this.authz.action = "sign-up";
     this.authz.input = {};
   }
+
+  cancelSignUp(){
+    this.authz.action = null;
+    this.authz.input = {};
+  }
   processSignUp() {
     this.authz.outcome = "ok";
   }

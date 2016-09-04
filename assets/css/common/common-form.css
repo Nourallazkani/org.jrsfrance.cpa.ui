@@ -1,19 +1,19 @@
-form > .form-entry {
+form  .form-entry {
     font-size: 12pt;
     font-family: Arial, Helvetica;
 }
 
-form > .form-entry > label {
+form  .form-entry > label {
     font-weight: bold;
     box-sizing : border-box;
 }
 
-form > .form-entry > .input-container > input[type=text], 
-form > .form-entry > .input-container > input[type=password], 
-form > .form-entry > .input-container > select,
-form > .form-entry > .inputs-container > input[type=text], 
-form > .form-entry > .inputs-container > input[type=password], 
-form > .form-entry > .inputs-container > select {
+form  .form-entry > .input-container > input[type=text], 
+form  .form-entry > .input-container > input[type=password], 
+form  .form-entry > .input-container > select,
+form  .form-entry > .inputs-container > input[type=text], 
+form  .form-entry > .inputs-container > input[type=password], 
+form  .form-entry > .inputs-container > select {
     font-family: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -23,10 +23,10 @@ form > .form-entry > .inputs-container > select {
     box-sizing : border-box;
 }
 
-form > .form-entry > .input-container > input[type=text]:focus,
-form > .form-entry > .input-container > input[type=password]:focus,
-form > .form-entry > .inputs-container > input[type=text]:focus,
-form > .form-entry > .inputs-container > input[type=password]:focus 
+form  .form-entry > .input-container > input[type=text]:focus,
+form  .form-entry > .input-container > input[type=password]:focus,
+form  .form-entry > .inputs-container > input[type=text]:focus,
+form  .form-entry > .inputs-container > input[type=password]:focus 
 {
     border-color: #66afe9;
     outline: 0;
@@ -34,14 +34,14 @@ form > .form-entry > .inputs-container > input[type=password]:focus
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-form > .form-entry > .input-container > input[type=checkbox] {
+form  .form-entry > .input-container > input[type=checkbox] {
 }
 
-form > .form-entry > .input-container  button:hover, form > .form-entry > .input-container  button:focus{
+form  .form-entry > .input-container  button:hover, form  .form-entry > .input-container  button:focus{
          background-color: rgba(51, 51, 51, 0.5);
 }
 
-form > .form-entry > .input-container > select {
+form  .form-entry > .input-container > select {
     background-color: white;
 }
 /* end of common styles to default-form and inline form */
@@ -49,33 +49,33 @@ form > .form-entry > .input-container > select {
 
 /* styles for default form (each label / field pair appears on a separate line) */
 
-.default-form > .form-entry {
+.default-form  .form-entry {
     width: 100%;
     padding: 8px;
     display: flex;
 }
 
-.default-form > .form-entry > label {
+.default-form  .form-entry > label {
     padding-top: 7px;
     padding-right: 20px;
     text-align: right;
 
 }
 
-.default-form > .form-entry > .input-container {
+.default-form  .form-entry > .input-container {
     vertical-align:middle;
     line-height:34px;
 }
 
-.default-form > .form-entry > .inputs-container {
+.default-form  .form-entry > .inputs-container {
     line-height:34px;
     vertical-align:middle;
     display: inline-block;
 }
 
-.default-form > .form-entry > .input-container > input[type=text], 
-.default-form > .form-entry > .input-container > input[type=password], 
-.default-form > .form-entry > .input-container > select {
+.default-form  .form-entry > .input-container > input[type=text], 
+.default-form  .form-entry > .input-container > input[type=password], 
+.default-form  .form-entry > .input-container > select {
     display: block;
     width: 100%;
 }
@@ -85,21 +85,21 @@ form > .form-entry > .input-container > select {
 
 /* styles for inline form */
 
-.inline-form > .form-entry {
+.inline-form  .form-entry {
     padding: 8px;
     display: inline;
 }
 
-.inline-form > .form-entry > label {
+.inline-form  .form-entry > label {
     padding-top: 7px;
     padding-right: 20px;
 }
 
-.inline-form > .form-entry > .input-container {
+.inline-form  .form-entry > .input-container {
     display: inline;
 }
 
-.inline-form > .form-entry > .input-container > select {
+.inline-form  .form-entry > .input-container > select {
     min-width: 200px
 }
 /* end of styles for inline form */

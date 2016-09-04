@@ -1,6 +1,7 @@
 <template>
 
   <require from="views/_components/place-autocomplete"></require>
+
   <require from="views/_formatters/date-format"></require>
   
 
@@ -64,18 +65,17 @@
 
       <div class="result-infos-container">
         <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
-          <span>
+          <div class="fit-to-content">
             Cours de français pour études supérieures
-          </span>
+          </div>
           <br/>
-          <span if.bind="moment(r.item.registrationStartDate).diff()>0">
+          <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()>0">
             Ouverture des inscriptions le ${r.item.registrationStartDate | myDateFormat:'DD/MM'}
-          </span>
-          <span if.bind="moment(r.item.registrationStartDate).diff()<0">
+          </div>
+          <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()<0">
             Ouvert aux inscriptions
-          </span>
-          <br/>
-          <span> Niveau : ${r.item.level}</span>
+          </div>
+          <div  class="fit-to-content"> Niveau : ${r.item.level}</div>
         </div>
         <div class="result-infos-block inline-block-lg" style="width:500px">
           <div>
@@ -101,25 +101,13 @@
 
               <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">Itineraire</a>
               <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
-              <a click.delegate="viewLocation(r.item.address)">Carte</a><br/>
+              <a click.delegate="viewLocation(r.item.address)">Carte</a>
             </p>
           </div>
-          <!--
-              <div>
-                <form class="inline-form">
-                  <div class="form-entry">
-                    <div class="input-container">
-                      <input type="text" placeholder="Votre adresse" place-autocomplete />
-                      <button click.delegate="viewItinerary(r.item.address)">Voir l'itinéraire</button>
-                      <button click.delegate="startingPoint=null">Annuler</button>
-                    </div>
-                  </div>
-                </form>
-              </div>-->
-
-
         </div>
       </div>
     </div>
+
+    
   </div>
 </template>

@@ -35,6 +35,10 @@ input[place-autocomplete] {
     text-overflow: ellipsis
 }
 
+.fit-to-content {
+    display: inline-block
+}
+
 button{
     display: inline-block;
     padding: 6px 12px;

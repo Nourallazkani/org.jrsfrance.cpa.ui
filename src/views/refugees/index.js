@@ -15,7 +15,7 @@ export class Index {
       { route: '', name: 'refugees', moduleId: 'views/refugees/welcome', nav: true, title: 'Réfugiés > Index' },
       { route: 'events', name: 'refugees/events', moduleId: 'views/refugees/events/events', nav: true, title: 'Réfugiés > Evenements' },
       { route: 'teachings', name: 'refugees/teachings', moduleId: 'views/refugees/teachings/teachings', nav: true, title: 'Réfugiés > Enseignements supérieurs' },
-      { route: 'cursus', name: 'refugees/cursus', moduleId: 'views/refugees/cursus/cursus', nav: true, title: 'Réfugiés > Apprentissage du français' },
+      { route: 'language-programs', name: 'refugees/language-programs', moduleId: 'views/refugees/language-programs/language-programs', nav: true, title: 'Réfugiés > Apprentissage du français' },
       { route: 'workshops', name: 'refugees/workshops', moduleId: 'views/refugees/workshops/workshops', nav: true, title: 'Réfugiés > Ateliers socio linguistiques' },
       { route: 'libraries', name: 'refugees/libraries', moduleId: 'views/refugees/libraries/libraries', nav: true, title: 'Réfugiés > Auto apprentissage' },
       { route: 'volunteers', name: 'refugees/volunteers', moduleId: 'views/refugees/volunteers/volunteers', nav: true, title: 'Réfugiés > Bénévoles' }

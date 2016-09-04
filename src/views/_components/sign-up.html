@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-entry">
-            <label class="width-lg-30">Je propose</label>
+            <label class="width-lg-30">${userDetails.profile=='R' ? 'Je suis intéressé par' : 'Je propose'}</label>
             <div class="input-container width-lg-30">
                 <input type="checkbox" checked.bind="a" />Soutien <br/>
                 <input type="checkbox" checked.bind="b" />Interprétariat

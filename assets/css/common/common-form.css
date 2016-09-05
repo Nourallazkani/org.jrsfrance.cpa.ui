@@ -36,13 +36,15 @@ form .form-entry button:hover, form .form-entry button:focus{
 /* end of common styles to default-form and inline form */
 
 
-/* styles for default form (each label / field pair appears on a separate line) */
+/* styles for default form (each label / field(s) pair appears on a separate line) */
 
 .default-form  .form-entry {
     width: 100%;
     padding: 8px;
     display: flex;
 }
+
+
 
 .default-form  .form-entry > label {
     padding-top: 7px;
@@ -56,14 +58,31 @@ form .form-entry button:hover, form .form-entry button:focus{
     line-height:34px;
 }
 
+.default-form.split-lg-10-90 > .form-entry > label { width: 10%}
+.default-form.split-lg-10-90 > .form-entry > .input-container, .default-form.split-lg-10-90 > .form-entry > .inline-input-container { width: 90%}
+.default-form.split-lg-20-80 > .form-entry > label { width: 20%}
+.default-form.split-lg-20-80 > .form-entry > .input-container, .default-form.split-lg-20-80 > .form-entry > .inline-input-container { width: 80%}
+.default-form.split-lg-30-70 > .form-entry > label { width: 30%}
+.default-form.split-lg-30-70 > .form-entry > .input-container, .default-form.split-lg-30-70 > .form-entry > .inline-input-container { width: 70%}
+.default-form.split-lg-40-60 > .form-entry > label { width: 40%}
+.default-form.split-lg-40-60 > .form-entry > .input-container, .default-form.split-lg-40-60 > .form-entry > .inline-input-container { width: 60%}
+.default-form.split-lg-50-50 > .form-entry > label { width: 50%}
+.default-form.split-lg-50-50 > .form-entry > .input-container, .default-form.split-lg-50-50 > .form-entry > .inline-input-container { width: 50%}
+.default-form.split-lg-60-40 > .form-entry > label { width: 60%}
+.default-form.split-lg-60-40 > .form-entry > .input-container, .default-form.split-lg-60-40 > .form-entry > .inline-input-container { width: 40%}
+.default-form.split-lg-70-30 > .form-entry > label { width: 70%}
+.default-form.split-lg-70-30 > .form-entry > .input-container, .default-form.split-lg-70-30 > .form-entry > .inline-input-container { width: 30%}
+.default-form.split-lg-80-20 > .form-entry > label { width: 80%}
+.default-form.split-lg-80-20 > .form-entry > .input-container, .default-form.split-lg-80-20 > .form-entry > .inline-input-container { width: 20%}
+.default-form.split-lg-90-10 > .form-entry > label { width: 90%}
+.default-form.split-lg-90-10 > .form-entry > .input-container, .default-form.split-lg-90-10 > .form-entry > .inline-input-container { width: 10%}
+
+/*inputs style*/
 .default-form  .form-entry > .input-container > input[type=text], 
 .default-form  .form-entry > .input-container > input[type=password], 
 .default-form  .form-entry > .input-container > select {
     display: block;
     width: 100%;
-}
-
-.default-form  .form-entry > .input-container > input {
     margin-bottom: 5px;
 }
 

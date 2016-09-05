@@ -1,10 +1,10 @@
 <template>
 
     <div if.bind="authz.action=='sign-in'">    
-        <form class="default-form" submit.delegate="processSignIn()" if.bind="authz.outcome==null">
+        <form class="default-form split-lg-30-70" submit.delegate="processSignIn()" if.bind="authz.outcome==null">
             <div class="form-entry">
-                <label class="width-lg-30">Adresse mail</label>
-                <div class="input-container width-lg-70">
+                <label>Adresse mail</label>
+                <div class="input-container">
                     <input type="text" value.bind="authz.input.mailAddress" autofocus />
                 </div>
             </div>

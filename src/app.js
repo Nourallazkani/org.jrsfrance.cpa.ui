@@ -73,7 +73,7 @@ export class App {
       { route: 'organisations', name: 'organisations/index', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
     ]);
     this.router = router;
-
+console.log(config)
 
     /* immediate redirect if profile is known 
     if (this.userDetails.profile == "R") {

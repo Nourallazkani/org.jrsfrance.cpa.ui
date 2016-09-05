@@ -6,9 +6,11 @@ export class PlaceAutocompleteCustomAttribute {
     @bindable target;
     element;
     bounds;
+    autocomplete;
 
     constructor(element) {
         this.element = element;
+        this.autocomplete  = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 let geolocation = {
@@ -19,7 +21,7 @@ export class PlaceAutocompleteCustomAttribute {
                     center: geolocation,
                     radius: position.coords.accuracy
                 });
-                autocomplete.setBounds(circle.getBounds());
+                this.autocomplete.setBounds(circle.getBounds());
             });
         }
     }
@@ -28,9 +30,9 @@ export class PlaceAutocompleteCustomAttribute {
         if (this.target.address && this.target.address.formattedAddress) {
             this.element.value = this.target.address.formattedAddress;
         }
-        let autocomplete = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
-        autocomplete.addListener('place_changed', () => {
-            let place = autocomplete.getPlace();
+
+        this.autocomplete.addListener('place_changed', () => {
+            let place = this.autocomplete.getPlace();
             let googleObject = { formatted_address: place.formatted_address, placeId: place.place_id };
 
             // extract array elements and map them to object properties.

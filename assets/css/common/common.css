@@ -61,7 +61,8 @@ button{
 }
 
 .close:before {
-    content: "\d7"
+    content: "\2716";
+    font-size: 18px;
 }
 
 .common-arrow-top{

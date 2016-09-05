@@ -8,12 +8,9 @@ form  .form-entry > label {
     box-sizing : border-box;
 }
 
-form  .form-entry > .input-container > input[type=text], 
-form  .form-entry > .input-container > input[type=password], 
-form  .form-entry > .input-container > select,
-form  .form-entry > .inputs-container > input[type=text], 
-form  .form-entry > .inputs-container > input[type=password], 
-form  .form-entry > .inputs-container > select {
+form  .form-entry input[type=text], 
+form  .form-entry input[type=password], 
+form  .form-entry select {
     font-family: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -21,12 +18,11 @@ form  .form-entry > .inputs-container > select {
     padding: 6px 12px;
     font-size: 14px;
     box-sizing : border-box;
+    background-color: white;
 }
 
-form  .form-entry > .input-container > input[type=text]:focus,
-form  .form-entry > .input-container > input[type=password]:focus,
-form  .form-entry > .inputs-container > input[type=text]:focus,
-form  .form-entry > .inputs-container > input[type=password]:focus 
+form  .form-entry input[type=text]:focus,
+form  .form-entry input[type=password]:focus 
 {
     border-color: #66afe9;
     outline: 0;
@@ -34,15 +30,8 @@ form  .form-entry > .inputs-container > input[type=password]:focus
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-form  .form-entry > .input-container > input[type=checkbox] {
-}
-
-form  .form-entry > .input-container  button:hover, form  .form-entry > .input-container  button:focus{
+form .form-entry button:hover, form .form-entry button:focus{
          background-color: rgba(51, 51, 51, 0.5);
-}
-
-form  .form-entry > .input-container > select {
-    background-color: white;
 }
 /* end of common styles to default-form and inline form */
 
@@ -67,18 +56,32 @@ form  .form-entry > .input-container > select {
     line-height:34px;
 }
 
-.default-form  .form-entry > .inputs-container {
-    line-height:34px;
-    vertical-align:middle;
-    display: inline-block;
-}
-
 .default-form  .form-entry > .input-container > input[type=text], 
 .default-form  .form-entry > .input-container > input[type=password], 
 .default-form  .form-entry > .input-container > select {
     display: block;
     width: 100%;
 }
+
+.default-form  .form-entry > .input-container > input {
+    margin-bottom: 5px;
+}
+
+.default-form  .form-entry > .input-container > input:last-child {
+    margin-bottom: 0px;
+}
+
+.default-form  .form-entry > .inline-input-container {
+    box-sizing: border-box;
+    white-space:nowrap;
+}
+
+.default-form  .form-entry > .inline-input-container > input {
+    line-height:34px;
+    vertical-align:middle;
+    display: inline-block;
+}
+
 
 /* end of styles for default form  */
 

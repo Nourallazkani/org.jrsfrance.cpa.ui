@@ -19,7 +19,7 @@ export class ProfessionalPrograms {
 
   find() {
     this.fetchClient
-      .fetch(getUri("learnings/language-programs", this.filter))
+      .fetch(getUri("learnings/professional-programs", this.filter))
       .then(response => response.json())
       .then(results => { this.results = results; console.log(JSON.stringify(results, null, 2)) });
   }

@@ -3,46 +3,46 @@
 
   <require from="/assets/css/specific/refugee-index.css"></require>
 
-  <div id="menu" class="refugee-menu" >
+  <div id="menu" class="menu" >
 
-    <figure id="menu-item-teachings">
+    <figure id="menu-item-teachings" class="${router.currentInstruction.config.name=='refugees/teachings' ? 'active' : ''}">
       <a route-href="route: refugees/teachings">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-teaching.svg"/>
       </a>
       <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
     </figure>
     
-    <figure id="menu-item-language-programs">
+    <figure id="menu-item-language-programs" class="${router.currentInstruction.config.name=='refugees/language-programs' ? 'active' : ''}">
       <a route-href="route: refugees/language-programs" onclick="scrollToElement('menu')">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-language-program.svg" />
       </a>
       <figcaption>Apprentissage du français</figcaption>
     </figure>
-    <figure id="menu-item-professional-programs">
+    <figure id="menu-item-professional-programs" class="${router.currentInstruction.config.name=='refugees/professional-programs' ? 'active' : ''}">
       <a route-href="route: refugees/professional-programs"> 
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-professional-program.svg" />
       </a>
       <figcaption> Formation professionelle </figcaption>
     </figure>
-    <figure id="menu-item-workshops">
+    <figure id="menu-item-workshops" class="${router.currentInstruction.config.name=='refugees/workshops' ? 'active' : ''}">
       <a route-href="route: refugees/workshops"> 
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-workshop.svg" />
       </a>
       <figcaption  > Ateliers sociaux linguistiques </figcaption>
     </figure>
-    <figure id="menu-item-libraries">
+    <figure id="menu-item-libraries" class="${router.currentInstruction.config.name=='refugees/libraries' ? 'active' : ''}">
       <a route-href="route: refugees/libraries"> 
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-library.svg" />
       </a>
       <figcaption> Annuaires des bibliot&egrave;que </figcaption>
     </figure>
-    <figure id="menu-item-volunteers">
+    <figure id="menu-item-volunteers" class="${router.currentInstruction.config.name=='refugees/volunteers' ? 'active' : ''}">
       <a route-href="route: refugees/volunteers">
         <img class="size-150-lg size-100-md"  src="/assets/img/menu/icon-interpreter.svg" />
       </a>
       <figcaption  > Interpr&egrave;tes </figcaption>
     </figure>
-    <figure id="menu-item-events">
+    <figure id="menu-item-events" class="${router.currentInstruction.config.name=='refugees/events' ? 'active' : ''}">
       <a route-href="route: refugees/events"> 
         <img class="size-150-lg size-100-md"  src="/assets/img/menu/icon-event.svg" />
       </a>

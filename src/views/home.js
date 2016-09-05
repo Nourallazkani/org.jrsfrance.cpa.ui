@@ -16,7 +16,7 @@ export class Index {
         this.userDetails.language = languageKey || "fr";
         this.userDetails.profile = profile;
         if (profile == "R") {
-            this.router.navigateToRoute('refugees/index');
+            this.router.navigateToRoute('refugees');
         }
     }
 }

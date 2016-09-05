@@ -93,8 +93,9 @@
               Adresse 
             </label>
             <p>
-              ${r.item.address.street1}<br/> ${r.item.address.street2}
-              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.zipcode}, ${r.item.address.city}<br/>
+              ${r.item.address.street1}<br/> 
+              ${r.item.address.street2}<br if.bind="r.item.address.street2 != null " /> 
+              ${r.item.address.postalCode} ${r.item.address.locality}<br/>
 
               <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">Itineraire</a>
               <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |

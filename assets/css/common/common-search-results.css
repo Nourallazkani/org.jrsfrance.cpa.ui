@@ -7,24 +7,22 @@
 .result {
     margin-bottom: 40px;
     font-family:ArcherBold;
+
 }
 
 .result > div {
     white-space: nowrap;
 }
 
-.result .result-header {
+.result .result-header, .result-footer {
     margin:10px 0px;
     font-weight:bold;
     font-size:2em
 }
 
-.result > .result-infos-container, .result > .result-edit-container, .result > .result-delete-container {
-    width:1000px;
-    height:250px;
-}
 
 .result > .result-infos-container{
+    width:1000px;
     font-size: 17px;
     background-color: #ccc;
     border-width: 0px;
@@ -35,15 +33,28 @@
 /*#e6fafd
  #1Fa0b1*/
 
+.result > .result-infos-container > .edit-form {
+    background-color: red;
+    transition: height 0.5s linear;
+}
 
-.result > .result-infos-container > .result-image-block{
+.result > .result-infos-container > .edit-form-hidden {   
+    height:0px;
+    overflow: hidden;
+}
+
+.result > .result-infos-container > .edit-form-visible {   
+    height:250px;
+}
+
+.result > .result-infos-container  .result-image-block{
     width:500px;
     height:250px;
     padding-top:20px;
     box-sizing: border-box;
 }
 
-.result > .result-infos-container > .result-image-block > div{
+.result > .result-infos-container  .result-image-block > div{
     font-weight: bold;
     margin-bottom:10px;
     background-color:rgba(51,51,51,0.6);
@@ -55,24 +66,24 @@
     /*background-color: rgba(247,77,43,0.7);;*/
 }
 
-.result > .result-infos-container > .result-infos-block{
+.result > .result-infos-container  .result-infos-block{
     vertical-align: top;
 }
 
-.result > .result-infos-container > .result-infos-block > div{
+.result > .result-infos-container  .result-infos-block > div{
     width: 100%;
     padding: 6px;
     display: flex;
 }
 
-.result > .result-infos-container > .result-infos-block > div > label{
+.result > .result-infos-container  .result-infos-block > div > label{
     padding-top: 7px;
     padding-right: 20px;
     text-align: right; 
     width: 20%;
 }
 
-.result > .result-infos-container > .result-infos-block > div > p{
+.result > .result-infos-container  .result-infos-block > div > p{
      padding-top: 7px;
      margin: 0px;
      box-sizing : border-box;

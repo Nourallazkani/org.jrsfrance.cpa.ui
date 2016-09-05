@@ -1,40 +1,39 @@
-
 <template>
 
   <require from="/assets/css/specific/refugee-index.css"></require>
 
-  <div id="menu" class="refugee-menu" >
+  <div id="menu" class="menu">
 
-       <figure id="menu-item-teachings">
+    <figure id="menu-item-teachings" class="${router.currentInstruction.config.name=='organisations/teachings' ? 'active' : ''}">
       <a route-href="route: organisations/teachings">
-        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-teaching.svg"/>
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-teaching.svg" />
       </a>
       <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
     </figure>
-    
-    <figure id="menu-item-language-programs">
+
+    <figure id="menu-item-language-programs" class="${router.currentInstruction.config.name=='organisations/language-programs' ? 'active' : ''}">
       <a route-href="route: organisations/language-programs" onclick="scrollToElement('menu')">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-language-program.svg" />
       </a>
       <figcaption>Apprentissage du français</figcaption>
     </figure>
-    <figure id="menu-item-professional-programs">
-      <a route-href="route: organisations/professional-programs"> 
+    <figure id="menu-item-professional-programs" class="${router.currentInstruction.config.name=='organisations/professional-programs' ? 'active' : ''}">
+      <a route-href="route: organisations/professional-programs">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-professional-program.svg" />
       </a>
       <figcaption> Formation professionelle </figcaption>
     </figure>
-    <figure id="menu-item-workshops">
-      <a route-href="route: organisations/workshops"> 
+    <figure id="menu-item-workshops" class="${router.currentInstruction.config.name=='organisations/workshops' ? 'active' : ''}">
+      <a route-href="route: organisations/workshops">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-workshop.svg" />
       </a>
       <figcaption> Ateliers sociaux linguistiques </figcaption>
     </figure>
-    <figure id="menu-item-events">
-      <a route-href="route: organisations/events"> 
-        <img class="size-150-lg size-100-md"  src="/assets/img/menu/icon-event.svg" />
+    <figure id="menu-item-events" class="${router.currentInstruction.config.name=='organisations/events' ? 'active' : ''}">
+      <a route-href="route: organisations/events">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-event.svg" />
       </a>
-      <figcaption  > &Eacute;v&egrave;nements </figcaption>
+      <figcaption> &Eacute;v&egrave;nements </figcaption>
     </figure>
 
   </div>
@@ -43,5 +42,5 @@
 
   <router-view></router-view>
 
-  
+
 </template>

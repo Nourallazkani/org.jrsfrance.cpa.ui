@@ -12,8 +12,6 @@ export class App {
 
   constructor(httpClient, userDetails, router) {
     this.moment = moment;
-    this.moment.isFuture = () => true;
-    this.moment.isPast = () => true;
     this.httpClient = httpClient;
     this.userDetails = userDetails;
 
@@ -68,9 +66,9 @@ export class App {
     config.map([
       { route: ['', 'home'], name: 'home', moduleId: './views/home', nav: true, title: 'Home' },
       { route: ['about'], name: 'about', moduleId: './views/about', nav: true, title: 'About' },
-      { route: 'refugees', name: 'refugees/index', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' },
-      { route: 'volunteers', name: 'volunteers/index', moduleId: './views/volunteers/index', nav: true, title: 'Bénévoles' },
-      { route: 'organisations', name: 'organisations/index', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
+      { route: 'refugees', name: 'refugees', moduleId: './views/refugees/index', nav: true, title: 'Réfugiés' },
+      { route: 'volunteers', name: 'volunteers', moduleId: './views/volunteers/index', nav: true, title: 'Bénévoles' },
+      { route: 'organisations', name: 'organisations', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
     ]);
     this.router = router;
 console.log(config)

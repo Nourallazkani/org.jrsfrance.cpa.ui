@@ -3,68 +3,65 @@
   <require from="views/_components/place-autocomplete"></require>
 
   <require from="views/_formatters/date-format"></require>
-  
+
   <div class="results" if.bind="results.length>0">
 
     <div class="result" repeat.for="r of results">
-      <div class="result-header" style="text-align:right">
+
+
+      <div class="result-infos-container">
+        <div>
+          <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
+            <div class="fit-to-content">
+              Type : ${r.type}
+            </div>
+            <br/>
+            <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()>0">
+              Ouverture des inscriptions le ${r.registrationStartDate | myDateFormat:'DD/MM'}
+            </div>
+            <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()<0">
+              Ouvert aux inscriptions
+            </div>
+            <br/>
+            <div class="fit-to-content"> Niveau : ${r.level}</div>
+          </div>
+          <div class="result-infos-block inline-block-lg" style="width:500px">
+            <div>
+              <label>Date </label>
+              <p>
+                du ${r.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
+              </p>
+            </div>
+            <div>
+              <label>Contact </label>
+              <p>
+                ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
+                <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
+              </p>
+            </div>
+            <div>
+              <label>
+              Adresse 
+            </label>
+              <p>
+                ${r.address.street1}<br/> 
+                ${r.address.street2}<br if.bind="r.address.street2 != null " /> 
+                ${r.address.postalCode} ${r.address.locality}<br/>
+                <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.address)">Itineraire</a>
+                <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
+                <a click.delegate="viewLocation(r.address)">Carte</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
+          <a click.delegate="action=null" class="close"></a>
+        </div>
+      </div>
+      <div class="result-footer" style="text-align:right" if.bind="action==null">
         <button click.delegate="action='edit'">Edit</button>
         <button click.delegate="action='delete'">Delete</button>
       </div>
-
-      <div class="result-infos-container">
-        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
-          <div class="fit-to-content">
-            Cours de français pour études supérieures
-          </div>
-          <br/>
-          <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()>0">
-            Ouverture des inscriptions le ${r.registrationStartDate | myDateFormat:'DD/MM'}
-          </div>
-          <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()<0">
-            Ouvert aux inscriptions
-          </div>
-          <br/>
-          <div  class="fit-to-content"> Niveau : ${r.level}</div>
-        </div>
-        <div class="result-infos-block inline-block-lg" style="width:500px">
-          <div>
-            <label>Date </label>
-            <p>
-              du ${r.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
-            </p>
-          </div>
-          <div>
-            <label>Contact </label>
-            <p>
-              ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
-              <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
-            </p>
-          </div>
-          <div>
-            <label>
-              Adresse 
-            </label>
-            <p>
-              ${r.address.street1}<br/> ${r.address.street2}
-              <br if.bind="r.address.street2 != null " /> ${r.address.zipcode}, ${r.address.city}<br/>
-
-              <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.address)">Itineraire</a>
-              <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
-              <a click.delegate="viewLocation(r.address)">Carte</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="result-edit-container ${action=='edit' ? 'result-edit-container-active' : ''}">
-        <a click.delegate="action=null">cancel edit</a>
-      </div>
-      <div class="result-delete-container ${action=='delete' ? 'result-delete-container-active' : ''}">
-        <a click.delegate="action=null">cancel delete</a>
-      </div>      
     </div>
-
-    
   </div>
 </template>

@@ -3,19 +3,19 @@
 }
 
 
-.refugee-menu{
+.menu{
     width: 100%;
     background-color: white;
     text-align: center;
     margin: 30px 0px;
 }
-.refugee-menu > figure {
+.menu > figure {
     vertical-align: top;
     display: inline-block;
     margin: 15px 20px
 }
 
-.refugee-menu > figure > a{
+.menu > figure > a{
     display: inline-block;
     border-radius: 100%;
     border: 0px solid;
@@ -25,48 +25,48 @@
     transition: all 0.5s;
 }
 
-.refugee-menu > figure > a:hover, .refugee-menu > figure > a:focus{
+.menu > figure > a:hover, .menu > figure > a:focus, .menu > .active > a {
     border-width: 10px;
 }
 
-.refugee-menu > figure#menu-item-teachings > a{
+.menu > figure#menu-item-teachings > a{
     background-color: #1B1464 ; 
     border-color: #1B1464 ;
 }
-.refugee-menu > figure#menu-item-language-programs > a{
+.menu > figure#menu-item-language-programs > a{
     background-color: #F74D2B ; 
     border-color: #F74D2B;
 }
 
-.refugee-menu > figure#menu-item-professional-programs > a{
+.menu > figure#menu-item-professional-programs > a{
     background-color: #8CC63F ; 
     border-color: #8CC63F;
 }
 
-.refugee-menu > figure#menu-item-workshops > a{
+.menu > figure#menu-item-workshops > a{
     background-color: #9E005D ; 
     border-color: #9E005D;
 }
-.refugee-menu > figure#menu-item-events > a{
+.menu > figure#menu-item-events > a{
     background-color: #29ABE2 ; 
     border-color: #29ABE2;
 }
 
-.refugee-menu > figure#menu-item-libraries > a{
+.menu > figure#menu-item-libraries > a{
     background-color: #D4145A ; 
     border-color: #D4145A;
 }
 
-.refugee-menu > figure#menu-item-volunteers > a{
+.menu > figure#menu-item-volunteers > a{
     background-color:#F4B821 ; 
     border-color: #F4B821;
 }
 
- .refugee-menu > figure > a > img{
+ .menu > figure > a > img{
         height: 50px;
         width: 50px;
     }
-    .refugee-menu > figure > figcaption {
+    .menu > figure > figcaption {
     text-align: center;
     margin: 0px auto;
     width: 50px;
@@ -77,22 +77,22 @@
 }
 
 @media(min-width:1024px){
-    .refugee-menu > figure > a > img{
+    .menu > figure > a > img{
         height: 100px;
         width: 100px;
     }
-    .refugee-menu > figure > figcaption{
+    .menu > figure > figcaption{
         width:100px;
         font-size: 20px;
     }
 }
 
 @media(min-width:1465px){
-    .refugee-menu > figure > a > img{
+    .menu > figure > a > img{
         height: 150px;
         width: 150px;
     }
-    .refugee-menu > figure > figcaption{
+    .menu > figure > figcaption{
         width:150px;
         font-size: 20px;
     }

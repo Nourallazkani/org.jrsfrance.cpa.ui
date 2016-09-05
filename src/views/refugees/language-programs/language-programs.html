@@ -1,14 +1,13 @@
 <template>
 
   <require from="views/_components/place-autocomplete"></require>
-
   <require from="views/_formatters/date-format"></require>
   
 
   <form class="inline-form" submit.delegate="find()" style="text-align:center">
     <div class="form-entry">
       <!--
-          <img src="assets/img/refugee/localisation.svg" style=""/> !-->
+          <img src="assets/img/refugee/localisation.svg" style=""/> -->
     </div>
     <div class="form-entry">
       <label>Ville</label>
@@ -93,8 +92,9 @@
               Adresse 
             </label>
             <p>
-              ${r.item.address.street1}<br/> ${r.item.address.street2}
-              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.zipcode}, ${r.item.address.city}<br/>
+              ${r.item.address.street1}<br/> 
+              ${r.item.address.street2}<br if.bind="r.item.address.street2 != null " /> 
+              ${r.item.address.postalCode} ${r.item.address.locality}<br/>
 
               <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">Itineraire</a>
               <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
@@ -104,7 +104,5 @@
         </div>
       </div>
     </div>
-
-    
   </div>
 </template>

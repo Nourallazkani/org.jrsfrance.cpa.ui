@@ -12,7 +12,7 @@ export class PlaceAutocompleteCustomAttribute {
         this.element = element;
         this.autocomplete  = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
+            navigator.geolocation.getCurrentPosition(position => {
                 let geolocation = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude

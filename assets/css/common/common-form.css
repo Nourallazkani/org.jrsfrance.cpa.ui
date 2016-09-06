@@ -8,9 +8,7 @@ form  .form-entry > label {
     box-sizing : border-box;
 }
 
-form  .form-entry input[type=text], 
-form  .form-entry input[type=password], 
-form  .form-entry select {
+form  .form-entry input[type=text], form  .form-entry input[type=password], form  .form-entry select {
     font-family: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -21,8 +19,7 @@ form  .form-entry select {
     background-color: white;
 }
 
-form  .form-entry input[type=text]:focus,
-form  .form-entry input[type=password]:focus 
+form  .form-entry input[type=text]:focus, form  .form-entry input[type=password]:focus 
 {
     border-color: #66afe9;
     outline: 0;

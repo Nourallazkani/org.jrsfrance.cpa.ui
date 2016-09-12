@@ -39,6 +39,7 @@ form .form-entry button:hover, form .form-entry button:focus{
     width: 100%;
     padding: 8px;
     display: flex;
+    box-sizing: border-box;
 }
 
 

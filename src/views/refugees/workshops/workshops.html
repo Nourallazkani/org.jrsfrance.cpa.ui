@@ -4,7 +4,7 @@
 
   <require from="views/_components/place-autocomplete"></require>
   <require from="views/_formatters/date-format"></require>
-  
+
 
   <form class="inline-form" submit.delegate="find()" style="text-align:center">
     <div class="form-entry">
@@ -22,10 +22,10 @@
         </select>
       </div>
     </div>
- <!--   <div class="form-entry">
+    <!--   <div class="form-entry">
       <label>Organiser par</label>
       <div class="input-container">
-        <select >     //les organisation et les benevols exists 
+        <select >                            //les organisation et les benevols exists 
             <option value=""></option>
             <option>Science Po</option>
             <option>Francois</option>
@@ -80,49 +80,51 @@
           <br/>
           <div class="fit-to-content" if.bind="moment(r.startDate).diff()>0">
             Ouverture des inscriptions le ${r.startDate | myDateFormat:'DD/MM'}
-          </div>          <!--  les deux dates -->
+          </div>
+          <!--  les deux dates -->
           <div class="fit-to-content" if.bind="moment(r.startDate).diff()<0">
             Ouvert aux inscriptions
           </div>
-        <div class="result-infos-block inline-block-lg" style="width:500px">
-          <div>
-            <label>Sujet: </label>
-            <p>
-               ${r.subject}
-            </p>
-          </div>
-          <div>
-            <label>Date </label>
-            <p>
-              du ${r.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
-            </p>
-          </div>
-          <div>
-            <label>Contact </label>
-            <p>
-              ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
-              <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
-            </p>
-          </div>
-          <div>
-            <label>
+          <div class="result-infos-block inline-block-lg" style="width:500px">
+            <div>
+              <label>Sujet: </label>
+              <p>
+                ${r.subject}
+              </p>
+            </div>
+            <div>
+              <label>Date </label>
+              <p>
+                du ${r.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
+              </p>
+            </div>
+            <div>
+              <label>Contact </label>
+              <p>
+                ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
+                <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
+              </p>
+            </div>
+            <div>
+              <label>
               Adresse 
             </label>
-            <p>
-              ${r.address.street1}<br/> 
-              ${r.address.street2}<br if.bind="r.address.street2 != null " /> 
-              ${r.address.postalCode} ${r.address.locality}<br/>
+              <p>
+                ${r.address.street1}<br/> ${r.address.street2}
+                <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}<br/>
 
-              <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.address)">Itineraire</a>
-              <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
-              <a click.delegate="viewLocation(r.address)">Carte</a>
-            </p>
-          </div>
-          <div>
-            <label>Description: </label>
-            <p> <!-- overfelow:scroll; ? -->
-               ${r.description}
-            </p>
+                <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.address)">Itineraire</a>
+                <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
+                <a click.delegate="viewLocation(r.address)">Carte</a>
+              </p>
+            </div>
+            <div>
+              <label>Description: </label>
+              <p>
+                <!-- overfelow:scroll; ? -->
+                ${r.description}
+              </p>
+            </div>
           </div>
         </div>
       </div>

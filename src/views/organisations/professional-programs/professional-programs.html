@@ -44,9 +44,8 @@
               Adresse 
             </label>
               <p>
-                ${r.address.street1}<br/> 
-                ${r.address.street2}<br if.bind="r.address.street2 != null " /> 
-                ${r.address.postalCode} ${r.address.locality}<br/>
+                ${r.address.street1}<br/> ${r.address.street2}
+                <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}<br/>
                 <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.address)">Itineraire</a>
                 <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
                 <a click.delegate="viewLocation(r.address)">Carte</a>
@@ -55,7 +54,7 @@
           </div>
         </div>
         <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
-          <a click.delegate="action=null" class="close"></a>
+          <a click.delegate="action=null" class="close" style="float:right;border:2px solid"></a>
         </div>
       </div>
       <div class="result-footer" style="text-align:right" if.bind="action==null">

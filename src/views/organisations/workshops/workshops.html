@@ -1,6 +1,83 @@
 <template>
   
-  workshop list + deux case à cocher en haut à gauche de la liste permettant de choisir 
-   - si on veut voir les ateliers passés (par défaut : non)
-   - si on veut voir les ateliers futurs (par défaut : oui) 
+  <form class="inline-form" style="width:90%;margin:20px auto;">
+    <div class="form-entry">
+      <label> voir les ateliers passés </label>
+      <div class="input-container">
+        <input type="checkbox" name="" value="">
+      </div>
+    </div>
+    <div class="form-entry">
+      <label> voir les ateliers futurs </label>
+      <div class="input-container">
+        <input type="checkbox" name="" value="" checked>
+      </div>
+    </div>
+  </form>
+
+  <div class="results" if.bind="results.length>0">
+
+    <div class="result" repeat.for="r of results">
+
+      <div class="result-infos-container">
+        <div>
+          <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
+            <div class="fit-to-content">
+              Sujet : ${r.subject}
+            </div>
+            <br/>
+            <div class="fit-to-content" if.bind="moment(r.startDate).diff()>0">
+              Ouverture des inscriptions le ${r.startDate | myDateFormat:'DD/MM'}
+            </div>
+            <!--  les deux dates -->
+            <div class="fit-to-content" if.bind="moment(r.startDate).diff()<0">
+              Ouvert aux inscriptions
+            </div>
+            <div class="result-infos-block inline-block-lg" style="width:500px">
+              <div>
+                <label>Date </label>
+                <p>
+                  du ${r.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
+                </p>
+              </div>
+              <div>
+                <label>Contact </label>
+                <p>
+                  ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
+                  <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
+                </p>
+              </div>
+              <div>
+                <label>
+              Adresse 
+            </label>
+                <p>
+                  ${r.address.street1}<br/> ${r.address.street2}
+                  <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}<br/>
+
+                  <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.address)">Itineraire</a>
+                  <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
+                  <a click.delegate="viewLocation(r.address)">Carte</a>
+                </p>
+              </div>
+              <div>
+                <label>Description: </label>
+                <p>
+                  <!-- overfelow:scroll; ? -->
+                  ${r.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
+          <a click.delegate="action=null" class="close"></a>
+        </div>
+      </div>
+      <div class="result-footer" style="text-align:right" if.bind="action==null">
+        <button click.delegate="action='edit'">Edit</button>
+        <button click.delegate="action='delete'">Delete</button>
+      </div>
+    </div>
+  </div>
 </template>

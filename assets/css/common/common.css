@@ -114,7 +114,30 @@ button{
     display: fl
 }
 
-/* -- start of the switch part */
+/* -- start of the switch part
+
+        for using it : 
+        
+    <label class="switch">
+  <input type="checkbox">
+  <div class="slider"></div>
+</label>
+
+<label class="switch">
+  <input type="checkbox" checked>
+  <div class="slider"></div>
+</label><br><br>
+
+<label class="switch">
+  <input type="checkbox">
+  <div class="slider round"></div>
+</label>
+
+<label class="switch">
+  <input type="checkbox" checked>
+  <div class="slider round"></div>
+</label> */
+
 .switch {
   position: relative;
   display: inline-block;
@@ -170,6 +193,8 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+ 
+
 /* -- end of the switch part */
 
 @media(min-width:768px){

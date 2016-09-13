@@ -8,7 +8,7 @@ form  .form-entry > label {
     box-sizing : border-box;
 }
 
-form  .form-entry input[type=text], form  .form-entry input[type=password], form  .form-entry select {
+form  .form-entry input[type=text], form  .form-entry input[type=password], form  .form-entry select{
     font-family: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -18,6 +18,17 @@ form  .form-entry input[type=text], form  .form-entry input[type=password], form
     box-sizing : border-box;
     background-color: white;
 }
+
+.rows-input input[type=text]{
+    width:100%;
+    margin-bottom:5px; 
+    box-sizing:border-box;
+} 
+
+.date-input input[type=text]{
+    width:40%; 
+    box-sizing:border-box;
+} 
 
 form  .form-entry input[type=text]:focus, form  .form-entry input[type=password]:focus 
 {

@@ -41,7 +41,7 @@
 
 }
 
-.result > .result-infos-container > .edit-form > .divider-edit-block {
+.result > .result-infos-container > .edit-form > .default-form > .divider-edit-block {
     width: 50%;
     display: inline-block;
     box-sizing: border-box;
@@ -54,7 +54,7 @@
 }
 
 .result > .result-infos-container > .edit-form-visible {   
-    height:250px;
+    height:300px;
 }
 
 .result > .result-infos-container  .result-image-block{

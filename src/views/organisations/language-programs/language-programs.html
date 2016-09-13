@@ -55,7 +55,8 @@
         </div>
 
         <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
-          <div style="text-align:right;">
+          <div style="text-align:right;margin-bottom:10px;">
+            <hr/>
             <a click.delegate="action=null" class="close" style="border:2px solid"></a>
           </div>
           <form class="default-form">
@@ -63,34 +64,12 @@
               <div class="form-entry">
                 <label class="width-lg-30 width-md-30"> Contact : </label>
                 <div class="inputs-container rows-input width-lg-70 width-md-40">
-                  <input type="text" placeholder="votre nom et Prenom"> <br/>
-                  <input type="text" placeholder="votre telephone "> <br/>
-                  <input type="text" placeholder=" votre adresse mail ">
+                  <input type="text" placeholder="Nom et Prenom"> <br/>
+                  <input type="text" placeholder="Telephone "> <br/>
+                  <input type="text" placeholder="Adresse mail ">
                   <!-- coloring with deffernet color 'gray' -->
                 </div>
               </div>
-              <div class="form-entry">
-                <label class="width-lg-30 width-md-30"> Adresse : </label>
-                <div class="inputs-container rows-input width-lg-70 width-md-70">
-                  <input type="text" placeholder="votre adresse"> <br/>
-                  <input type="text" placeholder="complement d'adresse" /><br/>
-                  <input type="text" style="background-color:grey;" placeholder="votre code postal" readonly/>
-                  <!-- coloring with deffernet color 'gray' -->
-                </div>
-              </div>
-
-            </div>
-            <div class="divider-edit-block" style="vertical-align: top;">
-
-              <div class="form-entry">
-                <label class="width-lg-30 width-md-30"> Date :</label>
-                <div class="inputs-container date-input width-lg-70 width-md-70">
-                  De <input type="text" placeholder="JJ/MM/AAAA" /> au
-                  <input type="text" placeholder="JJ/MM/AAAA" />
-                </div>
-              </div>
-              <br/>
-              <hr/>
               <div class="form-entry">
                 <label class="width-lg-30 width-md-30"> Ouvert aux <br/> inscription :</label>
                 <div class="input-container width-lg-70 width-md-70">
@@ -100,9 +79,33 @@
                  </label>
                 </div>
               </div>
-
             </div>
 
+
+            <div class="divider-edit-block" style="vertical-align: top;">
+              <div class="form-entry">
+                <label class="width-lg-30 width-md-30"> Adresse : </label>
+                <div class="inputs-container rows-input width-lg-70 width-md-70">
+                  <input type="text" placeholder="Adresse"> <br/>
+                  <input type="text" placeholder="Complement d'adresse" /><br/>
+                  <input type="text" style="background-color:grey;" placeholder="votre code postal" readonly/>
+                  <!-- coloring with deffernet color 'gray' -->
+                </div>
+              </div>
+              <div class="form-entry">
+                <label class="width-lg-30 width-md-30"> Date :</label>
+                <div class="inputs-container date-input width-lg-70 width-md-70">
+                  De <input type="text" placeholder="JJ/MM/AAAA" /> au
+                  <input type="text" placeholder="JJ/MM/AAAA" />
+                </div>
+              </div>
+        
+
+            </div>
+            <div style="text-align:center;padding:20px 0px">
+              <button>Enregistrer</button>
+              <button>Annuler</button>
+            </div>
 
           </form>
 

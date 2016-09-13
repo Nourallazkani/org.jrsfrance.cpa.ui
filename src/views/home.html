@@ -9,7 +9,10 @@
             <img src="/assets/img/home/profile-volunteer.png" />
 
             <figcaption>
-                <a click.delegate="setUserDetails('V')">je suis b&eacute;n&eacute;vole</a>
+                <p><a click.delegate="setUserDetails('V')">Je suis b&eacute;n&eacute;vole</a></p>
+                <p><a click.delegate="setUserDetails('V')">أنا متطوع</a></p>
+                <p><a click.delegate="setUserDetails('V')">I'm a Volunteer</a></p>
+                <p><a click.delegate="setUserDetails('V')">من یک داوطلب هستم</a></p>
             </figcaption>
         </figure>
         <div style="min-height:406px" class="nav-volunteer-text ${userDetails.profile=='V' ? 'nav-volunteer-text-visible with-transition' : 'nav-volunteer-text-hidden no-transition'}">
@@ -19,22 +22,12 @@
                 <div style="text-align:right">
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
+                <p style="font-family: archer;font-size:30px;">
+                    Je peux donner un peu de mon temps selon mes disponibilités pour : aider dans l’apprentissage de français, l’interprétariat
+                    ou le soutien pour certaines formations.
                 </p>
 
-                <ul>
+                <ul style="font-family: archer;font-size:30px;">
                     <li>Je regarde la vidéo de présentation</li>
                     <li><a click.delegate="startSignIn('volunteers/index')">Je me connecte</a></li>
                     <li><a click.delegate="startSignUp()">Je m'inscrit</a></li>
@@ -44,7 +37,8 @@
             <!-- sign in form -->
             <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
                 <div>
-                    <a click.delegate="authz.action=null">< Retour</a>
+                    <a click.delegate="authz.action=null">
+                        < Retour</a>
                 </div>
                 <div style="max-width:700px">
                     <compose view="./_components/sign-in.html"></compose>
@@ -54,7 +48,8 @@
             <!-- sign up form -->
             <div if.bind="authz.action=='sign-up'">
                 <div>
-                    <a click.delegate="authz.action=null">< Retour</a>
+                    <a click.delegate="authz.action=null">
+                        < Retour</a>
                 </div>
                 <div style="max-width:700px">
                     <compose view="./_components/sign-up.html"></compose>
@@ -67,7 +62,7 @@
             <img src="/assets/img/home/profile-refugee.png" />
 
             <figcaption>
-                <p><a click.delegate="setUserDetails('R', 'fr')">je suis r&eacute;fugi&eacute</a> </p>
+                <p><a click.delegate="setUserDetails('R', 'fr')">Je suis r&eacute;fugi&eacute</a> </p>
                 <p><a click.delegate="setUserDetails('R', 'ar')"> أنـا لاجئ </p>
                 <p><a click.delegate="setUserDetails('R', 'en')"> I'm Refugee </p>
                 <p><a click.delegate="setUserDetails('R', 'da')">من یک پناهنده هستم </a></p>
@@ -81,28 +76,17 @@
                 <div style="text-align:right">
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
+                <p style="font-family: archer;font-size:30px;">
+                    Je peux présenter mes offres de formation pour les réfugiés afin qu’ils retrouvent celles qui sont les plus adaptées à leurs
+                    besoins. Pour s’inscrire cliquez ici.
                 </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                    laborum.
-                </p>
-
-                <ul>
+                <ul style="font-family: archer;font-size:30px;">
                     <li><a route-href="route: organisations"> Je regarde la vidéo de présentation </a></li>
                     <li><a click.delegate="startSignIn('organisations/index')">Je me connecte</a></li>
                     <li>Je m'inscrit</li>
                 </ul>
             </div>
-            
+
             <!-- sign in form -->
             <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
                 <div style="text-align:left">
@@ -117,7 +101,10 @@
             <img src="/assets/img/home/profile-organisation.png" />
 
             <figcaption>
-                <a click.delegate="setUserDetails('O')">je repr&eacute;sente une institution</a>
+                <p><a click.delegate="setUserDetails('O')">Je repr&eacute;sente une institution</a></p>
+                <p><a click.delegate="setUserDetails('O')">أنا أمثّل منظمة</a></p>
+                <p><a click.delegate="setUserDetails('O')">I represent an institution</a></p>
+                <p><a click.delegate="setUserDetails('O')">من نماینده یک موسسه</a></p>
             </figcaption>
         </figure>
     </div>

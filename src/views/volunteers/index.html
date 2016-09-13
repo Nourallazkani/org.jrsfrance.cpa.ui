@@ -1,4 +1,39 @@
-
 <template>
-index bénévoles
+
+  <require from="/assets/css/specific/index.css"></require>
+
+  <div id="menu" class="menu">
+
+    <figure id="menu-item-events" class="${router.currentInstruction.config.name=='volunteers/events' ? 'active' : ''}">
+      <a route-href="route: volunteers/events">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-volunteer-event.svg" />
+      </a>
+      <figcaption>&Eacute;v&egrave;nements pour les bénévoles</figcaption>
+    </figure>
+
+    <figure id="menu-item-availabilities" class="${router.currentInstruction.config.name=='volunteers/availabilities' ? 'active' : ''}">
+      <a route-href="route: volunteers/availabilities">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-date.svg" />
+      </a>
+      <figcaption>Mes disponilités</figcaption>
+    </figure>
+
+    <figure id="menu-item-availabilities" class="${router.currentInstruction.config.name=='volunteers/meetingRequests' ? 'active' : ''}">
+      <a route-href="route: volunteers/meetingRequests">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-date.svg" />
+      </a>
+      <figcaption>Demandes de rendez vous</figcaption>
+    </figure>    
+
+  </div>
+
+  <div class="separator"> </div>
+
+
+
+  <router-view></router-view>
+
+
+
+
 </template>

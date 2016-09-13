@@ -1,5 +1,4 @@
 <template>
-  teachings search form + teachings list. <br/>
 
   <require from="views/_components/place-autocomplete"></require>
   <require from="views/_formatters/date-format"></require>
@@ -21,7 +20,7 @@
       </div>
     </div>
     <div class="form-entry">
-      <label>Domain d'étude</label>
+      <label>Domaine d'étude</label>
       <div class="input-container">
         <select value.bind="filter.levelId">
             <option value=""></option>
@@ -49,11 +48,11 @@
       </form>
     </div>
     <div class="result" repeat.for="r of results">
-      <div class="result-header">
-        <div style="text-align:left;width:80%;display:inline-block;">
+      <div class="result-header" style="display:flex">
+        <div style="text-align:left;width:80%">
           ${r.item.organisation}
         </div>
-        <div style="text-align:right;width:20%;display:inline-block;" if.bind="r.distance">
+        <div style="text-align:right;width:20%" if.bind="r.distance">
           ${r.distance} km
         </div>
       </div>
@@ -91,14 +90,13 @@
               ${r.item.address.street2}<br if.bind="r.item.address.street2 != null " /> 
               ${r.item.address.postalCode} ${r.item.address.locality}<br/>
               <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">Itineraire</a>
-              <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
               <a click.delegate="viewLocation(r.item.address)">Carte</a>
             </p>
           </div>
           <div>
-            <label>Liens :</label>
+            <label>Lien :</label>
             <p> 
-              <a href="#">Aller au site de l'offre</a> <br/> <a href="#">Télécharger la affich de l'offre</a>
+              <a href="#">Ouvrir</a> | <a href="#">Télécharger</a>
             </p>
           </div>
         </div>

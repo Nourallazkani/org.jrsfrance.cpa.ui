@@ -17,7 +17,6 @@ export class MyDateFormatValueConverter {
       return moment(value).format(formater);
     }
     else{
-      console.log(`there is no predefined formater, use ${format}`)
       return moment(value).format(format);
     }
   }

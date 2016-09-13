@@ -63,6 +63,11 @@
     border-color: #F4B821;
 }
 
+.menu > figure#menu-item-availabilities > a{
+    background-color:#F4B821 ; 
+    border-color: #F4B821;
+}
+
  .menu > figure > a > img{
         height: 50px;
         width: 50px;

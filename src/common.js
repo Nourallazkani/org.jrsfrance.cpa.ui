@@ -72,6 +72,7 @@ export function viewLocation(address) {
 };
 
 export function viewItinerary(address1, address2) {
+    console.log("inside viewItinerary")
     let url = `https://www.google.com/maps/dir/${address1.lat},${address1.lng}/${address2.lat},${address2.lng}`;
     window.open(url, 'map', "width=1200,height=600");
 }

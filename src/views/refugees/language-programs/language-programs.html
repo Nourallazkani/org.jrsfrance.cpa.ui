@@ -49,11 +49,11 @@
       </form>
     </div>
     <div class="result" repeat.for="r of results">
-      <div class="result-header">
-        <div style="text-align:left;width:80%;display:inline-block;">
+      <div class="result-header" style="display:flex">
+        <div style="text-align:left;width:80%">
           ${r.item.organisation}
         </div>
-        <div style="text-align:right;width:20%;display:inline-block;" if.bind="r.distance">
+        <div style="text-align:right;width:20%" if.bind="r.distance">
           ${r.distance} km
         </div>
       </div>
@@ -65,7 +65,7 @@
           </div>
           <br/>
           <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()>0">
-            Ouverture des inscriptions le ${r.item.registrationStartDate | myDateFormat:'DD/MM'}
+            Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
           </div>
           <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()<0">
             Ouvert aux inscriptions
@@ -97,7 +97,6 @@
               ${r.item.address.postalCode} ${r.item.address.locality}<br/>
 
               <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">Itineraire</a>
-              <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
               <a click.delegate="viewLocation(r.item.address)">Carte</a>
             </p>
           </div>

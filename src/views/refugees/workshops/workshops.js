@@ -8,7 +8,7 @@ import {UserDetails, getUri, getDistance, viewLocation, viewItinerary} from 'com
 @inject(HttpClient, UserDetails)
 export class Workshops {
 
-  filter = { includeFutureEvents: true, includePastEvents: false, stereotype:"WORKSHOP" }
+  filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true, stereotype:"WORKSHOP", audience:"REFUGEE" }
   results = []
 
   constructor(fetchClient, userDetails) {
@@ -25,7 +25,7 @@ export class Workshops {
         .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))
         .sort((x, y) => moment(x.item.startDate) - moment(y.item.startDate))
       )
-      .then(results => { this.results = results; console.log(JSON.stringify(results, null, 2)) });
+      .then(results => this.results = results);
   }
 
   sortByDistance() {

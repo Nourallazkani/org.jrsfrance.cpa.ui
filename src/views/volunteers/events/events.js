@@ -9,7 +9,7 @@ import {UserDetails, getUri, getDistance, viewLocation, viewItinerary} from 'com
 export class Events {
 
     results = []
-    filter = { includePastEvents: false, includeFutureEvents: true, openForRegistration: true, audience:"REFUGEE" }
+    filter = { includePastEvents: false, includeFutureEvents: true, openForRegistration: true, audience:"VOLUNTEER" }
 
     constructor(fetchClient, userDetails) {
         this.fetchClient = fetchClient

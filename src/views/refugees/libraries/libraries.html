@@ -40,11 +40,11 @@
       </form>
     </div>
     <div class="result" repeat.for="r of results">
-      <div class="result-header">
-        <div style="text-align:left;width:80%;display:inline-block;">
+      <div class="result-header" style="display:flex">
+        <div style="text-align:left;width:80%">
           ${r.item.name}
         </div>
-        <div style="text-align:right;width:20%;display:inline-block;" if.bind="r.distance">
+        <div style="text-align:right;width:20%" if.bind="r.distance">
           ${r.distance} km
         </div>
       </div>

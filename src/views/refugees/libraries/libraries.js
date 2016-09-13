@@ -23,7 +23,7 @@ export class Libraries {
       .then(json => json
         .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))
       )
-      .then(results => { this.results = results; console.log(JSON.stringify(results, null, 2)) });
+      .then(results => this.results = results);
   }
 
   sortByDistance() {

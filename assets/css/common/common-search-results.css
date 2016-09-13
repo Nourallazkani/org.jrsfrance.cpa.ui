@@ -54,7 +54,7 @@
 }
 
 .result > .result-infos-container > .edit-form-visible {   
-    height:300px;
+    min-height:300px;
 }
 
 .result > .result-infos-container  .result-image-block{

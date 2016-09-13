@@ -54,7 +54,69 @@
           </div>
         </div>
         <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
-          <a click.delegate="action=null" class="close" style="float:right;border:2px solid"></a>
+          <div style="text-align:right;padding-right:10px;padding-top:10px">
+            <a click.delegate="action=null" class="close"></a>
+          </div>
+
+
+          <form class="default-form split-lg-50-50">
+            <div style="display:flex;">
+              <div style="width:50%">
+                <div class="form-entry">
+                  <label>Début</label>
+                  <div class="input-container">
+                    <input type="text" />
+                  </div>
+                </div>
+                <div class="form-entry">
+                  <label>Fin</label>
+                  <div class="input-container">
+                    <input type="text" />
+                  </div>
+                </div>
+                <div class="form-entry">
+                  <label>Niveau</label>
+                  <div class="input-container">
+                    <select></select>
+                  </div>
+                </div>        
+                <div class="form-entry">
+                  <label>Domaine</label>
+                  <div class="input-container">
+                    <select></select>
+                  </div>
+                </div>                
+                <div class="form-entry">
+                  <label>Ouverture des inscriptions</label>
+                  <div class="input-container">
+                    <input type="text" />
+                  </div>
+                </div>
+              </div>
+              <div style="width:50%">
+                <div class="form-entry">
+                  <label>Contact</label>
+                  <div class="input-container">
+                    <input type="text" placeholder="Prénom" />
+                    <input type="text" placeholder="Nom" />
+                    <input type="text" placeholder="Adresse mail" />
+                    <input type="text" placeholder="Téléphone" />
+                  </div>
+                </div>
+                <div class="form-entry">
+                  <label>Adresse</label>
+                  <div class="input-container">
+                    <input type="text" placeholder="Adresse" />
+                    <input type="text" placeholder="Complément d'adresse" />
+                  </div>
+                </div>                
+              </div>
+            </div>
+            <div style="text-align:center;padding:20px 0px">
+              <button>Annuler</button>
+              <button>Enregistrer</button>
+            </div>
+          </form>
         </div>
       </div>
       <div class="result-footer" style="text-align:right" if.bind="action==null">

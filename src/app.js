@@ -41,8 +41,7 @@ export class App {
     })
 
     this.httpClient.fetch("referenceData").then(x => x.json()).then(x => this.referenceData = x)
-    //setTimeout(x => this.abcd = "abcd", 2000);
-    //this.abcd="abcd";
+    
     if (localStorage.getItem("accessKey") != null) {
       // auto sign in
       this.authz.silent = true;
@@ -50,7 +49,7 @@ export class App {
       this.authz.input = { accessKey: localStorage.getItem("accessKey") };
       this.processSignIn();
     }
-    else if (false) /*look in the query string */ {
+    else if (false) /*look in the query string*/  {
       this.authz.silent = true;
       this.authz.action = "sign-in";
       this.authz.input = { accessKey: "" };
@@ -59,6 +58,7 @@ export class App {
   }
 
   configureRouter(config, router) {
+    
     config.title = 'CPA';
     config.options.pushState = true;
     config.options.hashChange = false;
@@ -71,15 +71,6 @@ export class App {
       { route: 'organisations', name: 'organisations', moduleId: './views/organisations/index', nav: true, title: 'Organisation' }
     ]);
     this.router = router;
-console.log(config)
-
-    /* immediate redirect if profile is known 
-    if (this.userDetails.profile == "R") {
-      this.router.navigate('/refugees');
-    }
-    else if (this.userDetails.profile == "O") {
-      this.router.navigate('organisations/index');
-    }*/
   }
 
   authz = { silent: false, input: null, outcome: null };

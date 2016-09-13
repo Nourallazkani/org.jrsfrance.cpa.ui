@@ -36,7 +36,7 @@
 .result > .result-infos-container > .edit-form {
     background-color: #e0e0e0;
     border-radius: 0px 0px 15px 15px ;
-    transition: height 0.5s linear;
+    transition: all 0.5s linear;
     white-space: nowrap;
 
 }

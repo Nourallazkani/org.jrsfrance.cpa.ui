@@ -113,15 +113,22 @@
               </div>
             </div>
             <div style="text-align:center;padding:20px 0px">
-              <button>Annuler</button>
-              <button>Enregistrer</button>
+              <button click.delegate="action=null">Annuler</button>
+              <button click.delegate="action=null">Enregistrer</button>
             </div>
           </form>
         </div>
       </div>
-      <div class="result-footer" style="text-align:right" if.bind="action==null">
-        <button click.delegate="action='edit'">Edit</button>
-        <button click.delegate="action='delete'">Delete</button>
+      <div class="result-footer" style="text-align:right">
+        <div  if.bind="action==null">
+          <button click.delegate="action='edit'">Edit</button>
+          <button click.delegate="action='delete'">Delete</button>
+        </div>
+        <div if.bind="action=='delete'">
+          Etes vous sûr de vouloir supprimer cet élément ? 
+          <button click.delegate="action=null">Oui</button>
+          <button  click.delegate="action=null">Non</button>
+        </div>
       </div>
     </div>
   </div>

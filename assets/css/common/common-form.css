@@ -6,6 +6,7 @@ form  .form-entry {
 form  .form-entry > label {
     font-weight: bold;
     box-sizing : border-box;
+    white-space: normal;
 }
 
 form  .form-entry input[type=text], form  .form-entry input[type=password], form  .form-entry select{

@@ -46,9 +46,6 @@
               <p>
                 ${r.address.street1}<br/> ${r.address.street2}
                 <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}<br/>
-                <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.address)">Itineraire</a>
-                <a if.bind="!userDetails.address" click.delegate="startingPoint={}">Itineraire</a> |
-                <a click.delegate="viewLocation(r.address)">Carte</a>
               </p>
             </div>
           </div>
@@ -90,6 +87,7 @@
                   <label>Ouverture des inscriptions</label>
                   <div class="input-container">
                     <input type="text" />
+                    <input type="checkbox" /> ouvert aux inscriptions
                   </div>
                 </div>
               </div>
@@ -106,7 +104,7 @@
                 <div class="form-entry">
                   <label>Adresse</label>
                   <div class="input-container">
-                    <input type="text" placeholder="Adresse" />
+                    <input type="text" placeholder="Adresse"  />
                     <input type="text" placeholder="Complément d'adresse" />
                   </div>
                 </div>                

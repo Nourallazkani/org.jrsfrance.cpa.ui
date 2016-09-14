@@ -1,11 +1,19 @@
-.horizontal {
-    display: flex;
-    flex-direction: row;
+._result{
+    width:1000px;
+    margin:auto;
+    /*color, font-family, margin-bottom, etc...*/
+}
+._result-body{
+        /*styles spécific to body : border-radius, border-color, etc...*/
+        border:1px solid red;
 }
 
-.vertical {
-    display: flex;
-    flex-direction: column;
+._result-header{
+    /*styles spécific to header : background-color, font-size, padding, etc...*/
+}
+
+._result-footer{
+    /*styles spécific to footer : background-color, font-size, padding, etc...*/
 }
 
 ._image-container {

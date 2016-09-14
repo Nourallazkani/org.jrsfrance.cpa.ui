@@ -3,32 +3,35 @@
 <head>
     <link rel="stylesheet" href="/assets/css/common/common.css"/><!-- for fit-to-content -->
     <link rel="stylesheet" href="/assets/css/common/common-grid.css"/><!-- for horizontal, vertical, width-lg-30 and width-le-70 -->
-    <link rel="stylesheet" href="/assets/css/common/common-saif.css"/><!-- for _image-container and _infos-container -->
+    <link rel="stylesheet" href="/assets/css/common/common-saif.css"/><!-- for _result, _result-body, _result-header, _result-footer, _image-container and _infos-container -->
 </head>
 
 <body>
 
-    <div class="horizontal" style="border: 1px red solid;width:1000px;margin:auto">
-
-        <div class="_image-container" style="background-image:url('/assets/img/unsorted/paris-sciences-po.jpg')">
-            <div class="fit-to-content">hello</div>
-            <br/>
-            <div class="fit-to-content">goodbye</div>
+    <div class="_result">
+        <div class="_result-header">header</div>
+        <div class="_result-body horizontal">
+            <div class="_image-container" style="background-image:url('/assets/img/unsorted/paris-sciences-po.jpg')">
+                <div class="fit-to-content">hello</div>
+                <br/>
+                <div class="fit-to-content">goodbye</div>
+            </div>
+            <div class="vertical _infos-container">
+                <div class="horizontal">
+                    <div class="width-lg-30">Date</div>
+                    <div class="width-lg-70">a<br/>b<br/>c</div>
+                </div>
+                <div class="horizontal">
+                    <div class="width-lg-30">Contact</div>
+                    <div class="width-lg-70">d</div>
+                </div>
+                <div class="horizontal">
+                    <div class="width-lg-30">Adresse</div>
+                    <div class="width-lg-70">f</div>
+                </div>
+            </div>
         </div>
-        <div class="vertical _infos-container">
-            <div class="horizontal">
-                <div class="width-lg-30">Date</div>
-                <div class="width-lg-70">a<br/>b<br/>c</div>
-            </div>
-            <div class="horizontal">
-                <div class="width-lg-30">Contact</div>
-                <div class="width-lg-70">d</div>
-            </div>
-            <div class="horizontal">
-                <div class="width-lg-30">Adresse</div>
-                <div class="width-lg-70">f</div>
-            </div>
-        </div>
+        <div class="_result-footer">footer</div>
     </div>
 
 </body>

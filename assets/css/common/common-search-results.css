@@ -29,12 +29,11 @@
 }
 
 .result > .result-infos-container{
-    width:1000px;
     font-size: 17px;
     background-color: #ccc;
     border-width: 0px;
     border-radius: 15px ;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     background-color: rgba(51,51,51,0.15);
 }
 /*#e6fafd
@@ -44,8 +43,7 @@
     background-color: #e0e0e0;
     border-radius: 0px 0px 15px 15px ;
     transition: all 0.5s linear;
-    white-space: nowrap;
-
+    white-space: nowrap;    
 }
 
 .result > .result-infos-container > .edit-form > .default-form > .divider-edit-block {
@@ -62,6 +60,7 @@
 
 .result > .result-infos-container > .edit-form-visible {   
     min-height:300px;
+    border-top: 1px solid black;
 }
 
 .result > .result-infos-container  .result-image-block{
@@ -85,6 +84,7 @@
 
 .result > .result-infos-container  .result-infos-block{
     vertical-align: top;
+    width:500px;
 }
 
 .result > .result-infos-container  .result-infos-block > div{

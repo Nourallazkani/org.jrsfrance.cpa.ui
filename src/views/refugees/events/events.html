@@ -52,15 +52,15 @@
           <p>
             Date : ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}
           </p>
-          <p if.bind="moment(r.item.registrationStartDate).diff()>0">
-            Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
-          </p>
-          <p if.bind="moment(r.item.registrationStartDate).diff()<0">
-            Ouvert aux inscriptions
-          </p>
         </div>
         <div class="width-lg-70" style="padding:0px 0px 0px 15px">
-          Organisé par ${r.item.organisedBy}
+          Organisé par ${r.item.organisedBy} -
+          <span if.bind="moment(r.item.registrationStartDate).diff()>0">
+            Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
+          </span>
+          <span if.bind="moment(r.item.registrationStartDate).diff()<0">
+            Ouvert aux inscriptions
+          </span>
           <hr/>
           <p style="text-align:justify">
             ${r.item.description}

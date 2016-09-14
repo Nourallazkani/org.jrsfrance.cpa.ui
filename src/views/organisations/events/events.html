@@ -15,9 +15,9 @@
       <div class="form-entry">
         <label>Voir les évenements futurs</label>
         <div class="input-container">
-          <input type="checkbox" checked.bind="filter.includeFutureEvents"  change.trigger="find()" />
+          <input type="checkbox" checked.bind="filter.includeFutureEvents" change.trigger="find()" />
         </div>
-      </div>      
+      </div>
     </form>
   </div>
 
@@ -28,40 +28,125 @@
       <div class="result-header">
         ${r.subject}
       </div>
+      <div class="result-infos-container">
+        <div style="display:flex">
+          <div class="width-lg-30">
+            <img src="/assets/img/unsorted/paris-sciences-po.jpg" style="max-width:100%;max-height:100%;" />
+            <p>
+              Début : ${r.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Fin : ${r.endDate | myDateFormat:'DD/MM/YYYY'}
+            </p>
+            <p>
+              Ouverture des inscriptions : ${r.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
+            </p>
+          </div>
+          <div class="width-lg-70" style="padding:0px 0px 0px 15px">
+            <p style="text-align:justify;margin-top:0px">
+              ${r.description}
+            </p>
+            <p>
+              Adresse : ${r.address.street1} ${r.address.street2} ${r.address.postalCode} ${r.address.locality}
+            </p>
+            <p>
+              Contact : ${r.contact.name} (adresse mail : ${r.contact.name}, téléphone : ${r.contact.phoneNumber})
+            </p>
 
-      <div style="display:flex">
-        <div class="width-lg-30">
-          <img src="/assets/img/unsorted/paris-sciences-po.jpg" style="max-width:100%;max-height:100%;" />
-          <p>
-            Début : ${r.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Fin : ${r.endDate | myDateFormat:'DD/MM/YYYY'}
-          </p>
-          <p>
-            Ouverture des inscriptions : ${r.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
-          </p>
+            <p>
+              Lien d'information : Ouvrir | Télécharger
+            </p>
+          </div>
         </div>
-        <div class="width-lg-70" style="padding:0px 0px 0px 15px">
-          <p style="text-align:justify;margin-top:0px">
-            ${r.description}
-          </p>
-          <p>
-            Adresse : ${r.address.street1} ${r.address.street2} ${r.address.postalCode} ${r.address.locality}
-          </p>
-          <p>
-            Contact : ${r.contact.name} (adresse mail : ${r.contact.name}, téléphone : ${r.contact.phoneNumber})
-          </p>
+
+        <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
+          <div style="text-align:right;padding-right:10px;padding-top:10px">
+            <a click.delegate="action=null" class="close"></a>
+          </div>
+
+          <form class="default-form split-lg-30-70">
+            <div style="display:flex">
+              <div style="width:50%">
+                <div class="form-entry">
+                  <label>Début</label>
+                  <div class="input-container">
+                    <input type="text" />
+                  </div>
+                </div>
+                <div class="form-entry">
+                  <label>Fin</label>
+                  <div class="input-container">
+                    <input type="text" />
+                  </div>
+                </div>                
+                <div class="form-entry">
+                  <label>Public</label>
+                  <div class="input-container">
+                    <select></select>
+                  </div>
+                </div>
+                <div class="form-entry">
+                  <label>Sujet</label>
+                  <div class="input-container">
+                    <input type="text" />
+                  </div>
+                </div>
+                <div class="form-entry">
+                  <label>Lien d'information</label>
+                  <div class="input-container">
+                    <input type="text" />
+                  </div>
+                </div>                
+                <div class="form-entry">
+                  <label>Ouverture des inscriptions</label>
+                  <div class="input-container">
+                    <input type="text" />
+                    <input type="checkbox" /> ouvert aux inscriptions
+                  </div>
+                </div>
+              </div>
+              <div style="width:50%">
+                <div class="form-entry">
+                  <label>Contact</label>
+                  <div class="input-container">
+                    <input type="text" placeholder="Prénom" />
+                    <input type="text" placeholder="Nom" />
+                    <input type="text" placeholder="Adresse mail" />
+                    <input type="text" placeholder="Téléphone" />
+                  </div>
+                </div>
+                <div class="form-entry">
+                  <label>Adresse</label>
+                  <div class="input-container">
+                    <input type="text" placeholder="Adresse" />
+                    <input type="text" placeholder="Complément d'adresse" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-entry">
+              <label style="width:15%">Description</label><br/>
+              <div class="input-container" style="width:85%">
+                <textarea style="height:10em"></textarea>
+              </div>
+            </div>
+            <div style="text-align:center;padding:20px 0px">
+              <button click.delegate="action=null">Annuler</button>
+              <button click.delegate="action=null">Enregistrer</button>
+            </div>            
+          </form>
         </div>
       </div>
+
       <div class="result-footer" style="text-align:right">
-        <div  if.bind="action==null">
+        <div if.bind="action==null">
           <button click.delegate="action='edit'">Edit</button>
           <button click.delegate="action='delete'">Delete</button>
         </div>
         <div if.bind="action=='delete'">
-          Etes vous sûr de vouloir supprimer cet élément ? 
+          Etes vous sûr de vouloir supprimer cet élément ?
           <button click.delegate="action=null">Oui</button>
-          <button  click.delegate="action=null">Non</button>
+          <button click.delegate="action=null">Non</button>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 </template>

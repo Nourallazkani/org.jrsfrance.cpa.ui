@@ -53,8 +53,8 @@
         </div>
       </div>
 
-      <div class="result-infos-container">
-        <div class="result-image-block inline-block-lg" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
+      <div class="result-infos-container" style="display:flex">
+        <div class="result-image-block" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
           <div class="fit-to-content">
             ${r.item.fieldOfStudy}
           </div>
@@ -69,7 +69,7 @@
           <br/>
           <div class="fit-to-content" if.bind="r.item.languageLevelRequired"> Niveau requis : ${r.item.languageLevelRequired || "Aucun"}</div> <!-- if.bind -->
         </div>
-        <div class="result-infos-block inline-block-lg" style="width:500px">
+        <div class="result-infos-block">
           <div>
             <label>Contact </label>
             <p>

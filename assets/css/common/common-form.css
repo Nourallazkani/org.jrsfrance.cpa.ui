@@ -9,7 +9,7 @@ form  .form-entry > label {
     white-space: normal;
 }
 
-form  .form-entry input[type=text], form  .form-entry input[type=password], form  .form-entry select{
+form  .form-entry input[type=text], form  .form-entry input[type=password], form  .form-entry select, .form-entry textarea{
     font-family: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -133,6 +133,7 @@ form .form-entry button:hover, form .form-entry button:focus{
 /*inputs style*/
 .default-form  .form-entry > .input-container > input[type=text], 
 .default-form  .form-entry > .input-container > input[type=password], 
+.default-form  .form-entry > .input-container > textarea, 
 .default-form  .form-entry > .input-container > select {
     display: block;
     width: 100%;

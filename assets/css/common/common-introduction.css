@@ -1,0 +1,28 @@
+.introduction{
+    margin: 40px 0px;
+    font-family: archer;
+    font-size: 20px;
+}
+
+.introduction-entry{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.introduction-entry > .text-block{
+    width:80%;
+    padding-left: 10px;
+} 
+
+.introduction-entry > .images-block {
+    text-align: right;
+    width:20%;
+
+}
+
+.introduction-entry > .images-block img {
+    width:40px;
+    height:40px;
+    border-radius: 40px;
+    margin: auto 5px;
+}

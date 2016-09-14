@@ -1,44 +1,49 @@
 <template>
-    <div >
-       <form class="default-form split-lg-20-80 "> <!-- if.bind -->
-    <div class="form-entry">
-      <label> 
-        <img style="width:40px;height:40px; background-color: #1B1464;border-radius: 40px;" src="/assets/img/menu/icon-teaching.svg" />
-        <img style="width:40px;height:40px; background-color: #8CC63F;border-radius: 40px;" src="/assets/img/menu/icon-professional-program.svg" />
-      </label>
-      <div class="input-container" style="font-family: archer;font-size:20px;">
+  <require from="/assets/css/common/common-introduction.css"></require>
+
+  <div class="introduction">
+    <div class="introduction-entry">
+      <div class="images-block">
+        <img style="background-color: #1B1464;" src="/assets/img/menu/icon-teaching.svg" />
+        <img style="background-color: #8CC63F;" src="/assets/img/menu/icon-professional-program.svg" />
+      </div>
+      <div class="text-block">
         Des offres de formations (études supérieures ou formations professionnelles) avec accompagnement linguistique
       </div>
     </div>
-    <div class="form-entry">
-      <label>
-        <img style="width:40px;height:40px; background-color: #F74D2B;border-radius: 40px;" src="/assets/img/menu/icon-language-program.svg" />
-      </label>
-      <div class="input-container" style="font-family: archer;font-size:20px;">
+    <div class="introduction-entry">
+      <div class="images-block">
+        <img style="background-color: #F74D2B;" src="/assets/img/menu/icon-language-program.svg" />
+      </div>
+      <div class="text-block">
         Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie
         quotidienne)
       </div>
     </div>
-    <div class="form-entry">
-      <label> 
-        <img style="width:40px;height:40px; background-color: #D4145A;border-radius: 40px;" src="/assets/img/menu/icon-library.svg" />
-        <img style="width:40px;height:40px; background-color: #9E005D;border-radius: 40px;"  src="/assets/img/menu/icon-workshop.svg" /> 
-        </label>
-      <div class="input-container" style="font-family: archer;font-size:20px;">
+
+    <div class="introduction-entry">
+      <div class="images-block">
+        <img style="background-color: #D4145A;" src="/assets/img/menu/icon-library.svg" />
+        <img style="background-color: #9E005D;" src="/assets/img/menu/icon-workshop.svg" />
+      </div>
+      <div class="text-block">
         Des méthodes d’auto-apprentissage et des ateliers de conversation
       </div>
     </div>
-    <div class="form-entry">
-      <label> <img style="width:40px;height:40px; background-color: #F4B821;border-radius: 40px;" src="/assets/img/menu/icon-interpreter.svg" /> </label>
-      <div class="input-container" style="font-family: archer;font-size:20px;">
+    <div class="introduction-entry">
+      <div class="images-block">
+        <img style="background-color: #F4B821;" src="/assets/img/menu/icon-interpreter.svg" />
+      </div>
+      <div class="text-block">
         Je peux aussi entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, interprétariat,
         ou d’autres formations.
       </div>
     </div>
-  </form>
-    </div>
-    <div if.bind="userDetails.language=='en'">
-        hello
-    </div>
-    ${referenceData}
+  </div>
+
+
+  <div if.bind="userDetails.language=='en'">
+    hello
+  </div>
+  ${referenceData}
 </template>

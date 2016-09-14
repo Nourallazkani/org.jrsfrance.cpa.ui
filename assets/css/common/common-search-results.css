@@ -28,7 +28,7 @@
     margin:10px 0px;
 }
 
-.result > .result-infos-container{
+.result > .result-body{
     font-size: 17px;
     background-color: #ccc;
     border-width: 0px;
@@ -39,38 +39,38 @@
 /*#e6fafd
  #1Fa0b1*/
 
-.result > .result-infos-container > .edit-form {
+.result > .result-body > .edit-form {
     background-color: #e0e0e0;
     border-radius: 0px 0px 15px 15px ;
     transition: all 0.5s linear;
     white-space: nowrap;    
 }
 
-.result > .result-infos-container > .edit-form > .default-form > .divider-edit-block {
+.result > .result-body > .edit-form > .default-form > .divider-edit-block {
     width: 50%;
     display: inline-block;
     box-sizing: border-box;
     
 }
 
-.result > .result-infos-container > .edit-form-hidden {   
+.result > .result-body > .edit-form-hidden {   
     height:0px;
     overflow: hidden;
 }
 
-.result > .result-infos-container > .edit-form-visible {   
+.result > .result-body > .edit-form-visible {   
     min-height:300px;
     border-top: 1px solid black;
 }
 
-.result > .result-infos-container  .result-image-block{
+.result > .result-body  .result-image-block{
     width:500px;
     height:250px;
     padding-top:20px;
     box-sizing: border-box;
 }
 
-.result > .result-infos-container  .result-image-block > div{
+.result > .result-body  .result-image-block > div{
     font-weight: bold;
     margin-bottom:10px;
     background-color:rgba(51,51,51,0.6);
@@ -82,25 +82,25 @@
     /*background-color: rgba(247,77,43,0.7);;*/
 }
 
-.result > .result-infos-container  .result-infos-block{
+.result > .result-body  .result-infos-block{
     vertical-align: top;
     width:500px;
 }
 
-.result > .result-infos-container  .result-infos-block > div{
+.result > .result-body  .result-infos-block > div{
     width: 100%;
     padding: 6px;
     display: flex;
 }
 
-.result > .result-infos-container  .result-infos-block > div > label{
+.result > .result-body  .result-infos-block > div > label{
     padding-top: 7px;
     padding-right: 20px;
     text-align: right; 
     width: 20%;
 }
 
-.result > .result-infos-container  .result-infos-block > div > p{
+.result > .result-body  .result-infos-block > div > p{
      padding-top: 7px;
      margin: 0px;
      box-sizing : border-box;

@@ -5,9 +5,9 @@
 
   <div class="results" if.bind="results.length>0">
     <div class="result" repeat.for="r of results">
-      <div class="result-infos-container">
+      <div class="result-body">
 
-        <div style="display:flex">
+        <div class="row">
           <div class="result-image-block" style="background-image: url('/assets/img/unsorted/sorbonne.jpg')">
             <div class="fit-to-content">
               ${r.fieldOfStudy}
@@ -56,7 +56,7 @@
           </div>
 
           <form class="default-form split-lg-30-70">
-            <div style="display:flex;">
+            <div class="row">
               <div style="width:50%">
                 <div class="form-entry">
                   <label>Discipline</label>

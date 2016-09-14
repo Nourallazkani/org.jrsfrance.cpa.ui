@@ -34,6 +34,10 @@ input[place-autocomplete] {
     text-overflow: ellipsis
 }
 
+.row{
+    display: flex
+}
+
 .fit-to-content {
     display: inline-block
 }

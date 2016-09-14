@@ -50,7 +50,7 @@
       </form>
     </div>
     <div class="result" repeat.for="r of results">
-      <div class="result-header" style="display:flex">
+      <div class="result-header row">
         <div style="text-align:left;width:80%">
           ${r.item.organisation}
         </div>
@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <div class="result-infos-container" style="display:flex">
+      <div class="result-body row">
         <div class="result-image-block" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
           <div class="fit-to-content">
             ${r.item.domain}

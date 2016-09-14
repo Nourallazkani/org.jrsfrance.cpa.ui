@@ -14,7 +14,7 @@ export class Index {
 
   configureRouter(config, router) {
     config.map([
-      { route: '', name: 'volunteers', moduleId: 'views/volunteers/welcome', nav: true, title: 'Accueil' },
+      { route: '', name: 'volunteers/welcome', moduleId: 'views/volunteers/welcome', nav: true, title: 'Accueil' },
       { route: 'events', name: 'volunteers/events', moduleId: 'views/volunteers/events/events', nav: true, title: 'Evenements' },
       { route: 'availabilities', name: 'volunteers/availabilities', moduleId: 'views/volunteers/availabilities/availabilities', nav: true, title: 'Disponibilité' },
       { route: 'meetingRequests', name: 'volunteers/meetingRequests', moduleId: 'views/volunteers/meetingRequests/meetingRequests', nav: true, title: 'Demande de rendez vous' }

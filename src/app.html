@@ -2,6 +2,7 @@
   <require from="/assets/css/common/common.css"></require>
   <require from="/assets/css/common/common-modal-dialog.css"></require>
   <require from="/assets/css/common/common-form.css"></require>
+  <require from="/assets/css/common/common-grid.css"></require>
   <require from="/assets/css/common/common-search-results.css"></require>
   <require from="/assets/css/specific/app.css"></require>
   
@@ -56,7 +57,6 @@
 
     <div class="menu-items" if.bind="userDetails.account!=null">
       <p>Hello ${userDetails.account.name} </p>
-      <a href="#"> Mon profil</a> <a href="#"> Mon Calandrier</a>
       <a click.delegate="signOut()"> Deconnexion </a>
     </div>
 

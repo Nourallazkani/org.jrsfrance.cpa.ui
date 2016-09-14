@@ -21,6 +21,6 @@ export class Teachings {
     this.fetchClient
       .fetch(getUri("teachings", this.filter))
       .then(response => response.json())
-      .then(results => { this.results = results; console.log(JSON.stringify(results, null, 2)) });
+      .then(results => this.results = results);
   }
 }

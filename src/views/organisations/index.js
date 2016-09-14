@@ -11,7 +11,7 @@ export class Index {
   }
   configureRouter(config, router) {
     config.map([
-      { route: '', name: 'refugees', moduleId: 'views/organisations/welcome', nav: true, title: 'Organisation > Index' },
+      { route: '', name: 'organisations/welcome', moduleId: 'views/organisations/welcome', nav: true, title: 'Organisation > Index' },
 
       { route: 'teachings', name: 'organisations/teachings', moduleId: 'views/organisations/teachings/teachings', nav: true, title: 'Enseignements supérieurs' },
       { route: 'language-programs', name: 'organisations/language-programs', moduleId: 'views/organisations/language-programs/language-programs', nav: true, title: 'Apprentissage du français' },

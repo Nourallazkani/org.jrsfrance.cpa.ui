@@ -14,7 +14,7 @@ export class Index {
 
   configureRouter(config, router) {
     config.map([
-      { route: '', name: 'refugees', moduleId: 'views/refugees/welcome', nav: true, title: 'Index' },
+      { route: '', name: 'refugees/welcome', moduleId: 'views/refugees/welcome', nav: true, title: 'Index' },
       { route: 'teachings', name: 'refugees/teachings', moduleId: 'views/refugees/teachings/teachings', nav: true, title: 'Enseignements supérieurs' },
       { route: 'language-programs', name: 'refugees/language-programs', moduleId: 'views/refugees/language-programs/language-programs', nav: true, title: 'Apprentissage du français' },
       { route: 'professional-programs', name: 'refugees/professional-programs', moduleId: 'views/refugees/professional-programs/professional-programs', nav: true, title: 'Apprentissage du français' },

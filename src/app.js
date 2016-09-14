@@ -111,7 +111,9 @@ export class App {
         if (this.authz.rememberMe) {
           localStorage.setItem("accessKey", account.accessKey);
         }
+        console.log(this.authz.successUrl)
         if (this.authz.successUrl != null) {
+          
           this.router.navigateToRoute(this.authz.successUrl);
         }
       })

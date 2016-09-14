@@ -20,7 +20,9 @@
             <!-- welcome message -->
             <div if.bind="authz.action == null">
                 <div style="text-align:right">
+                    <a route-href="route: volunteers">-</a>
                     <a click.delegate="setUserDetails(null)" class="close"></a>
+                    
                 </div>
                 <p style="font-family: archer;font-size:30px;">
                     Je peux donner un peu de mon temps selon mes disponibilités pour : aider dans l’apprentissage de français, l’interprétariat
@@ -28,8 +30,8 @@
                 </p>
 
                 <ul style="font-family: archer;font-size:30px;">
-                    <li><a route-href="route: volunteers"> Je regarde la vidéo de présentation </a></li>
-                    <li><a click.delegate="startSignIn('volunteers/index')">Je me connecte</a></li>
+                    <li> Je regarde la vidéo de présentation</li>
+                    <li><a click.delegate="startSignIn('volunteers')">Je me connecte</a></li>
                     <li><a click.delegate="startSignUp()">Je m'inscrit</a></li>
                 </ul>
             </div>
@@ -74,6 +76,7 @@
             <!-- welcome message -->
             <div if.bind="authz.action==null">
                 <div style="text-align:right">
+                    <a route-href="route: organisations">-</a>
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
                 <p style="font-family: archer;font-size:30px;">
@@ -81,8 +84,8 @@
                     besoins. Pour s’inscrire cliquez ici.
                 </p>
                 <ul style="font-family: archer;font-size:30px;">
-                    <li><a route-href="route: organisations"> Je regarde la vidéo de présentation </a></li>
-                    <li><a click.delegate="startSignIn('organisations/index')">Je me connecte</a></li>
+                    <li>Je regarde la vidéo de présentation</li>
+                    <li><a click.delegate="startSignIn('organisations')">Je me connecte</a></li>
                     <li>Je m'inscrit</li>
                 </ul>
             </div>

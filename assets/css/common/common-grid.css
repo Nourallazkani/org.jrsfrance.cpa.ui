@@ -2,6 +2,16 @@
     display: flex
 }
 
+.horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
 @media(min-width:768px){
     .width-sm-10{width:10%}
     .width-sm-20{width:20%}
@@ -23,10 +33,6 @@
     .offset-sm-70{margin-left:70%}
     .offset-sm-80{margin-left:80%}
     .offset-sm-90{margin-left:90%}
-
-    .block-sm{display: block}
-    .inline-block-sm{display: inline-block}
-    .inline-sm{display: inline}
 }
 
 @media(min-width:960px){
@@ -50,13 +56,9 @@
     .offset-md-70{margin-left:70%}
     .offset-md-80{margin-left:80%}
     .offset-md-90{margin-left:90%}
-
-    .block-md{display: block}
-    .inline-block-md{display: inline-block}
-    .inline-md{display: inline}
 }
 
-@media(min-width:1024px){
+@media(min-width:1280px){
     .width-lg-10{width:10%}
     .width-lg-20{width:20%}
     .width-lg-30{width:30%}
@@ -67,10 +69,6 @@
     .width-lg-80{width:80%}
     .width-lg-90{width:90%}
     .width-lg-100{width:100%}
-
-    .block-lg{display: block}
-    .inline-block-lg{display: inline-block}
-    .inline-lg{display: inline}
 
     .offset-lg-10{margin-left:10%}
     .offset-lg-20{margin-left:20%}

@@ -4,6 +4,7 @@ var del = require('del');
 var aureliaBundler = require('aurelia-bundler');
 var browserSync = require('browser-sync');
 var historyApiFallback = require('connect-history-api-fallback')
+var s3 = require('gulp-s3-upload')({ accessKeyId: "AKIAJWC3S7GZQQJHTLEA", secretAccessKey: "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" });
 
 var config = {
   force: true,
@@ -86,7 +87,7 @@ gulp.task('serve-bundle', function (done) {
       port: 9000,
       server: {
         baseDir: ['.'],
-        middleware: [ historyApiFallback() ]
+        middleware: [historyApiFallback()]
       }
     }, done);
   });
@@ -103,7 +104,7 @@ gulp.task('serve', function (done) {
         port: 9000,
         server: {
           baseDir: ['.'],
-          middleware: [ historyApiFallback() ]
+          middleware: [historyApiFallback()]
         }
       }, done)
     })
@@ -113,7 +114,28 @@ gulp.task('serve', function (done) {
         .pipe(watch(source, { base: source }))
         .pipe(gulp.dest(destination));
     });
+});
 
+gulp.task("upload", function () {
+
+  var app = ["./index.html", "./config.js", "./dist/app-build.js"];
+  var assets = "./assets/**/**";
+  var vendor = "./dist/vendor-build.js";
+  var jspm = "./jspm_packages/**/**";
+
+  var toUpload = app;
+  if (false) {
+    toUpload.push(assets);
+  }
+  if (false) {
+    toUpload.push(vendor);
+  }
+  if (false) {
+    toUpload.push(jspm);
+  }
+  gulp.src(toUpload, { base: './' })
+    .pipe(s3({ Bucket: 'jrs-cpa-test', ACL: 'public-read' }, { maxRetries: 5, region: "eu-west-1" }));
+  ;
 });
 
 gulp.task('deploy', function () {

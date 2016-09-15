@@ -20,7 +20,6 @@
             <!-- welcome message -->
             <div if.bind="authz.action == null">
                 <div style="text-align:right">
-                    <a route-href="route: volunteers">-</a>
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                     
                 </div>
@@ -76,7 +75,6 @@
             <!-- welcome message -->
             <div if.bind="authz.action==null">
                 <div style="text-align:right">
-                    <a route-href="route: organisations">-</a>
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
                 <p style="font-family: archer;font-size:30px;">

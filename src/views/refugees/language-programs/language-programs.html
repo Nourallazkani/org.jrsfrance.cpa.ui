@@ -48,64 +48,8 @@
         </div>
       </form>
     </div>
-    <div class="result" repeat.for="r of results">
-      <div class="result-header row">
-        <div style="text-align:left;width:80%">
-          ${r.item.organisation}
-        </div>
-        <div style="text-align:right;width:20%" if.bind="r.distance">
-          ${r.distance} km
-        </div>
-      </div>
-
-      <div class="result-body row">
-        <div class="result-image-block" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
-          <div class="fit-to-content">
-            ${r.item.type}
-          </div>
-          <br/>
-          <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()>0">
-            Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
-          </div>
-          <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()<0">
-            Ouvert aux inscriptions
-          </div>
-          <br/>
-          <div class="fit-to-content"> Niveau : ${r.item.level}</div>
-        </div>
-        <div class="result-infos-block">
-          <div>
-            <label>Date </label>
-            <p>
-              du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
-            </p>
-          </div>
-          <div>
-            <label>Contact </label>
-            <p>
-              ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
-              <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
-            </p>
-          </div>
-          <div>
-            <label>
-              Adresse 
-            </label>
-            <p>
-              ${r.item.address.street1}<br/> ${r.item.address.street2}
-              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}<br/>
-
-              <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">Itineraire</a>
-              <a click.delegate="viewLocation(r.item.address)">Carte</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-----------------------------------test Saif style-------------------- -->
+    
+    <!-----------------------------------test Saif style-------------------- -->
 
   <div class="results" if.bind="results.length>0">
     <div class="_result" repeat.for="r of results">

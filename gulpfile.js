@@ -116,7 +116,7 @@ gulp.task('serve', function (done) {
     });
 });
 
-gulp.task("upload", function () {
+gulp.task("upload", ['bundle'], function () {
 
   var app = ["./index.html", "./config.js", "./dist/app-build.js"];
   var assets = "./assets/**/**";

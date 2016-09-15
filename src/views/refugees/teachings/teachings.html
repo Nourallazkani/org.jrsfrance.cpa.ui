@@ -2,7 +2,12 @@
 
   <require from="views/_components/place-autocomplete"></require>
   <require from="views/_formatters/date-format"></require>
-  
+  <require from="/assets/css/common/common-grid.css"></require>
+  <require from="/assets/css/common/common-saif.css"></require>
+
+
+
+
   <form class="inline-form" submit.delegate="find()" style="text-align:center">
     <div class="form-entry">
       <label>Ville</label>
@@ -64,10 +69,11 @@
           </div>
           <br/>
           <div class="fit-to-content">
-            licence : ${r.item.licence  ? "Oui" : "Non"}
+            licence : ${r.item.licence ? "Oui" : "Non"}
           </div>
           <br/>
-          <div class="fit-to-content" if.bind="r.item.languageLevelRequired"> Niveau requis : ${r.item.languageLevelRequired || "Aucun"}</div> <!-- if.bind -->
+          <div class="fit-to-content" if.bind="r.item.languageLevelRequired"> Niveau requis : ${r.item.languageLevelRequired || "Aucun"}</div>
+          <!-- if.bind -->
         </div>
         <div class="result-infos-block">
           <div>
@@ -82,16 +88,15 @@
               Adresse 
             </label>
             <p>
-              ${r.item.address.street1}<br/> 
-              ${r.item.address.street2}<br if.bind="r.item.address.street2 != null " /> 
-              ${r.item.address.postalCode} ${r.item.address.locality}<br/>
+              ${r.item.address.street1}<br/> ${r.item.address.street2}
+              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}<br/>
               <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">Itineraire</a>
               <a click.delegate="viewLocation(r.item.address)">Carte</a>
             </p>
           </div>
           <div>
             <label>Lien :</label>
-            <p> 
+            <p>
               <a href="#">Ouvrir</a> | <a href="#">Télécharger</a>
             </p>
           </div>
@@ -99,4 +104,68 @@
       </div>
     </div>
   </div>
+
+  <!-----------------------------------test Saif style-------------------- -->
+
+  <div class="results" if.bind="results.length>0">
+    <div class="_result" repeat.for="r of results">
+      <div class="_result-header">
+        <div style="text-align:left;width:80%">
+          ${r.item.organisation}
+        </div>
+        <div style="text-align:right;width:20%" if.bind="r.distance">
+          <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
+            ${r.distance} km
+          </a>
+        </div>
+      </div>
+      <div class="_result-body horizontal">
+
+        <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
+          <div class="fit-to-content"> ${r.item.fieldOfStudy}</div>
+          <br/>
+          <div class="fit-to-content"> Master : ${r.item.master ? "Oui" : "Non"}</div>
+          <br/>
+          <div class="fit-to-content">
+            licence : ${r.item.licence ? "Oui" : "Non"}
+          </div>
+          <br/>
+          <div class="fit-to-content" if.bind="r.item.languageLevelRequired"> Niveau requis : ${r.item.languageLevelRequired || "Aucun"}</div>
+          <!-- if.bind -->
+        </div>
+
+        <div class="vertical _infos-container">
+          <div class="horizontal">
+            <div class="width-lg-40 bold">
+              <img src="/assets/img/saif/Contact.svg" /> Contact
+            </div>
+            <div class="width-lg-70 info">
+              ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
+              <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+            </div>
+          </div>
+          <div class="horizontal">
+            <div class="width-lg-40 bold">
+              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+            </div>
+            <div class="width-lg-70 info">
+              ${r.item.address.street1}<br/> ${r.item.address.street2}
+              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
+              <br/>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="_result-footer" style="text-align: right;margin-top:-40px;padding-right:20px;">
+        <a href="#"> <img style="width:40px; margin-right:10px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
+        <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
+      </div>
+
+
+    </div>
+  </div>
+
 </template>

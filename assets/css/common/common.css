@@ -7,6 +7,12 @@ contains global and reusable styles
 @font-face{font-family: Cavorting;src: url(/assets/fonts/Cavorting.otf)}
 @font-face{font-family: Abadi;src: url(/assets/fonts/ufonts.com_abadi-mt-condensed-light.ttf)}
 @font-face{font-family: AbadiBold;src: url(/assets/fonts/abadi-mt-condensed-extra-bold.ttf)}
+@font-face{font-family: AbadiBold;src: url(/assets/fonts/abadi-mt-condensed-extra-bold.ttf)}
+
+@font-face{font-family: SegoeUi;src: url(/assets/fonts/segoe/segoe-ui.ttf)}
+@font-face{font-family: SegoeUiBold;src: url(/assets/fonts/segoe/segoe-ui-b.ttf)}
+@font-face{font-family: SegoeUiSlim;src: url(/assets/fonts/segoe/segoe-ui-sl.ttf)}
+
 
 @font-face{font-family:ProximaNova;src:url(http://fr.agencecm.ffp.ui.s3.amazonaws.com/fonts/ProximaNovaCond-Light.otf);font-weight:200}
 @font-face{font-family:ProximaNova;src:url(http://fr.agencecm.ffp.ui.s3.amazonaws.com/fonts/ProximaNovaCond-LightIt.otf);font-weight:200;font-style:italic}

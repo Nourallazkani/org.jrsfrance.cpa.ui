@@ -1,28 +1,34 @@
 ._result{
+    font-family:SegoeUiBold ;
     width:1000px;
     margin:auto;
+    margin-bottom: 40px;
     /*color, font-family, margin-bottom, etc...*/
-}
-._result-body{
-        /*styles spécific to body : border-radius, border-color, etc...*/
-        border:1px solid red;
 }
 
 ._result-header{
-    /*styles spécific to header : background-color, font-size, padding, etc...*/
+    font-size: 25px ;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+
+._result-body{
+        border-radius: 10px;
 }
 
 ._result-footer{
-    /*styles spécific to footer : background-color, font-size, padding, etc...*/
+   
 }
 
 ._image-container {
     height: 250px;
     width: 500px;
-    background-color: black;
     color: white;
-    padding-top:20px;
+    border: 2px solid #333333;
+    padding-top:30px;
     box-sizing:border-box;
+    border-radius: 10px 0px 0px 10px;
 }
 
 ._image-container > div {
@@ -37,11 +43,12 @@
 }
 
 ._infos-container {
+    border-radius: 0px 10px 10px 0px ;
     box-sizing: border-box;
     height: 250px;
     width: 500px;
     padding: 20px;
-    background-color: black;
+    background-color: #333333 ;
     color: white;
 }
 
@@ -51,6 +58,40 @@
     align-items: center;
 }
 
+._infos-container > div img{
+    width:40px;
+    height:40px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+._infos-container > div .bold {
+    font-family: SegoeUiBold;
+    font-size: 18px;
+    padding-left: 30px;
+}
+
+._infos-container > div .info {
+    padding-left: 10%;
+    font-family: SegoeUiSlim;
+    font-size: 16px;
+}
+
+._infos-container > div .info a {
+    color: white;
+}
+
+
 ._infos-container > div:last-child {
     border-bottom-width: 0px
+}
+
+.links{
+    position: relative;
+    right:120px;
+    bottom:-210px;
+}
+
+.link > a > img{
+    width:40px;
 }

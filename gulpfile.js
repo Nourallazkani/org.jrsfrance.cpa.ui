@@ -124,7 +124,7 @@ gulp.task("upload", function () {
   var jspm = "./jspm_packages/**/**";
 
   var toUpload = app;
-  if (false) {
+  if (true) {
     toUpload.push(assets);
   }
   if (false) {

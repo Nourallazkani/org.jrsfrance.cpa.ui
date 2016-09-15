@@ -10,6 +10,7 @@ export class Teachings {
 
   filter = { includeFutureEvents: true, includePastEvents: false }
   results = []
+  view = "list";
 
   constructor(fetchClient, userDetails) {
     this.fetchClient = fetchClient
@@ -17,7 +18,10 @@ export class Teachings {
     this.find();
   }
 
-  find() {
+  find(view) {
+    if (view) {
+      this.view = view;
+    }
     this.fetchClient
       .fetch(getUri("teachings", this.filter))
       .then(response => response.json())

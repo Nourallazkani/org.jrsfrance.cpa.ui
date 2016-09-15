@@ -6,9 +6,9 @@
   <require from="/assets/css/common/common-saif.css"></require>
 
 
+  <require from="views/_components/gmap"></require>
 
-
-  <form class="inline-form" submit.delegate="find()" style="text-align:center">
+  <form class="inline-form" style="text-align:center">
     <div class="form-entry">
       <label>Ville</label>
       <div class="input-container">
@@ -31,13 +31,18 @@
     </div>
     <div class="form-entry" style="margin: 0px 25px;">
       <div class="input-container">
-        <button>Rechercher</button>
+        <button click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">Liste</button>
+        <button click.trigger="find('map')" class="${view=='map' ? 'button-active' : ''}">Carte</button>
       </div>
     </div>
     </div>
   </form>
+  
+  <div class="results"  if.bind="results.length>0 && view=='map'">
+    <gmap center.bind="userDetails.address" places.bind="results"></gmap>
+  </div>
 
-  <div class="results" if.bind="results.length>0">
+  <div class="results" if.bind="results.length>0 && view=='list'">
     <div style="text-align:right">
       <form class="inline-form" submit.delegate="sortByDistance()">
         <div class="form-entry">
@@ -50,7 +55,7 @@
     </div>
 
   <!-----------------------------------test Saif style-------------------- -->
-
+  
   <div class="results" if.bind="results.length>0">
     <div class="_result" repeat.for="r of results">
       <div class="_result-header">

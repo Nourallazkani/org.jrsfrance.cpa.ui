@@ -6,7 +6,7 @@
     <div class="nav-container">
         <figure class="nav-volunteer ${userDetails.profile=='V' ? 'nav-volunteer-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='V'">
 
-            <img src="/assets/img/home/profile-volunteer.png" />
+            <a route-href="route:volunteers"><img src="/assets/img/home/profile-volunteer.png" /></a>
 
             <figcaption>
                 <p><a click.delegate="setUserDetails('V')">Je suis b&eacute;n&eacute;vole</a></p>
@@ -99,7 +99,7 @@
         </div>
         <figure class="nav-organisation ${userDetails.profile=='O' ? 'nav-organisation-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='O'">
 
-            <img src="/assets/img/home/profile-organisation.png" />
+            <a route-href="route:organisations"><img src="/assets/img/home/profile-organisation.png" /></a>
 
             <figcaption>
                 <p><a click.delegate="setUserDetails('O')">Je repr&eacute;sente une institution</a></p>

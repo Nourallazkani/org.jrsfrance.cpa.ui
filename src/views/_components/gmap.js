@@ -9,10 +9,8 @@ export class GmapCustomElement {
     @bindable center;
     @bindable places;
 
-
     constructor(element) {
         this.element = element;
-
     }
 
     placesChanged() {
@@ -20,15 +18,18 @@ export class GmapCustomElement {
     }
 
     showPlaces() {
-        console.log("hello")
-
         for (let p of this.places) {
             let myLatLng = { lat: p.item.address.lat, lng: p.item.address.lng };
-            console.log(myLatLng)
             let marker = new google.maps.Marker({ position: myLatLng, map: this.googleMap, title: p.item.organisation });
             this.markers.push(marker);
         }
-        
+        if (this.googleMap)/* this.googleMap is null if the element is not attached yet*/ {
+            let newBoundary = new google.maps.LatLngBounds();
+            for (let marker of this.markers) {
+                newBoundary.extend(marker.position);
+            }
+            this.googleMap.fitBounds(newBoundary);
+        }
     }
 
     attached() {
@@ -36,11 +37,5 @@ export class GmapCustomElement {
         var center = this.center ? { lat: this.center.lat, lng: this.center.lng } : { lat: 48.866667, lng: 2.333333 };
         this.googleMap = new google.maps.Map(mapDiv, { center: center, zoom: 8 });
         this.showPlaces();
-        
-        let newBoundary = new google.maps.LatLngBounds();
-        for(let marker of this.markers){
-            newBoundary.extend(marker.position);
-        }
-        this.googleMap.fitBounds(newBoundary);
     }
 }

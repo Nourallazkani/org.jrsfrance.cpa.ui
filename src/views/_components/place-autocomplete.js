@@ -1,5 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {bindable} from 'aurelia-framework'
+
 @inject(Element)
 export class PlaceAutocompleteCustomAttribute {
 

@@ -93,27 +93,24 @@ gulp.task('serve-bundle', function (done) {
   });
 });
 
-gulp.task('serve', function (done) {
+gulp.task('serve', ['unbundle'], function (done) {
   del(['dist/app-build.js', 'dist/vendor-build.js']);
 
-  aureliaBundler.unbundle(config)
-    .then(() => {
-      browserSync({
-        online: false,
-        open: false,
-        port: 9000,
-        server: {
-          baseDir: ['.'],
-          middleware: [historyApiFallback()]
-        }
-      }, done)
-    })
-    .then(() => {
-      var source = './src', destination = './dist';
-      gulp.src(source + '/**/*', { base: source })
-        .pipe(watch(source, { base: source }))
-        .pipe(gulp.dest(destination));
-    });
+  browserSync({
+    online: false,
+    open: false,
+    port: 9000,
+    server: {
+      baseDir: ['.'],
+      middleware: [historyApiFallback()]
+    }
+  }, done)
+
+  var source = './src', destination = './dist';
+  gulp.src(source + '/**/*', { base: source })
+    .pipe(watch(source, { base: source }))
+    .pipe(gulp.dest(destination));
+
 });
 
 gulp.task("upload", ['bundle'], function () {
@@ -136,13 +133,4 @@ gulp.task("upload", ['bundle'], function () {
   gulp.src(toUpload, { base: './' })
     .pipe(s3({ Bucket: 'jrs-cpa-test', ACL: 'public-read' }, { maxRetries: 5, region: "eu-west-1" }));
   ;
-});
-
-gulp.task('deploy', function () {
-  console.log("start deploy")
-  return aureliaBundler.bundle(config)
-    .then(() => console.log("bundle : done"))
-    .then(() => console.log("deploy to s3 : done"))
-    .then(() => bundler.unbundle(config))
-    .then(() => console.log("unbundle : done"));
 });

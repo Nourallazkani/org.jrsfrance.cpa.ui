@@ -58,7 +58,6 @@ export class App {
   }
 
   configureRouter(config, router) {
-    
     config.title = 'CPA';
     config.options.pushState = true;
     config.options.hashChange = false;

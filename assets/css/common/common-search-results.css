@@ -1,3 +1,7 @@
+.row{
+    display: flex
+}
+
 .results{
 
     width: 1000px;
@@ -40,7 +44,7 @@
  #1Fa0b1*/
 
 .result > .result-body > .edit-form {
-    background-color: #e0e0e0;
+    background-color: #706E69;
     border-radius: 0px 0px 15px 15px ;
     transition: all 0.5s linear;
     white-space: nowrap;    

@@ -35,11 +35,6 @@ a{
     cursor: pointer
 }
 
-input[place-autocomplete] {
-    width:200px;
-    text-overflow: ellipsis
-}
-
 .fit-to-content {
     display: inline-block
 }
@@ -72,6 +67,13 @@ button{
 .close:before {
     content: "\2716";
     font-size: 18px;
+    background-color: #ef6d3a;
+    color: white;
+    border-radius: 30px;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    text-align: center;
 }
 
 .common-arrow-top{

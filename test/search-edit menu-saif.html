@@ -1,0 +1,421 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\common\common.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\common\common-form.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\common\common-grid.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\common\common-introduction.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\common\common-modal-dialog.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\common\common-search-results.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\common\common-saif.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\specific\home.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\specific\about.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\specific\app.css" />
+    <link rel="stylesheet" href=" C:\Dev\projects\org.jrsfrance.cpa.ui\assets\css\specific\index.css" />
+
+</head>
+
+<body>
+
+    <form class="inline-form" submit.delegate="find()" style="text-align:center">
+        <div class="form-entry">
+            <!--
+          <img src="assets/img/refugee/localisation.svg" style=""/> -->
+        </div>
+        <div class="form-entry">
+            <label>Ville</label>
+            <div class="input-container">
+                <select value.bind="filter.city">
+            <option value=""></option>
+            <option>Paris</option>
+            <option>Lyon</option>
+            <option>Marseille</option>
+        </select>
+            </div>
+        </div>
+        <div class="form-entry">
+            <label>Niveau</label>
+            <div class="input-container">
+                <select value.bind="filter.levelId">
+            <option value=""></option>
+            <option repeat.for="x of referenceData.levels" value.bind="x.id">${x.name}</option>
+        </select>
+            </div>
+        </div>
+        <div class="form-entry" style="margin: 0px 25px;">
+            <div class="input-container">
+                <button>Rechercher</button>
+            </div>
+        </div>
+        </div>
+    </form>
+
+    <div class="results" if.bind="results.length>0">
+        <div style="text-align:right">
+            <form class="inline-form" submit.delegate="sortByDistance()">
+                <div class="form-entry">
+                    <div class="input-container">
+                        <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
+                        <button>Classer par proximité</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-----------------------------------test Saif style-------------------- -->
+
+        <div class="results" if.bind="results.length>0">
+            <div class="_result" repeat.for="r of results">
+                <div class="_result-header">
+                    <div style="text-align:left;width:80%">
+                        ${r.item.organisation}
+                    </div>
+                    <div style="text-align:right;width:20%" if.bind="r.distance">
+                        <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
+            ${r.distance} km
+          </a>
+                    </div>
+                </div>
+                <div class="_result-body horizontal">
+
+                    <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
+
+                        <div class="fit-to-content">${r.item.domain}</div>
+                        <br/>
+                        <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()>0">
+                            Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
+                        </div>
+                        <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()<0">
+                            Ouvert aux inscriptions</div>
+                        <br/>
+                        <div class="fit-to-content"> Niveau : ${r.item.level}
+                        </div>
+
+                    </div>
+
+                    <div class="vertical _infos-container">
+                        <div class="horizontal">
+                            <div class="width-lg-40 bold">
+                                <img src="/assets/img/saif/Date.svg" /> Date
+                            </div>
+                            <div class="width-lg-70 info">
+                                Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
+                            </div>
+                        </div>
+                        <div class="horizontal">
+                            <div class="width-lg-40 bold">
+                                <img src="/assets/img/saif/Contact.svg" /> Contact
+                            </div>
+                            <div class="width-lg-70 info">
+                                ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
+                                <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+                            </div>
+                        </div>
+                        <div class="horizontal">
+                            <div class="width-lg-40 bold">
+                                <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+                            </div>
+                            <div class="width-lg-70 info">
+                                ${r.item.address.street1}<br/> ${r.item.address.street2}
+                                <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
+                                <br/>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="_result-footer" style="text-align: right;margin-top:-40px;padding-right:20px;">
+                    <a href="#"> <img style="width:40px; margin-right:10px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
+                    <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        <br>
+        <br>
+
+        <div class="results" if.bind="results.length>0">
+            <div class="_result" repeat.for="r of results">
+                <div class="_result-header">
+                    <div style="text-align:left;width:80%">
+                        ${r.item.organisation}
+                    </div>
+                    <div style="text-align:right;width:20%" if.bind="r.distance">
+                        <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
+            ${r.distance} km
+          </a>
+                    </div>
+                </div>
+                <div class="_result-body horizontal">
+
+                    <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
+
+                        <div class="fit-to-content">${r.item.domain}</div>
+                        <br/>
+                        <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()>0">
+                            Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
+                        </div>
+                        <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()<0">
+                            Ouvert aux inscriptions</div>
+                        <br/>
+                        <div class="fit-to-content"> Niveau : ${r.item.level}
+                        </div>
+
+                    </div>
+
+                    <div class="vertical _infos-container">
+                        <div class="horizontal">
+                            <div class="width-lg-40 bold">
+                                <img src="/assets/img/saif/Date.svg" /> Date
+                            </div>
+                            <div class="width-lg-70 info">
+                                Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
+                            </div>
+                        </div>
+                        <div class="horizontal">
+                            <div class="width-lg-40 bold">
+                                <img src="/assets/img/saif/Contact.svg" /> Contact
+                            </div>
+                            <div class="width-lg-70 info">
+                                ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
+                                <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+                            </div>
+                        </div>
+                        <div class="horizontal">
+                            <div class="width-lg-40 bold">
+                                <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+                            </div>
+                            <div class="width-lg-70 info">
+                                ${r.item.address.street1}<br/> ${r.item.address.street2}
+                                <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
+                                <br/>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="_result-footer" style="text-align: right;margin-top:-40px;padding-right:20px;">
+                    <a href="#"> <img style="width:40px; margin-right:10px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
+                    <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
+                </div>
+                <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
+                        <div style="text-align:right;padding-right:10px;padding-top:10px">
+                            <a click.delegate="action=null" class="close"></a>
+                        </div>
+
+
+                        <form class="default-form split-lg-30-70">
+                            <div class="row">
+                                <div style="width:50%">
+                                    <div class="form-entry">
+                                        <label>Début</label>
+                                        <div class="input-container">
+                                            <input type="datetime-local" />
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Fin</label>
+                                        <div class="input-container">
+                                            <input type="datetime-local" />
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Niveau</label>
+                                        <div class="input-container">
+                                            <select></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Domaine</label>
+                                        <div class="input-container">
+                                            <select></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Ouverture des inscriptions</label>
+                                        <div class="input-container">
+                                            <input type="text" />
+                                            <input type="checkbox" /> ouvert aux inscriptions
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width:50%">
+                                    <div class="form-entry">
+                                        <label>Contact</label>
+                                        <div class="input-container">
+                                            <input type="text" placeholder="Prénom" />
+                                            <input type="text" placeholder="Nom" />
+                                            <input type="email" placeholder="Adresse mail" />
+                                            <input type="tel" placeholder="Téléphone" />
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Adresse</label>
+                                        <div class="input-container">
+                                            <input type="text" placeholder="Adresse" />
+                                            <input type="text" placeholder="Complément d'adresse" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align:center;padding:20px 0px">
+                                <button click.delegate="action=null">Annuler</button>
+                                <button click.delegate="action=null">Enregistrer</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        <br>
+        <br>
+
+
+        <div class="results" if.bind="results.length>0">
+
+            <div class="result" repeat.for="r of results">
+
+
+                <div class="result-body">
+                    <div class="row">
+                        <div class="result-image-block" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
+                            <div class="fit-to-content">
+                                Domaine : ${r.domain}
+                            </div>
+                            <br/>
+                            <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()>0">
+                                Ouverture des inscriptions le ${r.registrationStartDate | myDateFormat:'DD/MM'}
+                            </div>
+                            <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()<0">
+                                Ouvert aux inscriptions
+                            </div>
+                            <br/>
+                            <div class="fit-to-content"> Niveau : ${r.level}</div>
+                        </div>
+                        <div class="result-infos-block">
+                            <div>
+                                <label>Date </label>
+                                <p>
+                                    du ${r.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
+                                </p>
+                            </div>
+                            <div>
+                                <label>Contact </label>
+                                <p>
+                                    ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
+                                    <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
+                                </p>
+                            </div>
+                            <div>
+                                <label>
+              Adresse 
+            </label>
+                                <p>
+                                    ${r.address.street1}<br/> ${r.address.street2}
+                                    <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}<br/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
+                        <div style="text-align:right;padding-right:10px;padding-top:10px">
+                            <a click.delegate="action=null" class="close"></a>
+                        </div>
+
+
+                        <form class="default-form split-lg-30-70">
+                            <div class="row">
+                                <div style="width:50%">
+                                    <div class="form-entry">
+                                        <label>Début</label>
+                                        <div class="input-container">
+                                            <input type="datetime-local" />
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Fin</label>
+                                        <div class="input-container">
+                                            <input type="datetime-local" />
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Niveau</label>
+                                        <div class="input-container">
+                                            <select></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Domaine</label>
+                                        <div class="input-container">
+                                            <select></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Ouverture des inscriptions</label>
+                                        <div class="input-container">
+                                            <input type="text" />
+                                            <input type="checkbox" /> ouvert aux inscriptions
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width:50%">
+                                    <div class="form-entry">
+                                        <label>Contact</label>
+                                        <div class="input-container">
+                                            <input type="text" placeholder="Prénom" />
+                                            <input type="text" placeholder="Nom" />
+                                            <input type="email" placeholder="Adresse mail" />
+                                            <input type="tel" placeholder="Téléphone" />
+                                        </div>
+                                    </div>
+                                    <div class="form-entry">
+                                        <label>Adresse</label>
+                                        <div class="input-container">
+                                            <input type="text" placeholder="Adresse" />
+                                            <input type="text" placeholder="Complément d'adresse" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align:center;padding:20px 0px">
+                                <button click.delegate="action=null">Annuler</button>
+                                <button click.delegate="action=null">Enregistrer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="result-footer" style="text-align:right">
+                    <div if.bind="action==null">
+                        <button click.delegate="action='edit'">Edit</button>
+                        <button click.delegate="action='delete'">Delete</button>
+                    </div>
+                    <div if.bind="action=='delete'">
+                        Etes vous sûr de vouloir supprimer cet élément ?
+                        <button click.delegate="action=null">Oui</button>
+                        <button click.delegate="action=null">Non</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+</body>
+
+</html>

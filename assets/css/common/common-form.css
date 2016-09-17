@@ -43,6 +43,7 @@ fieldset {
     border-width: 1px 0px 0px 0px;
     padding: 0px;
     font-family: SegoeUiSlim;
+    margin-bottom: 25px;
 }
 
 fieldset legend {
@@ -50,6 +51,7 @@ fieldset legend {
     line-height: 40px;
     font-size: 20px;
     color: white;
+    margin-bottom: 10px;
 }
 
 fieldset input, fieldset select, fieldset textarea{

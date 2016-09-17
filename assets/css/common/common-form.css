@@ -32,6 +32,10 @@ form div.horizontal{
     margin-bottom: 15px;
 }
 
+form div.horizontal.no-margin{
+    margin-bottom: 0px;
+}
+
 form.label-right label { 
     text-align: right
 }
@@ -40,6 +44,7 @@ form.label-right label {
 
 fieldset {
     border-color: white;
+    color: white;
     border-width: 1px 0px 0px 0px;
     padding: 0px;
     font-family: SegoeUiSlim;
@@ -56,11 +61,9 @@ fieldset legend {
 
 fieldset input, fieldset select, fieldset textarea{
     margin-bottom:8px;
+    color: black;
 }
 
-fieldset input:last-child{
-    margin-bottom:0px
-}
 
 fieldset input{
     font-style: italic;

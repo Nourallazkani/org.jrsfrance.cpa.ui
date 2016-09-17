@@ -5,129 +5,146 @@
   <require from="views/_formatters/date-format"></require>
 
   <div class="results" if.bind="results.length>0">
+    <div class="_result" repeat.for="r of results">
 
-    <div class="result" repeat.for="r of results">
+      <div class="_result-header">
+        <a href="#"> <img style="width:40px; margin-bottom:-20px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
+        <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
+      </div>
+      <div class="_result-body horizontal">
 
+        <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
 
-      <div class="result-body">
-        <div class="row">
-          <div class="result-image-block" style="background-image: url('/assets/img/unsorted/paris-sciences-po.jpg')">
-            <div class="fit-to-content">
-              Domaine : ${r.domain}
-            </div>
-            <br/>
-            <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()>0">
-              Ouverture des inscriptions le ${r.registrationStartDate | myDateFormat:'DD/MM'}
-            </div>
-            <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()<0">
-              Ouvert aux inscriptions
-            </div>
-            <br/>
-            <div class="fit-to-content"> Niveau : ${r.level}</div>
+          <div class="fit-to-content">${r.domain}</div>
+          <br/>
+          <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()>0">
+            Ouverture des inscriptions le ${r.registrationStartDate | myDateFormat:'DD/MM'}
           </div>
-          <div class="result-infos-block">
-            <div>
-              <label>Date </label>
-              <p>
-                du ${r.startDate | myDateFormat:'DD/MM/YYYY'} au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
-              </p>
-            </div>
-            <div>
-              <label>Contact </label>
-              <p>
-                ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
-                <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
-              </p>
-            </div>
-            <div>
-              <label>
-              Adresse 
-            </label>
-              <p>
-                ${r.address.street1}<br/> ${r.address.street2}
-                <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}<br/>
-              </p>
-            </div>
+          <br if.bind="moment(r.registrationStartDate).diff()>0" />
+          <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()<0">
+            Ouvert aux inscriptions
           </div>
+          <br if.bind="moment(r.registrationStartDate).diff()<0" />
+          <div class="fit-to-content">
+            Niveau : ${r.level}
+          </div>
+
         </div>
-        <div class="edit-form  ${action=='edit' ? 'edit-form-visible' : 'edit-form-hidden' }">
-          <div style="text-align:right;padding-right:10px;padding-top:10px">
-            <a click.delegate="action=null" class="close"></a>
+
+        <div class="vertical _infos-container">
+          <div class="horizontal">
+            <div class="width-lg-40 bold">
+              <img src="/assets/img/saif/Date.svg" /> Date
+            </div>
+            <div class="width-lg-70 info">
+              Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
+            </div>
+          </div>
+          <div class="horizontal">
+            <div class="width-lg-40 bold">
+              <img src="/assets/img/saif/Contact.svg" /> Contact
+            </div>
+            <div class="width-lg-70 info">
+              ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
+              <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
+            </div>
+          </div>
+          <div class="horizontal">
+            <div class="width-lg-40 bold">
+              <a click.delegate="viewLocation(r.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+            </div>
+            <div class="width-lg-70 info">
+              ${r.address.street1}<br/> ${r.address.street2}
+              <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}
+              <br/>
+            </div>
           </div>
 
-
-          <form class="default-form split-lg-30-70">
-            <div class="row">
-              <div style="width:50%">
-                <div class="form-entry">
-                  <label>Début</label>
-                  <div class="input-container">
-                    <input type="datetime-local" />
-                  </div>
-                </div>
-                <div class="form-entry">
-                  <label>Fin</label>
-                  <div class="input-container">
-                    <input type="datetime-local" />
-                  </div>
-                </div>
-                <div class="form-entry">
-                  <label>Niveau</label>
-                  <div class="input-container">
-                    <select></select>
-                  </div>
-                </div>        
-                <div class="form-entry">
-                  <label>Domaine</label>
-                  <div class="input-container">
-                    <select></select>
-                  </div>
-                </div>                
-                <div class="form-entry">
-                  <label>Ouverture des inscriptions</label>
-                  <div class="input-container">
-                    <input type="text" />
-                    <input type="checkbox" /> ouvert aux inscriptions
-                  </div>
-                </div>
-              </div>
-              <div style="width:50%">
-                <div class="form-entry">
-                  <label>Contact</label>
-                  <div class="input-container">
-                    <input type="text" placeholder="Prénom" />
-                    <input type="text" placeholder="Nom" />
-                    <input type="email" placeholder="Adresse mail" />
-                    <input type="tel" placeholder="Téléphone" />
-                  </div>
-                </div>
-                <div class="form-entry">
-                  <label>Adresse</label>
-                  <div class="input-container">
-                    <input type="text" placeholder="Adresse"  />
-                    <input type="text" placeholder="Complément d'adresse" />
-                  </div>
-                </div>                
-              </div>
-            </div>
-            <div style="text-align:center;padding:20px 0px">
-              <button click.delegate="action=null">Annuler</button>
-              <button click.delegate="action=null">Enregistrer</button>
-            </div>
-          </form>
         </div>
       </div>
-      <div class="result-footer" style="text-align:right">
-        <div  if.bind="action==null">
-          <button click.delegate="action='edit'">Edit</button>
-          <button click.delegate="action='delete'">Delete</button>
+
+
+
+      <div class="_result-footer" style="text-align: right">
+        <div if.bind="action==null">
+          <button click.delegate="action='edit'">Modifier</button>
+          <button click.delegate="action='delete'">Supprimer</button>
         </div>
         <div if.bind="action=='delete'">
-          Etes vous sûr de vouloir supprimer cet élément ? 
+          Etes vous sûr de vouloir supprimer cet élément ?
           <button click.delegate="action=null">Oui</button>
-          <button  click.delegate="action=null">Non</button>
+          <button click.delegate="action=null">Non</button>
         </div>
+
+      </div>
+      <div class="_edit-container  ${action=='edit' ? '_edit-container-visible' : '_edit-container-hidden' }">
+        <div style="text-align:right;padding-right:10px;padding-top:10px">
+          <a click.delegate="action=null" class="close"></a>
+        </div>
+
+        <form class="vertical">
+
+          
+          <div class="horizontal">
+            <fieldset class="width-lg-50">
+              <legend>Informations principales</legend>
+
+              <div class="horizontal no-margin">
+                <label class="width-lg-20"> Date </label>
+                <input class="width-lg-35" type="date" placeholder="hhhhh" />
+                <input class="width-lg-35 offset-lg-10" type="date" />
+              </div>
+              <div class="horizontal no-margin">
+                <label class="width-lg-20"> Métier </label> <select class="width-lg-80"></select>
+              </div>
+              <div class="horizontal no-margin">
+                <label class="width-lg-20"> Niveau </label> <select class="width-lg-80"></select>
+              </div>
+
+            </fieldset>
+            <fieldset class="width-lg-50">
+              <legend>Inscription</legend>
+              <div class="horizontal no-margin">
+                <label class="width-lg-20"> Début </label>
+                <input class="width-lg-80" type="date" />
+              </div>
+              <div class="horizontal no-margin">
+                <label class="width-lg-20"> Fin </label>
+                <input class="width-lg-80" type="date" />
+              </div>
+              <button class="offset-lg-20"> Cloturer maintenant </button>
+            </fieldset>
+
+          </div>
+          <div class="horizontal">
+            <fieldset class="width-lg-50">
+              <legend>Adresse</legend>
+              <input class="width-lg-100" type="text" placeholder="Adresse" />
+              <input class="width-lg-100" type="text" placeholder="complement d'adresse" />
+              <input class="width-lg-45" type="text" /><input class="width-lg-45 offset-lg-10" type="text" />
+            </fieldset>
+
+            <fieldset class="width-lg-50">
+              <legend>Contact</legend>
+              <input class="width-lg-45" type="text" placeholder="Nom" /><input class="width-lg-45 offset-lg-10" type="text"
+                placeholder="Prenom" />
+              <input class="width-lg-100" type="tel" name="telephone" id="telephone" placeholder="telephone" />
+              <input class="width-lg-100" type="email" name="mailaddress" id="mailaddress" placeholder="Mail Adresse" />
+            </fieldset>
+
+          </div>
+
+        </form>
+
+
+        <div style="text-align:center;padding:20px 0px">
+          <button click.delegate="action=null">Annuler</button>
+          <button class="btn-orange" click.delegate="action=null">Enregistrer</button>
+        </div>
+        </form>
       </div>
     </div>
   </div>
+
+
 </template>

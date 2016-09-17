@@ -30,9 +30,22 @@
                     </ul>
                 </p>
                 <div class="horizontal" style="text-align:center">
-                    <div style="flex-grow:1">Je regarde la vidéo<br/> de présentation</div>
-                    <div style="flex-grow:1"><a click.delegate="startSignIn('refugees')">Je me connecte</a></div>
-                    <div style="flex-grow:1"><a click.delegate="startSignUp()">Je m'inscrit</a></div>
+                    <div style="flex-grow:1">
+                        <img src="/assets/img/home/icon-video.svg"  class="icon" >
+                        Je regarde la vidéo<br/> de présentation
+                    </div>
+                    <div style="flex-grow:1">
+                        <a click.delegate="startSignIn('volunteers')">
+                            <img src="/assets/img/home/icon-signin.svg" class="icon" >
+                            Je me connecte
+                        </a>
+                    </div>
+                    <div style="flex-grow:1">
+                        <a click.delegate="startSignUp('volunteers')">
+                            <img src="/assets/img/home/icon-signup.svg" class="icon" >
+                            Je m'inscrit
+                        </a>
+                    </div>
                 </div>
             </div>
             <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
@@ -77,10 +90,23 @@
                     Je peux présenter mes offres de formation pour les réfugiés afin qu’ils retrouvent celles qui sont les plus adaptées à leurs
                     besoins.
                 </p>
-                <div class="horizontal" style="text-align:center">
-                    <div style="flex-grow:1">Je regarde la vidéo<br/> de présentation</div>
-                    <div style="flex-grow:1"><a click.delegate="startSignIn('organisations')">Je me connecte</a></div>
-                    <div style="flex-grow:1">Je m'inscrit</div>
+               <div class="horizontal" style="text-align:center">
+                    <div style="flex-grow:1">
+                        <img src="/assets/img/home/icon-video.svg"  class="icon" >
+                        Je regarde la vidéo<br/> de présentation
+                    </div>
+                    <div style="flex-grow:1">
+                        <a click.delegate="startSignIn('organisations')">
+                            <img src="/assets/img/home/icon-signin.svg" class="icon" >
+                            Je me connecte
+                        </a>
+                    </div>
+                    <div style="flex-grow:1">
+                        <a click.delegate="startSignUp('organisations')">
+                            <img src="/assets/img/home/icon-signup.svg" class="icon" >
+                            Je m'inscrit
+                        </a>
+                    </div>
                 </div>
             </div>
             <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">

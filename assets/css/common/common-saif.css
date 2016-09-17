@@ -132,8 +132,8 @@
     background-color: #706E69;
     border-radius: 10px;
 }
-._edit-container > form > div {
-    padding: 0% 3% ;
+._edit-container > form fieldset {
+    margin: 0% 3% ;
 }
 
 ._edit-container._edit-container-hidden {   

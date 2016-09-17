@@ -285,6 +285,7 @@ System.config({
       "app.html!github:systemjs/plugin-text@0.0.8.js",
       "app.js",
       "common.js",
+      "views/_components/always-visible.js",
       "views/_components/fixed-if-on-top.js",
       "views/_components/gmap.html!github:systemjs/plugin-text@0.0.8.js",
       "views/_components/gmap.js",

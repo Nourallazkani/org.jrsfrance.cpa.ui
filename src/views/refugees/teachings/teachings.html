@@ -1,13 +1,13 @@
 <template>
 
   <require from="views/_components/place-autocomplete"></require>
-  <require from="views/_components/fixed-if-on-top"></require>
+  <require from="views/_components/always-visible"></require>
   <require from="views/_formatters/date-format"></require>
 
   <require from="views/_components/gmap"></require>
 
 
-  <form class="search-inline-form" fixed-if-on-top>
+  <form class="search-inline-form" always-visible>
     
     <select value.bind="filter.city">
       <option value="">Ville</option>

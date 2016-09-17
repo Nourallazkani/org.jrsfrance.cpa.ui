@@ -90,7 +90,7 @@ gulp.task('serve', ['unbundle'], function (done) {
 
 });
 
-gulp.task("upload", ['bundle'], function () {
+gulp.task("deploy", ['bundle'], function () {
 
   var app = ["./index.html", "./config.js", "./dist/app-build.js"];
   var assets = "./assets/**/**";

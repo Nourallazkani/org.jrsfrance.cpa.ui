@@ -5,7 +5,8 @@
     padding-left:40px;
     box-sizing:border-box;
     font-size:30px;
-    color:white
+    color:white;
+    font-family:SegoeUi ;
 }
 .home-welcome-panel{
     background-color:#212121;

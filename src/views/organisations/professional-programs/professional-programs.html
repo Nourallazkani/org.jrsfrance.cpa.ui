@@ -5,7 +5,7 @@
   <require from="views/_formatters/date-format"></require>
 
   <div class="results" if.bind="results.length>0">
-    <div class="_result" repeat.for="r of results">
+    <div class="_result" repeat.for="r of results"  id="result-${r.id}">
 
       <div class="_result-header">
         <a href="#"> <img style="width:40px; margin-bottom:-20px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
@@ -67,7 +67,7 @@
 
       <div class="_result-footer" style="text-align: right">
         <div if.bind="action==null">
-          <button click.delegate="action='edit'">Modifier</button>
+          <button click.delegate="action='edit'" onclick="doScroll(this, '_result')">Modifier</button>
           <button click.delegate="action='delete'">Supprimer</button>
         </div>
         <div if.bind="action=='delete'">

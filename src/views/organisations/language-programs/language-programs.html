@@ -63,11 +63,9 @@
         </div>
       </div>
 
-
-
       <div class="_result-footer" style="text-align: right">
         <div if.bind="action==null">
-          <button click.delegate="action='edit'">Modifier</button>
+          <button click.delegate="action='edit'" onclick="doScroll(this, '_result')">Modifier</button>
           <button click.delegate="action='delete'">Supprimer</button>
         </div>
         <div if.bind="action=='delete'">

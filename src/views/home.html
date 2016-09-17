@@ -3,113 +3,108 @@
     <require from="/assets/css/specific/home.css"></require>
     <require from="views/_components/place-autocomplete"></require>
 
-    <div class="nav-container">
-        <figure class="nav-volunteer ${userDetails.profile=='V' ? 'nav-volunteer-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='V'">
 
-            <a route-href="route:volunteers"><img src="/assets/img/home/profile-volunteer.png" /></a>
-
-            <figcaption>
-                <p><a click.delegate="setUserDetails('V')">Je suis b&eacute;n&eacute;vole</a></p>
-                <p><a click.delegate="setUserDetails('V')">أنا متطوع</a></p>
-                <p><a click.delegate="setUserDetails('V')">I'm a Volunteer</a></p>
-                <p><a click.delegate="setUserDetails('V')">من یک داوطلب هستم</a></p>
-            </figcaption>
-        </figure>
-        <div style="min-height:406px" class="nav-volunteer-text ${userDetails.profile=='V' ? 'nav-volunteer-text-visible with-transition' : 'nav-volunteer-text-hidden no-transition'}">
-
-            <!-- welcome message -->
-            <div if.bind="authz.action == null">
-                <div style="text-align:right">
-                    <a click.delegate="setUserDetails(null)" class="close"></a>
-                    
-                </div>
-                <p style="font-family: archer;font-size:30px;">
-                    Je peux donner un peu de mon temps selon mes disponibilités pour : aider dans l’apprentissage de français, l’interprétariat
-                    ou le soutien pour certaines formations.
-                </p>
-
-                <ul style="font-family: archer;font-size:30px;">
-                    <li> Je regarde la vidéo de présentation</li>
-                    <li><a click.delegate="startSignIn('volunteers')">Je me connecte</a></li>
-                    <li><a click.delegate="startSignUp()">Je m'inscrit</a></li>
-                </ul>
-            </div>
-
-            <!-- sign in form -->
-            <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
-                <div>
-                    <a click.delegate="authz.action=null">
-                        < Retour</a>
-                </div>
-                <div style="max-width:700px">
-                    <compose view="./_components/sign-in.html"></compose>
-                </div>
-            </div>
-
-            <!-- sign up form -->
-            <div if.bind="authz.action=='sign-up'">
-                <div>
-                    <a click.delegate="authz.action=null">
-                        < Retour</a>
-                </div>
-                <div style="max-width:700px">
-                    <compose view="./_components/sign-up.html"></compose>
-                </div>
-            </div>
-
+    <div class="horizontal" style="height:700px">
+        <div class="home-menu" style="margin-right:auto;background-color:#19c6b1;" if.bind="userDetails.profile=='V' || userDetails.profile==null">
+            <p style="text-align:center">
+                <a route-href="route:volunteers"><img src="/assets/img/home/profile-volunteer.png" /></a>
+            </p>
+            <ul>
+                <li style="height:80px"><a click.delegate="setUserDetails('V')">Je suis b&eacute;n&eacute;vole</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V')">أنا متطوع</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V')">I'm a Volunteer</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V')">من یک داوطلب هستم</a></li>
+            </ul>
         </div>
-        <figure class="nav-refugee" if.bind="userDetails.profile==null || userDetails.profile=='R'">
-
-            <img src="/assets/img/home/profile-refugee.png" />
-
-            <figcaption>
-                <p><a click.delegate="setUserDetails('R', 'fr')">Je suis r&eacute;fugi&eacute</a> </p>
-                <p><a click.delegate="setUserDetails('R', 'ar')"> أنـا لاجئ </p>
-                <p><a click.delegate="setUserDetails('R', 'en')"> I'm Refugee </p>
-                <p><a click.delegate="setUserDetails('R', 'da')">من یک پناهنده هستم </a></p>
-            </figcaption>
-        </figure>
-
-        <div class="nav-organisation-text ${userDetails.profile=='O' ? 'nav-organisation-text-visible with-transition' : 'nav-organisation-text-hidden no-transition'}">
-
-            <!-- welcome message -->
+        <div class="home-welcome-panel home-welcome-volunteer-panel" if.bind="userDetails.profile=='V'">
             <div if.bind="authz.action==null">
                 <div style="text-align:right">
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
-                <p style="font-family: archer;font-size:30px;">
-                    Je peux présenter mes offres de formation pour les réfugiés afin qu’ils retrouvent celles qui sont les plus adaptées à leurs
-                    besoins. Pour s’inscrire cliquez ici.
+                <p>
+                    Je peux donner un peu de mon temps selon mes disponibilités pour : 
+                    <ul>
+                        <li>aider dans l’apprentissage de français, l’interprétariat.</li>
+                        <li>le soutien pour certaines formations.</li>
+                        <li>l’interprétariat</li>
+                    </ul>
                 </p>
-                <ul style="font-family: archer;font-size:30px;">
-                    <li>Je regarde la vidéo de présentation</li>
-                    <li><a click.delegate="startSignIn('organisations')">Je me connecte</a></li>
-                    <li>Je m'inscrit</li>
-                </ul>
+                <div class="horizontal" style="text-align:center">
+                    <div style="flex-grow:1">Je regarde la vidéo<br/> de présentation</div>
+                    <div style="flex-grow:1"><a click.delegate="startSignIn('refugees')">Je me connecte</a></div>
+                    <div style="flex-grow:1"><a click.delegate="startSignUp()">Je m'inscrit</a></div>
+                </div>
             </div>
-
-            <!-- sign in form -->
             <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
                 <div style="text-align:left">
                     <a click.delegate="authz.action=null">
                         < Retour</a>
                 </div>
-                <compose view="./_components/sign-in.html"></compose>
+                <div style="margin-top:50px">
+                    <compose view="./_components/sign-in.html"></compose>
+                </div>
+            </div>
+            <div if.bind="authz.action=='sign-up'">
+                <div>
+                    <a click.delegate="authz.action=null">
+                        < Retour</a>
+                </div>
+                <div style="margin-top:50px">
+                    <compose view="./_components/sign-up.html"></compose>    
+                </div>
             </div>
         </div>
-        <figure class="nav-organisation ${userDetails.profile=='O' ? 'nav-organisation-active' : ''}" if.bind="userDetails.profile==null || userDetails.profile=='O'">
 
-            <a route-href="route:organisations"><img src="/assets/img/home/profile-organisation.png" /></a>
+        <div class="home-menu" style="background-color:#f83859;margin-left:5%;margin-right:5%" if.bind="userDetails.profile==null">
+            <p style="text-align:center">
+                <a route-href="route:refugees"><img src="/assets/img/home/profile-refugee.png" /></a>
+            </p>
+            <ul>
+                <li style="height:80px"><a click.delegate="setUserDetails('R')">Je suis r&eacute;fugi&eacute</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R')"> أنـا لاجئ </a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R')">I'm Refugee</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R')">من یک پناهنده هستم</a></li>
+            </ul>
 
-            <figcaption>
-                <p><a click.delegate="setUserDetails('O')">Je repr&eacute;sente une institution</a></p>
-                <p><a click.delegate="setUserDetails('O')">أنا أمثّل منظمة</a></p>
-                <p><a click.delegate="setUserDetails('O')">I represent an institution</a></p>
-                <p><a click.delegate="setUserDetails('O')">من نماینده یک موسسه</a></p>
-            </figcaption>
-        </figure>
+        </div>
+
+        <div class="home-welcome-panel home-welcome-organisation-panel" if.bind="userDetails.profile=='O'">
+            <div if.bind="authz.action==null">
+                <div style="text-align:right">
+                    <a click.delegate="setUserDetails(null)" class="close"></a>
+                </div>
+                <p>
+                    Je peux présenter mes offres de formation pour les réfugiés afin qu’ils retrouvent celles qui sont les plus adaptées à leurs
+                    besoins.
+                </p>
+                <div class="horizontal" style="text-align:center">
+                    <div style="flex-grow:1">Je regarde la vidéo<br/> de présentation</div>
+                    <div style="flex-grow:1"><a click.delegate="startSignIn('organisations')">Je me connecte</a></div>
+                    <div style="flex-grow:1">Je m'inscrit</div>
+                </div>
+            </div>
+            <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
+                <div style="text-align:left">
+                    <a click.delegate="authz.action=null">
+                        < Retour</a>
+                </div>
+                <div style="margin-top:50px">
+                    <compose view="./_components/sign-in.html"></compose>
+                </div>
+            </div>
+        </div>
+        <div class="home-menu" style="background-color:#f3d966;margin-left: auto;" if.bind="userDetails.profile=='O' || userDetails.profile==null">
+            <p style="text-align:center">
+                <a route-href="route:organisations"><img src="/assets/img/home/profile-organisation.png" /></a>
+            </p>
+            <ul>
+                <li style="height:80px"><a click.delegate="setUserDetails('O')">Je repr&eacute;sente une institution</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('O')">أنا أمثّل منظمة</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('O')">I represent an institution</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('O')">من نماینده یک موسسه</a></li>
+            </ul>
+        </div>
     </div>
-
     <div if.bind="userDetails.language!=null">
         <compose view="./about.html"></compose>
     </div>

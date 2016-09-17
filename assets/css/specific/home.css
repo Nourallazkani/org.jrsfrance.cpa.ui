@@ -1,3 +1,40 @@
+.home-menu{
+    width:30%;
+    padding-top:50px;
+    text-align:left;
+    padding-left:40px;
+    box-sizing:border-box;
+    font-size:30px;
+    color:white
+}
+.home-welcome-panel{
+    background-color:#212121;
+    font-family:SegoeUiBold ;
+    color:white;
+    font-size:20px;
+    width:60%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:3%;
+    margin-bottom:3%;
+    border: white;
+    padding:25px;
+    box-sizing:border-box
+}
+.home-welcome-panel li {
+    line-height: 40px
+}
+.home-welcome-volunteer-panel{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    
+}
+
+.home-welcome-organisation-panel{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
 .nav-container{
     position:relative;
     height:700px;

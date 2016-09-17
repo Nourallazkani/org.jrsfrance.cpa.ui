@@ -17,7 +17,7 @@
     </select>
 
     
-    <select value.bind="filter.levelId">
+    <select value.bind="filter.fieldOfStudyId">
       <option value="">Domaine d'étude</option>
       <option repeat.for="x of referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
     </select>

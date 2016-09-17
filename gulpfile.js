@@ -72,39 +72,16 @@ gulp.task('unbundle', function () {
   return aureliaBundler.unbundle(config);
 });
 
-gulp.task('serve-bundle', function (done) {
-  // copy src to dist
-  var source = './src', destination = './dist';
-  gulp.src(source + '/**/*', { base: source }).pipe(gulp.dest(destination));
+var browserSyncSettings = { online: false, open: false, port: 9000, server: { baseDir: ['.'], middleware: [historyApiFallback()] } };
 
-  // delete app-build.js and vendor-build.js from dist
-  del(['dist/app-build.js', 'dist/vendor-build.js']);
-
-  aureliaBundler.bundle(config).then(() => {
-    browserSync({
-      online: false,
-      open: false,
-      port: 9000,
-      server: {
-        baseDir: ['.'],
-        middleware: [historyApiFallback()]
-      }
-    }, done);
-  });
+gulp.task('serve-bundle', ['bundle'], function (done) {
+  browserSync(browserSyncSettings, done);
 });
 
 gulp.task('serve', ['unbundle'], function (done) {
   del(['dist/app-build.js', 'dist/vendor-build.js']);
 
-  browserSync({
-    online: false,
-    open: false,
-    port: 9000,
-    server: {
-      baseDir: ['.'],
-      middleware: [historyApiFallback()]
-    }
-  }, done)
+  browserSync(browserSyncSettings, done)
 
   var source = './src', destination = './dist';
   gulp.src(source + '/**/*', { base: source })

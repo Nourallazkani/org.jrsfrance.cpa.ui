@@ -1,70 +1,52 @@
 <template>
-    <form class="default-form split-lg-30-70" submit.delegate="processSignUp()" if.bind="authz.outcome==null">
-        <div class="form-entry">
+    <form class="split-lg-30-70 label-right" submit.delegate="processSignUp()" if.bind="authz.outcome==null" style="font-family:Arial, Helvetica">
+        <div class="horizontal">
             <label>Prénom</label>
-            <div class="input-container">
-                <input type="text" value.bind="authz.input.firstnname" autofocus />
-            </div>
+            <input type="text" value.bind="authz.input.firstnname" autofocus />
         </div>
-        <div class="form-entry">
+        <div class="horizontal">
             <label>Nom</label>
-            <div class="input-container">
-                <input type="text" value.bind="authz.input.lastname" />
-            </div>
+            <input type="text" value.bind="authz.input.lastname" />
         </div>
-        <div class="form-entry">
+        <div class="horizontal">
             <label>Adresse mail</label>
-            <div class="input-container">
-                <input type="text" value.bind="authz.input.mailAddress" />
-            </div>
+            <input type="email" value.bind="authz.input.mailAddress" />
         </div>
-        <div class="form-entry">
+        <div class="horizontal">
             <label>Mot de passe</label>
-            <div class="inline-input-container">
-                <input type="password" value.bind="authz.input.password" style="width:50%" />
-                <input type="password" value.bind="authz.input.password" style="width:49%" />
-            </div>
+            <input type="password" value.bind="authz.input.password" style="width:35%" />
+            <input type="password" value.bind="authz.input.password" style="width:35%" />
         </div>
-        <div class="form-entry">
+        <div class="horizontal">
             <label>Ville ou code postal</label>
-            <div class="input-container">
-                <input type="text" place-autocomplete="target.bind : authz.input" />
-            </div>
+            <input type="text" place-autocomplete="target.bind : authz.input" />
         </div>
 
-        <div class="form-entry">
+        <div class="horizontal">
             <label>${userDetails.profile=='R' ? 'Je suis intéressé par' : 'Je propose'}</label>
-            <div class="input-container" style="width:35%">
+            <div style="width:35%;line-height:30px">
                 <input type="checkbox" checked.bind="a" />Soutien <br/>
                 <input type="checkbox" checked.bind="b" />Interprétariat
             </div>
-            <div class="input-container" style="width:35%">
+            <div style="width:35%;line-height:30px">
                 <input type="checkbox" checked.bind="c" />Répétition <br/>
                 <input type="checkbox" checked.bind="d" />Activités culturelles
             </div>
         </div>
-        <div class="form-entry" if.bind="a">
+        <div class="horizontal" if.bind="a">
             <label>Soutien</label>
-            <div class="input-container">
-                <input type="text" placeholder="Domaines maitrisés" />
-            </div>
+            <input type="text" placeholder="Domaines maitrisés" />
         </div>
-        <div class="form-entry" if.bind="b">
+        <div class="horizontal" if.bind="b">
             <label>Interprétariat</label>
-            <div class="input-container">
-                <input type="text" placeholder="Langues maitrisées en plus de français" />
-            </div>
+            <input type="text" placeholder="Langues maitrisées en plus de français" />
         </div>
-        <div class="form-entry" if.bind="d">
+        <div class="horizontal" if.bind="d">
             <label>Activités culturelles ou sportives</label>
-            <div class="input-container">
-                <input type="text" placeholder="Théatre, visites, sports, randonnées..." />
-            </div>
+            <input type="text" placeholder="Théatre, visites, sports, randonnées..." />
         </div>
-        <div class="form-entry">
-            <div class="input-container offset-lg-30">
-                <button>Inscription</button>
-            </div>
+        <div class="horizontal">
+            <button class="offset-lg-30">Inscription</button>
         </div>
     </form>
     <div if.bind="authz.outcome=='ok'" style="text-align:center">

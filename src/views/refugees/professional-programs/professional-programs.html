@@ -1,52 +1,32 @@
 <template>
 
   <require from="views/_components/place-autocomplete"></require>
-
+  <require from="views/_components/fixed-if-on-top"></require>
   <require from="views/_formatters/date-format"></require>
   
 
-  <form class="inline-form" submit.delegate="find()" style="text-align:center">
-    <div class="form-entry">
-      <!--
-          <img src="assets/img/refugee/localisation.svg" style=""/> -->
-    </div>
-    <div class="form-entry">
-      <label>Ville</label>
-      <div class="input-container">
-        <select value.bind="filter.city">
-            <option value=""></option>
-            <option>Paris</option>
-            <option>Lyon</option>
-            <option>Marseille</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-entry">
-      <label>Niveau</label>
-      <div class="input-container">
-        <select value.bind="filter.levelId">
-            <option value=""></option>
-            <option repeat.for="x of referenceData.levels" value.bind="x.id">${x.name}</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-entry" style="margin: 0px 25px;">
-      <div class="input-container">
-        <button>Rechercher</button>
-      </div>
-    </div>
-    </div>
+  <form class="search-inline-form" fixed-if-on-top submit.delegate="find()">
+    
+    <select value.bind="filter.city">
+      <option value="">Ville</option>
+      <option>Paris</option>
+      <option>Lyon</option>
+      <option>Marseille</option>
+    </select>
+    
+    <select value.bind="filter.levelId">
+      <option value="">Niveau</option>
+      <option repeat.for="x of referenceData.fieldsOfStudy" value.bind="x.id">${x.name}</option>
+    </select>
+
+    <button class="btn-orange">Rechercher</button>
   </form>
 
   <div class="results" if.bind="results.length>0">
     <div style="text-align:right">
-      <form class="inline-form" submit.delegate="sortByDistance()">
-        <div class="form-entry">
-          <div class="input-container">
-            <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
-            <button>Classer par proximité</button>
-          </div>
-        </div>
+      <form submit.delegate="sortByDistance()">
+        <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
+        <button>Classer par proximité</button>
       </form>
     </div>
 

@@ -14,10 +14,10 @@ export class App {
     this.moment = moment;
     this.httpClient = httpClient;
     this.userDetails = userDetails;
-
+    let apiEndpoint = "http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";//http://localhost:8080/api
     this.httpClient.configure(config => {
       config
-        .withBaseUrl('http://127.0.0.1:8080/api/')
+        .withBaseUrl(apiEndpoint)
         .withDefaults({
           headers: {
 

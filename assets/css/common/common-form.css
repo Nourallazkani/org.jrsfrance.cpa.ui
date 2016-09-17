@@ -1,4 +1,4 @@
-input:not([type='checkbox']), select, textarea{
+form input:not([type='checkbox']), select, textarea{
     font-family: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -9,7 +9,7 @@ input:not([type='checkbox']), select, textarea{
     background-color: white;
 } 
 
-input:not([type='checkbox']):focus,select:focus, textarea:focus
+form input:not([type='checkbox']):focus,select:focus, textarea:focus
 {
     border-color: #66afe9;
     outline: 0;
@@ -17,14 +17,26 @@ input:not([type='checkbox']):focus,select:focus, textarea:focus
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-input[place-autocomplete] {
+form input[place-autocomplete] {
     width:200px;
     text-overflow: ellipsis
 }
 
-button:hover, button:focus{
-         background-color: rgba(51, 51, 51, 0.5);
+form label{    
+    padding-top: 7px;
+    padding-right: 20px;
+    box-sizing: border-box
 }
+
+form div.horizontal{
+    margin-bottom: 15px;
+}
+
+form.label-right label { 
+    text-align: right
+}
+
+/* specific styles when input are in a fieldset */
 
 fieldset {
     border-color: white;
@@ -50,20 +62,6 @@ fieldset input:last-child{
 
 fieldset input{
     font-style: italic;
-}
-
-form label{    
-    padding-top: 7px;
-    padding-right: 20px;
-    box-sizing: border-box
-}
-
-form div.horizontal{
-    margin-bottom: 15px;
-}
-
-form.label-right label { 
-    text-align: right
 }
 
 @media(min-width:960px){
@@ -107,4 +105,3 @@ form.label-right label {
     form.split-lg-90-10 label { width: 90%}
     form.split-lg-90-10 input:not([type='checkbox']) { width: 10%}
 }
-    

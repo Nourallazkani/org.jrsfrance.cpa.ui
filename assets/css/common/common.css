@@ -56,9 +56,18 @@ button{
     border-color: #ccc;
 }
 
+.btn-orange{
+    background-color:#f65c47;
+    color:white;
+    font-style: italic;
+    border-color: black;
+}
+
 .button-active{
     font-weight: bold;
 }
+
+.map{height: 800px}
 
 .red-alert {
     font-weight: bold;color:red
@@ -125,8 +134,6 @@ button{
     margin:0px;
     display: fl
 }
-
-.map{height: 800px}
 
 
 /* -- start of the switch part

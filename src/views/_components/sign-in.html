@@ -2,7 +2,7 @@
 
     <div if.bind="authz.action=='sign-in'">
         <form class="split-lg-30-70 label-right" submit.delegate="processSignIn()" if.bind="authz.outcome==null">
-            <div class="horizontal ">
+            <div class="horizontal">
                 <label>Adresse mail</label>
                 <input type="text" value.bind="authz.input.mailAddress" autofocus />
             </div>

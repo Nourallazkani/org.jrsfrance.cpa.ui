@@ -1,127 +1,105 @@
 <template>
 
   <require from="views/_components/place-autocomplete"></require>
+  <require from="views/_components/fixed-if-on-top"></require>
   <require from="views/_formatters/date-format"></require>
+  
+  <form class="search-inline-form"  fixed-if-on-top submit.delegate="find()">
+    
+    <select value.bind="filter.city">
+      <option value="">Ville</option>
+      <option>Paris</option>
+      <option>Lyon</option>
+      <option>Marseille</option>
+    </select>
 
+    <select value.bind="filter.levelId">
+      <option value="">Niveau</option>
+      <option repeat.for="x of referenceData.levels" value.bind="x.id">${x.name}</option>
+    </select>
 
-  <form class="inline-form" submit.delegate="find()" style="text-align:center">
-    <div class="form-entry">
-      <!--
-          <img src="assets/img/refugee/localisation.svg" style=""/> -->
-    </div>
-    <div class="form-entry">
-      <label>Ville</label>
-      <div class="input-container">
-        <select value.bind="filter.city">
-            <option value=""></option>
-            <option>Paris</option>
-            <option>Lyon</option>
-            <option>Marseille</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-entry">
-      <label>Niveau</label>
-      <div class="input-container">
-        <select value.bind="filter.levelId">
-            <option value=""></option>
-            <option repeat.for="x of referenceData.levels" value.bind="x.id">${x.name}</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-entry" style="margin: 0px 25px;">
-      <div class="input-container">
-        <button>Rechercher</button>
-      </div>
-    </div>
-    </div>
+    <button class="btn-orange">Rechercher</button>
   </form>
 
   <div class="results" if.bind="results.length>0">
     <div style="text-align:right">
-      <form class="inline-form" submit.delegate="sortByDistance()">
-        <div class="form-entry">
-          <div class="input-container">
-            <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
-            <button>Classer par proximité</button>
-          </div>
-        </div>
+      <form submit.delegate="sortByDistance()">
+        <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
+        <button>Classer par proximité</button>
       </form>
     </div>
-    
+
     <!-----------------------------------test Saif style-------------------- -->
 
-  <div class="results" if.bind="results.length>0">
-    <div class="_result" repeat.for="r of results">
-      <div class="_result-header">
-        <div style="text-align:left;width:80%">
-          ${r.item.organisation}
-        </div>
-        <div style="text-align:right;width:20%" if.bind="r.distance">
-          <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
+    <div class="results" if.bind="results.length>0">
+      <div class="_result" repeat.for="r of results">
+        <div class="_result-header">
+          <div style="text-align:left;width:80%">
+            ${r.item.organisation}
+          </div>
+          <div style="text-align:right;width:20%" if.bind="r.distance">
+            <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
             ${r.distance} km
           </a>
+          </div>
         </div>
-      </div>
-      <div class="_result-body horizontal">
+        <div class="_result-body horizontal">
 
-        <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
+          <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
 
-          <div class="fit-to-content">${r.item.type}</div>
-          <br/>
-          <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()>0">
-            Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
+            <div class="fit-to-content">${r.item.type}</div>
+            <br/>
+            <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()>0">
+              Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
             </div>
-          <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()<0">
-            Ouvert aux inscriptions</div>
-          <br/>
-          <div class="fit-to-content"> Niveau : ${r.item.level}
+            <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()<0">
+              Ouvert aux inscriptions</div>
+            <br/>
+            <div class="fit-to-content"> Niveau : ${r.item.level}
+            </div>
+
           </div>
 
+          <div class="vertical _infos-container">
+            <div class="horizontal">
+              <div class="width-lg-40 bold">
+                <img src="/assets/img/saif/Date.svg" /> Date
+              </div>
+              <div class="width-lg-70 info">
+                Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
+              </div>
+            </div>
+            <div class="horizontal">
+              <div class="width-lg-40 bold">
+                <img src="/assets/img/saif/Contact.svg" /> Contact
+              </div>
+              <div class="width-lg-70 info">
+                ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
+                <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+              </div>
+            </div>
+            <div class="horizontal">
+              <div class="width-lg-40 bold">
+                <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+              </div>
+              <div class="width-lg-70 info">
+                ${r.item.address.street1}<br/> ${r.item.address.street2}
+                <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
+                <br/>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <div class="vertical _infos-container">
-          <div class="horizontal">
-            <div class="width-lg-40 bold">
-              <img src="/assets/img/saif/Date.svg" />
-              Date
-            </div>
-            <div class="width-lg-70 info">
-              Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/>
-              Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
-            </div>
-          </div>
-          <div class="horizontal">
-            <div class="width-lg-40 bold">
-              <img src="/assets/img/saif/Contact.svg" /> Contact
-            </div>
-            <div class="width-lg-70 info">
-              ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
-              <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
-            </div>
-          </div>
-          <div class="horizontal">
-            <div class="width-lg-40 bold">
-              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
-            </div>
-            <div class="width-lg-70 info">
-              ${r.item.address.street1}<br/> ${r.item.address.street2}
-              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
-              <br/>
-            </div>
-          </div>
 
+        <div class="_result-footer" style="text-align: right;margin-top:-40px;padding-right:20px;">
+          <a href="#"> <img style="width:40px; margin-right:10px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
+          <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
         </div>
+
+
       </div>
-
-
-      <div class="_result-footer" style="text-align: right;margin-top:-40px;padding-right:20px;">
-        <a href="#"> <img style="width:40px; margin-right:10px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
-        <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
-      </div>
-
-
     </div>
-  </div>
 
 </template>

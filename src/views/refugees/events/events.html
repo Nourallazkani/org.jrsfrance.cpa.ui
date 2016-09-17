@@ -4,33 +4,11 @@
   <require from="views/_formatters/date-format"></require>
 
 
-  <div style="width:1000px;margin:auto" class="row">
-    <div style="width:50%;">
-      <form class="inline-form" submit.delegate="find()">
-
-        <div class="form-entry" style="padding-left:0px">
-          <label>Ville</label>
-          <div class="input-container">
-            <select value.bind="filter.city" change.trigger="find()">
-              <option value=""></option>
-              <option>Paris</option>
-              <option>Lyon</option>
-              <option>Marseille</option>
-            </select>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div style="width:50%;text-align:right">
-      <form class="inline-form" submit.delegate="sortByDistance()">
-        <div class="form-entry" style="padding-right:0px">
-          <div class="input-container">
-            <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
-            <button>Classer par proximité</button>
-          </div>
-        </div>
-      </form>
-    </div>
+  <div style="width:1000px;margin:auto;text-align:right">
+    <form submit.delegate="sortByDistance()">
+      <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
+      <button>Classer par proximité</button>
+    </form>
   </div>
 
 

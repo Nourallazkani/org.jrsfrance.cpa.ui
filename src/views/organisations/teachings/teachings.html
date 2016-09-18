@@ -10,13 +10,16 @@
     <div class="_result" repeat.for="r of results">
 
       <div class="_result-header">
-        <a href="#"> <img style="width:40px; margin-bottom:-20px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
-        <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
+        
       </div>
       <div class="_result-body horizontal">
 
         <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
 
+          <div class="fit-to-content" if.bind="r.languageLevelRequired">
+            Niveau requis : ${r.languageLevelRequired || "Aucun"}
+          </div>
+          <br/>
           <div class="fit-to-content">${r.fieldOfStudy}</div>
           <br/>
           <div class="fit-to-content">
@@ -26,14 +29,13 @@
           <div class="fit-to-content">
             licence : ${r.licence ? "Oui" : "Non"}
           </div>
-          <br/>
-          <div class="fit-to-content" if.bind="r.languageLevelRequired">
-            Niveau requis : ${r.languageLevelRequired || "Aucun"}
-          </div>
 
         </div>
 
-        <div class="vertical _infos-container">
+        <div class="vertical _infos-container" >
+          <a class="link" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg"/></a>
+          <a class="link" style="right:15%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg"/></a>
+          <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
           <div class="horizontal">
             <div class="width-lg-40 bold">
               <img src="/assets/img/saif/Contact.svg" /> Contact
@@ -76,38 +78,59 @@
           <a click.delegate="action=null" class="close"></a>
         </div>
 
-        <form class="horizontal">
-          <div>
-            <fieldset>
-              <legend>Date</legend>
-               De <input class="width-lg-40" type="date" name="startdate" id="startdate" placeholder="hhhhh" />
-               AU <input class="width-lg-40" type="date" name="enddate" id="enddate" />
+        <form class="vertical">
+
+          
+          <div class="horizontal">
+            <fieldset class="width-lg-50">
+              <legend>Informations principales</legend>
+              <div class="horizontal no-margin">
+                <label class="width-lg-20"> Niveau </label> <select class="width-lg-80"></select>
+              </div>
+              <div class="horizontal no-margin">
+                <label class="width-lg-20"> Métier </label> <select class="width-lg-80"></select>
+              </div>
+              
+
+            </fieldset>
+            <fieldset class="width-lg-50">
+              <legend>Inscription</legend>
+              <div class="horizontal" style="margin-bottom:8px;">
+                <div class="horizontal no-margin width-lg-50" style="align-items: baseline;" >
+                  <label class="width-lg-40"> Master :</label><input class=" no-margin" type="checkbox"/>
+                </div>
+                <div class="horizontal no-margin width-lg-50" style="align-items: baseline;">
+                  <label class="width-lg-40"> licence :</label><input class="no-margin" type="checkbox"/>
+                </div>
+              </div>
             </fieldset>
 
-            <fieldset>
+          </div>
+          <div class="horizontal">
+            <fieldset class="width-lg-50">
+              <legend>Adresse</legend>
+              <input class="width-lg-100" type="text" placeholder="Adresse" />
+              <input class="width-lg-100" type="text" placeholder="complement d'adresse" />
+              <input class="width-lg-45" type="text" /><input class="width-lg-45 offset-lg-10" type="text" />
+            </fieldset>
+
+            <fieldset class="width-lg-50">
               <legend>Contact</legend>
-              <input class="width-lg-50" type="text" name="firstname" id="name" placeholder="Nom" /><input class="width-lg-50" type="text" name="lastname" id="lastname" placeholder="Prenom" />
+              <input class="width-lg-45" type="text" placeholder="Nom" /><input class="width-lg-45 offset-lg-10" type="text"
+                placeholder="Prenom" />
               <input class="width-lg-100" type="tel" name="telephone" id="telephone" placeholder="telephone" />
               <input class="width-lg-100" type="email" name="mailaddress" id="mailaddress" placeholder="Mail Adresse" />
             </fieldset>
+
           </div>
 
-          <div>
-            <fieldset>
-              <legend>Adresse</legend>
-              <input class="width-lg-100" type="text" name="adresse" id="adresse" placeholder="Adresse" />
-              <input class="width-lg-100" type="text" name="complement d'adresse" id="complement d'adresse" placeholder="complement d'adresse" />
-              <input class="width-lg-100" type="text" name="codepostal" id="codepostal" placeholder="Code Postal" />
-            </fieldset>
-          </div>
         </form>
 
 
         <div style="text-align:center;padding:20px 0px">
           <button click.delegate="action=null">Annuler</button>
-          <button click.delegate="action=null">Enregistrer</button>
+          <button class="btn-orange" click.delegate="action=null">Enregistrer</button>
         </div>
-        </form>
       </div>
     </div>
   </div>

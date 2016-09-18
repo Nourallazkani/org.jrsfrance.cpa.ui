@@ -81,6 +81,7 @@
     padding: 20px;
     background-color: #333333 ;
     color: white;
+    position:relative;
 }
 
 ._infos-container > div {
@@ -118,13 +119,13 @@
     border-bottom-width: 0px
 }
 
-.links{
-    position: relative;
-    right:120px;
-    bottom:-210px;
+.link{
+    position: absolute;
+    width: 40px;
+    top: -10%
 }
 
-.link > a > img{
+.link > img{
     width:40px;
 }
 

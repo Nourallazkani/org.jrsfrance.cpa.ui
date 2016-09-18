@@ -8,8 +8,6 @@
     <div class="_result" repeat.for="r of results"  id="result-${r.id}">
 
       <div class="_result-header">
-        <a href="#"> <img style="width:40px; margin-bottom:-20px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
-        <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
       </div>
       <div class="_result-body horizontal">
 
@@ -32,6 +30,9 @@
         </div>
 
         <div class="vertical _infos-container">
+          <a class="link" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg"/></a>
+          <a class="link" style="right:15%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg"/></a>
+          <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
           <div class="horizontal">
             <div class="width-lg-40 bold">
               <img src="/assets/img/saif/Date.svg" /> Date
@@ -141,7 +142,6 @@
           <button click.delegate="action=null">Annuler</button>
           <button class="btn-orange" click.delegate="action=null">Enregistrer</button>
         </div>
-        </form>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
 
 
     <div class="horizontal" style="height:700px">
-        <div class="home-menu" style="margin-right:auto;background-color:#19c6b1;" if.bind="userDetails.profile=='V' || userDetails.profile==null">
+        <div class="home-menu" style="margin-right:auto;background-color:#0FCFBC;" if.bind="userDetails.profile=='V' || userDetails.profile==null">
             <p style="text-align:center">
                 <a route-href="route:volunteers"><img src="/assets/img/home/profile-volunteer.png" /></a>
             </p>
@@ -17,6 +17,7 @@
             </ul>
         </div>
         <div class="home-welcome-panel home-welcome-volunteer-panel" if.bind="userDetails.profile=='V'">
+            <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:50px;height:50px; right:100%; bottom:25%;">
             <div if.bind="authz.action==null">
                 <div style="text-align:right">
                     <a click.delegate="setUserDetails(null)" class="close"></a>
@@ -68,7 +69,7 @@
             </div>
         </div>
 
-        <div class="home-menu" style="background-color:#f83859;margin-left:5%;margin-right:5%" if.bind="userDetails.profile==null">
+        <div class="home-menu" style="background-color:#F45652;margin-left:5%;margin-right:5%" if.bind="userDetails.profile==null">
             <p style="text-align:center">
                 <a route-href="route:refugees"><img src="/assets/img/home/profile-refugee.png" /></a>
             </p>
@@ -82,6 +83,7 @@
         </div>
 
         <div class="home-welcome-panel home-welcome-organisation-panel" if.bind="userDetails.profile=='O'">
+            <img src="/assets/img/common/arrow-left-saif.svg" style="position:absolute; width:50px;height:50px; left:100%; bottom:25%;">
             <div if.bind="authz.action==null">
                 <div style="text-align:right">
                     <a click.delegate="setUserDetails(null)" class="close"></a>
@@ -119,7 +121,7 @@
                 </div>
             </div>
         </div>
-        <div class="home-menu" style="background-color:#f3d966;margin-left: auto;" if.bind="userDetails.profile=='O' || userDetails.profile==null">
+        <div class="home-menu" style="background-color:#F7CF52;margin-left: auto;" if.bind="userDetails.profile=='O' || userDetails.profile==null">
             <p style="text-align:center">
                 <a route-href="route:organisations"><img src="/assets/img/home/profile-organisation.png" /></a>
             </p>

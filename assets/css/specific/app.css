@@ -2,7 +2,7 @@
     background-color: #333333;
     margin: 0px;
     margin-bottom: 0px;
-    font-family: Archer;
+    font-family: SegoeUiBold;
     font-size: 20px;
     color: white;
     padding:0px 20px
@@ -28,12 +28,27 @@
     margin: 0px;
 }
 
-.main-menu  a {
-     margin: 0px 5px;
-     text-decoration: underline;
-     cursor: pointer;
-     color: white;
+.main-menu .languages .circle {
+    font-size: 19px;
+    display: inline-block;
+    width: 35px;
+    height: 33px;
+    border-radius: 20px;
+    margin: 0px 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: black;
+    background-color: #E6E6E6;
+    vertical-align: middle; 
+    transition: all 0.5s ;
 }
+
+.main-menu .languages .active {
+    color: white;
+    background-color: #ef6d3a ; 
+}
+
 
 .main-menu > div > button {
     border-radius: 20px;

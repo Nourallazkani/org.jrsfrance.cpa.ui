@@ -120,20 +120,31 @@
     border-bottom-width: 0px
 }
 
-.link{
+._infos-container > .link, .link-big {
     position: absolute;
-    width: 40px;
 }
 
-.up{
-    top:-10%;
+._infos-container > .link.link-top{
+    top:-7%;
 }
 
-.down{
+._infos-container > .link.link-bottom{
      top:80%;
 }
 
-.link > img{
+._infos-container > .link-big.link-top{
+    top:-10%;
+}
+
+._infos-container > .link-big.link-bottom{
+     top:80%;
+}
+
+._infos-container > .link > img{
+    height:40px;
+}
+
+._infos-container > .link-big > img{
     width:40px;
 }
 

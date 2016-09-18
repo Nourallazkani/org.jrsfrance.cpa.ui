@@ -5,7 +5,7 @@
   <require from="views/_formatters/date-format"></require>
 
   <div class="results" if.bind="results.length>0">
-    <div class="_result" repeat.for="r of results">
+    <div class="_result" repeat.for="r of results"  id="result-${r.id}">
 
       <div class="_result-header">
       </div>
@@ -30,8 +30,8 @@
         </div>
 
         <div class="vertical _infos-container">
-          <a class="link up" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg"/></a>
-          <a class="link up" style="right:15%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg"/></a>
+          <a class="link link-top" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg"/></a>
+          <a class="link link-top" style="right:15%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg"/></a>
           <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
           <div class="horizontal">
             <div class="width-lg-40 bold">
@@ -63,6 +63,8 @@
 
         </div>
       </div>
+
+
 
       <div class="_result-footer" style="text-align: right">
         <div if.bind="action==null">
@@ -140,7 +142,6 @@
           <button click.delegate="action=null">Annuler</button>
           <button class="btn-orange" click.delegate="action=null">Enregistrer</button>
         </div>
-        </form>
       </div>
     </div>
   </div>

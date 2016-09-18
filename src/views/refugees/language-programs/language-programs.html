@@ -3,9 +3,9 @@
   <require from="views/_components/place-autocomplete"></require>
   <require from="views/_components/always-visible"></require>
   <require from="views/_formatters/date-format"></require>
-  
-  <form class="search-inline-form"  fixed-if-on-top submit.delegate="find()">
-    
+
+  <form class="search-inline-form" fixed-if-on-top submit.delegate="find()">
+
     <select value.bind="filter.city">
       <option value="">Ville</option>
       <option>Paris</option>
@@ -28,8 +28,6 @@
         <button>Classer par proximité</button>
       </form>
     </div>
-
-    <!-----------------------------------test Saif style-------------------- -->
 
     <div class="results" if.bind="results.length>0">
       <div class="_result" repeat.for="r of results">
@@ -61,9 +59,10 @@
           </div>
 
           <div class="vertical _infos-container">
-            <a class="link down" style="right:5%;" href="#"> <img src="/assets/img/saif/Download-icon.svg"/></a>
-            <a class="link down" style="right:15%;" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg"/></a>
-          <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
+            <a class="link-big link-bottom" style="right:5%;" href="#"> <img src="/assets/img/saif/Download-icon.svg" /></a>
+            <a class="link-big link-bottom" style="right:15%;" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
+
+            <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
             <div class="horizontal">
               <div class="width-lg-40 bold">
                 <img src="/assets/img/saif/Date.svg" /> Date
@@ -96,9 +95,8 @@
         </div>
 
 
-        <div class="_result-footer" style="text-align: right;margin-top:-40px;padding-right:20px;">
-          <a href="#"> <img style="width:40px; margin-right:10px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
-          <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
+        <div class="_result-footer">
+
         </div>
 
 

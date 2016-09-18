@@ -55,6 +55,8 @@
         <div class="_result-body horizontal">
 
           <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
+            <div class="fit-to-content" if.bind="r.item.languageLevelRequired"> Niveau requis : ${r.item.languageLevelRequired || "Aucun"}</div>
+            <br/>
             <div class="fit-to-content"> ${r.item.fieldOfStudy}</div>
             <br/>
             <div class="fit-to-content"> Master : ${r.item.master ? "Oui" : "Non"}</div>
@@ -62,12 +64,13 @@
             <div class="fit-to-content">
               licence : ${r.item.licence ? "Oui" : "Non"}
             </div>
-            <br/>
-            <div class="fit-to-content" if.bind="r.item.languageLevelRequired"> Niveau requis : ${r.item.languageLevelRequired || "Aucun"}</div>
             <!-- if.bind -->
           </div>
 
           <div class="vertical _infos-container">
+            <a class="link down" style="right:5%;" href="#"> <img src="/assets/img/saif/Download-icon.svg"/></a>
+            <a class="link down" style="right:15%;" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg"/></a>
+          <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
             <div class="horizontal">
               <div class="width-lg-40 bold">
                 <img src="/assets/img/saif/Contact.svg" /> Contact
@@ -92,9 +95,8 @@
         </div>
 
 
-        <div class="_result-footer" style="text-align: right;margin-top:-40px;padding-right:20px;">
-          <a href="#"> <img style="width:40px; margin-right:10px;" src="/assets/img/saif/Gotolink-icon.svg" /></a>
-          <a href="#"> <img style="width:40px;" src="/assets/img/saif/Download-icon.svg" /></a>
+        <div class="_result-footer" >
+          
         </div>
 
 

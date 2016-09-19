@@ -100,7 +100,10 @@ button{
 
 .no-margin{
     margin:0px;
-    display: fl
+}
+
+.no-border{
+    border:none;
 }
 
 

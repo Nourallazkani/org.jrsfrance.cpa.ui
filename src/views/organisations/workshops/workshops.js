@@ -8,7 +8,7 @@ import {UserDetails, getUri, getDistance, viewLocation, viewItinerary} from 'com
 @inject(HttpClient, UserDetails)
 export class Workshops {
 
-  filter = { includeFutureEvents: true, includePastEvents: false, stereotype:"WORKSHOP" }
+  filter = { includeFutureEvents: true, includePastEvents: false, stereotype: "WORKSHOP" }
   results = []
 
   constructor(fetchClient, userDetails) {
@@ -21,6 +21,6 @@ export class Workshops {
     this.fetchClient
       .fetch(getUri("events", this.filter))
       .then(response => response.json())
-      .then(results => { this.results = results; console.log(JSON.stringify(results, null, 2)) });
+      .then(results => this.results = results);
   }
 }

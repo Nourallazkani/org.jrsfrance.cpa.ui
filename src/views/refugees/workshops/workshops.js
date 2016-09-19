@@ -8,7 +8,7 @@ import {UserDetails, getUri, getDistance, viewLocation, viewItinerary} from 'com
 @inject(HttpClient, UserDetails)
 export class Workshops {
 
-  filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true, stereotype:"WORKSHOP", audience:"REFUGEE" }
+  filter = { openForRegistration: true, stereotype:"WORKSHOP", audience:"REFUGEE" }
   results = []
 
   constructor(fetchClient, userDetails) {

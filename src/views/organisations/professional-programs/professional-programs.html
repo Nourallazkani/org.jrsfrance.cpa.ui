@@ -4,8 +4,14 @@
 
   <require from="views/_formatters/date-format"></require>
 
-  <div class="results" if.bind="results.length>0">
-    <div class="_result" repeat.for="r of results"  id="result-${r.id}">
+  <div class="results">
+    <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
+      <a style="font-weight:bold">Créer un nouvelle formation professionnelle</a>
+    </div>
+
+    <hr style="margin:30px 0px" />
+
+    <div class="_result" repeat.for="r of results" id="result-${r.id}">
 
       <div class="_result-header">
       </div>
@@ -28,31 +34,31 @@
         </div>
 
         <div class="vertical _infos-container">
-          <a class="link link-top" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg"/></a>
-          <a class="link link-top" style="right:12%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg"/></a>
+          <a class="link link-top" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg" /></a>
+          <a class="link link-top" style="right:12%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
           <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
           <div class="horizontal">
-            <div class="width-lg-40 bold">
+            <div class="width-lg-40 info-title">
               <img src="/assets/img/saif/Date.svg" /> Date
             </div>
-            <div class="width-lg-70 info">
+            <div class="width-lg-60 info-text">
               Du ${r.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
             </div>
           </div>
           <div class="horizontal">
-            <div class="width-lg-40 bold">
+            <div class="width-lg-40 info-title">
               <img src="/assets/img/saif/Contact.svg" /> Contact
             </div>
-            <div class="width-lg-70 info">
+            <div class="width-lg-60 info-text">
               ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
               <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
             </div>
           </div>
           <div class="horizontal">
-            <div class="width-lg-40 bold">
+            <div class="width-lg-40 info-title">
               <a click.delegate="viewLocation(r.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
             </div>
-            <div class="width-lg-70 info">
+            <div class="width-lg-60 info-text">
               ${r.address.street1}<br/> ${r.address.street2}
               <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}
               <br/>
@@ -83,7 +89,7 @@
 
         <form class="vertical">
 
-          
+
           <div class="horizontal">
             <fieldset class="width-lg-50">
               <legend>Informations principales</legend>

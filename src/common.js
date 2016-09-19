@@ -1,5 +1,6 @@
 export class ApplicationConfig{
-    apiEndpoint="http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";// http://localhost:8080/api/
+    apiEndpoint= "http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";
+    //apiEndpoint= "http://localhost:8080/api/";
 }
 
 export class UserDetails {
@@ -71,7 +72,9 @@ if (typeof (Number.prototype.toRad) === "undefined") {
     }
 }
 export function viewLocation(address) {
-    let url = `https://www.google.com/maps/place/${address.lat},${address.lng}`;
+   
+    let placeName = `${address.street1},+${address.postalCode}+${address.locality}`;
+    let url = `https://www.google.com/maps/place/${placeName}/${address.lat},${address.lng}`;
     window.open(url, 'map', "width=1200,height=600");
 };
 

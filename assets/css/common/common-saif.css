@@ -30,6 +30,11 @@
     margin-right: 0px;
 }
 
+._results{
+    width: 1000px;
+    margin: 60px auto;
+}
+
 ._result{
     font-family:SegoeUiBold ;
     margin:auto;
@@ -38,7 +43,6 @@
 
 ._result-header{
     font-size: 25px ;
-    display: flex;
     margin-bottom: 10px;
 }
 
@@ -50,6 +54,10 @@
    
 }
 
+._result-footer button{
+   margin:5px 0px
+}
+
 /* image for each result */
 ._image-container {
     height: 250px;
@@ -58,7 +66,7 @@
     border: 2px solid #333333;
     padding-top:30px;
     box-sizing:border-box;
-    border-radius: 10px 0px 0px 10px;
+    /*border-radius: 10px 0px 0px 10px;*/
 }
 ._event-image-container {
     height: 250px;
@@ -85,7 +93,7 @@
 
 /* info for each result */
 ._infos-container {
-    border-radius: 0px 10px 10px 0px ;
+    /*border-radius: 0px 10px 10px 0px ;*/
     box-sizing: border-box;
     height: 250px;
     width: 500px;
@@ -122,6 +130,14 @@
     align-items: center;
 }
 
+._infos-container > div:last-child {
+    border-bottom-width: 0px
+}
+
+._infos-container.no-borders > div {
+    border:none;
+}
+
 /* --- icon --*/
 ._infos-container > div img{
     width:40px;
@@ -130,26 +146,24 @@
     vertical-align: middle;
 }
 
-._infos-container > div .bold {
+._infos-container > div .info-title {
     font-family: SegoeUiBold;
     font-size: 18px;
     padding-left: 30px;
 }
 
-._infos-container > div .info {
+._infos-container > div .info-text {
     padding-left: 10%;
     font-family: SegoeUiSlim;
     font-size: 16px;
 }
 
-._infos-container > div .info a {
+._infos-container > div .info-text a {
     color: white;
 }
 
 
-._infos-container > div:last-child {
-    border-bottom-width: 0px
-}
+
 
 
 /* links for download and open attachement */
@@ -181,7 +195,7 @@
 
 ._edit-container{
     background-color: #706E69;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 ._edit-container > form fieldset {
     margin: 0% 3% ;

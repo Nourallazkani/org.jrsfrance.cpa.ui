@@ -17,7 +17,7 @@ export class Teachings {
     this.userDetails = userDetails;
     this.find();
   }
-
+  
   find(view) {
     if (view) {
       this.view = view;

@@ -6,16 +6,16 @@
 
   <div class="results">
     <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
-      <a style="font-weight:bold">Créer un nouveau cours de français</a>
+      <a style="font-weight:bold" click.delegate="new()">Créer un nouveau cours de français</a>
     </div>
 
     <hr style="margin:30px 0px" />
 
     <div class="_result" repeat.for="r of results" id="result-${r.id}">
 
-      <div class="_result-header">
+      <div class="_result-header" if.bind="r.id">
       </div>
-      <div class="_result-body horizontal">
+      <div class="_result-body horizontal" if.bind="r.id">
 
         <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
 
@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <div class="_result-footer" style="text-align: right">
+      <div class="_result-footer" style="text-align: right" if.bind="r.id">
         <div if.bind="action==null">
           <button click.delegate="action='edit'" onclick="doScroll(this, '_result')">Modifier</button>
           <button click.delegate="action='delete'">Supprimer</button>
@@ -80,7 +80,7 @@
         </div>
       </div>
 
-      <div class="_edit-container  ${action=='edit' ? '_edit-container-visible' : '_edit-container-hidden' }">
+      <div class="_edit-container  ${r.id==null || action=='edit' ? '_edit-container-visible' : '_edit-container-hidden' }">
         <div style="text-align:right;padding-right:10px;padding-top:10px">
           <a click.delegate="action=null" class="close"></a>
         </div>

@@ -17,6 +17,10 @@ export class Events {
         this.find();
     }
 
+    new() {
+        this.results.unshift({ item: {} })
+    }
+    
     find() {
         this.fetchClient
             .fetch(getUri("events", this.filter))

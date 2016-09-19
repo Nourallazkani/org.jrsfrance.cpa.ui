@@ -17,6 +17,10 @@ export class ProfessionalPrograms {
     this.find();
   }
 
+  new() {
+    this.results.unshift({ item: {} })
+  }
+  
   find() {
     this.fetchClient
       .fetch(getUri("learnings/professional-programs", this.filter))

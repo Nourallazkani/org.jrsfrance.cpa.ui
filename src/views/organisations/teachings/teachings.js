@@ -17,6 +17,10 @@ export class Teachings {
     this.find();
   }
 
+  new() {
+    this.results.unshift({ item: {} })
+  }
+
   find() {
     this.fetchClient
       .fetch(getUri("teachings", this.filter))

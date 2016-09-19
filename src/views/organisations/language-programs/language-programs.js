@@ -17,6 +17,10 @@ export class LanguagePrograms {
     this.find();
   }
 
+  new() {
+    this.results.unshift({ item: {} })
+  }
+  
   find() {
     this.fetchClient
       .fetch(getUri("learnings/language-programs", this.filter))

@@ -4,7 +4,9 @@
   <require from="views/_components/always-visible"></require>
   <require from="views/_formatters/date-format"></require>
 
-  <form class="search-inline-form" fixed-if-on-top submit.delegate="find()">
+  <require from="views/_components/gmap"></require>
+
+  <form class="search-inline-form" fixed-if-on-top>
 
     <select value.bind="filter.city">
       <option value="">Ville</option>
@@ -18,10 +20,15 @@
       <option repeat.for="x of referenceData.levels" value.bind="x.id">${x.name}</option>
     </select>
 
-    <button class="btn-orange">Rechercher</button>
+    <button class="btn-orange" click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">Voir liste</button>
+    <button class="btn-orange" click.trigger="find('map')" class="${view=='map' ? 'button-active' : ''}">Voir carte</button>
   </form>
 
-  <div class="results" if.bind="results.length>0">
+  <div class="_results" if.bind="results.length>0 && view=='map'">
+    <gmap center.bind="userDetails.address" places.bind="results"></gmap>
+  </div>
+
+  <div class="_results" if.bind="results.length>0 && view=='list'">
     <div style="text-align:right">
       <form submit.delegate="sortByDistance()">
         <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
@@ -59,10 +66,8 @@
           </div>
 
           <div class="vertical _infos-container">
-            
-            <a class="link-big link-bottom" style="right:5%;" href="#"> <img src="/assets/img/saif/Download-icon.svg" /></a>
-            <a class="link-big link-bottom" style="right:15%;" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
-            
+            <a class="link-big link-bottom" style="right:5%;" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
+
             <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
             <div class="horizontal">
               <div class="width-lg-40 info-title">

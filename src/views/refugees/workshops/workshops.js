@@ -8,8 +8,9 @@ import {UserDetails, getUri, getDistance, viewLocation, viewItinerary} from 'com
 @inject(HttpClient, UserDetails)
 export class Workshops {
 
-  filter = { openForRegistration: true, stereotype:"WORKSHOP", audience:"REFUGEE" }
+  filter = { openForRegistration: true, stereotype: "WORKSHOP", audience: "REFUGEE" }
   results = []
+  view = "list";
 
   constructor(fetchClient, userDetails) {
     this.fetchClient = fetchClient
@@ -17,7 +18,10 @@ export class Workshops {
     this.find();
   }
 
-  find() {
+  find(view) {
+    if (view) {
+      this.view = view;
+    }
     this.fetchClient
       .fetch(getUri("events", this.filter))
       .then(response => response.json())

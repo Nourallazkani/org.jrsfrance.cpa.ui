@@ -20,6 +20,10 @@ export class Workshops {
     this.results.unshift({ item: {}, action: 'new' })
   }
 
+  save(model) {
+    console.log("save");
+  }
+
   cancelAction(obj) {
     if (obj.action == 'edit' || obj.action == 'delete') {
       obj.action = null;

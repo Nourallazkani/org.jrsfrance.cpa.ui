@@ -9,7 +9,8 @@ import {UserDetails, getUri, getDistance, viewLocation, viewItinerary} from 'com
 export class Events {
 
     results = []
-    filter = { includePastEvents: false, includeFutureEvents: true, audience:"REFUGEE" }
+    filter = { includePastEvents: false, includeFutureEvents: true, audience: "REFUGEE" }
+    view = "list";
 
     constructor(fetchClient, userDetails) {
         this.fetchClient = fetchClient
@@ -17,7 +18,10 @@ export class Events {
         this.find();
     }
 
-    find() {
+    find(view) {
+        if (view) {
+            this.view = view;
+        }
         this.fetchClient
             .fetch(getUri("events", this.filter))
             .then(response => response.json())

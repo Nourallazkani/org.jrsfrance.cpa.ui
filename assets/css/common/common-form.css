@@ -7,7 +7,12 @@ form input:not([type='checkbox']), select, textarea{
     font-size: 15px;
     box-sizing : border-box;
     background-color: white;
+    font-family: 'SegoeUiSlim'
 } 
+
+textarea{
+    height:10em;
+}
 
 form input:not([type='checkbox']):focus,select:focus, textarea:focus
 {

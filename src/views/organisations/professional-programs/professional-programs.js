@@ -21,12 +21,16 @@ export class ProfessionalPrograms {
     this.results.unshift({ item: {}, action: 'new' })
   }
 
+  save(model) {
+    console.log("save");
+  }
+
   cancelAction(obj) {
     if (obj.action == 'edit' || obj.action == 'delete') {
       obj.action = null;
     }
     else {
-      this.results.splice(0,1);
+      this.results.splice(0, 1);
       console.log("remove new item")
     }
   }

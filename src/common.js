@@ -45,7 +45,6 @@ export class UserDetails {
     }
 }
 export function getUri(path, params) {
-    console.log(params)
     if (!params) {
         return path
     }

@@ -31,9 +31,10 @@
 .main-menu .languages .circle {
     font-size: 19px;
     display: inline-block;
-    width: 35px;
-    height: 33px;
-    border-radius: 20px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
     margin: 0px 5px;
     text-decoration: none;
     text-align: center;
@@ -51,11 +52,11 @@
 
 
 .main-menu > div > button {
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     border-width: 0px;
     cursor: pointer;
     background-color: #ffffff;
-    font-family: Archer;
+    font-family: SegoeUi;
     font-size: 23px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;

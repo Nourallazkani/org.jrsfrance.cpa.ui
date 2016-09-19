@@ -32,7 +32,7 @@
 
 ._results{
     width: 1000px;
-    margin: 60px auto;
+    margin: 40px auto;
 }
 
 ._result{
@@ -97,7 +97,7 @@
     box-sizing: border-box;
     height: 250px;
     width: 500px;
-    padding: 20px;
+    padding: 10px 0px;
     background-color: #333333 ;
     color: white;
     position:relative;
@@ -108,7 +108,7 @@
     border-right: 2px solid #333333;
     border-left:  2px solid #333333;
     min-height: 200px;
-    padding: 0px 40px;
+    padding: 0px 10px;
     background-color: #f0ecd9 ;
     position: relative;
 }
@@ -127,11 +127,13 @@
 ._infos-container > div {
     border-bottom: 1px dashed white;
     flex: 1;
+    padding-bottom:10px;
     align-items: center;
 }
 
 ._infos-container > div:last-child {
-    border-bottom-width: 0px
+    border-bottom-width: 0px;
+    padding-bottom:0px;
 }
 
 ._infos-container.no-borders > div {

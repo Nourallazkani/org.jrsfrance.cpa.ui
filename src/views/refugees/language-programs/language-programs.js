@@ -11,13 +11,18 @@ export class LanguagePrograms {
   filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true }
   results = []
 
+  view = "list";
+
   constructor(fetchClient, userDetails) {
     this.fetchClient = fetchClient
     this.userDetails = userDetails;
     this.find();
   }
 
-  find() {
+  find(view) {
+    if (view) {
+      this.view = view;
+    }
     this.fetchClient
       .fetch(getUri("learnings/language-programs", this.filter))
       .then(response => response.json())

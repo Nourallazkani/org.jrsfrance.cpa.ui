@@ -1,14 +1,23 @@
 <template>
   <require from="/assets/css/common/common-introduction.css"></require>
 
+  <hr style="margin:0px 25px"/>
+
   <div class="introduction">
     <div class="introduction-entry">
       <div class="images-block">
         <img style="background-color: #1B1464;" src="/assets/img/menu/icon-teaching.svg" />
+      </div>
+      <div class="text-block">
+        Des offres de formations (études supérieures)
+      </div>
+    </div>
+    <div class="introduction-entry">
+      <div class="images-block">
         <img style="background-color: #8CC63F;" src="/assets/img/menu/icon-professional-program.svg" />
       </div>
       <div class="text-block">
-        Des offres de formations (études supérieures ou formations professionnelles) avec accompagnement linguistique
+        Des offres de formations (formations professionnelles) avec accompagnement linguistique
       </div>
     </div>
     <div class="introduction-entry">
@@ -24,10 +33,17 @@
     <div class="introduction-entry">
       <div class="images-block">
         <img style="background-color: #D4145A;" src="/assets/img/menu/icon-library.svg" />
+      </div>
+      <div class="text-block">
+        Des méthodes d’auto-apprentissage disponible dans les bibliothèques
+      </div>
+    </div>
+    <div class="introduction-entry">
+      <div class="images-block">
         <img style="background-color: #9E005D;" src="/assets/img/menu/icon-workshop.svg" />
       </div>
       <div class="text-block">
-        Des méthodes d’auto-apprentissage et des ateliers de conversation
+        Des ateliers de conversation
       </div>
     </div>
     <div class="introduction-entry">
@@ -40,10 +56,4 @@
       </div>
     </div>
   </div>
-
-
-  <div if.bind="userDetails.language=='en'">
-    hello
-  </div>
-  ${referenceData}
 </template>

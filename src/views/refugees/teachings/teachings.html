@@ -26,11 +26,11 @@
     <button class="btn-orange" click.trigger="find('map')" class="${view=='map' ? 'button-active' : ''}">Voir carte</button>
   </form>
 
-  <div class="results" if.bind="results.length>0 && view=='map'">
+  <div class="_results" if.bind="results.length>0 && view=='map'">
     <gmap center.bind="userDetails.address" places.bind="results"></gmap>
   </div>
 
-  <div class="results" if.bind="results.length>0 && view=='list'">
+  <div class="_results" if.bind="results.length>0 && view=='list'">
     <div style="text-align:right">
       <form class="inline-form" submit.delegate="sortByDistance()">
         <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
@@ -66,8 +66,8 @@
           </div>
 
           <div class="vertical _infos-container">
-            <a class="link-big link-bottom" style="right:5%;" href="#"> <img src="/assets/img/saif/Download-icon.svg" /></a>
-            <a class="link-big link-bottom" style="right:15%;" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
+            <a class="link-big link-bottom" style="right:5%;" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
+
             <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
             
             <div class="horizontal">

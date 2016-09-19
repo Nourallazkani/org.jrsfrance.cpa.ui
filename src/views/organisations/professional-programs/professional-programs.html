@@ -4,7 +4,7 @@
 
   <require from="views/_formatters/date-format"></require>
 
-  <div class="results">
+  <div class="_results">
     <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
       <a style="font-weight:bold" click.delegate="new()">Créer une nouvelle formation professionelle</a>
     </div>
@@ -13,9 +13,9 @@
 
     <div class="_result" repeat.for="r of results" id="result-${r.item.id}">
 
-      <div class="_result-header" if.bind="r.item.id">
+      <div class="_result-header" if.bind="r.action!='new'">
       </div>
-      <div class="_result-body horizontal" if.bind="r.item.id">
+      <div class="_result-body horizontal" if.bind="r.action!='new'">
 
         <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
 
@@ -34,9 +34,11 @@
         </div>
 
         <div class="vertical _infos-container">
-          <a class="link link-top" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg" /></a>
-          <a class="link link-top" style="right:12%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
+          
+          <a class="link link-top" style="right:5%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>          
+          
           <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
+          
           <div class="horizontal">
             <div class="width-lg-40 info-title">
               <img src="/assets/img/saif/Date.svg" /> Date
@@ -68,7 +70,7 @@
         </div>
       </div>
 
-      <div class="_result-footer" style="text-align: right" if.bind="r.item.id">
+      <div class="_result-footer" style="text-align: right" if.bind="r.action!='new'">
         <div if.bind="r.action==null">
           <button click.delegate="r.action='edit'" onclick="doScroll(this, '_result')">Modifier</button>
           <button click.delegate="r.action='delete'">Supprimer</button>
@@ -140,7 +142,7 @@
 
         <div style="text-align:center;padding:20px 0px">
           <button click.delegate="cancelAction(r)">Annuler</button>
-          <button class="btn-orange" click.delegate="cancelAction(r)">Enregistrer</button>
+          <button class="btn-orange" click.delegate="save(r)">Enregistrer</button>
         </div>
       </div>
     </div>

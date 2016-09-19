@@ -4,7 +4,6 @@
   <require from="/assets/css/common/common-form.css"></require>
   <require from="/assets/css/common/common-grid.css"></require>
   <require from="/assets/css/common/common-saif.css"></require>
-  <require from="/assets/css/common/common-search-results.css"></require>
   <require from="/assets/css/specific/app.css"></require>
   
   <!-- sign-in-modal for refugees -->
@@ -46,10 +45,10 @@
 
   <header class="main-menu">
     <div class="languages">
-      <a class="circle active" click.delegate="userDetails.language='fr'"> FR </a>
-      <a class="circle" click.delegate="userDetails.language='en'"> EN </a>
-      <a class="circle" click.delegate="userDetails.language='ar'"> ع </a>
-      <a class="circle" click.delegate="userDetails.language='prs'"> درى </a>
+      <a class="circle ${userDetails.language=='fr' ? 'active' : ''}" click.delegate="userDetails.language='fr'"> FR </a>
+      <a class="circle ${userDetails.language=='en' ? 'active' : ''}"  click.delegate="userDetails.language='en'"> EN </a>
+      <a class="circle ${userDetails.language=='ar' ? 'active' : ''}" click.delegate="userDetails.language='ar'"> ع </a>
+      <a class="circle ${userDetails.language=='prs' ? 'active' : ''}" click.delegate="userDetails.language='prs'"> درى </a>
     </div>
 
     <div class="logo">

@@ -2,90 +2,108 @@
 
   <require from="views/_components/place-autocomplete"></require>
   <require from="views/_formatters/date-format"></require>
+  <require from="views/_components/gmap"></require>
+
 
   <div style="width:1000px;margin:auto;text-align:right">
-    <form submit.delegate="sortByDistance()">
-      <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
-      <button>Classer par proximité</button>
+    <form>
+      <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" if.bind="view=='list'" />
+      <button click.trigger="sortByDistance()" if.bind="view=='list'">Classer par proximité</button>
+      <button click.trigger="find('map')" if.bind="view=='list'">Voir carte</button>
+      <button click.trigger="find('list')" if.bind="view=='map'">Voir liste</button>
     </form>
   </div>
 
+  <div class="_results" if.bind="results.length>0 && view=='map'">
+    <gmap center.bind="userDetails.address" places.bind="results"></gmap>
+  </div>
 
-
-
-  <div class="_results" style="width:1000px;" if.bind="results.length>0">
-
+  <div class="_results" if.bind="results.length>0 && view=='list'">
     <div class="_result horizontal" repeat.for="r of results" style="margin-bottom:70px">
 
+      <!--
       <div class="width-lg-15" style="font-size:25px;font-style:italic;text-align:center">
         <img src="/assets/img/saif/Date.svg" style="width:40px"><br/> ${r.item.startDate | myDateFormat:'DD MMM'}
       </div>
-      <div class="width-lg-85 vertical">
+      -->
+      <div class="width-lg-100 vertical">
         <div class="_result-header horizontal">
-          <div style="text-align:left" class="width-lg-80">
-            ${r.item.subject}
+          <div class="width-lg-80" style="text-align:left">
+            <img src="/assets/img/saif/Date.svg" style="width:40px;margin-right:30px;vertical-align:middle">${r.item.startDate
+            | myDateFormat:'DD MMMM'}
           </div>
-          <div style="text-align:right" class="width-lg-20" if.bind="r.distance">
+          <div class="width-lg-20" style="text-align:right" if.bind="r.distance">
             <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
             ${r.distance} km
           </a>
           </div>
         </div>
-        <div class="_image-container" style="width:850px;border:none;background-image:url('/assets/img/unsorted/paris-sciences-po.jpg')">
-          <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()>0">
-            Ouverture des inscriptions le ${r.item.registrationOpeningDate | myDateFormat:'DD/MM'}
+
+        <div class="_result-body horizontal">
+
+          <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
+
+            <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()>0">
+              Ouverture des inscriptions le ${r.item.registrationOpeningDate | myDateFormat:'DD/MM'}
+            </div>
+            <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()<0">
+              Cloture des inscriptions le ${r.item.registrationClosingDate | myDateFormat:'DD/MM'}
+            </div>
+
           </div>
-          <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()<0">
-            Cloture des inscriptions le ${r.item.registrationClosingDate | myDateFormat:'DD/MM'}
+
+          <div class="vertical _infos-container">
+
+            <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
+            <div class="horizontal">
+              <div class="width-lg-40 info-title">
+                <img src="/assets/img/saif/Date.svg" /> Heure
+              </div>
+              <div class="width-lg-60 info-text">
+                De ${r.item.startDate | myDateFormat:'HH:mm'} à ${r.item.endDate | myDateFormat:'HH:mm'}
+              </div>
+            </div>
+            <div class="horizontal">
+              <div class="width-lg-40 info-title">
+                <img src="/assets/img/saif/Contact.svg" /> Contact
+              </div>
+              <div class="width-lg-60 info-text">
+                ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
+                <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+              </div>
+            </div>
+            <div class="horizontal">
+              <div class="width-lg-40 info-title">
+                <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+              </div>
+              <div class="width-lg-60 info-text">
+                ${r.item.address.street1}<br/> ${r.item.address.street2}
+                <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
+              </div>
+            </div>
+
           </div>
         </div>
-        <div style="background-color:#e7e9e8;padding:5px">
-          <div class="horizontal">
-            <div class="width-lg-70">
-              Organisé par ${r.item.organisedBy}
+        <div class="_result-footer">
+          <div style="background-color:#e7e9e8;padding:5px">
+            Organisé par ${r.item.organisedBy}
+
+            <div style="font-family:SegoeUiSlim;text-align:justify;padding:10px">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              </p>
+              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              </p>
+              <p style="text-align:right;font-weight:bold">
+                En savoir plus...
+              </p>
             </div>
-            <div class="width-lg-30" style="text-align:right">
-              Horaires de ${r.item.startDate | myDateFormat:'HH:mm'} à ${r.item.endDate | myDateFormat:'HH:mm'} 
-            </div>
           </div>
-
-          <div style=";font-family:SegoeUiSlim;text-align:justify">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </p>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </p>
-            <p style="text-align:right;font-weight:bold">
-              En savoir plus...
-            </p>
-          </div>
-        </div>
-        <div class="horizontal _infos-container no-borders" style="width:100%;height:100%">
-          <!--
-              <a class="link-big link-bottom" style="right:5%;" href="#"> <img src="/assets/img/saif/Download-icon.svg" /></a>
-              <a class="link-big link-bottom" style="right:15%;" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
-              -->
-
-          <div class="width-lg-10 info-title">
-            <img src="/assets/img/saif/Contact.svg" /> Contact
-          </div>
-          <div class="width-lg-40 info-text">
-            ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
-            <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
-          </div>
-          <div class="width-lg-10 info-title">
-            <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
-          </div>
-          <div class="width-lg-40 info-text">
-            ${r.item.address.street1}<br/> ${r.item.address.street2}
-            <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
-          </div>
-
         </div>
       </div>
     </div>

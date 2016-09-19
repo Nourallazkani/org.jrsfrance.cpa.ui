@@ -32,10 +32,8 @@
 
 ._result{
     font-family:SegoeUiBold ;
-    width:1000px;
     margin:auto;
     margin-bottom: 40px;
-    /*color, font-family, margin-bottom, etc...*/
 }
 
 ._result-header{
@@ -46,9 +44,8 @@
 
 
 ._result-body{
-        border-radius: 10px;
+        
 }
-
 ._result-footer{
    
 }
@@ -63,8 +60,19 @@
     box-sizing:border-box;
     border-radius: 10px 0px 0px 10px;
 }
+._event-image-container {
+    height: 250px;
+    width: 100%;
+    color: white;
+    border: 2px solid #333333;
+    border-bottom: 0px;
+    padding-top:30px;
+    box-sizing:border-box;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+}
 
-._image-container > div {
+._image-container > div,._event-image-container > div {
     font-weight: bold;
     margin-bottom: 10px;
     background-color: rgba(51, 51, 51, 0.6);
@@ -85,6 +93,27 @@
     background-color: #333333 ;
     color: white;
     position:relative;
+}
+
+._event-infos-container {
+    box-sizing: border-box;
+    border-right: 2px solid #333333;
+    border-left:  2px solid #333333;
+    min-height: 200px;
+    padding: 0px 40px;
+    background-color: #f0ecd9 ;
+    position: relative;
+}
+
+._event-infos-container .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+._event-infos-container a {
+    color: black;
+    text-decoration: underline; 
 }
 
 ._infos-container > div {
@@ -125,25 +154,25 @@
 
 /* links for download and open attachement */
 
-._infos-container > .link, .link-big {
+._result .link, .link-big {
     position: absolute;
 }
 
-._infos-container > .link.link-top, ._infos-container > .link-big.link-top{
+._result .link.link-top, ._result .link-big.link-top{
     top:0px;
-    transform: translateY(-50%);
+    transform: translateY(-30%);
 }
 
-._infos-container > .link.link-bottom, ._infos-container > .link-big.link-bottom{
+._result .link.link-bottom, ._result .link-big.link-bottom{
     bottom: 0px;
     transform: translateY(50%);
 }
 
-._infos-container > .link > img{
+._result .link > img{
     height:40px;
 }
 
-._infos-container > .link-big > img{
+._result .link-big > img{
     width:40px;
 }
 

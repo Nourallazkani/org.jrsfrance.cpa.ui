@@ -3,21 +3,21 @@ import {inject} from 'aurelia-framework';
 import moment from 'moment';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
-import {UserDetails} from 'common'
+import {UserDetails, ApplicationConfig} from 'common'
 
-@inject(HttpClient, UserDetails, Router)
+@inject(HttpClient, Router, UserDetails, ApplicationConfig)
 export class App {
 
   referenceData;
 
-  constructor(httpClient, userDetails, router) {
+  constructor(httpClient,  router, userDetails, appConfig) {
     this.moment = moment;
     this.httpClient = httpClient;
     this.userDetails = userDetails;
-    let apiEndpoint = "http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";//http://localhost:8080/api
+
     this.httpClient.configure(config => {
       config
-        .withBaseUrl(apiEndpoint)
+        .withBaseUrl(appConfig.apiEndpoint)
         .withDefaults({
           headers: {
 

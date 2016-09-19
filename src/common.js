@@ -1,3 +1,7 @@
+export class ApplicationConfig{
+    apiEndpoint="http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";// http://localhost:8080/api/
+}
+
 export class UserDetails {
 
     accessKey;

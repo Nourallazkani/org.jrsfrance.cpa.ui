@@ -5,7 +5,7 @@
   <require from="views/_formatters/date-format"></require>
 
   <div class="results" if.bind="results.length>0">
-    <div class="_result" repeat.for="r of results"  id="result-${r.id}">
+    <div class="_result" repeat.for="r of results" id="result-${r.id}">
 
       <div class="_result-header">
       </div>
@@ -15,30 +15,28 @@
 
           <div class="fit-to-content">${r.type}</div>
           <br/>
-          <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()>0">
-            Ouverture des inscriptions le ${r.registrationStartDate | myDateFormat:'DD/MM'}
+          <div class="fit-to-content" if.bind="moment(r.registrationOpeningDate).diff()>0">
+            Ouverture des inscriptions le ${r.registrationOpeningDate | myDateFormat:'DD/MM/YYYY'}
           </div>
-          <br if.bind="moment(r.registrationStartDate).diff()>0" />
-          <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()<0">
-            Ouvert aux inscriptions
+          <div class="fit-to-content" if.bind="moment(r.registrationOpeningDate).diff()<0">
+            Cloture des inscriptions le ${r.registrationClosingDate | myDateFormat:'DD/MM/YYYY'}
           </div>
-          <br if.bind="moment(r.registrationStartDate).diff()<0" />
+          <br/>
           <div class="fit-to-content">
             Niveau : ${r.level}
           </div>
-
         </div>
 
         <div class="vertical _infos-container">
-          <a class="link link-top" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg"/></a>
-          <a class="link link-top" style="right:15%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg"/></a>
+          <a class="link link-top" style="right:5%" href="#"> <img src="/assets/img/saif/Download-icon.svg" /></a>
+          <a class="link link-top" style="right:15%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
           <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
           <div class="horizontal">
             <div class="width-lg-40 bold">
               <img src="/assets/img/saif/Date.svg" /> Date
             </div>
             <div class="width-lg-70 info">
-              Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
+              Du ${r.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
             </div>
           </div>
           <div class="horizontal">
@@ -85,7 +83,7 @@
 
         <form class="vertical">
 
-          
+
           <div class="horizontal">
             <fieldset class="width-lg-50">
               <legend>Informations principales</legend>

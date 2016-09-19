@@ -15,18 +15,16 @@
 
           <div class="fit-to-content">${r.domain}</div>
           <br/>
-          <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()>0">
-            Ouverture des inscriptions le ${r.registrationStartDate | myDateFormat:'DD/MM'}
+          <div class="fit-to-content" if.bind="moment(r.registrationOpeningDate).diff()>0">
+            Ouverture des inscriptions le ${r.registrationOpeningDate | myDateFormat:'DD/MM/YYYY'}
           </div>
-          <br if.bind="moment(r.registrationStartDate).diff()>0" />
-          <div class="fit-to-content" if.bind="moment(r.registrationStartDate).diff()<0">
-            Ouvert aux inscriptions
+          <div class="fit-to-content" if.bind="moment(r.registrationOpeningDate).diff()<0">
+            Cloture des inscriptions le ${r.registrationClosingDate | myDateFormat:'DD/MM/YYYY'}
           </div>
-          <br if.bind="moment(r.registrationStartDate).diff()<0" />
+          <br/>
           <div class="fit-to-content">
             Niveau : ${r.level}
           </div>
-
         </div>
 
         <div class="vertical _infos-container">
@@ -38,7 +36,7 @@
               <img src="/assets/img/saif/Date.svg" /> Date
             </div>
             <div class="width-lg-70 info">
-              Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
+              Du ${r.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
             </div>
           </div>
           <div class="horizontal">

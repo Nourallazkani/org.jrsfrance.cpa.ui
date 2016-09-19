@@ -6,30 +6,30 @@
 
   <div class="results">
     <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
-      <a style="font-weight:bold"  click.delegate="new()">Créer un nouvelle formation professionnelle</a>
+      <a style="font-weight:bold" click.delegate="new()">Créer une nouvelle formation professionelle</a>
     </div>
 
     <hr style="margin:30px 0px" />
 
-    <div class="_result" repeat.for="r of results" id="result-${r.id}">
+    <div class="_result" repeat.for="r of results" id="result-${r.item.id}">
 
-      <div class="_result-header" if.bind="r.id">
+      <div class="_result-header" if.bind="r.item.id">
       </div>
-      <div class="_result-body horizontal" if.bind="r.id">
+      <div class="_result-body horizontal" if.bind="r.item.id">
 
         <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
 
-          <div class="fit-to-content">${r.domain}</div>
+          <div class="fit-to-content">${r.item.domain}</div>
           <br/>
-          <div class="fit-to-content" if.bind="moment(r.registrationOpeningDate).diff()>0">
-            Ouverture des inscriptions le ${r.registrationOpeningDate | myDateFormat:'DD/MM/YYYY'}
+          <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()>0">
+            Ouverture des inscriptions le ${r.item.registrationOpeningDate | myDateFormat:'DD/MM/YYYY'}
           </div>
-          <div class="fit-to-content" if.bind="moment(r.registrationOpeningDate).diff()<0">
-            Cloture des inscriptions le ${r.registrationClosingDate | myDateFormat:'DD/MM/YYYY'}
+          <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()<0">
+            Cloture des inscriptions le ${r.item.registrationClosingDate | myDateFormat:'DD/MM/YYYY'}
           </div>
           <br/>
           <div class="fit-to-content">
-            Niveau : ${r.level}
+            Niveau : ${r.item.level}
           </div>
         </div>
 
@@ -42,7 +42,7 @@
               <img src="/assets/img/saif/Date.svg" /> Date
             </div>
             <div class="width-lg-60 info-text">
-              Du ${r.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.endDate | myDateFormat:'DD/MM/YYYY'}
+              Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
             </div>
           </div>
           <div class="horizontal">
@@ -50,17 +50,17 @@
               <img src="/assets/img/saif/Contact.svg" /> Contact
             </div>
             <div class="width-lg-60 info-text">
-              ${r.contact.name} <br/> ${r.contact.phoneNumber} <br/>
-              <a href="mailto:${r.contact.mailAddress}">${r.contact.mailAddress}</a>
+              ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
+              <a href="mailto:${r.item.contact.mailAddress}">${r.item.contact.mailAddress}</a>
             </div>
           </div>
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <a click.delegate="viewLocation(r.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
             </div>
             <div class="width-lg-60 info-text">
-              ${r.address.street1}<br/> ${r.address.street2}
-              <br if.bind="r.address.street2 != null " /> ${r.address.postalCode} ${r.address.locality}
+              ${r.item.address.street1}<br/> ${r.item.address.street2}
+              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
               <br/>
             </div>
           </div>
@@ -68,28 +68,24 @@
         </div>
       </div>
 
-
-
-      <div class="_result-footer" style="text-align: right" if.bind="r.id">
-        <div if.bind="action==null">
-          <button click.delegate="action='edit'" onclick="doScroll(this, '_result')">Modifier</button>
-          <button click.delegate="action='delete'">Supprimer</button>
+      <div class="_result-footer" style="text-align: right" if.bind="r.item.id">
+        <div if.bind="r.action==null">
+          <button click.delegate="r.action='edit'" onclick="doScroll(this, '_result')">Modifier</button>
+          <button click.delegate="r.action='delete'">Supprimer</button>
         </div>
-        <div if.bind="action=='delete'">
+        <div if.bind="r.action=='delete'">
           Etes vous sûr de vouloir supprimer cet élément ?
-          <button click.delegate="action=null">Oui</button>
-          <button click.delegate="action=null">Non</button>
+          <button click.delegate="cancelAction(r)">Oui</button>
+          <button click.delegate="cancelAction(r)">Non</button>
         </div>
-
       </div>
-      <div class="_edit-container  ${r.id==null || action=='edit' ? '_edit-container-visible' : '_edit-container-hidden' }">
+
+      <div class="_edit-container  ${r.action=='edit' || r.action=='new' ? '_edit-container-visible' : '_edit-container-hidden' }">
         <div style="text-align:right;padding-right:10px;padding-top:10px">
-          <a click.delegate="action=null" class="close"></a>
+          <a click.delegate="cancelAction(r)" class="close"></a>
         </div>
 
         <form class="vertical">
-
-
           <div class="horizontal">
             <fieldset class="width-lg-50">
               <legend>Informations principales</legend>
@@ -100,7 +96,7 @@
                 <input class="width-lg-35 offset-lg-10" type="date" />
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Métier </label> <select class="width-lg-80"></select>
+                <label class="width-lg-20"> Domaine </label> <select class="width-lg-80"></select>
               </div>
               <div class="horizontal no-margin">
                 <label class="width-lg-20"> Niveau </label> <select class="width-lg-80"></select>
@@ -143,8 +139,8 @@
 
 
         <div style="text-align:center;padding:20px 0px">
-          <button click.delegate="action=null">Annuler</button>
-          <button class="btn-orange" click.delegate="action=null">Enregistrer</button>
+          <button click.delegate="cancelAction(r)">Annuler</button>
+          <button class="btn-orange" click.delegate="cancelAction(r)">Enregistrer</button>
         </div>
       </div>
     </div>

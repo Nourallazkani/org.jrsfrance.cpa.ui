@@ -35,11 +35,17 @@
         </div>
         <div class="horizontal" if.bind="a">
             <label>Soutien</label>
-            <input type="text" placeholder="Domaines maitrisés" />
+            <select>
+                <option></option>
+                <option repeat.for="f of referenceData.fieldsOfStudy">${f.name}</option>
+            </select>
         </div>
         <div class="horizontal" if.bind="b">
             <label>Interprétariat</label>
-            <input type="text" placeholder="Langues maitrisées en plus de français" />
+            <select>
+                <option></option>
+                <option repeat.for="f of referenceData.languages">${f.name}</option>
+            </select>
         </div>
         <div class="horizontal" if.bind="d">
             <label>Activités culturelles ou sportives</label>

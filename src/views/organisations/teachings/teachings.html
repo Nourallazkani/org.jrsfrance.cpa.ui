@@ -101,13 +101,20 @@
             </fieldset>
             <fieldset class="width-lg-50">
               <legend>Inscription</legend>
-              <div class="horizontal" style="margin-bottom:8px;">
-                <div class="horizontal no-margin width-lg-50" style="align-items: baseline;" >
-                  <label class="width-lg-40"> Master :</label><input class=" no-margin" type="checkbox" checked.bind="r.item.master"/>
+              <div class="horizontal">
+                <label class="width-lg-20"> Cursus </label>
+                <div class="horizontal no-margin width-lg-40" style="align-items: baseline;" >
+                  <input class=" no-margin" type="checkbox" checked.bind="r.item.master"/>
+                  <label class="width-lg-35 offset-lg-5">Master</label>
                 </div>
-                <div class="horizontal no-margin width-lg-50" style="align-items: baseline;">
-                  <label class="width-lg-40"> licence :</label><input class="no-margin"  type="checkbox" checked.bind="r.item.licence"/>
+                <div class="horizontal no-margin width-lg-40" style="align-items: baseline;">
+                  <input class="no-margin"  type="checkbox" checked.bind="r.item.licence"/>
+                  <label class="width-lg-35 offset-lg-5">Licence</label>
                 </div>
+              </div>
+              <div class="horizontal">
+                <label class="width-lg-20">Lien </label> 
+                <input  class="width-lg-80" type="url" value.bind="r.item.link" placeholder="http://"/>
               </div>
             </fieldset>
 

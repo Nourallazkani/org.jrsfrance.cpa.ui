@@ -76,42 +76,42 @@ fieldset input{
 
 @media(min-width:960px){
     form.split-md-10-90 label { width: 10%}
-    form.split-md-10-90 input:not([type='checkbox']) { width: 90%}
+    form.split-md-10-90 input:not([type='checkbox']), form.split-md-10-90 select { width: 90%}
     form.split-md-20-80 label { width: 20%}
-    form.split-md-20-80 input:not([type='checkbox']) { width: 80%}
+    form.split-md-20-80 input:not([type='checkbox']), form.split-md-20-80 select { width: 80%}
     form.split-md-30-70 label { width: 30%}
-    form.split-md-30-70 input:not([type='checkbox']) { width: 70%}
+    form.split-md-30-70 input:not([type='checkbox']), form.split-md-30-70 select { width: 70%}
     form.split-md-40-60 label { width: 40%}
-    form.split-md-40-60 input:not([type='checkbox']) { width: 60%}
+    form.split-md-40-60 input:not([type='checkbox']), form.split-md-40-60 select { width: 60%}
     form.split-md-50-50 label { width: 50%}
-    form.split-md-50-50 input:not([type='checkbox']) { width: 50%}
+    form.split-md-50-50 input:not([type='checkbox']), form.split-md-50-50 select { width: 50%}
     form.split-md-60-40 label { width: 60%}
-    form.split-md-60-40 input:not([type='checkbox']) { width: 40%}
+    form.split-md-60-40 input:not([type='checkbox']), form.split-md-60-40 select { width: 40%}
     form.split-md-70-30 label { width: 70%}
-    form.split-md-70-30 input:not([type='checkbox']) { width: 30%}
+    form.split-md-70-30 input:not([type='checkbox']), form.split-md-70-30 select { width: 30%}
     form.split-md-80-20 label { width: 80%}
-    form.split-md-80-20 input:not([type='checkbox']) { width: 20%}
+    form.split-md-80-20 input:not([type='checkbox']), form.split-md-80-20 select { width: 20%}
     form.split-md-90-10 label { width: 90%}
-    form.split-md-90-10 input:not([type='checkbox']) { width: 10%}
+    form.split-md-90-10 input:not([type='checkbox']), form.split-md-90-10 select { width: 10%}
 }
 
 @media(min-width:1280px){
     form.split-lg-10-90 label { width: 10%}
-    form.split-lg-10-90 input:not([type='checkbox']) { width: 90%}
+    form.split-lg-10-90 input:not([type='checkbox']), form.split-lg-10-90 select { width: 90%}
     form.split-lg-20-80 label { width: 20%}
-    form.split-lg-20-80 input:not([type='checkbox']) { width: 80%}
+    form.split-lg-20-80 input:not([type='checkbox']), form.split-lg-20-80 select { width: 80%}
     form.split-lg-30-70 label { width: 30%}
-    form.split-lg-30-70 input:not([type='checkbox']) { width: 70%}
+    form.split-lg-30-70 input:not([type='checkbox']), form.split-lg-30-70 select { width: 70%}
     form.split-lg-40-60 label { width: 40%}
-    form.split-lg-40-60 input:not([type='checkbox']) { width: 60%}
+    form.split-lg-40-60 input:not([type='checkbox']), form.split-lg-40-60 select { width: 60%}
     form.split-lg-50-50 label { width: 50%}
-    form.split-lg-50-50 input:not([type='checkbox']) { width: 50%}
+    form.split-lg-50-50 input:not([type='checkbox']), form.split-lg-50-50 select { width: 50%}
     form.split-lg-60-40 label { width: 60%}
-    form.split-lg-60-40 input:not([type='checkbox']) { width: 40%}
+    form.split-lg-60-40 input:not([type='checkbox']), form.split-lg-60-40 select { width: 40%}
     form.split-lg-70-30 label { width: 70%}
-    form.split-lg-70-30 input:not([type='checkbox']) { width: 30%}
+    form.split-lg-70-30 input:not([type='checkbox']), form.split-lg-70-30 select { width: 30%}
     form.split-lg-80-20 label { width: 80%}
-    form.split-lg-80-20 input:not([type='checkbox']) { width: 20%}
+    form.split-lg-80-20 input:not([type='checkbox']), form.split-lg-80-20 select { width: 20%}
     form.split-lg-90-10 label { width: 90%}
-    form.split-lg-90-10 input:not([type='checkbox']) { width: 10%}
+    form.split-lg-90-10 input:not([type='checkbox']), form.split-lg-90-10 select { width: 10%}
 }

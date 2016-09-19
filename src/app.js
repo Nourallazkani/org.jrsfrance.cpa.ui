@@ -1,19 +1,24 @@
-
-import {inject} from 'aurelia-framework';
-import moment from 'moment';
-import {HttpClient, json} from 'aurelia-fetch-client';
-import {Router} from 'aurelia-router';
 import {UserDetails, ApplicationConfig} from 'common'
 
-@inject(HttpClient, Router, UserDetails, ApplicationConfig)
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
+import {HttpClient, json} from 'aurelia-fetch-client';
+import { EventAggregator } from 'aurelia-event-aggregator';
+
+import moment from 'moment';
+
+
+@inject(HttpClient, Router, EventAggregator, UserDetails, ApplicationConfig)
 export class App {
 
   referenceData;
+  error;
 
-  constructor(httpClient,  router, userDetails, appConfig) {
+  constructor(httpClient, router, ea, userDetails, appConfig) {
     this.moment = moment;
     this.httpClient = httpClient;
     this.userDetails = userDetails;
+    this.ea = ea;
 
     this.httpClient.configure(config => {
       config
@@ -31,6 +36,7 @@ export class App {
           response(response) {
             console.log(`Received ${response.status} ${response.url}`);
             if (response.status >= 400 && response.status <= 599) {
+              ea.publish("error", response);
               throw response;
             }
             else {
@@ -40,8 +46,26 @@ export class App {
         });
     })
 
-    this.httpClient.fetch("referenceData").then(x => x.json()).then(x => this.referenceData = x)
-    
+    this.ea.subscribe("error", () => {
+      this.error = "xxxx";
+    })
+    this.httpClient.fetch("referenceData")
+      .then(x => x.json())
+      .then(x => this.referenceData = x)
+
+    this.ea.subscribe("referenceDataUpdate", (x) => {
+      if (x && x.domain) {
+        this.httpClient.fetch(`referenceData/${x.domain}?noCache=true`)
+          .then(resp => resp.json())
+          .then(results => this.referenceData[x.domain] = results)
+      }
+      else {
+        this.httpClient.fetch(`referenceData?noCache=true`)
+          .then(resp => resp.json())
+          .then(results => this.referenceData = results)
+      }
+    });
+
     if (localStorage.getItem("accessKey") != null) {
       // auto sign in
       this.authz.silent = true;
@@ -49,7 +73,7 @@ export class App {
       this.authz.input = { accessKey: localStorage.getItem("accessKey") };
       this.processSignIn();
     }
-    else if (false) /*look in the query string*/  {
+    else if (false) /*look in the query string*/ {
       this.authz.silent = true;
       this.authz.action = "sign-in";
       this.authz.input = { accessKey: "" };
@@ -79,7 +103,7 @@ export class App {
     this.authz.input = {};
   }
 
-  cancelSignUp(){
+  cancelSignUp() {
     this.authz.action = null;
     this.authz.input = {};
   }
@@ -112,7 +136,7 @@ export class App {
         }
         console.log(this.authz.successUrl)
         if (this.authz.successUrl != null) {
-          
+
           this.router.navigateToRoute(this.authz.successUrl);
         }
       })

@@ -86,18 +86,10 @@
 
           </div>
         </div>
-        <div class="_result-footer" if.bind="r.action!='new'">
+        <div class="_result-body horizontal" if.bind="r.action!='new'">
           <div style="background-color:#e7e9e8;padding:5px">
             <div style="font-family:SegoeUiSlim;text-align:justify;padding:10px">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              </p>
-              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              <p>${r.item.description}
               </p>
               <p style="text-align:right;font-weight:bold">
                 En savoir plus...
@@ -112,7 +104,7 @@
           </div>
           <div if.bind="r.action=='delete'">
             Etes vous sûr de vouloir supprimer cet élément ?
-            <button click.delegate="cancelAction(r)">Oui</button>
+            <button click.delegate="delete(r)">Oui</button>
             <button click.delegate="cancelAction(r)">Non</button>
           </div>
         </div>
@@ -127,35 +119,38 @@
                 <legend>Informations principales</legend>
 
                 <div class="horizontal no-margin">
-                  <label class="width-lg-20"> Date </label>
-                  <input class="width-lg-35" type="date" placeholder="hhhhh" />
-                  <input class="width-lg-35 offset-lg-10" type="date" />
+                  <label class="width-lg-20"> Début </label>
+                  <input class="width-lg-80" type="date" value.bind="r.item.startDate" />
                 </div>
                 <div class="horizontal no-margin">
+                  <label class="width-lg-20"> Fin </label>
+                  <input class="width-lg-80" type="date" value.bind="r.item.endDate" />
+                </div>                
+                <div class="horizontal no-margin">
                   <label class="width-lg-20">Sujet </label>
-                  <input class="width-lg-80" type="text" />
+                  <input class="width-lg-80" type="text" value.bind="r.item.subject" />
                 </div>
-
               </fieldset>
               <fieldset class="width-lg-50">
                 <legend>Inscription</legend>
                 <div class="horizontal no-margin">
                   <label class="width-lg-20"> Début </label>
-                  <input class="width-lg-80" type="date" />
+                  <input class="width-lg-80" type="date" value.bind="r.item.registrationOpeningDate" />
                 </div>
                 <div class="horizontal no-margin">
                   <label class="width-lg-20"> Fin </label>
-                  <input class="width-lg-80" type="date" />
+                  <input class="width-lg-80" type="date" value.bind="r.item.registrationClosingDate" />
                 </div>
+                <button class="offset-lg-20" if.bind="r.action!='new'">Cloturer maintenant</button>
               </fieldset>
 
             </div>
             <div class="horizontal">
               <fieldset class="width-lg-50">
                 <legend>Adresse</legend>
-                <input class="width-lg-100" type="text" placeholder="Adresse" />
-                <input class="width-lg-100" type="text" placeholder="complement d'adresse" />
-                <input class="width-lg-45" type="text" /><input class="width-lg-45 offset-lg-10" type="text" />
+                <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"/>
+                <input class="width-lg-100" type="text" placeholder="complement d'adresse" value.bind="r.item.address.street2" />
+                <input class="width-lg-45" type="text" value.bind="r.item.address.postalCode" /><input class="width-lg-45 offset-lg-10" type="text" value.bind="r.item.address.locality" />
               </fieldset>
 
               <fieldset class="width-lg-50">
@@ -168,7 +163,7 @@
             <div class="horizontal">
               <fieldset class="width-lg-100">
                 <legend>Description</legend>
-                <textarea class="width-lg-100"></textarea>
+                <textarea class="width-lg-100" value.bind="r.item.description"></textarea>
               </fieldset>
             </div>
 

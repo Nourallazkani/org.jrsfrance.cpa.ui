@@ -39,7 +39,7 @@
           <a class="link link-top" style="right:5%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
 
           <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
-          
+
           <div class="horizontal">
             <div class="width-lg-40 info-title">
               <img src="/assets/img/saif/Contact.svg" /> Contact
@@ -64,12 +64,12 @@
 
       <div class="_result-footer" style="text-align: right" if.bind="r.action!='new'">
         <div if.bind="r.action==null">
-          <button click.delegate="r.action='edit'">Modifier</button>
+          <button click.delegate="r.action='edit'" onclick="doScroll(this, '_result')">Modifier</button>
           <button click.delegate="r.action='delete'">Supprimer</button>
         </div>
         <div if.bind="r.action=='delete'">
           Etes vous sûr de vouloir supprimer cet élément ?
-          <button click.delegate="cancelAction(r)">Oui</button>
+          <button click.delegate="delete(r)">Oui</button>
           <button click.delegate="cancelAction(r)">Non</button>
         </div>
       </div>
@@ -85,13 +85,19 @@
             <fieldset class="width-lg-50">
               <legend>Informations principales</legend>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Niveau </label> <select class="width-lg-80"></select>
+                <label class="width-lg-20"> Niveau </label> 
+                <select class="width-lg-80" value.bind="r.item.languageLevelRequired">
+                  <option if.bind="r.action=='new'"></option>
+                  <option repeat.for="l of referenceData.levels">${l.name}</option>
+                </select>
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Discipline </label> <select class="width-lg-80"></select>
+                <label class="width-lg-20"> Discipline </label> 
+                <select class="width-lg-80" value.bind="r.item.fieldOfStudy">
+                  <option if.bind="r.action=='new'"></option>
+                  <option repeat.for="l of referenceData.fieldsOfStudy">${l.name}</option>
+                </select>
               </div>
-              
-
             </fieldset>
             <fieldset class="width-lg-50">
               <legend>Inscription</legend>
@@ -109,17 +115,16 @@
           <div class="horizontal">
             <fieldset class="width-lg-50">
               <legend>Adresse</legend>
-              <input class="width-lg-100" type="text" placeholder="Adresse" />
-              <input class="width-lg-100" type="text" placeholder="complement d'adresse" />
-              <input class="width-lg-45" type="text" /><input class="width-lg-45 offset-lg-10" type="text" />
+              <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"/>
+              <input class="width-lg-100" type="text" placeholder="complement d'adresse" value.bind="r.item.address.street2" />
+              <input class="width-lg-45" type="text" value.bind="r.item.address.postalCode" /><input class="width-lg-45 offset-lg-10" type="text" value.bind="r.item.address.locality" />
             </fieldset>
 
             <fieldset class="width-lg-50">
               <legend>Contact</legend>
-              <input class="width-lg-45" type="text" placeholder="Nom" /><input class="width-lg-45 offset-lg-10" type="text"
-                placeholder="Prenom" />
-              <input class="width-lg-100" type="tel" name="telephone" id="telephone" placeholder="telephone" />
-              <input class="width-lg-100" type="email" name="mailaddress" id="mailaddress" placeholder="Mail Adresse" />
+              <input class="width-lg-100" type="text" placeholder="Nom" value.bind="r.item.contact.name" />
+              <input class="width-lg-100" type="tel" name="telephone" id="telephone" placeholder="telephone" value.bind="r.item.contact.phoneNumber"  />
+              <input class="width-lg-100" type="email" name="mailaddress" id="mailaddress" placeholder="Mail Adresse" value.bind="r.item.contact.mailAddress"  />
             </fieldset>
 
           </div>

@@ -1,27 +1,55 @@
 
+import {UserDetails, getUri, getDistance} from 'common'
+
 import {inject} from 'aurelia-framework';
-import moment from 'moment';
 import {HttpClient} from 'aurelia-fetch-client';
-import {UserDetails, getUri, getDistance, viewLocation, viewItinerary} from 'common'
+import { EventAggregator } from 'aurelia-event-aggregator';
 
+import moment from 'moment';
 
-@inject(HttpClient, UserDetails)
+@inject(HttpClient, EventAggregator, UserDetails)
 export class Workshops {
 
   filter = { includeFutureEvents: true, includePastEvents: false, stereotype: "WORKSHOP" }
   results = []
 
-  constructor(fetchClient, userDetails) {
-    this.fetchClient = fetchClient
+  constructor(fetchClient, ea, userDetails) {
+    this.fetchClient = fetchClient;
+    this.ea = ea;
     this.userDetails = userDetails;
     this.find();
   }
+
   new() {
-    this.results.unshift({ item: {}, action: 'new' })
+    if (!this.results[0].action != 'new') {
+      this.results.unshift({ item: {}, action: 'new' })
+    }
   }
 
   save(model) {
-    console.log("save");
+    let afterUpdate = () => {
+      model.action = null;
+      this.ea.publish("referenceDataUpdate", { domain: "cities" });
+    }
+
+    if (model.action == 'new') {
+      this.results.splice(0, 1);
+      console.log("do POST")
+      afterUpdate();
+    }
+    else {
+      console.log("do PUT");
+      afterUpdate();
+    }
+  }
+
+  delete(model) {
+    let afterDelete = () => {
+      this.results.splice(this.results.indexOf(model), 1);
+      this.ea.publish("referenceDataUpdate", { domain: "cities" });
+    }
+    console.log("do DELETE");
+    afterDelete();
   }
 
   cancelAction(obj) {

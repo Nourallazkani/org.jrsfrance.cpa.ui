@@ -5,8 +5,9 @@ import {bindable} from 'aurelia-framework'
 export class PlaceAutocompleteCustomAttribute {
 
     @bindable target;
+    @bindable userSelectionBinding;
+    
     element;
-    bounds;
     autocomplete;
 
     constructor(element) {
@@ -63,6 +64,9 @@ export class PlaceAutocompleteCustomAttribute {
             appPlace.googleMapId = googleObject.placeId;
 
             this.target.address = appPlace;
+            if(this.userSelectionBinding){
+                this.element.value=appPlace[this.userSelectionBinding];
+            }
         });
     }
 }

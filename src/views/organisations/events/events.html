@@ -91,8 +91,8 @@
             <div style="font-family:SegoeUiSlim;text-align:justify;padding:10px">
               <p>${r.item.description}
               </p>
-              <p style="text-align:right;font-weight:bold">
-                En savoir plus...
+              <p style="text-align:right;font-weight:bold" if.bind="r.item.link">
+                <a href="${r.item.link}" target="_blank">En savoir plus...</a>
               </p>
             </div>
           </div>
@@ -103,7 +103,7 @@
             <button click.delegate="r.action='delete'">Supprimer</button>
           </div>
           <div if.bind="r.action=='delete'">
-            Etes vous sûr de vouloir supprimer cet élément ?
+            Etes vous sûr de vouloir supprimer cet ${filter.stereotype=='WORKSHOP' ? 'atelier' : 'évenement'} ?
             <button click.delegate="delete(r)">Oui</button>
             <button click.delegate="cancelAction(r)">Non</button>
           </div>
@@ -125,45 +125,64 @@
                 <div class="horizontal no-margin">
                   <label class="width-lg-20"> Fin </label>
                   <input class="width-lg-80" type="date" value.bind="r.item.endDate" />
-                </div>                
-                <div class="horizontal no-margin">
-                  <label class="width-lg-20">Sujet </label>
-                  <input class="width-lg-80" type="text" value.bind="r.item.subject" />
+                </div>
+                <div class="horizontal no-margin" if.bind="filter.stereotype!='WORKSHOP'">
+                  <label class="width-lg-20">Public </label>
+                  <select class="width-lg-80" type="text" value.bind="r.item.type">
+                    <option if.bind="r.action=='new'"></option>
+                    <option value="REFUGEE">Réfugié</option>
+                    <option value="VOLUNTEER">Bénévole</option>
+                  </select>
                 </div>
               </fieldset>
               <fieldset class="width-lg-50">
                 <legend>Inscription</legend>
                 <div class="horizontal no-margin">
-                  <label class="width-lg-20"> Début </label>
+                  <label class="width-lg-20">Début</label>
                   <input class="width-lg-80" type="date" value.bind="r.item.registrationOpeningDate" />
                 </div>
                 <div class="horizontal no-margin">
-                  <label class="width-lg-20"> Fin </label>
+                  <label class="width-lg-20">Fin</label>
                   <input class="width-lg-80" type="date" value.bind="r.item.registrationClosingDate" />
                 </div>
+                <!--
                 <button class="offset-lg-20" if.bind="r.action!='new'">Cloturer maintenant</button>
+                -->
               </fieldset>
 
             </div>
             <div class="horizontal">
               <fieldset class="width-lg-50">
                 <legend>Adresse</legend>
-                <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"/>
+                <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"
+                />
                 <input class="width-lg-100" type="text" placeholder="complement d'adresse" value.bind="r.item.address.street2" />
-                <input class="width-lg-45" type="text" value.bind="r.item.address.postalCode" /><input class="width-lg-45 offset-lg-10" type="text" value.bind="r.item.address.locality" />
+                <input class="width-lg-45" type="text" value.bind="r.item.address.postalCode" /><input class="width-lg-45 offset-lg-10"
+                  type="text" value.bind="r.item.address.locality" />
               </fieldset>
 
               <fieldset class="width-lg-50">
                 <legend>Contact</legend>
                 <input class="width-lg-100" type="text" placeholder="Nom" value.bind="r.item.contact.name" />
-                <input class="width-lg-100" type="tel" name="telephone" id="telephone" placeholder="telephone" value.bind="r.item.contact.phoneNumber" />
-                <input class="width-lg-100" type="email" name="mailaddress" id="mailaddress" placeholder="Mail Adresse" value.bind="r.item.contact.mailAddress" />
+                <input class="width-lg-100" type="tel" name="telephone" id="telephone" placeholder="telephone" value.bind="r.item.contact.phoneNumber"/>
+                <input class="width-lg-100" type="email" name="mailaddress" id="mailaddress" placeholder="Mail Adresse" value.bind="r.item.contact.mailAddress"/>
               </fieldset>
             </div>
             <div class="horizontal">
               <fieldset class="width-lg-100">
-                <legend>Description</legend>
-                <textarea class="width-lg-100" value.bind="r.item.description"></textarea>
+                <legend>Sujet et description</legend>
+                <div class="horizontal">
+                  <label class="width-lg-10">Sujet</label>
+                  <input class="width-lg-90" type="text" value.bind="r.item.subject" />
+                </div>
+                <div class="horizontal">
+                  <label class="width-lg-10">Description</label>
+                  <textarea class="width-lg-90" value.bind="r.item.description"></textarea>
+                </div>
+                <div class="horizontal">
+                  <label class="width-lg-10">Lien</label>
+                  <input type="url" class="width-lg-90" value.bind="r.item.link"/>
+                </div>
               </fieldset>
             </div>
 

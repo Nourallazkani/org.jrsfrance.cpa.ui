@@ -51,8 +51,7 @@
             </div>
             <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
                 <div style="text-align:left">
-                    <a click.delegate="authz.action=null">
-                        < Retour</a>
+                    <a click.delegate="authz.action=null">< Retour</a>
                 </div>
                 <div style="margin-top:50px">
                     <compose view="./_components/sign-in.html"></compose>
@@ -113,13 +112,18 @@
             </div>
             <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
                 <div style="text-align:left">
-                    <a click.delegate="authz.action=null">
-                        < Retour</a>
+                    <a click.delegate="authz.action=null">< Retour</a>
                 </div>
                 <div style="margin-top:50px">
                     <compose view="./_components/sign-in.html"></compose>
                 </div>
             </div>
+            <div if.bind="authz.action=='sign-up'">
+                <div style="text-align:left">
+                    <a click.delegate="authz.action=null">< Retour</a>
+                </div>
+                Explication de la procédure d'inscription
+            </div>            
         </div>
         <div class="home-menu" style="background-color:#F7CF52;margin-left: auto;" if.bind="userDetails.profile=='O' || userDetails.profile==null">
             <p style="text-align:center">

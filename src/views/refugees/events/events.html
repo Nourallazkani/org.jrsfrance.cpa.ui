@@ -101,53 +101,13 @@
               
               <p>${r.item.description}</p>
 
-              <p style="text-align:right;font-weight:bold">
-                En savoir plus...
+              <p style="text-align:right;font-weight:bold" if.bind="r.item.link">
+                <a href="${r.item.link}" if.bind="r.item.link" target="_blank">En savoir plus...</a>
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!--
-      <div class="_event-image-container" style="background:url('/assets/img/unsorted/sorbonne.jpg') no-repeat center;background-size:cover;">
-        <a class="link-big link-top" style="right:10%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
-        <div class="fit-to-content">
-          Organisé par : ${r.item.organisedBy}
-        </div>
-        <br/>
-        <div class="fit-to-content" if.bind="moment(r.item.registrationStartDate).diff()>0">
-          Ouverture des inscriptions : ${r.item.registrationStartDate | myDateFormat:'DD/MM/YYYY'}
-        </div>
-      </div>
-      <div class="_event-infos-container">
-        <h2> ${r.item.subject} </h2>
-        <p style="text-align:justifyfont-size: 15px;line-height: 20px;font-family: segoeui;">
-          ${r.item.description}
-        </p>
-        <div class="horizontal">
-          <div>
-            <a click.delegate="viewLocation(r.item.address)"> <img class="icon" src="/assets/img/saif/Address.svg" />Adresse :</a>
-            ${r.item.address.street1} ${r.item.address.street2} ${r.item.address.postalCode} ${r.item.address.locality}
-          </div>
-          <div style="position:absolute; right:0%; transform: translateX(-100%);" if.bind="r.distance">
-            <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
-            ${r.distance} km
-          </a>
-          </div>
-        </div>
-        <p>
-          <img class="icon" src="/assets/img/saif/Contact.svg" /> Contact : ${r.item.contact.name} (<a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>,
-          téléphone : ${r.item.contact.phoneNumber})
-        </p>
-        <p>
-          <img class="icon" src="/assets/img/saif/Date.svg" />Début : ${r.item.startDate | myDateFormat:'DD/MM/YYYY'} - Fin
-          : ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
-        </p>
-      </div>
-      <div class="_event-result-footer" style="background-color:black;">c</div>
-    </div>
-    -->
   </div>
 </template>

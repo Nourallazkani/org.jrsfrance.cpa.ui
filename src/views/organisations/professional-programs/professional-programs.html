@@ -76,7 +76,7 @@
           <button click.delegate="r.action='delete'">Supprimer</button>
         </div>
         <div if.bind="r.action=='delete'">
-          Etes vous sûr de vouloir supprimer cet élément ?
+          Etes vous sûr de vouloir supprimer cette formation ?
           <button click.delegate="delete(r)">Oui</button>
           <button click.delegate="cancelAction(r)">Non</button>
         </div>
@@ -123,8 +123,13 @@
                 <label class="width-lg-20"> Fin </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationClosingDate" />
               </div>
+              <div class="horizontal no-margin">
+                <label class="width-lg-20">Lien </label>
+                <input class="width-lg-80" type="url" value.bind="r.item.link" placeholder="http://" />
+              </div>              
+              <!--
               <button class="offset-lg-20" if.bind="r.action!='new'">Cloturer maintenant</button>
-            </fieldset>
+              -->            </fieldset>
 
           </div>
           <div class="horizontal">

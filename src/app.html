@@ -73,7 +73,7 @@
     </div>
 
     <div class="menu-items" if.bind="userDetails.account!=null">
-      <p>Hello ${userDetails.account.name} </p>
+      <p>${userDetails.account.name} </p>
       <a click.delegate="signOut()"> Deconnexion </a>
     </div>
 

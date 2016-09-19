@@ -36,7 +36,10 @@ export class App {
           response(response) {
             console.log(`Received ${response.status} ${response.url}`);
             if (response.status >= 400 && response.status <= 599) {
-              ea.publish("error", response);
+              if(response.status!=401 && response.status!=403){
+                ea.publish("error", response);
+              }
+              
               throw response;
             }
             else {
@@ -134,7 +137,6 @@ export class App {
         if (this.authz.rememberMe) {
           localStorage.setItem("accessKey", account.accessKey);
         }
-        console.log(this.authz.successUrl)
         if (this.authz.successUrl != null) {
 
           this.router.navigateToRoute(this.authz.successUrl);
@@ -171,6 +173,9 @@ export class App {
     this.userDetails.account = null;
     this.userDetails.accessKey = null;
     localStorage.removeItem("accessKey");
+    if (this.userDetails.profile != "R") {
+      this.router.navigateToRoute("home");
+    }
   }
 
   messages = {

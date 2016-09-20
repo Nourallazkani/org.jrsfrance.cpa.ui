@@ -56,7 +56,7 @@ export class PlaceAutocompleteCustomAttribute {
             if (googleObject.postal_code) {
                 appPlace.postalCode = googleObject.postal_code;
             }
-            appPlace.locality = googleObject.locality;
+            appPlace.locality = googleObject.locality.indexOf("Paris-") == 0 ? "Paris" : googleObject.locality;
             appPlace.country = googleObject.country;
 
             appPlace.lat = googleObject.lat

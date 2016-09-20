@@ -74,7 +74,9 @@
 
     <div class="menu-items" if.bind="userDetails.account!=null">
       <p>${userDetails.account.name} </p>
-      <a click.delegate="signOut()"> Deconnexion </a>
+      <a>Mon profil</a>
+      <span style="margin-left:10px;margin-right:10px">|</span>
+      <a click.delegate="signOut()">Deconnexion</a>
     </div>
 
     <div class="menu-items" if.bind="userDetails.account==null && userDetails.profile=='R'">

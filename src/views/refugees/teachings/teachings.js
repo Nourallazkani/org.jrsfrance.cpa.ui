@@ -8,13 +8,14 @@ import {UserDetails, getUri, getDistance} from 'common'
 @inject(HttpClient, UserDetails)
 export class Teachings {
 
-  filter = { includeFutureEvents: true, includePastEvents: false }
+  filter = { openForRegistration: true }
   results = []
   view = "list";
 
   constructor(fetchClient, userDetails) {
     this.fetchClient = fetchClient
     this.userDetails = userDetails;
+    this.moment = moment;
     this.find();
   }
   

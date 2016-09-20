@@ -100,20 +100,20 @@
                 <label class="width-lg-20"> Type </label>
                 <select class="width-lg-80" value.bind="r.item.type">
                     <option if.bind="r.action=='new'"></option>
-                    <option repeat.for="x of referenceData.languageLearningProgramTypes" value.bind="x.name">${x.name}</option>
+                    <option repeat.for="x of referenceData.languageLearningProgramType.all" value.bind="x.name">${x.name}</option>
                 </select>
               </div>
               <div class="horizontal no-margin">
                 <label class="width-lg-20"> Niveau </label>
                 <select class="width-lg-80" value.bind="r.item.level">
                     <option if.bind="r.action=='new'"></option>
-                    <option repeat.for="x of referenceData.levels" value.bind="x.name">${x.name}</option>
+                    <option repeat.for="x of referenceData.level.all" value.bind="x.name">${x.name}</option>
                 </select>
               </div>
 
             </fieldset>
             <fieldset class="width-lg-50">
-              <legend>Cursus</legend>
+              <legend>Inscription</legend>
               <div class="horizontal no-margin">
                 <label class="width-lg-20"> Début </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationOpeningDate" />

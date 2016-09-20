@@ -10,12 +10,12 @@
 
     <select value.bind="filter.city">
       <option value="">Ville</option>
-      <option repeat.for="x of referenceData.cities.languageLearningProgram">${x}</option>
+      <option repeat.for="x of referenceData.city.languageLearningProgram">${x}</option>
     </select>
 
     <select value.bind="filter.levelId">
       <option value="">Niveau</option>
-      <option repeat.for="x of referenceData.levels" value.bind="x.id">${x.name}</option>
+      <option repeat.for="x of referenceData.level.languageLearningProgram" value.bind="x.id">${x.name}</option>
     </select>
 
     <button class="btn-orange" click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">Voir liste</button>
@@ -23,7 +23,7 @@
   </form>
 
   <div class="_results" if.bind="results.length>0 && view=='map'">
-    <gmap center.bind="userDetails.address" places.bind="results"></gmap>
+    <gmap center.bind="userDetails.address" places.bind="results" placesFor.bind="languageProgram"></gmap>
   </div>
 
   <div class="_results" if.bind="results.length>0 && view=='list'">
@@ -41,7 +41,7 @@
         </div>
         <div style="text-align:right" class="width-lg-20" if.bind="r.distance">
           <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
-            ${r.distance} km
+            <img src="/assets/img/saif/icon-route.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
           </a>
         </div>
       </div>

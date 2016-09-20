@@ -9,7 +9,8 @@
 
     <select value.bind="filter.city">
       <option value="">Ville</option>
-      <option repeat.for="x of referenceData.cities.languageLearningProgram">${x}</option>
+      <option repeat.for="x of referenceData.city.event" if.bind="filter.stereotype==null">${x}</option>
+      <option repeat.for="x of referenceData.city.workshop" if.bind="filter.stereotype=='WORKSHOP'">${x}</option>
     </select>
 
     <button class="btn-orange" click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">Voir liste</button>
@@ -17,7 +18,7 @@
   </form>
 
   <div class="_results" if.bind="results.length>0 && view=='map'">
-    <gmap center.bind="userDetails.address" places.bind="results"></gmap>
+    <gmap center.bind="userDetails.address" places.bind="results" placesFor.bind="events"></gmap>
   </div>
 
   <div class="_results" if.bind="results.length>0 && view=='list'">
@@ -39,11 +40,11 @@
         <div class="_result-header horizontal">
           <div class="width-lg-80" style="text-align:left">
             <img src="/assets/img/saif/Date.svg" style="width:40px;margin-right:30px;vertical-align:middle">
-            ${r.item.startDate | myDateFormat:'DD MMMM'}
+            ${r.item.startDate | myDateFormat:'DD MMMM'} - ${r.item.subject}
           </div>
           <div class="width-lg-20" style="text-align:right" if.bind="r.distance">
             <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
-            ${r.distance} km
+            <img src="/assets/img/saif/icon-route.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
           </a>
           </div>
         </div>
@@ -66,7 +67,7 @@
             <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
             <div class="horizontal">
               <div class="width-lg-40 info-title">
-                <img src="/assets/img/saif/Date.svg" /> Heure
+                <img src="/assets/img/saif/icon-time.svg" /> Heure
               </div>
               <div class="width-lg-60 info-text">
                 De ${r.item.startDate | myDateFormat:'HH:mm'} à ${r.item.endDate | myDateFormat:'HH:mm'}
@@ -94,7 +95,7 @@
           </div>
         </div>
         <div class="_result-body">
-          <div style="background-color:#e7e9e8;padding:5px">
+          <div style="background-color:#e7e9e8;padding:5px" class="width-lg-100">
             Organisé par ${r.item.organisedBy}
 
             <div style="font-family:SegoeUiSlim;text-align:justify;padding:10px">

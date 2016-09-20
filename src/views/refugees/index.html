@@ -3,19 +3,17 @@
   <require from="/assets/css/specific/index.css"></require>
 
   <div id="menu" class="menu">
-
-    <figure id="menu-item-teachings" class="${router.currentInstruction.config.name=='refugees/teachings' ? 'active' : ''}">
-      <a route-href="route: refugees/teachings">
-        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-teaching.svg" />
-      </a>
-      <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
-    </figure>
-
     <figure id="menu-item-language-programs" class="${router.currentInstruction.config.name=='refugees/language-programs' ? 'active' : ''}">
       <a route-href="route: refugees/language-programs">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-language-program.svg" />
       </a>
       <figcaption>Apprentissage du français</figcaption>
+    </figure>
+    <figure id="menu-item-teachings" class="${router.currentInstruction.config.name=='refugees/teachings' ? 'active' : ''}">
+      <a route-href="route: refugees/teachings">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-teaching.svg" />
+      </a>
+      <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
     </figure>
     <figure id="menu-item-professional-programs" class="${router.currentInstruction.config.name=='refugees/professional-programs' ? 'active' : ''}">
       <a route-href="route: refugees/professional-programs">

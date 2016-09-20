@@ -15,6 +15,7 @@ export class Events {
     constructor(fetchClient, userDetails) {
         this.fetchClient = fetchClient
         this.userDetails = userDetails;
+        this.moment = moment;
         this.find();
     }
 

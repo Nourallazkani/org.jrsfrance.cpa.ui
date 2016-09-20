@@ -11,35 +11,44 @@ import moment from 'moment';
 @inject(HttpClient, Router, EventAggregator, UserDetails, ApplicationConfig)
 export class App {
 
-  referenceData;
+  referenceData = {}
   error;
 
   constructor(httpClient, router, ea, userDetails, appConfig) {
+    
     this.moment = moment;
     this.httpClient = httpClient;
-    this.userDetails = userDetails;
     this.ea = ea;
+    this.userDetails = userDetails;
+    console.log(this.userDetails)
+
 
     this.httpClient.configure(config => {
       config
         .withBaseUrl(appConfig.apiEndpoint)
         .withDefaults({
-          headers: {
-
-          }
+          headers: {/* "AccessKey": "O-d6daffe2-01ed-4e40-bf1e-b2b102c873e4" */ }
         })
         .withInterceptor({
           request(request) {
             console.log(`Requesting ${request.method} ${request.url}`);
+            if (userDetails.accessKey) {
+              console.log("set access key")
+              request.headers.set("AccessKey", userDetails.accessKey);
+            }
+
+            console.log(request);
             return request;
           },
           response(response) {
+
             console.log(`Received ${response.status} ${response.url}`);
+
             if (response.status >= 400 && response.status <= 599) {
-              if(response.status!=401 && response.status!=403){
+              if (response.url.indexOf("authz/signIn") == -1 && response.url.indexOf("authz/signUp") == -1) {
                 ea.publish("error", response);
               }
-              
+
               throw response;
             }
             else {
@@ -49,16 +58,9 @@ export class App {
         });
     })
 
-    this.ea.subscribe("error", () => {
-      this.error = "xxxx";
-    })
-    this.httpClient.fetch("referenceData")
-      .then(x => x.json())
-      .then(x => this.referenceData = x)
-
     this.ea.subscribe("referenceDataUpdate", (x) => {
       if (x && x.domain) {
-        this.httpClient.fetch(`referenceData/${x.domain}?noCache=true`)
+        this.httpClient.fetch(`referenceData?noCache=true`)
           .then(resp => resp.json())
           .then(results => this.referenceData[x.domain] = results)
       }
@@ -68,6 +70,14 @@ export class App {
           .then(results => this.referenceData = results)
       }
     });
+
+    this.httpClient.fetch("referenceData")
+      .then(x => x.json())
+      .then(x => {
+        for(let p in x){
+          this.referenceData[p] = x[p];
+        }
+      });
 
     if (localStorage.getItem("accessKey") != null) {
       // auto sign in
@@ -137,8 +147,9 @@ export class App {
         if (this.authz.rememberMe) {
           localStorage.setItem("accessKey", account.accessKey);
         }
-        if (this.authz.successUrl != null) {
 
+
+        if (this.authz.successUrl != null) {
           this.router.navigateToRoute(this.authz.successUrl);
         }
       })
@@ -174,6 +185,7 @@ export class App {
     this.userDetails.accessKey = null;
     localStorage.removeItem("accessKey");
     if (this.userDetails.profile != "R") {
+      this.userDetails.profile = null;
       this.router.navigateToRoute("home");
     }
   }

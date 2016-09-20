@@ -8,6 +8,7 @@
     background-color: white;
     text-align: center;
     margin: 30px 0px;
+    font-family: SegoeUi;
 }
 .menu > figure {
     vertical-align: top;
@@ -32,6 +33,7 @@
     outline: 0;
     box-shadow: inset 0 4px 4px rgba(0,0,0,.075),0 0 32px black;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    font-family: SegoeUiBold;
     /*border-width: 10px;*/
 }
 
@@ -77,11 +79,10 @@
         height: 50px;
         width: 50px;
     }
-    .menu > figure > figcaption {
+.menu > figure > figcaption {
     text-align: center;
     margin: 0px auto;
     width: 50px;
-    font-family: Cavorting;
     color: #4D4D4D;
     padding-top: 20px;
     font-size: 17px;

@@ -1,4 +1,4 @@
-import {UserDetails} from 'common';
+import {UserDetails, viewLocation, viewItinerary} from 'common'
 import {inject} from 'aurelia-framework';
 
 @inject(UserDetails)
@@ -8,6 +8,8 @@ export class Index {
     if (userDetails.profile == null) {
       userDetails.profile = "O";
     }
+    this.viewLocation = viewLocation;
+    this.viewItinerary = viewItinerary;
   }
   configureRouter(config, router) {
     config.map([

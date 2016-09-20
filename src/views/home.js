@@ -18,5 +18,8 @@ export class Index {
         if (profile == "R") {
             this.router.navigateToRoute('refugees');
         }
+        if (profile == "O" && this.userDetails.accessKey) {
+            this.router.navigateToRoute('organisations');
+        }
     }
 }

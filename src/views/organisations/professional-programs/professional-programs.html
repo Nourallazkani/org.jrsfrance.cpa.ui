@@ -101,14 +101,14 @@
                 <label class="width-lg-20"> Domaine </label>
                 <select class="width-lg-80" value.bind="r.item.domain">
                     <option if.bind="r.action=='new'"></option>
-                    <option repeat.for="x of referenceData.professionalLearningProgramDomains" value.bind="x.name">${x.name}</option>
+                    <option repeat.for="x of referenceData.professionalLearningProgramDomain.all" value.bind="x.name">${x.name}</option>
                 </select>
               </div>
               <div class="horizontal no-margin">
                 <label class="width-lg-20"> Niveau </label>
                 <select class="width-lg-80"  value.bind="r.item.level">
                     <option if.bind="r.action=='new'"></option>
-                    <option repeat.for="x of referenceData.levels" value.bind="x.name">${x.name}</option>
+                    <option repeat.for="x of referenceData.level.all" value.bind="x.name">${x.name}</option>
                 </select>
               </div>
 

@@ -5,8 +5,15 @@
   <require from="views/_formatters/date-format"></require>
 
   <div class="_results">
-    <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
-      <a style="font-weight:bold" click.delegate="new()">Créer un nouveau cours de français</a>
+    <div class="horizontal " style="font-family:SegoeUiSlim">
+      <form class="width-lg-70" style="text-align:left">
+        <input type="checkbox" checked.bind="filter.includeFutureEvents" change.trigger="find()" />Inclure les cours futurs
+        <input type="checkbox" checked.bind="filter.includePastEvents" change.trigger="find()" />Inclure les cours  passés
+      </form>
+
+      <div class="width-lg-30" style="text-align:right">
+        <a style="font-weight:bold" click.delegate="new()">Créer un nouveau cours de français</a>
+      </div>
     </div>
 
     <hr style="margin:30px 0px" />

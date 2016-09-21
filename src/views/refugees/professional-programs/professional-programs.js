@@ -2,21 +2,23 @@
 import {inject} from 'aurelia-framework';
 import moment from 'moment';
 import {HttpClient} from 'aurelia-fetch-client';
-import {UserDetails, getUri, getDistance} from 'common'
+import {UserDetails, ReferenceData, getUri, getDistance, viewLocation, viewItinerary} from 'common'
 
 
-@inject(HttpClient, UserDetails)
+@inject(HttpClient, UserDetails, ReferenceData)
 export class ProfessionalPrograms {
 
   filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true }
   results = []
-
   view = "list";
 
-  constructor(fetchClient, userDetails) {
+  constructor(fetchClient, userDetails, referenceData) {
     this.fetchClient = fetchClient
     this.userDetails = userDetails;
     this.moment = moment;
+    this.viewLocation = viewLocation;
+    this.viewItinerary = viewItinerary;
+    this.referenceData = referenceData;
     this.find();
   }
 

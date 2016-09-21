@@ -1,4 +1,4 @@
-import {UserDetails, ApplicationConfig} from 'common'
+import {UserDetails, ApplicationConfig, ReferenceData} from 'common'
 
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
@@ -8,19 +8,17 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import moment from 'moment';
 
 
-@inject(HttpClient, Router, EventAggregator, UserDetails, ApplicationConfig)
+@inject(HttpClient, Router, EventAggregator, UserDetails, ApplicationConfig, ReferenceData)
 export class App {
 
-  referenceData = {}
   error;
-  
-  constructor(httpClient, router, ea, userDetails, appConfig) {
+
+  constructor(httpClient, router, ea, userDetails, appConfig, referenceData) {
 
     this.moment = moment;
     this.httpClient = httpClient;
     this.ea = ea;
     this.userDetails = userDetails;
-    console.log(this.userDetails)
 
 
     this.httpClient.configure(config => {
@@ -62,23 +60,19 @@ export class App {
       if (x && x.domain) {
         this.httpClient.fetch(`referenceData?noCache=true`)
           .then(resp => resp.json())
-          .then(results => this.referenceData[x.domain] = results)
+          .then(results => referenceData.refresh(x.domain, results))
       }
       else {
         this.httpClient.fetch(`referenceData?noCache=true`)
           .then(resp => resp.json())
-          .then(results => this.referenceData = results)
+          .then(results => referenceData.refreshAll(x))
       }
     });
 
     this.httpClient.fetch("referenceData")
       .then(x => x.json())
-      .then(x => {
-        for (let p in x) {
-          this.referenceData[p] = x[p];
-        }
-      });
-      
+      .then(x => referenceData.load(x));
+
     if (localStorage.getItem("accessKey") != null) {
       // auto sign in
       this.authz.silent = true;

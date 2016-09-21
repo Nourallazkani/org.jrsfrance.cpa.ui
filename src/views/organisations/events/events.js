@@ -1,4 +1,4 @@
-import {UserDetails, getUri} from 'common'
+import {UserDetails, ReferenceData, getUri, viewLocation} from 'common'
 
 import {inject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
@@ -6,21 +6,26 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 
 import moment from 'moment';
 
-@inject(HttpClient, EventAggregator, UserDetails)
+@inject(HttpClient, EventAggregator, UserDetails, ReferenceData)
 export class Events {
 
     results = []
     filter = { includePastEvents: false, includeFutureEvents: true }
 
-    constructor(fetchClient, ea, userDetails) {
+    constructor(fetchClient, ea, userDetails, referenceData) {
         this.fetchClient = fetchClient;
         this.ea = ea;
         this.userDetails = userDetails;
         this.moment = moment;
+        this.viewLocation = viewLocation;
+        this.referenceData = referenceData;
+
+        this.filter.organisationId = userDetails.account.id;
         this.find();
     }
 
-    find() {
+    find(language) {
+
         this.fetchClient
             .fetch(getUri("events", this.filter))
             .then(response => response.json())

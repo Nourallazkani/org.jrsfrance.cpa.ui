@@ -1,5 +1,5 @@
 
-import {UserDetails, getUri, getDistance} from 'common'
+import {UserDetails, ReferenceData, getUri, getDistance, viewLocation} from 'common'
 
 import {inject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
@@ -7,23 +7,28 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 
 import moment from 'moment';
 
-@inject(HttpClient, EventAggregator, UserDetails)
+@inject(HttpClient, EventAggregator, UserDetails, ReferenceData)
 export class Workshops {
 
-  filter = { includeFutureEvents: true, includePastEvents: false, stereotype: "WORKSHOP" }
+  filter = { includeFutureEvents: true, includePastEvents: false }
   results = []
 
-  constructor(fetchClient, ea, userDetails) {
+  constructor(fetchClient, ea, userDetails, referenceData) {
     this.fetchClient = fetchClient;
     this.ea = ea;
     this.userDetails = userDetails;
     this.moment = moment;
+    this.viewLocation = viewLocation;
+    this.referenceData = referenceData;
+    
+
+    this.filter.organisationId = userDetails.account.id;
     this.find();
   }
 
   find() {
     this.fetchClient
-      .fetch(getUri("events", this.filter))
+      .fetch(getUri("workshops", this.filter))
       .then(response => response.json())
       .then(list => this.results = list.map(x => ({ item: x, action: null })));
   }
@@ -47,13 +52,13 @@ export class Workshops {
 
     if (model.action == 'new') {
       this.fetchClient
-        .fetch("events", { method: "POST", body: json(model.item) })
+        .fetch("workshops", { method: "POST", body: json(model.item) })
         .then(response => response.json())
         .then(x => afterSave(x));
     }
     else {
       this.fetchClient
-        .fetch(`events/${model.item.id}`, { method: "PUT", body: json(model.item) })
+        .fetch(`workshops/${model.item.id}`, { method: "PUT", body: json(model.item) })
         .then(response => afterSave());
     }
   }
@@ -64,7 +69,7 @@ export class Workshops {
       this.ea.publish("referenceDataUpdate", { domain: "cities" });
     }
     this.fetchClient
-      .fetch(`events/${model.item.id}`, { method: "DELETE" })
+      .fetch(`workshops/${model.item.id}`, { method: "DELETE" })
       .then(response => afterDelete());
   }
 

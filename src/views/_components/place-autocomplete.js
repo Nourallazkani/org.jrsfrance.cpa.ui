@@ -6,14 +6,25 @@ export class PlaceAutocompleteCustomAttribute {
 
     @bindable target;
     @bindable userSelectionBinding;
-    
+
     element;
     autocomplete;
 
     constructor(element) {
         this.element = element;
-        this.autocomplete  = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
+        this.autocomplete = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
         /*
+        let geolocation = {
+            lat: 46.1350784,
+            lng: -2.2886214
+        };
+        let circle = new google.maps.Circle({
+            center: geolocation
+        });
+        this.autocomplete.setBounds(circle.getBounds());
+        */
+        
+        
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 let geolocation = {
@@ -26,9 +37,9 @@ export class PlaceAutocompleteCustomAttribute {
                 });
                 this.autocomplete.setBounds(circle.getBounds());
             });
-        }*/
+        }
     }
-    
+
     attached() {
         if (this.target.address && this.target.address.formattedAddress) {
             this.element.value = this.target.address.formattedAddress;
@@ -58,15 +69,15 @@ export class PlaceAutocompleteCustomAttribute {
                 appPlace.postalCode = googleObject.postal_code;
             }
             appPlace.locality = googleObject.locality.indexOf("Paris-") == 0 ? "Paris" : googleObject.locality;
-            appPlace.country = googleObject.country;
+            appPlace.country = googleObject.country == "FR" ? "France" : googleObject.country;
 
             appPlace.lat = googleObject.lat
             appPlace.lng = googleObject.lng;
             appPlace.googleMapId = googleObject.placeId;
 
             this.target.address = appPlace;
-            if(this.userSelectionBinding){
-                this.element.value=appPlace[this.userSelectionBinding];
+            if (this.userSelectionBinding) {
+                this.element.value = appPlace[this.userSelectionBinding];
             }
         });
     }

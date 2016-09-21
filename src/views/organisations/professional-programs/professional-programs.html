@@ -5,10 +5,16 @@
   <require from="views/_formatters/date-format"></require>
 
   <div class="_results">
-    <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
-      <a style="font-weight:bold" click.delegate="new()">Créer une nouvelle formation professionelle</a>
-    </div>
+    <div class="horizontal " style="font-family:SegoeUiSlim">
+      <form class="width-lg-70" style="text-align:left">
+        <input type="checkbox" checked.bind="filter.includeFutureEvents" change.trigger="find()" />Inclure les formations futures
+        <input type="checkbox" checked.bind="filter.includePastEvents" change.trigger="find()" />Inclure les formations passées
+      </form>
 
+      <div class="width-lg-30" style="text-align:right">
+        <a style="font-weight:bold" click.delegate="new()">Créer une nouvelle formation professionelle</a>
+      </div>
+    </div>
     <hr style="margin:30px 0px" />
 
     <div class="_result" repeat.for="r of results" id="result-${r.item.id}">
@@ -106,7 +112,7 @@
               </div>
               <div class="horizontal no-margin">
                 <label class="width-lg-20"> Niveau </label>
-                <select class="width-lg-80"  value.bind="r.item.level">
+                <select class="width-lg-80" value.bind="r.item.level">
                     <option if.bind="r.action=='new'"></option>
                     <option repeat.for="x of referenceData.level.all" value.bind="x.name">${x.name}</option>
                 </select>
@@ -126,18 +132,20 @@
               <div class="horizontal no-margin">
                 <label class="width-lg-20">Lien </label>
                 <input class="width-lg-80" type="url" value.bind="r.item.link" placeholder="http://" />
-              </div>              
+              </div>
               <!--
               <button class="offset-lg-20" if.bind="r.action!='new'">Cloturer maintenant</button>
-              -->            </fieldset>
+              --></fieldset>
 
           </div>
           <div class="horizontal">
             <fieldset class="width-lg-50">
               <legend>Adresse</legend>
-              <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"/>
+              <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"
+              />
               <input class="width-lg-100" type="text" placeholder="complement d'adresse" value.bind="r.item.address.street2" />
-              <input class="width-lg-45" type="text" value.bind="r.item.address.postalCode" /><input class="width-lg-45 offset-lg-10" type="text" value.bind="r.item.address.locality" />
+              <input class="width-lg-45" type="text" value.bind="r.item.address.postalCode" /><input class="width-lg-45 offset-lg-10"
+                type="text" value.bind="r.item.address.locality" />
             </fieldset>
 
             <fieldset class="width-lg-50">

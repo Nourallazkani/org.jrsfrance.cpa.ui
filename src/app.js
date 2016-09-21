@@ -13,9 +13,9 @@ export class App {
 
   referenceData = {}
   error;
-
+  
   constructor(httpClient, router, ea, userDetails, appConfig) {
-    
+
     this.moment = moment;
     this.httpClient = httpClient;
     this.ea = ea;
@@ -74,11 +74,11 @@ export class App {
     this.httpClient.fetch("referenceData")
       .then(x => x.json())
       .then(x => {
-        for(let p in x){
+        for (let p in x) {
           this.referenceData[p] = x[p];
         }
       });
-
+      
     if (localStorage.getItem("accessKey") != null) {
       // auto sign in
       this.authz.silent = true;
@@ -187,25 +187,6 @@ export class App {
     if (this.userDetails.profile != "R") {
       this.userDetails.profile = null;
       this.router.navigateToRoute("home");
-    }
-  }
-
-  messages = {
-    "common": {
-      "Rechercher": { "en": "Search" }
-    },
-    "cursus": {
-      "Niveau": { "en": "Level" }
-    }
-  }
-
-  i18n(key, domain) {
-    var translations = this.messages[domain == null ? "common" : domain][key];
-    if (this.userDetails.language == "fr") {
-      return key;
-    }
-    else {
-      return translations[this.userDetails.language];
     }
   }
 }

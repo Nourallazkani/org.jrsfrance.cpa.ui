@@ -13,6 +13,7 @@ export class PlaceAutocompleteCustomAttribute {
     constructor(element) {
         this.element = element;
         this.autocomplete  = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
+        /*
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 let geolocation = {
@@ -25,7 +26,7 @@ export class PlaceAutocompleteCustomAttribute {
                 });
                 this.autocomplete.setBounds(circle.getBounds());
             });
-        }
+        }*/
     }
     
     attached() {

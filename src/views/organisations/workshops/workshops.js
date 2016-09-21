@@ -30,7 +30,7 @@ export class Workshops {
 
   new() {
     if (this.results.length == 0 || this.results[0].action != 'new') {
-      this.results.unshift({ item: {}, action: 'new' })
+      this.results.unshift({ item: { audience: 'REFUGEE' }, action: 'new' })
     }
   }
 

@@ -7,10 +7,12 @@ export class I18n {
 
             "app": {
                 "Sign in": {
-                    "fr": "Connexion"
+                    "fr": "Connexion",
+                    "ar": "تسجيل الدخول"
                 },
                 "Sign up": {
-                    "fr": "Inscription"
+                    "fr": "Inscription",
+                    "ar": "إنشاء حساب"
                 }
             },
             "home": {
@@ -23,16 +25,20 @@ export class I18n {
 
             "sign-in": {
                 "Mail address": {
-                    "fr": "Adresse mail"
+                    "fr": "Adresse mail",
+                    "ar": "اسم المستخدم"
                 },
                 "Password": {
-                    "fr": "Mot de passe"
+                    "fr": "Mot de passe",
+                    "ar": "كلمة المرور"
                 },
                 "Remember me": {
-                    "fr": "Se souvenir de moi"
+                    "fr": "Se souvenir de moi",
+                    "ar": "تذكرني دائما"
                 },
                 "Sign in": {
-                    "fr": "Connexion"
+                    "fr": "Connexion",
+                    "ar": "تسجيل الدخول"
                 }
             },
 
@@ -41,59 +47,74 @@ export class I18n {
             },
             "refugees/teachings": {
                 "view list": {
-                    "fr": "Voir liste"
+                    "fr": "Voir liste",
+                    "ar": "رؤية القائمة"
                 },
                 "view map": {
-                    "fr": "Voir carte"
+                    "fr": "Voir carte",
+                    "ar": "رؤية الخريطة"
                 },
                 "Sort by distance": {
-                    "fr": "Classer par proximité"
+                    "fr": "Classer par proximité",
+                    "ar": "ترتيب بحسب القُرب"
                 }
             },
             "refugees/language-programs": {
                 "view list": {
-                    "fr": "Voir liste"
+                    "fr": "Voir liste",
+                    "ar": "رؤية القائمة"
                 },
                 "view map": {
-                    "fr": "Voir carte"
+                    "fr": "Voir carte",
+                    "ar": "رؤية الخريطة"
                 },
                 "Sort by distance": {
-                    "fr": "Classer par proximité"
+                    "fr": "Classer par proximité",
+                    "ar": "ترتيب بحسب القُرب"
                 }
 
             },
             "refugees/professional-programs": {
                 "view list": {
-                    "fr": "Voir liste"
+                    "fr": "Voir liste",
+                    "ar": "رؤية القائمة"
                 },
                 "view map": {
-                    "fr": "Voir carte"
+                    "fr": "Voir carte",
+                    "ar": "رؤية الخريطة"
                 },
                 "Sort by distance": {
-                    "fr": "Classer par proximité"
+                    "fr": "Classer par proximité",
+                    "ar": "ترتيب بحسب القُرب"
                 }
             },
             "refugees/events": {
                 "view list": {
-                    "fr": "Voir liste"
+                    "fr": "Voir liste",
+                    "ar": "رؤية القائمة"
                 },
                 "view map": {
-                    "fr": "Voir carte"
+                    "fr": "Voir carte",
+                    "ar": "رؤية الخريطة"
                 },
                 "Sort by distance": {
-                    "fr": "Classer par proximité"
+                    "fr": "Classer par proximité",
+                    "ar": "ترتيب بحسب القُرب"
                 }
 
             },
             "refugees/workshops": {
                 "view list": {
-                    "fr": "Voir liste"
+                    "fr": "Voir liste",
+                    "ar": "رؤية القائمة"
                 },
                 "view map": {
-                    "fr": "Voir carte"
+                    "fr": "Voir carte",
+                    "ar": "رؤية الخريطة"
                 },
                 "Sort by distance": {
-                    "fr": "Classer par proximité"
+                    "fr": "Classer par proximité",
+                    "ar": "ترتيب بحسب القُرب"
                 }
 
             },

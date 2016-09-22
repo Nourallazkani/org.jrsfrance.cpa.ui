@@ -6,29 +6,26 @@
 
     <figure id="menu-item-events" class="${router.currentInstruction.config.name=='volunteers/events' ? 'active' : ''}">
       <a route-href="route: volunteers/events">
-        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-volunteer-event.svg" />
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-event.svg" />
       </a>
-      <figcaption>&Eacute;v&egrave;nements pour les bénévoles</figcaption>
+      <figcaption>Events</figcaption>
     </figure>
 
-    <figure id="menu-item-availabilities" class="${router.currentInstruction.config.name=='volunteers/availabilities' ? 'active' : ''}">
-      <a route-href="route: volunteers/availabilities">
-        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-date.svg" />
+    <figure id="menu-item-availabilities" class="${router.currentInstruction.config.name=='volunteers/profile' ? 'active' : ''}">
+      <a route-href="route: volunteers/profile">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-volunteer-event.svg" />
       </a>
-      <figcaption>Mes disponilités</figcaption>
+      <figcaption>My profile</figcaption>
     </figure>
 
     <figure id="menu-item-availabilities" class="${router.currentInstruction.config.name=='volunteers/meetingRequests' ? 'active' : ''}">
-      <a route-href="route: volunteers/meetingRequests">
-        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-meeting-request.svg" />
+      <a route-href="route: volunteers/meeting-requests">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-interpreter.svg" />
       </a>
-      <figcaption>Demandes de rendez vous</figcaption>
+      <figcaption>Meeting requests</figcaption>
     </figure>     
 
   </div>
-
-  <div class="separator"> </div>
-
 
 
   <router-view></router-view>

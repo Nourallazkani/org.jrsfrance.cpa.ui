@@ -1,7 +1,7 @@
 <template>
 
-   <require from="/assets/css/common/common-introduction.css"></require>
-
+  <require from="/assets/css/common/common-introduction.css"></require>
+  <require from="views/_components/user-form"></require>
 
   <div class="introduction">
     <div class="introduction-entry">
@@ -18,7 +18,7 @@
         <img style="background-color: #f4b821;" src="/assets/img/menu/icon-date.svg" />
       </div>
       <div class="text-block">
-         J'indique mes disponibilités pour m'engager dans un calendrier
+        J'indique mes disponibilités pour m'engager dans un calendrier
       </div>
     </div>
 
@@ -31,11 +31,4 @@
       </div>
     </div>
 
-
-
-
-    <div if.bind="userDetails.language=='ar'">
-      hello
-    </div>
-    ${referenceData}
 </template>

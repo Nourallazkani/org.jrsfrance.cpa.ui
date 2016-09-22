@@ -20,12 +20,11 @@ export class App {
     this.ea = ea;
     this.userDetails = userDetails;
 
-
     this.httpClient.configure(config => {
       config
         .withBaseUrl(appConfig.apiEndpoint)
         .withDefaults({
-          headers: {/* "AccessKey": "O-d6daffe2-01ed-4e40-bf1e-b2b102c873e4" */ }
+          headers: { }
         })
         .withInterceptor({
           request(request) {
@@ -73,18 +72,16 @@ export class App {
       .then(x => x.json())
       .then(x => referenceData.load(x));
 
-    if (localStorage.getItem("accessKey") != null) {
+    if (localStorage.getItem("accessKey") != null /* or accessKey is in the query string*/) {
       // auto sign in
-      this.authz.silent = true;
-      this.authz.action = "sign-in";
-      this.authz.input = { accessKey: localStorage.getItem("accessKey") };
-      this.processSignIn();
-    }
-    else if (false) /*look in the query string*/ {
-      this.authz.silent = true;
-      this.authz.action = "sign-in";
-      this.authz.input = { accessKey: "" };
-      this.processSignIn();
+      this.input = { accessKey: localStorage.getItem("accessKey") };
+      this.httpClient
+        .fetch("authz/signIn", { method: "POST", body: json(this.input) })
+        .then(x => x.json()).then(account => {
+
+          this.userDetails.account = account;
+          this.userDetails.accessKey = account.accessKey;
+        });
     }
   }
 
@@ -103,81 +100,11 @@ export class App {
     this.router = router;
   }
 
-  authz = { silent: false, input: null, outcome: null };
-
-  startSignUp() {
-    this.authz.action = "sign-up";
-    this.authz.input = {};
-  }
-
-  cancelSignUp() {
-    this.authz.action = null;
-    this.authz.input = {};
-  }
-  processSignUp() {
-    this.authz.outcome = "ok";
-  }
-
-  retrySignUp() {
-    this.authz.outcome = null;
-    this.authz.input.mailAddress = null;
-  }
-
-  startSignIn(successUrl) {
-    this.authz.action = "sign-in";
-    this.authz.input = { realm: this.userDetails.profile };
-    this.authz.outcome = null;
-    this.authz.successUrl = successUrl;
-  }
-
-  processSignIn() {
-    this.httpClient
-      .fetch("authz/signIn", { method: "POST", body: json(this.authz.input) })
-      .then(x => x.json()).then(account => {
-
-        this.userDetails.account = account;
-        this.userDetails.accessKey = account.accessKey;
-        this.authz.action = null;
-        if (this.authz.rememberMe) {
-          localStorage.setItem("accessKey", account.accessKey);
-        }
-
-
-        if (this.authz.successUrl != null) {
-          this.router.navigateToRoute(this.authz.successUrl);
-        }
-      })
-      .catch(err => {
-        this.authz.outcome = "failure";
-      });
-  }
-
-  retrySignIn() {
-    this.authz.outcome = null;
-    this.authz.action = "sign-in";
-    this.authz.input.password = null;
-  }
-
-  startPasswordRecoveryRequest() {
-    this.authz.action = "recover-password";
-    this.authz.input.password = null;
-    this.authz.outcome = null;
-  }
-
-  processPasswordRecoveryRequest() {
-    this.httpClient
-      .fetch("authz/passwordRecovery", { method: "POST", body: json(this.authz.input) })
-      .then(() => this.authz.outcome = "accepted")
-  }
-
-  cancelSignIn() {
-    this.authz.action = null;
-  }
-
   signOut() {
     this.userDetails.account = null;
     this.userDetails.accessKey = null;
     localStorage.removeItem("accessKey");
+    this.authzAction = null;
     if (this.userDetails.profile != "R") {
       this.userDetails.profile = null;
       this.router.navigateToRoute("home");

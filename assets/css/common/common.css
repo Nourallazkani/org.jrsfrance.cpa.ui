@@ -25,6 +25,7 @@ contains global and reusable styles
 html{
     margin: auto;
     min-width: 1024px;  
+    font-family: SegoeUi
 }
 
 body {

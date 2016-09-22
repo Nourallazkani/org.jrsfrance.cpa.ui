@@ -4,7 +4,9 @@ import {Router} from 'aurelia-router';
 import {UserDetails} from 'common'
 
 @inject(UserDetails, Router)
-export class Index {
+export class Home {
+
+    action;
 
     constructor(userDetails, router) {
         this.router = router;

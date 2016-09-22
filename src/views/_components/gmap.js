@@ -8,6 +8,7 @@ export class GmapCustomElement {
     markers = [];
     @bindable center;
     @bindable places;
+    x = false;
 
     constructor(element) {
         this.element = element;

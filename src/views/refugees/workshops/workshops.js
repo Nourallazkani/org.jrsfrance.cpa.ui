@@ -8,7 +8,7 @@ import {UserDetails, ReferenceData, getUri, getDistance, viewLocation, viewItine
 @inject(HttpClient, UserDetails, ReferenceData)
 export class Workshops {
 
-  filter = { openForRegistration: true, stereotype: "WORKSHOP", audience: "REFUGEE" }
+  filter = { openForRegistration: true, audience: "REFUGEE" }
   results = []
   view = "list";
 
@@ -27,7 +27,7 @@ export class Workshops {
       this.view = view;
     }
     this.fetchClient
-      .fetch(getUri("events", this.filter))
+      .fetch(getUri("workshops", this.filter))
       .then(response => response.json())
       .then(json => json
         .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))

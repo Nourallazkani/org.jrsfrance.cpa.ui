@@ -16,10 +16,8 @@ export class Index {
     config.map([
       { route: '', name: 'volunteers/welcome', moduleId: 'views/volunteers/welcome', nav: true, title: 'Accueil' },
       { route: 'events', name: 'volunteers/events', moduleId: 'views/volunteers/events/events', nav: true, title: 'Evenements' },
-      { route: 'availabilities', name: 'volunteers/availabilities', moduleId: 'views/volunteers/availabilities/availabilities', nav: true, title: 'Disponibilité' },
-      { route: 'meetingRequests', name: 'volunteers/meetingRequests', moduleId: 'views/volunteers/meetingRequests/meetingRequests', nav: true, title: 'Demande de rendez vous' }
+      { route: 'profile', name: 'volunteers/profile', moduleId: 'views/volunteers/profile/profile', nav: true, title: 'Profil' },
+      { route: 'meetingRequests', name: 'volunteers/meeting-requests', moduleId: 'views/volunteers/meeting-requests/meeting-requests', nav: true, title: 'Demande de rendez vous' }
     ]);
-    
-    this.router = router;
   }
 }

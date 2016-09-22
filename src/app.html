@@ -5,19 +5,21 @@
   <require from="/assets/css/common/common-grid.css"></require>
   <require from="/assets/css/common/common-saif.css"></require>
   <require from="/assets/css/specific/app.css"></require>
-  
+
+  <require from="./views/_components/sign-in-form"></require>
+  <require from="./views/_components/user-form"></require>
+
   <!-- sign-in-modal for refugees -->
-  <div class="modal ${userDetails.profile=='R' && (authz.action=='sign-in' || authz.action=='recover-password') && !authz.silent ? 'modal-visible' : 'modal-hidden'}">
+  <div if.bind="userDetails.profile=='R'" class="modal ${userDetails.account==null && authzAction=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
     <div class="modal-dialog">
       <div class="modal-dialog-header">
-        <div if.bind="authz.action=='sign-in'">Connexion</div>
-        <div if.bind="authz.action=='recover-password'">Réinitialisation du mot de passe</div>
-        <div>
-          <a click.trigger="cancelSignIn()" class="close"></a>
+        <div>Connexion</div>
+        <div style="text-align:right">
+          <a click.trigger="authzAction=null" class="close"></a>
         </div>
       </div>
       <div class="modal-dialog-body" style="height:200px">
-        <compose view="./views/_components/sign-in.html"></compose>
+        <sign-in-form></sign-in-form>
       </div>
       <div class="modal-dialog-footer"></div>
     </div>
@@ -25,21 +27,21 @@
   <!-- end sign-in-modal for refugees-->
 
   <!-- sign-up-modal for refugees -->
-  <div class="modal ${userDetails.profile=='R' && authz.action=='sign-up' ? 'modal-visible' : 'modal-hidden'}">
+  <div if.bind="userDetails.profile=='R'" class="modal ${authzAction=='sign-up' ? 'modal-visible' : 'modal-hidden'}">
     <div class="modal-dialog">
       <div class="modal-dialog-header">
         <div>Inscription</div>
         <div>
-          <a click.trigger="cancelSignUp()" class="close"></a>
+          <a click.trigger="authzAction=null" class="close"></a>
         </div>
       </div>
       <div class="modal-dialog-body">
-        <compose view="./views/_components/sign-up.html"></compose>
+        <user-form action="sign-up" show-credentials="true" show-identity="true" show-details="true"></user-form>
       </div>
       <div class="modal-dialog-footer"></div>
     </div>
   </div>
-  <!-- end sign-in-modal-->  
+  <!-- end sign-in-modal-->
 
   <!-- error modal -->
   <div class="modal ${error ? 'modal-visible' : 'modal-hidden'}">
@@ -63,29 +65,35 @@
   <header class="main-menu">
     <div class="languages">
       <a class="circle ${userDetails.language=='fr' ? 'active' : ''}" click.delegate="userDetails.language='fr'"> FR </a>
-      <a class="circle ${userDetails.language=='en' ? 'active' : ''}"  click.delegate="userDetails.language='en'"> EN </a>
+      <a class="circle ${userDetails.language=='en' ? 'active' : ''}" click.delegate="userDetails.language='en'"> EN </a>
       <a class="circle ${userDetails.language=='ar' ? 'active' : ''}" click.delegate="userDetails.language='ar'"> ع </a>
       <a class="circle ${userDetails.language=='prs' ? 'active' : ''}" click.delegate="userDetails.language='prs'"> درى </a>
     </div>
 
     <div class="logo">
-      <a route-href="route: home"> <img style="width:100px; height:80px;" src="/assets/img/header/logo.svg" alt="Logo" title="Comprendre pour Apprendre" /> </a>
+      <a route-href="route: home"> <img style="width:100px; height:80px;" src="/assets/img/header/logo.svg" alt="Logo" title="Comprendre pour Apprendre"
+        /> </a>
     </div>
 
     <div class="menu-items" if.bind="userDetails.account!=null">
       <p>${userDetails.account.name} </p>
-      <a>Mon profil</a>
-      <span style="margin-left:10px;margin-right:10px">|</span>
-      <a click.delegate="signOut()">Deconnexion</a>
+      <div if.bind="userDetails.profile=='R'">
+        <a href="/refugees/profile">Mon profil</a>
+        <span style="margin-left:10px;margin-right:10px">|</span>
+        <a click.delegate="signOut()">Deconnexion</a>
+      </div>
+      <div if.bind="userDetails.profile!='R'">
+        <a click.delegate="signOut()">Deconnexion</a>
+      </div>
     </div>
 
     <div class="menu-items" if.bind="userDetails.account==null && userDetails.profile=='R'">
-      <button click.delegate="startSignUp()">Inscription</button>
-      <button click.delegate="startSignIn()"> Connexion </button>
+      <button click.delegate="authzAction='sign-up'">Inscription</button>
+      <button click.delegate="authzAction='sign-in'"> Connexion </button>
     </div>
   </header>
 
   <router-view></router-view>
-  
+
   <div class="footer">footer</div>
 </template>

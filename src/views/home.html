@@ -1,8 +1,8 @@
 <template>
 
     <require from="/assets/css/specific/home.css"></require>
-    <require from="views/_components/place-autocomplete"></require>
-
+    <require from="views/_components/user-form"></require>
+    <require from="views/_components/sign-in-form"></require>
 
     <div class="horizontal" style="height:700px">
         <div class="home-menu" style="margin-right:auto;background-color:#0FCFBC;" if.bind="userDetails.profile=='V' || userDetails.profile==null">
@@ -16,16 +16,17 @@
                 <li style="height:80px"><a click.delegate="setUserDetails('V')">من یک داوطلب هستم</a></li>
             </ul>
         </div>
+
         <div class="home-welcome-panel home-welcome-volunteer-panel" if.bind="userDetails.profile=='V'">
             <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:50px;height:50px; right:100%; bottom:25%;">
-            <div if.bind="authz.action==null">
+            <div if.bind="action==null">
                 <div style="text-align:right">
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
                 <p>
                     Je peux donner un peu de mon temps selon mes disponibilités pour : 
                     <ul>
-                        <li>aider dans l’apprentissage de français, l’interprétariat.</li>
+                        <li>aider dans l’apprentissage de français.</li>
                         <li>le soutien pour certaines formations.</li>
                         <li>l’interprétariat</li>
                     </ul>
@@ -36,37 +37,39 @@
                         Je regarde la vidéo<br/> de présentation
                     </div>
                     <div style="flex-grow:1">
-                        <a click.delegate="startSignIn('volunteers')">
+                        <a click.delegate="action='sign-in'">
                             <img src="/assets/img/home/icon-signin.svg" class="icon" >
                             Je me connecte
                         </a>
                     </div>
                     <div style="flex-grow:1">
-                        <a click.delegate="startSignUp('volunteers')">
+                        <a click.delegate="action='sign-up'">
                             <img src="/assets/img/home/icon-signup.svg" class="icon" >
                             Je m'inscrit
                         </a>
                     </div>
                 </div>
             </div>
-            <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
+            <div if.bind="action=='sign-in'">
                 <div style="text-align:left">
-                    <a click.delegate="authz.action=null">< Retour</a>
+                    <a click.delegate="action=null">< Retour</a>
                 </div>
                 <div style="margin-top:50px">
-                    <compose view="./_components/sign-in.html"></compose>
+                    <sign-in-form success-route="/volunteers"></sign-in-form>
                 </div>
             </div>
-            <div if.bind="authz.action=='sign-up'">
+            <div if.bind="action=='sign-up'">
                 <div>
-                    <a click.delegate="authz.action=null">
+                    <a click.delegate="action=null">
                         < Retour</a>
                 </div>
                 <div style="margin-top:50px">
-                    <compose view="./_components/sign-up.html"></compose>    
+                    <user-form show-credentials="true" show-identity="true" show-details="false" action="sign-up" success-route="/volunteers/profile"></user-form>    
                 </div>
             </div>
         </div>
+
+
 
         <div class="home-menu" style="background-color:#F45652;margin-left:5%;margin-right:5%" if.bind="userDetails.profile==null">
             <p style="text-align:center">
@@ -83,7 +86,7 @@
 
         <div class="home-welcome-panel home-welcome-organisation-panel" if.bind="userDetails.profile=='O'">
             <img src="/assets/img/common/arrow-left-saif.svg" style="position:absolute; width:50px;height:50px; left:100%; bottom:25%;">
-            <div if.bind="authz.action==null">
+            <div if.bind="action==null">
                 <div style="text-align:right">
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
@@ -97,30 +100,30 @@
                         Je regarde la vidéo<br/> de présentation
                     </div>
                     <div style="flex-grow:1">
-                        <a click.delegate="startSignIn('organisations')">
+                        <a click.delegate="action='sign-in'">
                             <img src="/assets/img/home/icon-signin.svg" class="icon" >
                             Je me connecte
                         </a>
                     </div>
                     <div style="flex-grow:1">
-                        <a click.delegate="startSignUp('organisations')">
+                        <a click.delegate="action='sign-up'">
                             <img src="/assets/img/home/icon-signup.svg" class="icon" >
                             Je m'inscrit
                         </a>
                     </div>
                 </div>
             </div>
-            <div if.bind="authz.action=='sign-in' || authz.action=='recover-password'">
+            <div if.bind="action=='sign-in'">
                 <div style="text-align:left">
-                    <a click.delegate="authz.action=null">< Retour</a>
+                    <a click.delegate="action=null">< Retour</a>
                 </div>
                 <div style="margin-top:50px">
-                    <compose view="./_components/sign-in.html"></compose>
+                    <sign-in-form success-route="/organisations"></sign-in-form>
                 </div>
             </div>
-            <div if.bind="authz.action=='sign-up'">
+            <div if.bind="action=='sign-up'">
                 <div style="text-align:left">
-                    <a click.delegate="authz.action=null">< Retour</a>
+                    <a click.delegate="action=null">< Retour</a>
                 </div>
                 Explication de la procédure d'inscription
             </div>            

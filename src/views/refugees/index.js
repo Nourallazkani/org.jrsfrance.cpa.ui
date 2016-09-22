@@ -21,7 +21,8 @@ export class Index {
       { route: 'workshops', name: 'refugees/workshops', moduleId: 'views/refugees/workshops/workshops', nav: true, title: 'Ateliers socio linguistiques' },
       { route: 'libraries', name: 'refugees/libraries', moduleId: 'views/refugees/libraries/libraries', nav: true, title: 'Auto apprentissage' },
       { route: 'events', name: 'refugees/events', moduleId: 'views/refugees/events/events', nav: true, title: 'Evenements' },
-      { route: 'interpreters', name: 'refugees/volunteers', moduleId: 'views/refugees/interpreters/interpreters', nav: true, title: 'Interprètes' }
+      { route: 'interpreters', name: 'refugees/volunteers', moduleId: 'views/refugees/interpreters/interpreters', nav: true, title: 'Interprètes' },
+      { route: 'profile', name: 'refugees/profile', moduleId: 'views/refugees/profile/profile', nav: true, title: 'Profile' },
     ]);
     
     this.router = router;

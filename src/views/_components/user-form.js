@@ -1,0 +1,59 @@
+import {inject, bindable} from 'aurelia-framework'
+import {Router} from 'aurelia-router';
+
+import {UserDetails, ReferenceData} from 'common'
+import {HttpClient, json} from 'aurelia-fetch-client';
+
+@inject(HttpClient, Router, UserDetails, ReferenceData)
+export class UserForm {
+
+    @bindable showCredentials;
+    @bindable showDetails;
+    @bindable showIdentity;
+    @bindable successRoute;
+    @bindable action; // sign-up or update-profile
+
+    input = {};
+    outcome;
+
+    constructor(fetchClient, router, userDetails, referenceData) {
+        this.fetchClient = fetchClient;
+        this.router = router;
+        this.userDetails = userDetails;
+        this.referenceData = referenceData;
+    }
+
+    signUp() {
+        /*
+        this.fetchClient.fetch("/authz/signUp", { body: json(input), method: "post" })
+            .then(x => console.log(x))
+        console.log("process sign up for")
+        */
+        this.userDetails.lastAction = "sign-up";
+        if (this.successRoute) {
+            this.router.navigate(this.successRoute);
+        }
+        else {
+            this.outcome = "success";
+        }
+    }
+
+    retry() {
+        this.outcome = null;
+        if (this.action == "sign-up") {
+            this.input.mailAddress = null;
+        }
+    }
+
+    updateProfile() {
+        console.log("update profile")
+        this.outcome = "success";
+        this.userDetails.lastAction = "update-profile";
+    }
+
+    attached() {
+        this.showCredentials = (this.showCredentials === true || "true" == this.showCredentials);
+        this.showDetails = (this.showDetails === true || "true" == this.showDetails);
+        this.showIdentity = (this.showIdentity === true || "true" == this.showIdentity);
+    }
+}

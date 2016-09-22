@@ -1,0 +1,94 @@
+<template>
+
+    <require from="./place-autocomplete"></require>
+
+
+    <form class="split-lg-30-70 label-right" submit.delegate="action=='sign-up' ? signUp() : updateProfile()" if.bind="outcome==null">
+        <div if.bind="showCredentials">
+            <div class="horizontal">
+                <label>Mail address</label>
+                <input type="email" value.bind="input.mailAddress" />
+            </div>
+            <div class="horizontal">
+                <label>Passsword</label>
+                <input type="password" value.bind="input.password" />
+            </div>
+        </div>
+        <div if.bind="showIdentity">
+            <div class="horizontal">
+                <label>First name</label>
+                <input type="text" value.bind="input.firstName" autofocus />
+            </div>
+            <div class="horizontal">
+                <label>Last name</label>
+                <input type="text" value.bind="input.lastName" />
+            </div>
+        </div>
+        <div if.bind="showDetails">
+            <div class="horizontal">
+                <label>City or postal code</label>
+                <input type="text" place-autocomplete="target.bind : input" />
+            </div>
+            <div class="horizontal">
+                <label>${userDetails.profile=='R' ? 'I am intersted by' : 'I can offer'}</label>
+                <div class="vertical  width-lg-70">
+                    <div class="horizontal width-lg-100">
+                        <div style="width:40%;line-height:30px">
+                            <input type="checkbox" checked.bind="a" />French conversation<br/>
+                        </div>
+                    </div>
+                    <div class="horizontal width-lg-100">
+                        <div style="width:40%;line-height:30px">
+                            <input type="checkbox" checked.bind="b" />Interpreting<br/>
+                        </div>
+                        <div style="width:60%;line-height:30px" if.bind="b">
+                            <select></select>
+                        </div>
+                    </div>
+                    <div class="horizontal width-lg-100">
+                        <div style="width:40%;line-height:30px">
+                            <input type="checkbox" checked.bind="c" />Support in studies <br/>
+                        </div>
+                        <div style="width:60%;line-height:30px" if.bind="c">
+                            <select></select>
+                        </div>
+                    </div>
+                    <div class="horizontal width-lg-100">
+                        <div style="width:40%;line-height:30px">
+                            <input type="checkbox" checked.bind="d" />Cultural or sport activities<br/>
+                        </div>
+                        <div style="width:60%;line-height:30px" if.bind="d">
+                            <input type="text" placeholder="Theater, sports, visits..."/>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="horizontal">
+            <button class="offset-lg-30">${action=="sign-up" ? "Signup" : "Update my profile"}</button>
+        </div>
+    </form>
+    <div if.bind="outcome=='success'" style="text-align:center">
+        Thank you, your profile has been successfully updated
+    </div>
+    <div if.bind="outcome=='failure'" style="text-align:center">
+        <div if.bind="action='sign-up'">
+            <div class="red-alert" style="margin-bottom:25px">
+                L'inscription a échoué a échouée.
+            </div>
+            Voulez vous :
+            <ul style="text-align:left">
+                <li style="margin:20px auto"><a click.delegate="retry()">Réessayer avec une autre adresse mail</a></li>
+            </ul>
+        </div>
+        <div if.bind="action='update-profile'">
+            <div class="red-alert" style="margin-bottom:25px">
+                La modification du profil a échoué
+            </div>
+            Voulez vous :
+            <ul style="text-align:left">
+                <li style="margin:20px auto"><a click.delegate="retry()">Réessayer avec une autre adresse mail</a></li>
+            </ul>
+        </div>
+    </div>
+</template>

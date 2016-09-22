@@ -77,23 +77,18 @@
 
     <div class="menu-items" if.bind="userDetails.account!=null">
       <p>${userDetails.account.name} </p>
-      <div if.bind="userDetails.profile=='R'">
-        <a href="/refugees/profile">Mon profil</a>
-        <span style="margin-left:10px;margin-right:10px">|</span>
-        <a click.delegate="signOut()">Deconnexion</a>
-      </div>
-      <div if.bind="userDetails.profile!='R'">
-        <a click.delegate="signOut()">Deconnexion</a>
-      </div>
+      <a click.delegate="viewProfile()">Mon profil</a> | <a click.delegate="signOut()">Deconnexion</a>
     </div>
 
     <div class="menu-items" if.bind="userDetails.account==null && userDetails.profile=='R'">
-      <button click.delegate="authzAction='sign-up'">Inscription</button>
-      <button click.delegate="authzAction='sign-in'"> Connexion </button>
+      <button click.delegate="authzAction='sign-up'">${i18n("Sign up")}</button>
+      <button click.delegate="authzAction='sign-in'">${i18n("Sign in")}</button>
     </div>
   </header>
 
   <router-view></router-view>
 
-  <div class="footer">footer</div>
+  <div class="footer" style="text-align:center">
+    <a route-href="route:about">A propos</a>
+  </div>
 </template>

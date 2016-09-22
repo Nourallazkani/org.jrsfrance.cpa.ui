@@ -33,7 +33,20 @@ body {
 }
 
 a{
-    cursor: pointer
+    cursor: pointer;
+    color:inherit
+}
+
+a:visited, a:link, a:active
+{
+    text-decoration: none;
+    text-transform: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+    text-transform: none;
 }
 
 .fit-to-content {

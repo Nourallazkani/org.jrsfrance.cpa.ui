@@ -21,6 +21,12 @@ export class UserForm {
         this.router = router;
         this.userDetails = userDetails;
         this.referenceData = referenceData;
+        if (this.userDetails.account && this.userDetails.account.accessKey) {
+            let uri = (this.userDetails.profile == "R" ? "/refugees/" : "/volunteers/") + this.userDetails.account.id;
+            this.fetchClient.fetch(uri)
+                .then(x => x.json())
+                .then(x => this.input = x);
+        }
     }
 
     signUp() {
@@ -46,9 +52,17 @@ export class UserForm {
     }
 
     updateProfile() {
-        console.log("update profile")
-        this.outcome = "success";
-        this.userDetails.lastAction = "update-profile";
+        if (this.userDetails.profile == "V") {
+            this.outcome = "success";
+            this.userDetails.lastAction = "update-profile";
+            return;
+        }
+        let uri = (this.userDetails.profile == "R" ? "refugees/" : "volunteers/") + this.userDetails.account.id;
+        this.fetchClient.fetch(uri, { body: json(this.input), method: "put" })
+            .then(x => {
+                this.outcome = "success";
+                this.userDetails.lastAction = "update-profile";
+            });
     }
 
     attached() {

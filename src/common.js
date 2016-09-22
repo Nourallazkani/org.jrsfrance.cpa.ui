@@ -21,7 +21,6 @@ export class ReferenceData {
 
 export class UserDetails {
 
-    accessKey;
     account;
 
     get language() {

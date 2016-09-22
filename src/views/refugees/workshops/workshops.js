@@ -1,25 +1,33 @@
-
-import {inject} from 'aurelia-framework';
-import moment from 'moment';
-import {HttpClient} from 'aurelia-fetch-client';
 import {UserDetails, ReferenceData, getUri, getDistance, viewLocation, viewItinerary} from 'common'
+import {I18n} from 'i18n'
 
+import {inject, BindingEngine} from 'aurelia-framework';
+import {HttpClient} from 'aurelia-fetch-client';
 
-@inject(HttpClient, UserDetails, ReferenceData)
+import moment from 'moment';
+
+@inject(HttpClient, BindingEngine, UserDetails, I18n, ReferenceData)
 export class Workshops {
 
   filter = { openForRegistration: true, audience: "REFUGEE" }
   results = []
   view = "list";
 
-  constructor(fetchClient, userDetails, referenceDataHolder) {
+  constructor(fetchClient, bindingEngine, userDetails, i18nMessages, referenceDataHolder) {
     this.fetchClient = fetchClient
     this.userDetails = userDetails;
     this.moment = moment;
     this.viewLocation = viewLocation;
     this.viewItinerary = viewItinerary;
     this.referenceDataHolder = referenceDataHolder;
+
+    this.i18n = (key) => i18nMessages.getMessage("refugees/workshops", key, userDetails.language);
+
     this.find();
+
+    bindingEngine
+      .propertyObserver(userDetails, 'language')
+      .subscribe((newValue, oldValue) => this.find(this.view, newValue));
   }
 
   find(view) {

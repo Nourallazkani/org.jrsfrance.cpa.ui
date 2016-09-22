@@ -42,7 +42,10 @@
                             <input type="checkbox" checked.bind="b" />Interpreting<br/>
                         </div>
                         <div style="width:60%;line-height:30px" if.bind="b">
-                            <select></select>
+                            <select>
+                                <option></option>
+                                <option repeat.for="x of referenceData.language.all">${x.name}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="horizontal width-lg-100">
@@ -50,7 +53,10 @@
                             <input type="checkbox" checked.bind="c" />Support in studies <br/>
                         </div>
                         <div style="width:60%;line-height:30px" if.bind="c">
-                            <select></select>
+                            <select>
+                                <option></option>
+                                <option repeat.for="x of referenceData.fieldOfStudy.all">${x.name}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="horizontal width-lg-100">

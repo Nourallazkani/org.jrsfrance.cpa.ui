@@ -1,10 +1,11 @@
 import {inject, bindable, BindingEngine} from 'aurelia-framework'
+import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 
 import {UserDetails} from 'common'
-import {HttpClient, json} from 'aurelia-fetch-client';
+import {I18n} from 'i18n'
 
-@inject(HttpClient, Router, BindingEngine, UserDetails)
+@inject(HttpClient, Router, BindingEngine, UserDetails, I18n)
 export class SignInForm {
 
     action;
@@ -16,25 +17,27 @@ export class SignInForm {
     @bindable
     successRoute = null;
 
-    initialized() {
+    initialize() {
         this.action = "sign-in";
         this.input = { realm: this.userDetails.profile };
         this.rememberMe = false;
         this.outcome = null;
     }
-    constructor(httpClient, router, bindingEngine, userDetails) {
+
+    constructor(httpClient, router, bindingEngine, userDetails, i18nMessages) {
         console.log("inside ctor")
         this.httpClient = httpClient;
         this.router = router;
         this.userDetails = userDetails;
-        this.initialized();
+        this.initialize();
 
+        this.i18n = (key) => i18nMessages.getMessage("sign-in", key, userDetails.language);
 
         bindingEngine
-            .propertyObserver(userDetails, 'accessKey')
+            .propertyObserver(userDetails, 'account')
             .subscribe((newValue, oldValue) => {
                 if (newValue == null) {
-                   this.initialized();
+                    this.initialize();
                 }
             });
     }
@@ -45,7 +48,6 @@ export class SignInForm {
             .then(x => x.json()).then(account => {
 
                 this.userDetails.account = account;
-                this.userDetails.accessKey = account.accessKey;
                 this.action = null;
                 if (this.rememberMe) {
                     localStorage.setItem("accessKey", account.accessKey);

@@ -20,8 +20,8 @@ ${referenceDataHolder}
       <option repeat.for="x of referenceData.fieldOfStudy.teaching" value.bind="x.id">${x.name}</option>
     </select>
 
-    <button class="btn-orange" click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">Voir liste</button>
-    <button class="btn-orange" click.trigger="find('map')" class="${view=='map' ? 'button-active' : ''}">Voir carte</button>
+    <button class="btn-orange" click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">${i18n("view list")}</button>
+    <button class="btn-orange" click.trigger="find('map')" class="${view=='map' ? 'button-active' : ''}">${i18n("view map")}</button>
   </form>
 
   <div class="_results" if.bind="results.length>0 && view=='map'">
@@ -32,7 +32,7 @@ ${referenceDataHolder}
     <div style="text-align:right;margin-bottom:25px">
       <form class="inline-form" submit.delegate="sortByDistance()">
         <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
-        <button>Classer par proximité</button>
+        <button>${i18n("Sort by distance")}</button>
       </form>
     </div>
 

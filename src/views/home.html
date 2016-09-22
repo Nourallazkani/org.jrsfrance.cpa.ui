@@ -24,7 +24,7 @@
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
                 <p>
-                    Je peux donner un peu de mon temps selon mes disponibilités pour : 
+                    Je peux donner un peu de mon temps selon mes disponibilités pour :
                     <ul>
                         <li>aider dans l’apprentissage de français.</li>
                         <li>le soutien pour certaines formations.</li>
@@ -33,26 +33,24 @@
                 </p>
                 <div class="horizontal" style="text-align:center">
                     <div style="flex-grow:1">
-                        <img src="/assets/img/home/icon-video.svg"  class="icon" >
-                        Je regarde la vidéo<br/> de présentation
+                        <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-in'">
-                            <img src="/assets/img/home/icon-signin.svg" class="icon" >
-                            Je me connecte
+                            <img src="/assets/img/home/icon-signin.svg" class="icon"> Je me connecte
                         </a>
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-up'">
-                            <img src="/assets/img/home/icon-signup.svg" class="icon" >
-                            Je m'inscrit
+                            <img src="/assets/img/home/icon-signup.svg" class="icon"> Je m'inscrit
                         </a>
                     </div>
                 </div>
             </div>
             <div if.bind="action=='sign-in'">
                 <div style="text-align:left">
-                    <a click.delegate="action=null">< Retour</a>
+                    <a click.delegate="action=null">
+                        < Retour</a>
                 </div>
                 <div style="margin-top:50px">
                     <sign-in-form success-route="/volunteers"></sign-in-form>
@@ -64,7 +62,7 @@
                         < Retour</a>
                 </div>
                 <div style="margin-top:50px">
-                    <user-form show-credentials="true" show-identity="true" show-details="false" action="sign-up" success-route="/volunteers/profile"></user-form>    
+                    <user-form show-credentials="true" show-identity="true" show-details="false" action="sign-up" success-route="/volunteers/profile"></user-form>
                 </div>
             </div>
         </div>
@@ -76,10 +74,10 @@
                 <a route-href="route:refugees"><img src="/assets/img/home/profile-refugee.png" /></a>
             </p>
             <ul>
-                <li style="height:80px"><a click.delegate="setUserDetails('R')">Je suis r&eacute;fugi&eacute</a></li>
-                <li style="height:80px"><a click.delegate="setUserDetails('R')"> أنـا لاجئ </a></li>
-                <li style="height:80px"><a click.delegate="setUserDetails('R')">I'm Refugee</a></li>
-                <li style="height:80px"><a click.delegate="setUserDetails('R')">من یک پناهنده هستم</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R', 'fr')">${i18n("I am a refugee","fr")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R', 'ar')">${i18n("I am a refugee", "ar")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R', 'en')">${i18n("I am a refugee", "en")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R', 'prs')">${i18n("I am a refugee", "prs")}</a></li>
             </ul>
 
         </div>
@@ -94,28 +92,26 @@
                     Je peux présenter mes offres de formation pour les réfugiés afin qu’ils retrouvent celles qui sont les plus adaptées à leurs
                     besoins.
                 </p>
-               <div class="horizontal" style="text-align:center">
+                <div class="horizontal" style="text-align:center">
                     <div style="flex-grow:1">
-                        <img src="/assets/img/home/icon-video.svg"  class="icon" >
-                        Je regarde la vidéo<br/> de présentation
+                        <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-in'">
-                            <img src="/assets/img/home/icon-signin.svg" class="icon" >
-                            Je me connecte
+                            <img src="/assets/img/home/icon-signin.svg" class="icon"> Je me connecte
                         </a>
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-up'">
-                            <img src="/assets/img/home/icon-signup.svg" class="icon" >
-                            Je m'inscrit
+                            <img src="/assets/img/home/icon-signup.svg" class="icon"> Je m'inscrit
                         </a>
                     </div>
                 </div>
             </div>
             <div if.bind="action=='sign-in'">
                 <div style="text-align:left">
-                    <a click.delegate="action=null">< Retour</a>
+                    <a click.delegate="action=null">
+                        < Retour</a>
                 </div>
                 <div style="margin-top:50px">
                     <sign-in-form success-route="/organisations"></sign-in-form>
@@ -123,14 +119,15 @@
             </div>
             <div if.bind="action=='sign-up'">
                 <div style="text-align:left">
-                    <a click.delegate="action=null">< Retour</a>
+                    <a click.delegate="action=null">
+                        < Retour</a>
                 </div>
                 Explication de la procédure d'inscription
-            </div>            
+            </div>
         </div>
         <div class="home-menu" style="background-color:#F7CF52;margin-left: auto;" if.bind="userDetails.profile=='O' || userDetails.profile==null">
             <p style="text-align:center">
-                    <img src="/assets/img/home/profile-organisation.png" />
+                <img src="/assets/img/home/profile-organisation.png" />
             </p>
             <ul>
                 <li style="height:80px"><a click.delegate="setUserDetails('O')">Je repr&eacute;sente une institution</a></li>

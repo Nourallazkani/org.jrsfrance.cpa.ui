@@ -1,4 +1,5 @@
 import {UserDetails, ApplicationConfig, ReferenceData} from 'common'
+import {I18n} from 'i18n'
 
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
@@ -8,32 +9,46 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import moment from 'moment';
 
 
-@inject(HttpClient, Router, EventAggregator, UserDetails, ApplicationConfig, ReferenceData)
+@inject(HttpClient, Router, EventAggregator, UserDetails, ApplicationConfig, I18n, ReferenceData)
 export class App {
 
   error;
 
-  constructor(httpClient, router, ea, userDetails, appConfig, referenceData) {
+  constructor(httpClient, router, ea, userDetails, appConfig, i18nMessages, referenceData) {
 
     this.moment = moment;
     this.httpClient = httpClient;
     this.ea = ea;
     this.userDetails = userDetails;
 
+    this.i18n = (key) => i18nMessages.getMessage("app", key, userDetails.language);
+
+
     this.httpClient.configure(config => {
       config
         .withBaseUrl(appConfig.apiEndpoint)
         .withDefaults({
-          headers: { }
+          headers: {}
         })
         .withInterceptor({
           request(request) {
             console.log(`Requesting ${request.method} ${request.url}`);
-            if (userDetails.accessKey) {
-              console.log("set access key")
-              request.headers.set("AccessKey", userDetails.accessKey);
+            if (userDetails.account && userDetails.account.accessKey) {
+              request.headers.set("AccessKey", userDetails.account.accessKey);
             }
-
+            if (userDetails.language) {
+              request.headers.set("Accept-Language", userDetails.language);
+              /*
+              if (userDetails.language == "en") {
+                request.headers.set("Accept-Language", userDetails.language + ",fr");
+              }
+              else if (userDetails.language == "fr") {
+                request.headers.set("Accept-Language", "fr");
+              }
+              else {
+                request.headers.set("Accept-Language", userDetails.language + ",en,fr");
+              }*/
+            }
             console.log(request);
             return request;
           },
@@ -80,7 +95,6 @@ export class App {
         .then(x => x.json()).then(account => {
 
           this.userDetails.account = account;
-          this.userDetails.accessKey = account.accessKey;
         });
     }
   }
@@ -99,15 +113,32 @@ export class App {
     ]);
     this.router = router;
   }
+  viewProfile() {
+    let realProfile = this.userDetails.account.accessKey.substring(0, 1);
+    console.log(realProfile)
+    if (realProfile == "R") {
+      this.router.navigate("refugees/profile");
+    }
+    else if (realProfile == "V") {
+      this.router.navigate("volunteers/profile");
+    }
+    else if (realProfile == "O") {
+      this.router.navigate("organisations/profile");
+    }
+  }
 
   signOut() {
     this.userDetails.account = null;
-    this.userDetails.accessKey = null;
     localStorage.removeItem("accessKey");
     this.authzAction = null;
     if (this.userDetails.profile != "R") {
       this.userDetails.profile = null;
       this.router.navigateToRoute("home");
+    }
+    else {
+      if (this.router.currentInstruction.fragment == "/refugees/profile") {
+        this.router.navigateToRoute("refugees");
+      }
     }
   }
 }

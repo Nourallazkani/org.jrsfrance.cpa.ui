@@ -1,24 +1,28 @@
+import {UserDetails, ReferenceData, getUri, getDistance, viewLocation, viewItinerary} from 'common'
+import {I18n} from 'i18n'
 
 import {inject} from 'aurelia-framework';
-import moment from 'moment';
 import {HttpClient} from 'aurelia-fetch-client';
-import {UserDetails, ReferenceData, getUri, getDistance, viewLocation, viewItinerary} from 'common'
 
+import moment from 'moment';
 
-@inject(HttpClient, UserDetails, ReferenceData)
+@inject(HttpClient, UserDetails, I18n, ReferenceData)
 export class ProfessionalPrograms {
 
   filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true }
   results = []
   view = "list";
 
-  constructor(fetchClient, userDetails, referenceData) {
+  constructor(fetchClient, userDetails, i18nMessages, referenceData) {
     this.fetchClient = fetchClient
     this.userDetails = userDetails;
     this.moment = moment;
     this.viewLocation = viewLocation;
     this.viewItinerary = viewItinerary;
     this.referenceData = referenceData;
+
+    this.i18n = (key) => i18nMessages.getMessage("refugees/professional-programs", key, userDetails.language);
+
     this.find();
   }
 

@@ -70,7 +70,12 @@
     border-color: #F4B821;
 }
 
-.menu > figure#menu-item-availabilities > a{
+.menu > figure#menu-item-profile > a{
+    background-color: #F74D2B ; 
+    border-color: #F74D2B;
+}
+
+.menu > figure#menu-item-meeting-requests > a{
     background-color:#F4B821 ; 
     border-color: #F4B821;
 }

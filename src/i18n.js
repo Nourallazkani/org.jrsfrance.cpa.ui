@@ -7,68 +7,71 @@ export class I18n {
 
             "app": {
                 "Sign in": {
-                    "fr": "Connexion"
+                    "fr": "Connexion",
+                    "ar":"تسجيل الدخول"
                 },
                 "Sign up": {
-                    "fr": "Inscription"
+                    "fr": "Inscription",
+                    "ar":"إنشاء حساب"
                 },
                 "About":{
-                    "fr":"A propos"
+                    "fr":"A propos",
+                    "ar":"حول"
                 }
             },
 
             "common": {
                 "view list": {
                     "fr": "Voir liste",
-                    "ar":""
+                    "ar":"رؤية القائمة"
                 },
                 "view map": {
                     "fr": "Voir carte",
-                    "ar":""
+                    "ar":"رؤية الخريطة"
                 },
                 "City": {
                     "fr": "Ville",
-                    "ar":""
+                    "ar":"مدينة"
                 },
                 "Required level": {
                     "fr": "Niveau requis",
-                    "ar":""
+                    "ar":"المستوى المطلوب"
                 },
                 "Registration opening": {
                     "fr": "Ouverture des inscriptions",
-                    "ar":""
+                    "ar":"افتتاح التسجيل"
                 },
                 "Registration closing": {
                     "fr": "Cloture des inscriptions",
-                    "ar":""
+                    "ar":"إنهاء التسجيل"
                 },
                 "Sort by distance": {
                     "fr": "Classer par proximité",
-                    "ar":""
+                    "ar":"ترتيب بحسب القرب"
                 },
                 "Address": {
                     "fr": "Adresse",
-                    "ar":""
+                    "ar":"العنوان"
                 },
                 "Date": {
                     "fr": "Date",
-                    "ar":""
+                    "ar":"التاريخ"
                 },
                 "Hour": {
                     "fr": "Heure",
-                    "ar":""
+                    "ar":"الساعة"
                 },
                 "Contact": {
                     "fr": "Contact",
-                    "ar":""
+                    "ar":"اتصال"
                 },
                 "yes": {
                     "fr": "oui",
-                    "ar":""
+                    "ar":"نعم"
                 },
                 "no": {
                     "fr": "non",
-                    "ar":""
+                    "ar":"لا"
                 }
             },
 
@@ -84,74 +87,74 @@ export class I18n {
             "sign-in": {
                 "Mail address": {
                     "fr": "Adresse mail",
-                    "ar":""
+                    "ar":"البريد الالكتروني"
                 },
                 "Password": {
                     "fr": "Mot de passe",
-                    "ar":""
+                    "ar":"كلمة المرور"
                 },
                 "Remember me": {
                     "fr": "Se souvenir de moi",
-                    "ar":""
+                    "ar":"تذكّرني"
                 },
                 "Sign in": {
                     "fr": "Connexion",
-                    "ar":""
+                    "ar":"تسجيل الدخول"
                 }
             },
 
             "user-form": {
                 "Mail address": {
                     "fr": "Adresse mail",
-                    "ar":""
+                    "ar":"البريد الالكتروني"
                 },
                 "Password": {
                     "fr": "Mot de passe",
-                    "ar":""
+                    "ar":"كلمة المرور"
                 },
                 "First name": {
                     "fr": "Prénom",
-                    "ar":""
+                    "ar":"الاسم"
                 },
                 "Last name": {
                     "fr": "Nom",
-                    "ar":""
+                    "ar":"اسم العائلة"
                 },
                 "City or postal code": {
                     "fr": "Ville ou code postal",
-                    "ar":""
+                    "ar":"المدينة أو رمز المنطقة"
                 },
                 "I can offer": {
                     "fr": "Je peux proposer",
-                    "ar":""
+                    "ar":"يمكن أن أقدِّم"
                 },
                 "I am interested in": {
                     "fr": "Je suis intéressé par",
-                    "ar":""
+                    "ar":"أنا مهتمّ بِـ"
                 },
                 "French conversation": {
                     "fr": "Conversation française",
-                    "ar":""
+                    "ar":"محادثة فرنسية"
                 },
                 "Support in studies ": {
                     "fr": "Support dans les études",
-                    "ar":""
+                    "ar":"دعم دراسي"
                 },
                 "Interpreting": {
                     "fr": "Interprétariat",
-                    "ar":""
+                    "ar":"الترجمة الفورية"
                 },
                 "Cultural or sport activities": {
                     "fr": "Activités culturelles ou sportives",
-                    "ar":""
+                    "ar":"نشاطات ثقافيّة و رياضيّة"
                 },
                 "Sign up": {
                     "fr": "Je m'inscris",
-                    "ar":""
+                    "ar":"إنشاء حساب"
                 },
                 "Update profile": {
                     "fr": "Mettre à jour mon profil",
-                    "ar":""
+                    "ar":"تحديث ملفّي الشخصي"
                 }
             },
 
@@ -165,33 +168,33 @@ export class I18n {
             "refugees/teachings": {
                 "Field of study": {
                     "fr": "Domaine",
-                    "ar":""
+                    "ar":"مجال دراسي"
                 }
             },
             "refugees/professional-programs": {
                 "Domain": {
                     "fr": "Domaine",
-                    "ar":""
+                    "ar":"مجال مهني"
                 }
             },
             "refugees/events": {
                 "Organised by": {
                     "fr": "Organisé par",
-                    "ar":""
+                    "ar":"منظمة من قِبل"
                 },
                 "More": {
                     "fr": "En savoir plus",
-                    "ar":""
+                    "ar":"معرفة المزيد"
                 }
             },
             "refugees/workshops": {
                 "Organised by": {
                     "fr": "Organisé par",
-                    "ar":""
+                    "ar":"منظمة من قِبل"
                 },
                 "More": {
                     "fr": "En savoir plus",
-                    "ar":""
+                    "ar":"معرفة المزيد"
                 }
             },
             "refugees/profile": {

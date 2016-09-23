@@ -1,11 +1,11 @@
-<template>
+<template >
 
   <require from="views/_components/place-autocomplete"></require>
   <require from="views/_components/always-visible"></require>
-  <require from="views/_formatters/date-format"></require>
+  <require from="views/_formatters/date-format"></require>  
+  <require from="views/_components/dynamic-text-align"></require>
 
   <require from="views/_components/gmap"></require>
-
 
   <form class="search-inline-form" fixed-if-on-top>
 
@@ -42,10 +42,10 @@
 
     <div class="_result" repeat.for="r of results">
       <div class="_result-header horizontal">
-        <div class="width-lg-80 width-md-80" style="text-align:left">
+        <div class="width-lg-80 width-md-80"  ltr-left rtl-right>
           ${r.item.organisation}
         </div>
-        <div class="width-lg-20 width-md-20" style="text-align:right" if.bind="r.distance">
+        <div class="width-lg-20 width-md-20" if.bind="r.distance" ltr-right rtl-left>
           <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
             <img src="/assets/img/refugee/icon-compass.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
           </a>

@@ -22,28 +22,16 @@ export class App {
     this.httpClient = httpClient;
     this.ea = ea;
     this.userDetails = userDetails;
-    /*
-    bindingEngine
-      .propertyObserver(userDetails, 'language')
-      .subscribe((newValue, oldValue) => window.document.body.style.direction = (newValue == "prs" || newValue == "ar" ? "rtl" : "ltr"));
-    */
 
     bindingEngine
       .propertyObserver(userDetails, 'language')
       .subscribe((newLanguage) => {
         bindingSignaler.signal('language-change');
-        let ltr = newLanguage=="fr" || newLanguage=="en";
-        document.body.style.direction= ltr ? "ltr" : "rtl";
-        
-        let elements = document.querySelectorAll("[left-or-right]");
-        for (let i = 0; i < elements.length; i++) {
-          let element = elements[i];
-          element.style.textAlign= ltr ? "left" : "right";
+        if (newLanguage == "ar" || newLanguage == "prs") {
+          document.body.style.direction = "rtl";
         }
-        elements = document.querySelectorAll("[right-or-left]");
-        for (let i = 0; i < elements.length; i++) {
-          let element = elements[i];
-          element.style.textAlign= ltr ? "right" : "left";
+        else {
+          document.body.style.direction = "ltr";
         }
       });
 

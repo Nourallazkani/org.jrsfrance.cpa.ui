@@ -13,6 +13,10 @@
       <option repeat.for="x of referenceData.city.languageLearningProgram">${x}</option>
     </select>
 
+    <select value.bind="filter.levelId">
+      <option value="">${i18n("Required level")  & signal : 'language-change'}</option>
+      <option repeat.for="x of referenceData.level.professionalLearningProgram" value.bind="x.id">${x.name}</option>
+    </select>
 
     <select value.bind="filter.fieldOfStudyId">
       <option value="">${i18n("Field of study") & signal : 'language-change'}</option>

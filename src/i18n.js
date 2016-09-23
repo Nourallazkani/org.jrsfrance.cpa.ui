@@ -19,43 +19,56 @@ export class I18n {
 
             "common": {
                 "view list": {
-                    "fr": "Voir liste"
+                    "fr": "Voir liste",
+                    "ar":""
                 },
                 "view map": {
-                    "fr": "Voir carte"
+                    "fr": "Voir carte",
+                    "ar":""
                 },
                 "City": {
-                    "fr": "Ville"
+                    "fr": "Ville",
+                    "ar":""
                 },
                 "Required level": {
-                    "fr": "Niveau requis"
+                    "fr": "Niveau requis",
+                    "ar":""
                 },
                 "Registration opening": {
-                    "fr": "Ouverture des inscriptions"
+                    "fr": "Ouverture des inscriptions",
+                    "ar":""
                 },
                 "Registration closing": {
-                    "fr": "Cloture des inscriptions"
+                    "fr": "Cloture des inscriptions",
+                    "ar":""
                 },
                 "Sort by distance": {
-                    "fr": "Classer par proximité"
+                    "fr": "Classer par proximité",
+                    "ar":""
                 },
                 "Address": {
-                    "fr": "Adresse"
+                    "fr": "Adresse",
+                    "ar":""
                 },
                 "Date": {
-                    "fr": "Date"
+                    "fr": "Date",
+                    "ar":""
                 },
                 "Hour": {
-                    "fr": "Heure"
+                    "fr": "Heure",
+                    "ar":""
                 },
                 "Contact": {
-                    "fr": "Contact"
+                    "fr": "Contact",
+                    "ar":""
                 },
                 "yes": {
-                    "fr": "oui"
+                    "fr": "oui",
+                    "ar":""
                 },
                 "no": {
-                    "fr": "non"
+                    "fr": "non",
+                    "ar":""
                 }
             },
 
@@ -70,58 +83,75 @@ export class I18n {
 
             "sign-in": {
                 "Mail address": {
-                    "fr": "Adresse mail"
+                    "fr": "Adresse mail",
+                    "ar":""
                 },
                 "Password": {
-                    "fr": "Mot de passe"
+                    "fr": "Mot de passe",
+                    "ar":""
                 },
                 "Remember me": {
-                    "fr": "Se souvenir de moi"
+                    "fr": "Se souvenir de moi",
+                    "ar":""
                 },
                 "Sign in": {
-                    "fr": "Connexion"
+                    "fr": "Connexion",
+                    "ar":""
                 }
             },
 
             "user-form": {
                 "Mail address": {
-                    "fr": "Adresse mail"
+                    "fr": "Adresse mail",
+                    "ar":""
                 },
                 "Password": {
-                    "fr": "Mot de passe"
+                    "fr": "Mot de passe",
+                    "ar":""
                 },
                 "First name": {
-                    "fr": "Prénom"
+                    "fr": "Prénom",
+                    "ar":""
                 },
                 "Last name": {
-                    "fr": "Nom"
+                    "fr": "Nom",
+                    "ar":""
                 },
                 "City or postal code": {
-                    "fr": "Ville ou code postal"
+                    "fr": "Ville ou code postal",
+                    "ar":""
                 },
                 "I can offer": {
-                    "fr": "Je peux proposer"
+                    "fr": "Je peux proposer",
+                    "ar":""
                 },
                 "I am interested in": {
-                    "fr": "Je suis intéressé par"
+                    "fr": "Je suis intéressé par",
+                    "ar":""
                 },
                 "French conversation": {
-                    "fr": "Conversation française"
+                    "fr": "Conversation française",
+                    "ar":""
                 },
                 "Support in studies ": {
-                    "fr": "Support dans les études"
+                    "fr": "Support dans les études",
+                    "ar":""
                 },
                 "Interpreting": {
-                    "fr": "Interprétariat"
+                    "fr": "Interprétariat",
+                    "ar":""
                 },
                 "Cultural or sport activities": {
-                    "fr": "Activités culturelles ou sportives"
+                    "fr": "Activités culturelles ou sportives",
+                    "ar":""
                 },
                 "Sign up": {
-                    "fr": "Je m'inscris"
+                    "fr": "Je m'inscris",
+                    "ar":""
                 },
                 "Update profile": {
-                    "fr": "Mettre à jour mon profil"
+                    "fr": "Mettre à jour mon profil",
+                    "ar":""
                 }
             },
 
@@ -134,28 +164,34 @@ export class I18n {
 
             "refugees/teachings": {
                 "Field of study": {
-                    "fr": "Domaine"
+                    "fr": "Domaine",
+                    "ar":""
                 }
             },
             "refugees/professional-programs": {
                 "Domain": {
-                    "fr": "Domaine"
+                    "fr": "Domaine",
+                    "ar":""
                 }
             },
             "refugees/events": {
                 "Organised by": {
-                    "fr": "Organisé par"
+                    "fr": "Organisé par",
+                    "ar":""
                 },
                 "More": {
-                    "fr": "En savoir plus"
+                    "fr": "En savoir plus",
+                    "ar":""
                 }
             },
             "refugees/workshops": {
                 "Organised by": {
-                    "fr": "Organisé par"
+                    "fr": "Organisé par",
+                    "ar":""
                 },
                 "More": {
-                    "fr": "En savoir plus"
+                    "fr": "En savoir plus",
+                    "ar":""
                 }
             },
             "refugees/profile": {

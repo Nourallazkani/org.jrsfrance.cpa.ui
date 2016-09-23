@@ -1,25 +1,36 @@
 import {UserDetails, ApplicationConfig, ReferenceData} from 'common'
 import {I18n} from 'i18n'
 
-import {inject} from 'aurelia-framework';
+import {inject, BindingEngine} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import { EventAggregator } from 'aurelia-event-aggregator';
+import {BindingSignaler} from 'aurelia-templating-resources';
+
 
 import moment from 'moment';
 
 
-@inject(HttpClient, Router, EventAggregator, UserDetails, ApplicationConfig, I18n, ReferenceData)
+@inject(HttpClient, Router, EventAggregator, BindingEngine, BindingSignaler, UserDetails, ApplicationConfig, I18n, ReferenceData)
 export class App {
 
   error;
 
-  constructor(httpClient, router, ea, userDetails, appConfig, i18nMessages, referenceData) {
+  constructor(httpClient, router, ea, bindingEngine, bindingSignaler, userDetails, appConfig, i18nMessages, referenceData) {
 
     this.moment = moment;
     this.httpClient = httpClient;
     this.ea = ea;
     this.userDetails = userDetails;
+    /*
+    bindingEngine
+      .propertyObserver(userDetails, 'language')
+      .subscribe((newValue, oldValue) => window.document.body.style.direction = (newValue == "prs" || newValue == "ar" ? "rtl" : "ltr"));
+    */
+
+    bindingEngine
+      .propertyObserver(userDetails, 'language')
+      .subscribe(() => bindingSignaler.signal('language-change'));
 
     this.i18n = (key) => i18nMessages.getMessage("app", key, userDetails.language);
 

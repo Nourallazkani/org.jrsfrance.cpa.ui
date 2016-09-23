@@ -2,18 +2,18 @@
     <div if.bind="action=='sign-in'">
         <form class="split-lg-30-70 label-right" submit.delegate="processSignIn()" if.bind="outcome==null">
             <div class="horizontal">
-                <label>${i18n("Mail address")}</label>
+                <label>${i18n("Mail address")  & signal : 'language-change'}</label>
                 <input type="email" value.bind="input.mailAddress" autofocus />
             </div>
             <div class="horizontal">
-                <label>${i18n("Password")}</label>
+                <label>${i18n("Password")  & signal : 'language-change'}</label>
                 <input type="password" value.bind="input.password" />
             </div>
             <div class="horizontal" style="align-items:baseline">
-                <input class="offset-lg-30" type="checkbox" checked.bind="rememberMe" /> ${i18n("Remember me")}
+                <input class="offset-lg-30" type="checkbox" checked.bind="rememberMe" /> ${i18n("Remember me")  & signal : 'language-change'}
             </div>
             <div class="horizontal">
-                <button class="offset-lg-30">${i18n("Sign in")}</button>
+                <button class="offset-lg-30">${i18n("Sign in")  & signal : 'language-change'}</button>
             </div>
         </form>
 

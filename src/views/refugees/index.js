@@ -1,15 +1,18 @@
-import {inject} from 'aurelia-framework';
+import {inject, BindingEngine} from 'aurelia-framework';
+import {BindingSignaler} from 'aurelia-templating-resources';
 import {UserDetails, viewLocation, viewItinerary} from 'common'
 
-@inject(UserDetails)
+@inject(BindingSignaler, BindingEngine, UserDetails)
 export class Index {
 
-  constructor(userDetails) {
+  constructor(bindingSignaler, bindingEngine, userDetails) {
     if (userDetails.profile == null) {
       userDetails.profile = "R";
     }
     this.viewLocation = viewLocation;
     this.viewItinerary = viewItinerary;
+
+    
   }
 
   configureRouter(config, router) {
@@ -24,7 +27,7 @@ export class Index {
       { route: 'interpreters', name: 'refugees/volunteers', moduleId: 'views/refugees/interpreters/interpreters', nav: true, title: 'Interprètes' },
       { route: 'profile', name: 'refugees/profile', moduleId: 'views/refugees/profile/profile', nav: true, title: 'Profile' },
     ]);
-    
+
     this.router = router;
   }
 }

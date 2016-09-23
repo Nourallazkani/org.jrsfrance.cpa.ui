@@ -11,8 +11,55 @@ export class I18n {
                 },
                 "Sign up": {
                     "fr": "Inscription"
+                },
+                "About":{
+                    "fr":"A propos"
                 }
             },
+
+            "common": {
+                "view list": {
+                    "fr": "Voir liste"
+                },
+                "view map": {
+                    "fr": "Voir carte"
+                },
+                "City": {
+                    "fr": "Ville"
+                },
+                "Required level": {
+                    "fr": "Niveau requis"
+                },
+                "Registration opening": {
+                    "fr": "Ouverture des inscriptions"
+                },
+                "Registration closing": {
+                    "fr": "Cloture des inscriptions"
+                },
+                "Sort by distance": {
+                    "fr": "Classer par proximité"
+                },
+                "Address": {
+                    "fr": "Adresse"
+                },
+                "Date": {
+                    "fr": "Date"
+                },
+                "Hour": {
+                    "fr": "Heure"
+                },
+                "Contact": {
+                    "fr": "Contact"
+                },
+                "yes": {
+                    "fr": "oui"
+                },
+                "no": {
+                    "fr": "non"
+                }
+            },
+
+
             "home": {
                 "I am a refugee": {
                     "fr": "Je suis réfugié",
@@ -36,66 +83,80 @@ export class I18n {
                 }
             },
 
+            "user-form": {
+                "Mail address": {
+                    "fr": "Adresse mail"
+                },
+                "Password": {
+                    "fr": "Mot de passe"
+                },
+                "First name": {
+                    "fr": "Prénom"
+                },
+                "Last name": {
+                    "fr": "Nom"
+                },
+                "City or postal code": {
+                    "fr": "Ville ou code postal"
+                },
+                "I can offer": {
+                    "fr": "Je peux proposer"
+                },
+                "I am interested in": {
+                    "fr": "Je suis intéressé par"
+                },
+                "French conversation": {
+                    "fr": "Conversation française"
+                },
+                "Support in studies ": {
+                    "fr": "Support dans les études"
+                },
+                "Interpreting": {
+                    "fr": "Interprétariat"
+                },
+                "Cultural or sport activities": {
+                    "fr": "Activités culturelles ou sportives"
+                },
+                "Sign up": {
+                    "fr": "Je m'inscris"
+                },
+                "Update profile": {
+                    "fr": "Mettre à jour mon profil"
+                }
+            },
+
+            "refugees/index": {
+
+            },
             "refugees/welcome": {
 
             },
-            "refugees/teachings": {
-                "view list": {
-                    "fr": "Voir liste"
-                },
-                "view map": {
-                    "fr": "Voir carte"
-                },
-                "Sort by distance": {
-                    "fr": "Classer par proximité"
-                }
-            },
-            "refugees/language-programs": {
-                "view list": {
-                    "fr": "Voir liste"
-                },
-                "view map": {
-                    "fr": "Voir carte"
-                },
-                "Sort by distance": {
-                    "fr": "Classer par proximité"
-                }
 
+            "refugees/teachings": {
+                "Field of study": {
+                    "fr": "Domaine"
+                }
             },
             "refugees/professional-programs": {
-                "view list": {
-                    "fr": "Voir liste"
-                },
-                "view map": {
-                    "fr": "Voir carte"
-                },
-                "Sort by distance": {
-                    "fr": "Classer par proximité"
+                "Domain": {
+                    "fr": "Domaine"
                 }
             },
             "refugees/events": {
-                "view list": {
-                    "fr": "Voir liste"
+                "Organised by": {
+                    "fr": "Organisé par"
                 },
-                "view map": {
-                    "fr": "Voir carte"
-                },
-                "Sort by distance": {
-                    "fr": "Classer par proximité"
+                "More": {
+                    "fr": "En savoir plus"
                 }
-
             },
             "refugees/workshops": {
-                "view list": {
-                    "fr": "Voir liste"
+                "Organised by": {
+                    "fr": "Organisé par"
                 },
-                "view map": {
-                    "fr": "Voir carte"
-                },
-                "Sort by distance": {
-                    "fr": "Classer par proximité"
+                "More": {
+                    "fr": "En savoir plus"
                 }
-
             },
             "refugees/profile": {
 
@@ -150,11 +211,12 @@ export class I18n {
             return key;
         }
 
-        let message = this.messages[page];
+        let message = this.messages[page] || this.messages["common"];
+
         if (!message) {
             return key;
         }
-        let translations = message[key];
+        let translations = message[key] || this.messages["common"][key];
         if (!translations) {
             return key;
         }

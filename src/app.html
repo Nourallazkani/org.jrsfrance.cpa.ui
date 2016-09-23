@@ -28,7 +28,7 @@
 
   <!-- sign-up-modal for refugees -->
   <div if.bind="userDetails.profile=='R'" class="modal ${authzAction=='sign-up' ? 'modal-visible' : 'modal-hidden'}">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width:800px">
       <div class="modal-dialog-header">
         <div>Inscription</div>
         <div>
@@ -81,14 +81,14 @@
     </div>
 
     <div class="menu-items" if.bind="userDetails.account==null && userDetails.profile=='R'">
-      <button click.delegate="authzAction='sign-up'">${i18n("Sign up")}</button>
-      <button click.delegate="authzAction='sign-in'">${i18n("Sign in")}</button>
+      <button click.delegate="authzAction='sign-up'">${i18n("Sign up")  & signal : 'language-change'}</button>
+      <button click.delegate="authzAction='sign-in'">${i18n("Sign in")  & signal : 'language-change'}</button>
     </div>
   </header>
 
   <router-view></router-view>
 
   <div class="footer" style="text-align:center">
-    <a route-href="route:about">A propos</a>
+    <a route-href="route:about">${i18n("About")  & signal : 'language-change'}</a>
   </div>
 </template>

@@ -1,10 +1,11 @@
+import {UserDetails, ReferenceData} from 'common'
+import {I18n} from 'i18n'
+
 import {inject, bindable} from 'aurelia-framework'
 import {Router} from 'aurelia-router';
-
-import {UserDetails, ReferenceData} from 'common'
 import {HttpClient, json} from 'aurelia-fetch-client';
 
-@inject(HttpClient, Router, UserDetails, ReferenceData)
+@inject(HttpClient, Router, UserDetails, ReferenceData, I18n)
 export class UserForm {
 
     @bindable showCredentials;
@@ -16,11 +17,14 @@ export class UserForm {
     input = {};
     outcome;
 
-    constructor(fetchClient, router, userDetails, referenceData) {
+    constructor(fetchClient, router, userDetails, referenceData, i18nMessages) {
         this.fetchClient = fetchClient;
         this.router = router;
         this.userDetails = userDetails;
         this.referenceData = referenceData;
+
+        this.i18n = (key) => i18nMessages.getMessage("user-form", key, userDetails.language);
+
         if (this.userDetails.account && this.userDetails.account.accessKey) {
             let uri = (this.userDetails.profile == "R" ? "/refugees/" : "/volunteers/") + this.userDetails.account.id;
             this.fetchClient.fetch(uri)
@@ -54,7 +58,9 @@ export class UserForm {
     updateProfile() {
         if (this.userDetails.profile == "V") {
             this.outcome = "success";
-            this.userDetails.lastAction = "update-profile";
+            if(this.userDetails.lastAction=="sign-up"){
+                this.userDetails.lastAction = "update-profile";
+            }
             return;
         }
         let uri = (this.userDetails.profile == "R" ? "refugees/" : "volunteers/") + this.userDetails.account.id;

@@ -98,7 +98,7 @@ gulp.task("deploy", ['bundle'], function () {
   var jspm = "./jspm_packages/**/**";
 
   var toUpload = app;
-  if (true) {
+  if (false) {
     toUpload.push(assets);
   }
   if (false) {

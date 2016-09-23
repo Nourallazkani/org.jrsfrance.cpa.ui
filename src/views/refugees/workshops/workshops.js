@@ -10,16 +10,18 @@ import moment from 'moment';
 export class Workshops {
 
   filter = { openForRegistration: true, audience: "REFUGEE" }
+  stereotype: "WORKSHOP";
   results = []
   view = "list";
 
-  constructor(fetchClient, bindingEngine, userDetails, i18nMessages, referenceDataHolder) {
+  constructor(fetchClient, bindingEngine, userDetails, i18nMessages, referenceData) {
     this.fetchClient = fetchClient
     this.userDetails = userDetails;
     this.moment = moment;
     this.viewLocation = viewLocation;
     this.viewItinerary = viewItinerary;
-    this.referenceDataHolder = referenceDataHolder;
+    this.referenceData = referenceData;
+
 
     this.i18n = (key) => i18nMessages.getMessage("refugees/workshops", key, userDetails.language);
 

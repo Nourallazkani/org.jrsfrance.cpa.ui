@@ -10,22 +10,22 @@
   <form class="search-inline-form" fixed-if-on-top>
 
     <select value.bind="filter.city">
-      <option value="">Ville</option>
+      <option value="">${i18n("City")  & signal : 'language-change'}</option>
       <option repeat.for="x of referenceData.city.professionalLearningProgram">${x}</option>
     </select>
 
     <select value.bind="filter.levelId">
-      <option value="">Niveau</option>
+      <option value="">${i18n("Required level")  & signal : 'language-change'}</option>
       <option repeat.for="x of referenceData.level.professionalLearningProgram" value.bind="x.id">${x.name}</option>
     </select>
 
     <select value.bind="filter.domainId">
-      <option value="">Domaine</option>
+      <option value="">${i18n("Domain")  & signal : 'language-change'}</option>
       <option repeat.for="x of referenceData.professionalLearningProgramDomain.professionalLearningProgram" value.bind="x.id">${x.name}</option>
     </select>    
 
-    <button class="btn-orange" click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">${i18n("view list")}</button>
-    <button class="btn-orange" click.trigger="find('map')" class="${view=='map' ? 'button-active' : ''}">${i18n("view map")}</button>
+    <button class="btn-orange" click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">${i18n("view list")  & signal : 'language-change'}</button>
+    <button class="btn-orange" click.trigger="find('map')" class="${view=='map' ? 'button-active' : ''}">${i18n("view map")  & signal : 'language-change'}</button>
   </form>
 
   <div class="_results" if.bind="results.length>0 && view=='map'">
@@ -36,7 +36,7 @@
     <div style="text-align:right;margin-bottom:25px">
       <form submit.delegate="sortByDistance()">
         <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
-        <button>${i18n("Sort by distance")}</button>
+        <button>${i18n("Sort by distance")  & signal : 'language-change'}</button>
       </form>
     </div>
 
@@ -47,7 +47,7 @@
         </div>
         <div class="width-lg-20" style="text-align:right" if.bind="r.distance">
           <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
-            <img src="/assets/img/saif/icon-route.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
+            <img src="/assets/img/refugee/icon-compass.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
           </a>
         </div>
       </div>
@@ -58,13 +58,13 @@
           <div class="fit-to-content">${r.item.domain}</div>
           <br/>
           <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()>0">
-            Ouverture des inscriptions le ${r.item.registrationOpeningDate | myDateFormat:'DD/MM'}
+            ${i18n("Registration opening")  & signal : 'language-change'} : ${r.item.registrationOpeningDate | myDateFormat:'DD/MM'}
           </div>
           <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()<0">
-            Cloture des inscriptions le ${r.item.registrationClosingDate | myDateFormat:'DD/MM'}
+            ${i18n("Registration closing")  & signal : 'language-change'} : ${r.item.registrationClosingDate | myDateFormat:'DD/MM'}
           </div>
           <br/>
-          <div class="fit-to-content"> Niveau : ${r.item.level}
+          <div class="fit-to-content"> ${i18n("Required level")  & signal : 'language-change'} : ${r.item.level}
           </div>
 
         </div>
@@ -77,7 +77,7 @@
           <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <img src="/assets/img/saif/Date.svg" /> Date
+              <img src="/assets/img/saif/Date.svg" /> ${i18n("Date")  & signal : 'language-change'}
             </div>
             <div class="width-lg-60 info-text">
               Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
@@ -85,7 +85,7 @@
           </div>
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <img src="/assets/img/saif/Contact.svg" /> Contact
+              <img src="/assets/img/saif/Contact.svg" /> ${i18n("Contact")  & signal : 'language-change'}
             </div>
             <div class="width-lg-60 info-text">
               ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
@@ -94,7 +94,7 @@
           </div>
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> ${i18n("Address")  & signal : 'language-change'} </a>
             </div>
             <div class="width-lg-60 info-text">
               ${r.item.address.street1}<br/> ${r.item.address.street2}

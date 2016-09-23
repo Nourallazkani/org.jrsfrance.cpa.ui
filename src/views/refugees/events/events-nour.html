@@ -34,7 +34,7 @@
     <div class="_result vertical" repeat.for="r of results">
 
       <div class="_event-image-container" style="background:url('/assets/img/unsorted/sorbonne.jpg') no-repeat center;background-size:cover;">
-        <a class="link-big link-top" style="right:10%" href="#"> <img src="/assets/img/saif/Gotolink-icon.svg" /></a>
+        <a class="link-big link-top" style="right:10%" href="#"> <img src="/assets/img/common/icon-external-link.svg" /></a>
         <div class="fit-to-content">
           Organisé par : ${r.item.organisedBy}
         </div>
@@ -50,7 +50,7 @@
         </p>
         <div class="horizontal">
           <div>
-            <a click.delegate="viewLocation(r.item.address)"> <img class="icon" src="/assets/img/saif/Address.svg" />Adresse :</a>
+            <a click.delegate="viewLocation(r.item.address)"> <img class="icon" src="/assets/img/common/icon-address.svg" />Adresse :</a>
             ${r.item.address.street1} ${r.item.address.street2} ${r.item.address.postalCode} ${r.item.address.locality}
           </div>
           <div style="position:absolute; right:0%; transform: translateX(-100%);" if.bind="r.distance">
@@ -60,11 +60,11 @@
           </div>
         </div>
         <p>
-          <img class="icon" src="/assets/img/saif/Contact.svg" /> Contact : ${r.item.contact.name} (<a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>,
+          <img class="icon" src="/assets/img/common/icon-contact.svg" /> Contact : ${r.item.contact.name} (<a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>,
           téléphone : ${r.item.contact.phoneNumber})
         </p>
         <p>
-          <img class="icon" src="/assets/img/saif/Date.svg" />Début : ${r.item.startDate | myDateFormat:'DD/MM/YYYY'} - Fin
+          <img class="icon" src="/assets/img/common/icon-date.svg" />Début : ${r.item.startDate | myDateFormat:'DD/MM/YYYY'} - Fin
           : ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
         </p>
       </div>

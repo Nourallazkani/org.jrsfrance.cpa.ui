@@ -30,7 +30,22 @@ export class App {
 
     bindingEngine
       .propertyObserver(userDetails, 'language')
-      .subscribe(() => bindingSignaler.signal('language-change'));
+      .subscribe((newLanguage) => {
+        bindingSignaler.signal('language-change');
+        let ltr = newLanguage=="fr" || newLanguage=="en";
+        document.body.style.direction= ltr ? "ltr" : "rtl";
+        
+        let elements = document.querySelectorAll("[left-or-right]");
+        for (let i = 0; i < elements.length; i++) {
+          let element = elements[i];
+          element.style.textAlign= ltr ? "left" : "right";
+        }
+        elements = document.querySelectorAll("[right-or-left]");
+        for (let i = 0; i < elements.length; i++) {
+          let element = elements[i];
+          element.style.textAlign= ltr ? "right" : "left";
+        }
+      });
 
     this.i18n = (key) => i18nMessages.getMessage("app", key, userDetails.language);
 

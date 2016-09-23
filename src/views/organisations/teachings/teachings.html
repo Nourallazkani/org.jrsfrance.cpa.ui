@@ -42,14 +42,14 @@
 
         <div class="vertical _infos-container">
           <a class="link link-top" style="right:5%" href="${r.item.link}" target="_blank" if.bind="r.item.link">
-            <img src="/assets/img/saif/Gotolink-icon.svg" />
+            <img src="/assets/img/common/icon-external-link.svg" />
           </a>
 
           <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
 
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <img src="/assets/img/saif/Contact.svg" /> Contact
+              <img src="/assets/img/common/icon-contact.svg" /> Contact
             </div>
             <div class="width-lg-60 info-text">
               ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
@@ -58,7 +58,7 @@
           </div>
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/saif/Address.svg" /> Adresse </a>
+              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/common/icon-address.svg" /> Adresse </a>
             </div>
             <div class="width-lg-60 info-text">
               ${r.item.address.street1}<br/> ${r.item.address.street2}

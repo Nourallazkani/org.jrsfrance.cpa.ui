@@ -15,7 +15,9 @@ export class MeetingRequests {
     }
 
     activate(params) {
-
+        if (!(params.id > 0 && params.a == "a" && params.ak)) {
+            return;
+        }
         if (this.userDetails.account) {
             let uri = `volunteers/${this.userDetails.account.id}/meeting-requests/${params.id}`;
             this.fetchClient.fetch(uri, { method: "POST" }).then(() => console.log("ok"));
@@ -29,10 +31,6 @@ export class MeetingRequests {
                         this.fetchClient.fetch(uri, { method: "POST" }).then(() => console.log("ok"));
                     }
                 });
-        }
-
-        if (params.a == "a" && params.id > 0 && this.userDetails.account.id) {
-
         }
     }
 }

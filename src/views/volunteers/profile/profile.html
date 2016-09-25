@@ -1,28 +1,63 @@
 <template>
     <require from="views/_components/user-form"></require>
-    
-    <div class="separator"></div>
 
+    <div class="width-lg-50" style="margin:auto;padding:5px;text-align:justify">
+        <div style="margin:40px auto"  if.bind="userDetails.lastAction=='sign-up'">
+            <div style="text-align:center">
+                ${i18n("Thanks for your registration") & signal : 'language-change'} !
+            </div>
+            <div style="text-align:center">
+                ${i18n("Could you complete your profile by telling us how you wish to help the refugees ?") & signal : 'language-change'}
+            </div>
+            <div>
+                <b>${i18n("Explanations")  & signal : 'language-change'}</b> :
 
-    <div class="width-lg-60" style="margin:auto">
-        <div if.bind="userDetails.lastAction=='sign-up'">
-            <p>
-                Thanks for your registration. Could you complete your profile by telling us how you could help ?
+                <p class="offset-lg-5">
+                    <b>${i18n("Your address")  & signal : 'language-change'}</b> : 
+                    ${i18n("Explanations-address") & signal : 'language-change'}
+                </p>
+                
+                <p class="offset-lg-5">
+                    <b>${i18n("French conversation")  & signal : 'language-change'}</b> : 
+                    ${i18n("Explanations-french-conversation")  & signal : 'language-change'}
+                </p>
+
+                <p class="offset-lg-5">
+                    <b>${i18n("Interpreting")  & signal : 'language-change'}</b> : 
+                    ${i18n("Explanations-interpreting") & signal : 'language-change'}
+                </p>
+
+                <p class="offset-lg-5">
+                    <b>${i18n("Support in studies")  & signal : 'language-change'}</b> : 
+                    ${i18n("Explanations-support-in-studies") & signal : 'language-change'}
+                </p>
+            </div>
+        </div>
+
+        <user-form 
+            show-credentials.bind="userDetails.lastAction!='sign-up'" 
+            show-identity.bind="userDetails.lastAction!='sign-up'" 
+            show-details="true" 
+            action="update-profile">
+        </user-form>
+    </div>
+<!--
+    <div class="width-lg-60" style="margin:auto" if.bind="userDetails.lastAction!='sign-up'">
+        
+        <user-form show-credentials.bind="true" show-identity.bind="true" show-details="true" action="update-profile"></user-form>
+        
+        <div>
+            <b>${i18n("Explanations")  & signal : 'language-change'}</b> :
+            <p class="offset-lg-5">
+                <b>${i18n("Your address")  & signal : 'language-change'}</b> : ${i18n("Explanations-address") & signal : 'language-change'}
             </p>
-            
-            <p>
-                First of all, the city where you leave will help us to sollicate you help only for refugees who leave in your area. Then
-                if you master another language it could be a great help for refugees,especially when they need to do an administrative
-                task. Very often they don't speak french well enough to understand clearly the administrative procedure.
+            <p class="offset-lg-5">
+                <b>${i18n("Interpreting")  & signal : 'language-change'}</b> : ${i18n("Explanations-interpreting") & signal : 'language-change'}
             </p>
-
-            <p>
-                Last but not least, if you master a domain like mathematic, physics, ... would you accept to help refugees in their studies ?
+            <p class="offset-lg-5">
+                <b>${i18n("Support in studies")  & signal : 'language-change'}</b> : ${i18n("Explanations-support-in-studies") & signal : 'language-change'}
             </p>
         </div>
-        
-        <user-form show-credentials.bind="userDetails.lastAction!='sign-up'" show-identity.bind="userDetails.lastAction!='sign-up'" show-details="true" action="update-profile"></user-form>
-        
     </div>
-
+-->
 </template>

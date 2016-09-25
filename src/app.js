@@ -63,7 +63,6 @@ export class App {
                 request.headers.set("Accept-Language", userDetails.language + ",en,fr");
               }*/
             }
-            console.log(request);
             return request;
           },
           response(response) {

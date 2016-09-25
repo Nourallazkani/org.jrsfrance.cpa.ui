@@ -27,46 +27,44 @@
         <div if.bind="showDetails">
             <div class="horizontal">
                 <label>${i18n("City or postal code")  & signal : 'language-change'}</label>
-                <input type="text" placeholder="" place-autocomplete="target.bind : input" />
+                <input type="text" placeholder="" place-autocomplete="target.bind : input" /><br/>
             </div>
+            <div class="horizontal">
+                <label>${i18n("Phone")  & signal : 'language-change'}</label>
+                <input type="tel" value.bind="input.phoneNumber" placeholder="" /><br/>
+            </div>            
             <div class="horizontal">
                 <label>${userDetails.profile=='R' ? i18n("I am interested in") : i18n("I can offer")  & signal : 'language-change'}</label>
                 <div class="vertical  width-lg-70">
                     <div class="horizontal width-lg-100">
-                        <div style="width:40%;line-height:30px">
-                            <input type="checkbox" checked.bind="a" />${i18n("French conversation")  & signal : 'language-change'}<br/>
+                        <div style="width:40%;line-height:35px">
+                            <input type="checkbox" checked.bind="input.availableForConversation" />${i18n("French conversation")  & signal : 'language-change'}<br/>
                         </div>
                     </div>
                     <div class="horizontal width-lg-100">
-                        <div style="width:40%;line-height:30px">
-                            <input type="checkbox" checked.bind="b" />${i18n("Interpreting")  & signal : 'language-change'}<br/>
+                        <div style="width:40%;line-height:35px">
+                            <input type="checkbox" checked.bind="input.availableForInterpreting" />${i18n("Interpreting")  & signal : 'language-change'}<br/>
                         </div>
-                        <div style="width:60%;line-height:30px" if.bind="b">
-                            <select>
-                                <option></option>
-                                <option repeat.for="x of referenceData.language.all">${x.name}</option>
-                            </select>
+                        <div style="width:60%;line-height:35px" if.bind="input.availableForInterpreting">
+                            <multiple-select source.bind="referenceData.language.all" placeholder="les langues que vous maitrisez..." selection.bind="input.languages"></multiple-select>
                         </div>
                     </div>
                     <div class="horizontal width-lg-100">
-                        <div style="width:40%;line-height:30px">
-                            <input type="checkbox" checked.bind="c" />${i18n("Support in studies")  & signal : 'language-change'}<br/>
+                        <div style="width:40%;line-height:35px">
+                            <input type="checkbox" checked.bind="input.availableForSupportInStudies" />${i18n("Support in studies")  & signal : 'language-change'}<br/>
                         </div>
-                        <div style="width:60%;line-height:30px" if.bind="c">
-                            <select>
-                                <option></option>
-                                <option repeat.for="x of referenceData.fieldOfStudy.all">${x.name}</option>
-                            </select>
+                        <div style="width:60%;line-height:35px" if.bind="input.availableForSupportInStudies">
+                            <multiple-select source.bind="referenceData.fieldOfStudy.all" selection.bind="input.fieldsOfStudy"></multiple-select>
                         </div>
                     </div>
                     <div class="horizontal width-lg-100">
-                        <div style="width:40%;line-height:30px">
-                            <input type="checkbox" checked.bind="d" />${i18n("Cultural or sport activities")  & signal : 'language-change'}<br/>
+                        <div style="width:40%;line-height:35px">
+                            <input type="checkbox" checked.bind="input.availableForActivities" />${i18n("Cultural or sport activities")  & signal : 'language-change'}<br/>
                         </div>
-                        <div style="width:60%;line-height:30px" if.bind="d">
-                            <input type="text" placeholder="Theater, sports, visits..."/>
+                        <div style="width:60%;line-height:35px" if.bind="input.availableForActivities">                            
+                            <input type="text" placeholder="Theater, sports..." value.bind="input.activities"/>
                         </div>
-                    </div>                    
+                    </div>                                   
                 </div>
             </div>
         </div>

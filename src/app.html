@@ -9,8 +9,6 @@
   <require from="./views/_components/sign-in-form"></require>
   <require from="./views/_components/user-form"></require>
 
-  <require from="views/_components/dynamic-text-align"></require>
-
   <!-- sign-in-modal for refugees -->
   <div if.bind="userDetails.profile=='R'" class="modal ${userDetails.account==null && authzAction=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
     <div class="modal-dialog">

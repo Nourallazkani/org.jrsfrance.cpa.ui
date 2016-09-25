@@ -1,0 +1,8 @@
+<template bindable="placholder">
+    <input type="text" placeholder.bind="placeholder || ''" style="width:100%"/>
+    <ul class="multiple-select-items">
+        <li repeat.for="x of source" class="${x.selected===true ? 'selected':'not-selected'}" click.delegate="click(x)">
+            ${x.item.name}
+        </li>
+    </ul>
+</template>

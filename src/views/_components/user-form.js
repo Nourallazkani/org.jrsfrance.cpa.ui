@@ -26,7 +26,7 @@ export class UserForm {
         this.i18n = (key) => i18nMessages.getMessage("user-form", key, userDetails.language);
 
         if (this.userDetails.account && this.userDetails.account.accessKey) {
-            let uri = (this.userDetails.profile == "R" ? "/refugees/" : "/volunteers/") + this.userDetails.account.id;
+            let uri = (this.userDetails.profile == "R" ? "refugees/" : "volunteers/") + this.userDetails.account.id;
             this.fetchClient.fetch(uri)
                 .then(x => x.json())
                 .then(x => this.input = x);
@@ -34,18 +34,20 @@ export class UserForm {
     }
 
     signUp() {
-        /*
-        this.fetchClient.fetch("/authz/signUp", { body: json(input), method: "post" })
-            .then(x => console.log(x))
-        console.log("process sign up for")
-        */
-        this.userDetails.lastAction = "sign-up";
-        if (this.successRoute) {
-            this.router.navigate(this.successRoute);
-        }
-        else {
-            this.outcome = "success";
-        }
+        this.input.profile = this.userDetails.profile;
+        this.fetchClient.fetch("authz/signUp", { body: json(this.input), method: "post" })
+            .then(x => x.json())
+            .then(account => {
+                this.userDetails.account = account;
+                localStorage.setItem("accessKey", account.accessKey);
+                this.userDetails.lastAction = "sign-up";
+                if (this.successRoute) {
+                    this.router.navigate(this.successRoute);
+                }
+                else {
+                    this.outcome = "success";
+                }
+            })
     }
 
     retry() {
@@ -56,18 +58,13 @@ export class UserForm {
     }
 
     updateProfile() {
-        if (this.userDetails.profile == "V") {
-            this.outcome = "success";
-            if(this.userDetails.lastAction=="sign-up"){
-                this.userDetails.lastAction = "update-profile";
-            }
-            return;
-        }
-        let uri = (this.userDetails.profile == "R" ? "refugees/" : "volunteers/") + this.userDetails.account.id;
+        let uri = `${this.userDetails.profile == "R" ? "refugees" : "volunteers"}/${this.userDetails.account.id}`
         this.fetchClient.fetch(uri, { body: json(this.input), method: "put" })
             .then(x => {
                 this.outcome = "success";
-                this.userDetails.lastAction = "update-profile";
+                if (this.userDetails.lastAction == "sign-up") {
+                    this.userDetails.lastAction = "update-profile";
+                }
             });
     }
 

@@ -1,9 +1,7 @@
 <template>
 
-  <require from="views/_components/place-autocomplete"></require>
-  <require from="views/_formatters/date-format"></require>
-  <require from="views/_components/gmap"></require>
 
+  <require from="views/_formatters/date-format"></require>
 
   <form class="search-inline-form" fixed-if-on-top>
 
@@ -44,7 +42,7 @@
           </div>
           <div class="width-lg-20" style="text-align:right" if.bind="r.distance">
             <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
-            <img src="/assets/img/saif/icon-route.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
+            <img src="/assets/img/common/icon-compass.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
           </a>
           </div>
         </div>

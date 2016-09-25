@@ -48,11 +48,9 @@ export class SignInForm {
             .then(x => x.json()).then(account => {
 
                 this.userDetails.account = account;
+                localStorage.setItem("accessKey", account.accessKey);
                 this.action = null;
-                if (this.rememberMe) {
-                    localStorage.setItem("accessKey", account.accessKey);
-                }
-
+                
                 if (this.successRoute) {
                     this.router.navigate(this.successRoute);
                 }

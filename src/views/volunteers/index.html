@@ -2,7 +2,7 @@
 
   <require from="/assets/css/specific/index.css"></require>
 
-  <div id="menu" class="menu">
+  <div id="menu" class="menu"  if.bind="userDetails.lastAction!='sign-up'">
 
     <figure id="menu-item-events" class="${router.currentInstruction.config.name=='volunteers/events' ? 'active' : ''}">
       <a route-href="route: volunteers/events">
@@ -18,7 +18,7 @@
       <figcaption>My profile</figcaption>
     </figure>
 
-    <figure id="menu-item-meeting-requests" class="${router.currentInstruction.config.name=='volunteers/meetingRequests' ? 'active' : ''}">
+    <figure id="menu-item-meeting-requests" class="${router.currentInstruction.config.name=='volunteers/meeting-requests' ? 'active' : ''}">
       <a route-href="route: volunteers/meeting-requests">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-interpreter.svg" />
       </a>
@@ -26,7 +26,6 @@
     </figure>     
 
   </div>
-
 
   <router-view></router-view>
 

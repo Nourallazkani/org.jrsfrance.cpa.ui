@@ -1,13 +1,10 @@
 <template>
 
-  <require from="views/_components/place-autocomplete"></require>
-  <require from="views/_components/always-visible"></require>
-  <require from="views/_formatters/date-format"></require>
-  <require from="views/_components/dynamic-text-align"></require>
-  
-  <require from="views/_components/gmap"></require>
 
-  <form class="search-inline-form" fixed-if-on-top>
+  
+  <require from="views/_formatters/date-format"></require>
+  
+  <form class="search-inline-form" always-visible>
 
     <select value.bind="filter.city">
       <option value="">${i18n("City")  & signal : 'language-change'}</option>
@@ -42,7 +39,7 @@
         </div>
         <div style="text-align:right" class="width-lg-20 width-md-20" if.bind="r.distance">
           <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
-            <img src="/assets/img/refugee/icon-compass.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
+            <img src="/assets/img/common/icon-compass.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
           </a>
         </div>
       </div>

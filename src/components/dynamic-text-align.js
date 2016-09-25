@@ -29,7 +29,6 @@ export class LtrRightCustomAttribute extends AbstractDynamicTextAligner {
 
     constructor(element, bindingEngine, userDetails) {
         super(element, bindingEngine, userDetails, ["en", "fr"], "right");
-        console.log(element);
     }
 }
 
@@ -38,7 +37,6 @@ export class RtlLeftCustomAttribute extends AbstractDynamicTextAligner {
 
     constructor(element, bindingEngine, userDetails) {
         super(element, bindingEngine, userDetails, ["prs", "ar"], "left");
-        console.log(element);
     }
 }
 

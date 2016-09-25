@@ -10,6 +10,33 @@ form input:not([type='checkbox']), select, textarea{
     font-family: 'SegoeUiSlim'
 } 
 
+form .multiple-select-items{
+    position:absolute;
+    border: 1px solid #ccc;
+    height:100px;
+    margin-top: 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color:white;
+    padding-left:0px;
+    margin-top:-2px;
+    /*display:none;*/
+}
+
+form .multiple-select-items > li{
+    cursor:pointer;
+    padding-left:10px;
+}
+
+form .multiple-select-items > li:hover, form .multiple-select-items > li.selected{
+    background-color: lightblue
+}
+
+form .multiple-select-items > li.not-selected{
+    background-color:white;
+}
+
 textarea{
     height:10em;
 }

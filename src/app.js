@@ -100,11 +100,11 @@ export class App {
       .then(x => x.json())
       .then(x => referenceData.load(x));
 
-    if (localStorage.getItem("accessKey") != null /* or accessKey is in the query string*/) {
-      // auto sign in
-      this.input = { accessKey: localStorage.getItem("accessKey") };
+    if (localStorage.getItem("accessKey") != null || window.location.href.split("ak=").length == 2) {
+      console.log("auto sign in")
+      let accessKey = localStorage.getItem("accessKey") || window.location.href.split("ak=")[1]
       this.httpClient
-        .fetch("authz/signIn", { method: "POST", body: json(this.input) })
+        .fetch("authz/signIn", { method: "POST", body: json({ accessKey: accessKey }) })
         .then(x => x.json()).then(account => {
 
           this.userDetails.account = account;
@@ -126,13 +126,15 @@ export class App {
     ]);
     this.router = router;
   }
+
   viewProfile() {
     let realProfile = this.userDetails.account.accessKey.substring(0, 1);
-    console.log(realProfile)
+    this.userDetails.profile = realProfile;
     if (realProfile == "R") {
       this.router.navigate("refugees/profile");
     }
     else if (realProfile == "V") {
+
       this.router.navigate("volunteers/profile");
     }
     else if (realProfile == "O") {

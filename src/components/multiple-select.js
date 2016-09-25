@@ -32,17 +32,23 @@ export class MultipleSelectCustomElement {
         else {
             this.selection.splice(this.selection.indexOf(e.item.name), 1);
         }
-        this.input = this.element.children[0];
         this.input.value = this.selection.join(", ");
     }
 
+
+    clickEventListener;
+
     attached() {
+        console.log("inside attached " + (this.selection == null))
         this.input = this.element.children[0];
         this.ul = this.element.children[1];
 
+        if (this.selection == null) {
+            this.selection = [];
+        }
         this.source = this.source.map(x => ({ item: x, selected: this.selection.indexOf(x.name) >= 0 }))
-
         this.input.value = this.selection.join(", ");
+
 
         this.ul.style.width = this.input.getBoundingClientRect().width + "px";
         this.ul.style.display = "none";
@@ -54,10 +60,16 @@ export class MultipleSelectCustomElement {
             this.ul.style.display = this.ul.style.display == "block" ? "none" : "block";
         });
 
-        document.body.addEventListener('click', (e) => {
+
+        this.clickEventListener = (e) => {
             if (e.target.parentNode != this.ul && e.target != this.input) {
                 this.ul.style.display = "none";
             }
-        })
+        };
+        document.body.addEventListener('click', this.clickEventListener);
+    }
+
+    detached() {
+        document.body.removeEventListener('click', this.clickEventListener);
     }
 }

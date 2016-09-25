@@ -1,6 +1,7 @@
 export function configure(aurelia) {
    aurelia.use
    .standardConfiguration()
+   .developmentLogging() 
    .globalResources('components/multiple-select')
    .globalResources('components/gmap')
    .globalResources('components/place-autocomplete')

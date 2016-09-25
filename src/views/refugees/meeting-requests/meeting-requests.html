@@ -1,0 +1,77 @@
+<template>
+
+    <div class="_results" if.bind="!userDetails.account" style="text-align:center">
+        <p>No access, please sign up or sign in</p>
+    </div>
+    <div class="_results" if.bind="userDetails.account">
+
+
+        <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
+            <a style="font-weight:bold" click.delegate="new()">Nouvelle demande de rendez vous</a>
+        </div>
+
+        <hr style="margin:30px 0px" />
+        <div class="_result" repeat.for="r of results">
+
+            <div class="_edit-container  ${r.action=='edit' || r.action=='new' ? '_edit-container-visible' : '_edit-container-hidden' }">
+                <div style="text-align:right;padding-right:10px;padding-top:10px">
+                    <a click.delegate="cancel()" class="close"></a>
+                </div>
+
+                <form class="split-lg-30-70 label-right" submit.delegate="save(r)" if.bind="r.action=='new'">
+                    <fieldset>
+                        <legend>Ma demande</legend>
+                        <div class="horizontal">
+                            <label>Type de demande</label>
+                            <div class="horizontal  width-lg-70">
+                                <div style="flex:1;margin-top:7px">
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value="INTERPRETING">Interprétariat <br/>
+                                    (${refugee.languages.join(', ')})
+                                </div>
+                                <div style="flex:1;margin-top:7px">
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value="SUPPORT_IN_STUDIES">Soutien dans les études <br/>
+                                    (${refugee.fieldOfStudy})
+                                </div>
+                                <div style="flex:1;margin-top:7px">
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value.bind="CONVERSATION">Conversation
+                                    courante
+                                </div>
+                            </div>
+                        </div>
+                        <div class="horizontal">
+                            <label>Informations complémentaires</label>
+                            <input type="text" value.bind="r.item.additionalInformations" />
+                        </div> 
+                        <div class="horizontal">
+                            <label>Ville ou code postal</label>
+                            <input type="text" placeholder="" place-autocomplete="target.bind : r.item;target-property.bind:'refugeeLocation'" /><br/>
+                        </div>
+                        <div class="horizontal">
+                            <label>Date </label>
+                            <div class="vertical  width-lg-35">
+                                <input type="date" value.bind="r.item.startDate" />
+                            </div>
+                            <div class="vertical  width-lg-35">
+                                <input type="date" value.bind="r.item.endDate" />
+                            </div>
+                        </div>                       
+                    </fieldset>
+                    <fieldset>
+                        <legend>Pour vous contacter</legend>
+                        <div class="horizontal">
+                            <label>Téléphone</label>
+                            <input type="tel" value.bind="r.item.refugee.phoneNumber" /><br/>
+                        </div>
+                        <div class="horizontal">
+                            <label>Adresse mail</label>
+                            <input type="tel" value.bind="r.item.refugee.mailAddress" /><br/>
+                        </div>
+                        <div class="horizontal">
+                            <button class="offset-lg-30">Envoyer ma demande</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

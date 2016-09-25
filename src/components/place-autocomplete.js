@@ -6,7 +6,7 @@ export class PlaceAutocompleteCustomAttribute {
 
     @bindable target;
     @bindable userSelectionBinding;
-
+    @bindable targetProperty;
     element;
     autocomplete;
 
@@ -23,8 +23,8 @@ export class PlaceAutocompleteCustomAttribute {
         });
         this.autocomplete.setBounds(circle.getBounds());
         */
-        
-        
+
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 let geolocation = {
@@ -41,8 +41,9 @@ export class PlaceAutocompleteCustomAttribute {
     }
 
     attached() {
-        if (this.target.address && this.target.address.formattedAddress) {
-            this.element.value = this.target.address.formattedAddress;
+        this.targetProperty = [this.targetProperty || "address"];
+        if (this.target[this.targetProperty] && this.target[this.targetProperty].formattedAddress) {
+            this.element.value = this.target[this.targetProperty].formattedAddress;
         }
 
         this.autocomplete.addListener('place_changed', () => {
@@ -75,7 +76,7 @@ export class PlaceAutocompleteCustomAttribute {
             appPlace.lng = googleObject.lng;
             appPlace.googleMapId = googleObject.placeId;
 
-            this.target.address = appPlace;
+            this.target[this.targetProperty] = appPlace;
             if (this.userSelectionBinding) {
                 this.element.value = appPlace[this.userSelectionBinding];
             }

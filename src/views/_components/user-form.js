@@ -29,7 +29,7 @@ export class UserForm {
 
     created() {
         if (this.userDetails.account && this.userDetails.account.accessKey) {
-            let uri = (this.userDetails.profile == "R" ? "refugees/" : "volunteers/") + this.userDetails.account.id;
+            let uri = (this.userDetails.account.profile == "R" ? "refugees/" : "volunteers/") + this.userDetails.account.id;
             this.fetchClient.fetch(uri)
                 .then(x => x.json())
                 .then(x => {
@@ -75,7 +75,7 @@ export class UserForm {
     }
 
     updateProfile() {
-        let uri = `${this.userDetails.profile == "R" ? "refugees" : "volunteers"}/${this.userDetails.account.id}`
+        let uri = `${this.userDetails.account.profile == "R" ? "refugees" : "volunteers"}/${this.userDetails.account.id}`
         this.fetchClient.fetch(uri, { body: json(this.input), method: "put" })
             .then(x => {
                 this.outcome = "success";

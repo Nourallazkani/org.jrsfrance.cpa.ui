@@ -19,14 +19,14 @@ export class MeetingRequests {
     this.referenceData = referenceData;
 
     //this.i18n = (key) => i18nMessages.getMessage("refugees/meeting-requests", key, userDetails.language);
-    if (this.userDetails.account) {
+    if (this.userDetails.account && this.userDetails.account.profile=="R") {
       this.initialize();
     }
     else {
       bindingEngine
         .propertyObserver(userDetails, 'account')
         .subscribe((account) => {
-          if (account) {
+          if (account && account.profile == "R") {
             this.initialize();
           }
         });
@@ -41,7 +41,7 @@ export class MeetingRequests {
       .then(r => this.refugee = r)
       .then(() => this.find());
   }
-  
+
   find() {
     this.fetchClient
       .fetch(getUri(`refugees/${this.userDetails.account.id}/meeting-requests`))

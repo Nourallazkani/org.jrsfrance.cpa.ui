@@ -1,9 +1,9 @@
 <template>
 
-    <div class="_results" if.bind="!userDetails.account" style="text-align:center">
+    <div class="_results" if.bind="userDetails.account.profile!='R'" style="text-align:center">
         <p>No access, please sign up or sign in</p>
     </div>
-    <div class="_results" if.bind="userDetails.account">
+    <div class="_results" if.bind="userDetails.account && userDetails.account.profile=='R'">
 
 
         <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">

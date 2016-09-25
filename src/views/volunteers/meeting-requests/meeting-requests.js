@@ -24,7 +24,7 @@ export class MeetingRequests {
             bindingEngine
                 .propertyObserver(userDetails, 'account')
                 .subscribe((account) => {
-                    if (account) {
+                    if (account && account.profile == "V") {
                         let uri = `volunteers/${this.userDetails.account.id}/meeting-requests/${params.id}`;
                         this.fetchClient.fetch(uri, { method: "POST" }).then(() => console.log("ok"));
                     }

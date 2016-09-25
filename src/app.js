@@ -128,16 +128,13 @@ export class App {
   }
 
   viewProfile() {
-    let realProfile = this.userDetails.account.accessKey.substring(0, 1);
-    this.userDetails.profile = realProfile;
-    if (realProfile == "R") {
+    if (this.userDetails.account.profile == "R") {
       this.router.navigate("refugees/profile");
     }
-    else if (realProfile == "V") {
-
+    else if (this.userDetails.account.profile == "V") {
       this.router.navigate("volunteers/profile");
     }
-    else if (realProfile == "O") {
+    else if (this.userDetails.account.profile == "O") {
       this.router.navigate("organisations/profile");
     }
   }

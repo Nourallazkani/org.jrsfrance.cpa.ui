@@ -287,7 +287,7 @@ export class I18n {
                 "Explanations-support-in-studies": {
                     "fr": "Si vous maitriser un domaine tel que les mathématique, la physique, etc... Accepteriez vous d'aider un réfugié dans ses études ?",
                     "en": "if you master a domain like mathematic, physics, ... would you accept to help refugees in their studies ?",
-                    "ar": "إذا كنتم تتقنون مجالا معيّناً كالرياضيات، أو الفيزياء... فهل تقبلون مساعدة اللاجئين في دراستهم"
+                    "ar": "إذا كنتم تتقنون مجالا معيّناً كالرياضيات، أو الفيزياء... فهل تقبلون مساعدة اللاجئين في دراستهم ؟"
                 },
 
 

@@ -34,10 +34,10 @@
 
     <div class="_result" repeat.for="r of results">
       <div class="_result-header horizontal">
-        <div style="text-align:left" class="width-lg-80 width-md-80">
+        <div style="text-align:left" class="width-lg-80 width-md-80" rtl-right ltr-left>
           ${r.item.organisation}
         </div>
-        <div style="text-align:right" class="width-lg-20 width-md-20" if.bind="r.distance">
+        <div style="text-align:right" class="width-lg-20 width-md-20" if.bind="r.distance" rtl-left ltr-right>
           <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
             <img src="/assets/img/common/icon-compass.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
           </a>

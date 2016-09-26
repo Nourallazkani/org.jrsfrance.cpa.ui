@@ -77,7 +77,9 @@
 
     <div class="menu-items" if.bind="userDetails.account!=null"  ltr-right rtl-left>
       <p>${userDetails.account.name} </p>
-      <a click.delegate="viewProfile()">Mon profil</a> | <a click.delegate="signOut()">Deconnexion</a>
+      <a click.delegate="viewProfile()">${i18n("My profile")  & signal : 'language-change'}</a> 
+      | 
+      <a click.delegate="signOut()">${i18n("Sign out")  & signal : 'language-change'}</a>
     </div>
 
     <div class="menu-items" if.bind="userDetails.account==null && userDetails.profile=='R'" ltr-right rtl-left>

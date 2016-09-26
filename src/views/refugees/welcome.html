@@ -6,10 +6,18 @@
   <div class="introduction">
     <div class="introduction-entry">
       <div class="images-block" ltr-right rtl-left>
+        <img style="background-color: #F74D2B;" src="/assets/img/menu/icon-language-program.svg" />
+      </div>
+      <div class="text-block">
+        ${i18n("French courses")  & signal : 'language-change'}
+      </div>
+    </div>
+    <div class="introduction-entry">
+      <div class="images-block" ltr-right rtl-left>
         <img style="background-color: #1B1464;" src="/assets/img/menu/icon-teaching.svg" />
       </div>
       <div class="text-block">
-        Des offres de formations (études supérieures)
+        ${i18n("University studies")  & signal : 'language-change'}
       </div>
     </div>
     <div class="introduction-entry">
@@ -17,25 +25,7 @@
         <img style="background-color: #8CC63F;" src="/assets/img/menu/icon-professional-program.svg" />
       </div>
       <div class="text-block">
-        Des offres de formations (formations professionnelles) avec accompagnement linguistique
-      </div>
-    </div>
-    <div class="introduction-entry">
-      <div class="images-block" ltr-right rtl-left>
-        <img style="background-color: #F74D2B;" src="/assets/img/menu/icon-language-program.svg" />
-      </div>
-      <div class="text-block">
-        Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie
-        quotidienne)
-      </div>
-    </div>
-
-    <div class="introduction-entry">
-      <div class="images-block" ltr-right rtl-left>
-        <img style="background-color: #D4145A;" src="/assets/img/menu/icon-library.svg" />
-      </div>
-      <div class="text-block">
-        Des méthodes d’auto-apprentissage disponible dans les bibliothèques
+        ${i18n("Professional training")  & signal : 'language-change'}
       </div>
     </div>
     <div class="introduction-entry">
@@ -43,7 +33,15 @@
         <img style="background-color: #9E005D;" src="/assets/img/menu/icon-workshop.svg" />
       </div>
       <div class="text-block">
-        Des ateliers de conversation
+        ${i18n("Workshops")  & signal : 'language-change'}
+      </div>
+    </div>
+    <div class="introduction-entry">
+      <div class="images-block" ltr-right rtl-left>
+        <img style="background-color: #D4145A;" src="/assets/img/menu/icon-library.svg" />
+      </div>
+      <div class="text-block">
+        ${i18n("Self learning")  & signal : 'language-change'}
       </div>
     </div>
     <div class="introduction-entry">
@@ -51,8 +49,7 @@
         <img style="background-color: #F4B821;" src="/assets/img/menu/icon-interpreter.svg" />
       </div>
       <div class="text-block">
-        Je peux aussi entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, interprétariat,
-        ou d’autres formations.
+        ${i18n("Meet a volunteer")  & signal : 'language-change'}
       </div>
     </div>
   </div>

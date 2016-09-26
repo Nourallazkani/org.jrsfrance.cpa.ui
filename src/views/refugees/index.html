@@ -1,49 +1,71 @@
 <template>
 
   <require from="/assets/css/specific/index.css"></require>
-
+<!--
+ "French courses": {
+                    "fr": "Apprentissage du français"
+                },
+                "University studies ": {
+                    "fr": "Etudes supérieures"
+                },
+                "Professional training": {
+                    "fr": "Formation professionelles"
+                },
+                "Workshops": {
+                    "fr": "Ateliers sociaux linguistiques"
+                },
+                "Events": {
+                    "fr": "Evenements"
+                },
+                "Self learning": {
+                    "fr": "Auto apprentissage"
+                },
+                "Meet a volunteer": {
+                    "fr": "Rencontrer un bénévole"
+                },  
+-->
   <div id="menu" class="menu">
     <figure id="menu-item-language-programs" class="${router.currentInstruction.config.name=='refugees/language-programs' ? 'active' : ''}">
       <a route-href="route: refugees/language-programs">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-language-program.svg" />
       </a>
-      <figcaption>Apprentissage du français</figcaption>
+      <figcaption>${i18n("French courses") & signal : 'language-change'}</figcaption>
     </figure>
     <figure id="menu-item-teachings" class="${router.currentInstruction.config.name=='refugees/teachings' ? 'active' : ''}">
       <a route-href="route: refugees/teachings">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-teaching.svg" />
       </a>
-      <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
+      <figcaption>${i18n("University studies") & signal : 'language-change'}</figcaption>
     </figure>
     <figure id="menu-item-professional-programs" class="${router.currentInstruction.config.name=='refugees/professional-programs' ? 'active' : ''}">
       <a route-href="route: refugees/professional-programs">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-professional-program.svg" />
       </a>
-      <figcaption> Formation professionelle </figcaption>
+      <figcaption>${i18n("Professional training") & signal : 'language-change'}</figcaption>
     </figure>
     <figure id="menu-item-workshops" class="${router.currentInstruction.config.name=='refugees/workshops' ? 'active' : ''}">
       <a route-href="route: refugees/workshops">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-workshop.svg" />
       </a>
-      <figcaption> Ateliers sociaux linguistiques </figcaption>
+      <figcaption>${i18n("Workshops") & signal : 'language-change'}</figcaption>
     </figure>
     <figure id="menu-item-events" class="${router.currentInstruction.config.name=='refugees/events' ? 'active' : ''}">
       <a route-href="route: refugees/events">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-event.svg" />
       </a>
-      <figcaption> &Eacute;v&egrave;nements </figcaption>
+      <figcaption>${i18n("Events") & signal : 'language-change'}</figcaption>
     </figure>
     <figure id="menu-item-libraries" class="${router.currentInstruction.config.name=='refugees/libraries' ? 'active' : ''}">
       <a route-href="route: refugees/libraries">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-library.svg" />
       </a>
-      <figcaption>Auto apprentissage </figcaption>
+      <figcaption><figcaption>${i18n("Self learning") & signal : 'language-change'}</figcaption></figcaption>
     </figure>    
     <figure id="menu-item-volunteers" class="${router.currentInstruction.config.name=='refugees/meeting-requests' ? 'active' : ''}">
       <a route-href="route: refugees/meeting-requests">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-interpreter.svg" />
       </a>
-      <figcaption>Rencontrer un bénévole</figcaption>
+      <figcaption><figcaption>${i18n("Meet a volunteer") & signal : 'language-change'}</figcaption></figcaption>
     </figure>
   </div>
 

@@ -1,17 +1,20 @@
+import {UserDetails, viewLocation, viewItinerary} from 'common'
+import {I18n} from 'i18n'
+
 import {inject, BindingEngine} from 'aurelia-framework';
 import {BindingSignaler} from 'aurelia-templating-resources';
-import {UserDetails, viewLocation, viewItinerary} from 'common'
 
-@inject(BindingSignaler, BindingEngine, UserDetails)
+
+@inject(BindingSignaler, BindingEngine, UserDetails, I18n)
 export class Index {
 
-  constructor(bindingSignaler, bindingEngine, userDetails) {
+  constructor(bindingSignaler, bindingEngine, userDetails, i18nMessages) {
     if (userDetails.profile == null) {
       userDetails.profile = "R";
     }
     this.viewLocation = viewLocation;
     this.viewItinerary = viewItinerary;
-
+    this.i18n = (key) => i18nMessages.getMessage("refugees/index", key, userDetails.language);
     
   }
 

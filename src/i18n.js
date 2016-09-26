@@ -183,7 +183,28 @@ export class I18n {
                 },
                 "Meet a volunteer": {
                     "fr": "Rencontrer un bénévole"
-                }
+                },
+                "French courses - explanations": {
+                    "fr": "Apprentissage du français"
+                },
+                "University studies - explanations ": {
+                    "fr": "Etudes supérieures"
+                },
+                "Professional training - explanations": {
+                    "fr": "Formation professionelles"
+                },
+                "Workshops - explanations": {
+                    "fr": "Ateliers sociaux linguistiques"
+                },
+                "Events - explanations": {
+                    "fr": "Evenements"
+                },
+                "Self learning - explanations": {
+                    "fr": "Auto apprentissage"
+                },
+                "Meet a volunteer - explanations": {
+                    "fr": "Rencontrer un bénévole"
+                }                
 
             },
             "refugees/welcome": {

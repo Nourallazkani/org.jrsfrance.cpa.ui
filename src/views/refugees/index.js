@@ -25,7 +25,7 @@ export class Index {
       { route: 'language-programs', name: 'refugees/language-programs', moduleId: 'views/refugees/language-programs/language-programs', nav: true, title: 'Apprentissage du français' },
       { route: 'professional-programs', name: 'refugees/professional-programs', moduleId: 'views/refugees/professional-programs/professional-programs', nav: true, title: 'Apprentissage du français' },
       { route: 'workshops', name: 'refugees/workshops', moduleId: 'views/refugees/workshops/workshops', nav: true, title: 'Ateliers socio linguistiques' },
-      { route: 'libraries', name: 'refugees/libraries', moduleId: 'views/refugees/libraries/libraries', nav: true, title: 'Auto apprentissage' },
+      { route: 'self-teaching', name: 'refugees/self-teaching', moduleId: 'views/refugees/self-teaching/self-teaching', nav: true, title: 'Auto apprentissage' },
       { route: 'events', name: 'refugees/events', moduleId: 'views/refugees/events/events', nav: true, title: 'Evenements' },
       { route: 'meeting-requests', name: 'refugees/meeting-requests', moduleId: 'views/refugees/meeting-requests/meeting-requests', nav: true, title: 'Demande de rendez vous' },
       { route: 'profile', name: 'refugees/profile', moduleId: 'views/refugees/profile/profile', nav: true, title: 'Profile' },

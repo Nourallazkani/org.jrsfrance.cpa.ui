@@ -48,7 +48,7 @@
                 <div class="vertical  width-lg-70">
                     <div class="horizontal width-lg-100">
                         <div style="width:40%;line-height:35px">
-                            <input type="checkbox" checked.bind="input.availableForConversation" />${i18n("French conversation")  & signal : 'language-change'}<br/>
+                            <input type="checkbox" checked.bind="input.availableForConversation" />${i18n("French lessons")  & signal : 'language-change'}<br/>
                         </div>
                     </div>
                     <div class="horizontal width-lg-100">
@@ -84,7 +84,11 @@
         </div>
     </form>
     <div if.bind="outcome=='success'" style="text-align:center">
-        ${action=='sign-up' ? "Merci pour votre inscription, vous êtes désormais connecté" : "Merci, votre profil a été mis à jour."}
+        <div style="text-align:center;margin-bottom:20px;font-weight:bold">
+            <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/>
+            ${action=='sign-up' ? "Merci pour votre inscription, vous êtes désormais connecté" : "Merci, votre profil a été mis à jour."}
+        </div>        
+        
     </div>
     <div if.bind="outcome=='failure'" style="text-align:center">
         <div if.bind="action=='sign-up'">

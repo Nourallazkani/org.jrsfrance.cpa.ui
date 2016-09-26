@@ -85,8 +85,8 @@ export class I18n {
 
 
             "home": {
-                "Refugee/Asylum seeker": {
-                    "fr": "Réfugié/Demandeur d'asile",
+                "Refugee or asylum seeker": {
+                    "fr": "Réfugié ou demandeur d'asile",
                     "ar": "لاجئ/طالب لجوء",
                     "prs": "های پناهندگان/یک پناهجو"
                 }
@@ -144,8 +144,8 @@ export class I18n {
                     "fr": "Je suis intéressé par",
                     "ar": "أنا مهتمّ بِـ"
                 },
-                "French conversation": {
-                    "fr": "Conversation française",
+                "French lessons": {
+                    "fr": "Leçons de français",
                     "ar": "محادثة فرنسية"
                 },
                 "Support in studies": {
@@ -318,11 +318,11 @@ export class I18n {
                     "fr": "Votre adresse",
                     "ar": "عنوانكم"
                 },
-                "French conversation": {
-                    "fr": "Conversation française",
+                "French lessons": {
+                    "fr": "Leçons de français",
                     "ar": "محادثة فرنسية"
                 },
-                "Explanations-french-conversation": {
+                "Explanations-french-lessons": {
                     "fr": "des séances de conversation d'une heure, durant lesquels vous aider les réfugiés à améliorer leur français.",
                     "en": "french conversations sessions (+/- 1 hour), where you can help a refugee to improve their french",
                     "ar": "جلسات محادثة فرنسية تدوم لـ (+/- ساعة)، بهدف مساعدة لاجئ لتحسين فرنسيته"

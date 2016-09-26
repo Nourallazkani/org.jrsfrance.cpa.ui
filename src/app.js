@@ -104,10 +104,10 @@ export class App {
       .then(x => referenceData.load(x));
 
     if (localStorage.getItem("accessKey") != null || window.location.href.split("ak=").length == 2) {
-      console.log("auto sign in")
+      
       let accessKey = localStorage.getItem("accessKey") || window.location.href.split("ak=")[1]
       this.httpClient
-        .fetch("authz/signIn", { method: "POST", body: json({ accessKey: accessKey }) })
+        .fetch("authentication", { method: "POST", body: json({ accessKey: accessKey }) })
         .then(x => x.json()).then(account => {
           this.userDetails.account = account;
         }).catch(() => localStorage.removeItem("accessKey"));

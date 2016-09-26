@@ -44,13 +44,15 @@ export class SignInForm {
 
     processSignIn() {
         this.httpClient
-            .fetch("authz/signIn", { method: "POST", body: json(this.input) })
+            .fetch("authentication", { method: "POST", body: json(this.input) })
             .then(x => x.json()).then(account => {
 
                 this.userDetails.account = account;
-                localStorage.setItem("accessKey", account.accessKey);
+                if (this.userDetails.rememberMe) {
+                    localStorage.setItem("accessKey", account.accessKey);
+                }
                 this.action = null;
-                
+
                 if (this.successRoute) {
                     this.router.navigate(this.successRoute);
                 }

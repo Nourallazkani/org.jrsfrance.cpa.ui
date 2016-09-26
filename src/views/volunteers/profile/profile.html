@@ -3,11 +3,11 @@
 
     <div class="width-lg-50" style="margin:auto;padding:5px;text-align:justify">
         <div style="margin:40px auto"  if.bind="userDetails.lastAction=='sign-up'">
-            <div style="text-align:center">
-                <img src="/assets/img/common/icon-checked.svg" style="width:80px"><br/>
+            <div style="text-align:center;margin-bottom:20px;font-weight:bold">
+                <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/>
                 ${i18n("Thanks for your registration") & signal : 'language-change'} !
             </div>
-            <div style="text-align:center">
+            <div style="text-align:center;font-weight:bold">
                 ${i18n("Could you complete your profile by telling us how you wish to help the refugees ?") & signal : 'language-change'}
             </div>
             <div>
@@ -19,8 +19,8 @@
                 </p>
                 
                 <p class="offset-lg-5">
-                    <b>${i18n("French conversation")  & signal : 'language-change'}</b> : 
-                    ${i18n("Explanations-french-conversation")  & signal : 'language-change'}
+                    <b>${i18n("French lessons")  & signal : 'language-change'}</b> : 
+                    ${i18n("Explanations-french-lessons")  & signal : 'language-change'}
                 </p>
 
                 <p class="offset-lg-5">

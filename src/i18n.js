@@ -184,33 +184,30 @@ export class I18n {
                 "Meet a volunteer": {
                     "fr": "Rencontrer un bénévole"
                 },
-                "French courses - explanations": {
-                    "fr": "Apprentissage du français"
-                },
-                "University studies - explanations ": {
-                    "fr": "Etudes supérieures"
-                },
-                "Professional training - explanations": {
-                    "fr": "Formation professionelles"
-                },
-                "Workshops - explanations": {
-                    "fr": "Ateliers sociaux linguistiques"
-                },
-                "Events - explanations": {
-                    "fr": "Evenements"
-                },
-                "Self learning - explanations": {
-                    "fr": "Auto apprentissage"
-                },
-                "Meet a volunteer - explanations": {
-                    "fr": "Rencontrer un bénévole"
-                }                
-
             },
             "refugees/welcome": {
-
+                "French courses": {
+                    "fr": " Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie quotidienne)"
+                },
+                "University studies": {
+                    "fr": "Des offres de formations (études supérieures)"
+                },
+                "Professional training": {
+                    "fr": "Des offres de formations (formations professionnelles) avec accompagnement linguistique"
+                },
+                "Workshops": {
+                    "fr": "Des méthodes d’auto-apprentissage disponible dans les bibliothèques"
+                },
+                "Events": {
+                    "fr": "Evenements"
+                },
+                "Self learning": {
+                    "fr": "Des méthodes d'apprentissage"
+                },
+                "Meet a volunteer": {
+                    "fr": "Je peux aussi entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, interprétariat, ou d’autres formations."
+                }                
             },
-
             "refugees/teachings": {
                 "Field of study": {
                     "fr": "Domaine",

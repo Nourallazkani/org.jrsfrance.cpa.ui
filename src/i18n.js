@@ -17,6 +17,14 @@ export class I18n {
                 "About": {
                     "fr": "A propos",
                     "ar": "حول"
+                },
+                "Sign out":{
+                    "fr": "Déconnexion",
+                    "ar": "تسجيل الخروج"
+                },
+                "My profile":{
+                    "fr": "Mon profil",
+                    "ar": "ملفّّي الشخصي"
                 }
             },
 
@@ -164,48 +172,62 @@ export class I18n {
 
             "refugees/index": {
                 "French courses": {
-                    "fr": "Apprentissage du français"
+                    "fr": "Apprentissage du français",
+                    "ar": "تعلّم الفرنسية"
                 },
-                "University studies ": {
-                    "fr": "Etudes supérieures"
+                "University studies": {
+                    "fr": "Etudes supérieures",
+                    "ar": "دراسة جامعية"
                 },
                 "Professional training": {
-                    "fr": "Formation professionelles"
+                    "fr": "Formation professionelles",
+                    "ar": "تدريب مهني"
                 },
                 "Workshops": {
-                    "fr": "Ateliers sociaux linguistiques"
+                    "fr": "Ateliers sociaux linguistiques",
+                    "ar": "وُرَش سوسيولغوية"
                 },
                 "Events": {
-                    "fr": "Evenements"
+                    "fr": "Evenements",
+                    "ar": "فعّاليات"
                 },
                 "Self learning": {
-                    "fr": "Auto apprentissage"
+                    "fr": "Auto apprentissage",
+                    "ar": "تعليم ذاتي"
                 },
                 "Meet a volunteer": {
-                    "fr": "Rencontrer un bénévole"
+                    "fr": "Rencontrer un bénévole",
+                    "ar": "التقي متطوعاً"
                 },
             },
             "refugees/welcome": {
                 "French courses": {
-                    "fr": " Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie quotidienne)"
+                    "fr": "Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie quotidienne)",
+                    "ar":"البحث عن عروض لتعلم اللغة الفرنسية حسب الحاجة ( الفرنسية لمتابعة التعليم العالي، الفرنسية للمهنين، الفرنسية للحياة اليومية)."
                 },
                 "University studies": {
-                    "fr": "Des offres de formations (études supérieures)"
+                    "fr": "Des offres d’études supérieures avec accompagnement linguistique",
+                    "ar":"البحث عن عروض لمتابعة التعليم العالي مع مرافقة لغوية"
                 },
                 "Professional training": {
-                    "fr": "Des offres de formations (formations professionnelles) avec accompagnement linguistique"
+                    "fr": "Des offres de formations professionnelles avec accompagnement linguistique",
+                    "ar":"البحث عن عروض لتدريبات مهنية مع مرافقة لغوية"
                 },
                 "Workshops": {
-                    "fr": "Des méthodes d’auto-apprentissage disponible dans les bibliothèques"
+                    "fr": "Ateliers qui visent à développer les compétences de communication pour la vie quotidienne.",
+                    "ar":"البحث عن ورشات عمل لتطوير مهارات التواصل اللّغوية الضرورية من أجل شؤون الحياة اليومية."
                 },
                 "Events": {
-                    "fr": "Evenements"
+                    "fr": "Evenements",
+                    "ar":"البحث عن فعّاليات تُعنى باللاجئين"
                 },
                 "Self learning": {
-                    "fr": "Des méthodes d'apprentissage"
+                    "fr": "Annuaire des bibliothèques qui proposent et conseillent des méthodes d’auto-apprentissage.",
+                    "ar":"عناوين المكتبات التي تقترح و توفّر و تنصح بطرق لتعلّم الفرنسية بشكلٍ ذاتي."
                 },
                 "Meet a volunteer": {
-                    "fr": "Je peux aussi entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, interprétariat, ou d’autres formations."
+                    "fr": "Entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, l’interprétariat, ou d’autres formations.",
+                    "ar":"البحث عن متطوعين للمساعدة أثناء تعلّم الفرنسية أو في مرحلة التعليم العالي أو المرافقة -عند الحاجة- حين مواعيد الحصول على الأأوراق الرسمية)"
                 }                
             },
             "refugees/teachings": {

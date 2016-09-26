@@ -43,7 +43,7 @@ export class I18n {
                 },
                 "Registration closing": {
                     "fr": "Cloture des inscriptions",
-                    "ar": "إنهاء التسجيل"
+                    "ar": "إنتهاء التسجيل"
                 },
                 "Sort by distance": {
                     "fr": "Classer par proximité",
@@ -77,10 +77,10 @@ export class I18n {
 
 
             "home": {
-                "I am a refugee": {
-                    "fr": "Je suis réfugié",
-                    "ar": "أنـا لاجئ",
-                    "prs": "من یک پناهنده هستم"
+                "Refugee/Asylum seeker": {
+                    "fr": "Réfugié/Demandeur d'asile",
+                    "ar": "لاجئ/طالب لجوء",
+                    "prs": "های پناهندگان/یک پناهجو"
                 }
             },
 
@@ -242,41 +242,52 @@ export class I18n {
             },
             "volunteers/profile": {
                 "Thanks for your registration": {
-                    "fr": "Merci pour votre inscription"
+                    "fr": "Merci pour votre inscription",
+                    "ar": "شكرا لتسجيلكم"
                 },
                 "Could you complete your profile by telling us how you wish to help the refugees ?": {
-                    "fr": "Pourriez vous compléter votre profil en indiquant comment vous souhaitez aider les réfugiés ?"
+                    "fr": "Pourriez vous compléter votre profil en indiquant comment vous souhaitez aider les réfugiés ?",
+                    "ar": "هل بإمكانكم إكمال حسابكم الشخصي لإخبارنا كيف ترغبون مساعدة اللاجئين ؟"
                 },
                 "Explanations": {
-                    "fr": "Explications"
+                    "fr": "Explications",
+                    "ar": "توضيح"
                 },
                 "Your address": {
-                    "fr": "Votre adresse"
+                    "fr": "Votre adresse",
+                    "ar": "عنوانكم"
                 },
                 "French conversation": {
-                    "fr": "Conversation française"
+                    "fr": "Conversation française",
+                    "ar": "محادثة فرنسية"
                 },
                 "Explanations-french-conversation": {
                     "fr": "des séances de conversation d'une heure, durant lesquels vous aider les réfugiés à améliorer leur français.",
-                    "en": "french conversations sessions (+/- 1 hour), where you can help a refugee to improve their french"
+                    "en": "french conversations sessions (+/- 1 hour), where you can help a refugee to improve their french",
+                    "ar": "جلسات محادثة فرنسية تدوم لـ (+/- ساعة)، بهدف مساعدة لاجئ لتحسين فرنسيته"
                 },
                 "Explanations-address": {
                     "fr": "Indiquer votre ville nous permettra de ne vous soliciter que pour les réfugiés qui habitent à proximité. Elle ne sera jamais divuglée sur le site ni communiqué à des tiers. Si vous le souhaitez vous pouvez n'inscrire que votre ville ou votre code postal",
-                    "en": "Telling us the city where you leave will help us to sollicate you help only for refugees who leave in your area. It will <u>never</u> be displayed on the site or given to anyone. If you prefer you can give us only your city or your postal code"
+                    "en": "Telling us the city where you leave will help us to sollicate you help only for refugees who leave in your area. It will <u>never</u> be displayed on the site or given to anyone. If you prefer you can give us only your city or your postal code",
+                    "ar":" إخبارنا بعنوان سكنكم يسمح لنا بطلب مساعدتكم في حال احتياجها من قبل لاجئ يسكن بالقرب منكم. لن تظهر هذه المعلومات أبدا ولن نرسلها لأي شخص كان!. يمكنكم إذا أردتم أن تزودنا فقط باسم مدينتكم أو برمزها البريدي."
                 },
                 "Interpreting": {
-                    "fr": "Interprétariat"
+                    "fr": "Interprétariat",
+                    "ar": "الترجمة الفورية"
                 },
                 "Explanations-interpreting": {
                     "fr": "Si vous maitrisez une langue étrangère cela peut beaucoup aider les réfugiés, notamment lorsqu'ils ont besoin de se faire comprendre dans l'accomplissement d'une démarche administrative. Même si vous parlez anglais cela peut-être d'une grande aide car beaucoup de réfugiés parlent anglais aussi.",
-                    "en": "if you master another language it could be a great help for refugees,especially when they need to do an administrative task. Very often they don't speak french well enough to understand clearly the administrative procedure. If you speak english it can be of a great  help since many refugees can speak english as well."
+                    "en": "if you master another language it could be a great help for refugees,especially when they need to do an administrative task. Very often they don't speak french well enough to understand clearly the administrative procedure. If you speak english it can be of a great  help since many refugees can speak english as well.",
+                    "ar": "إذا كنتم تتقنون لغة أخرى فهذا قد يساعد جداً اللاجئين، خصوصا حينما يحتاجون التواصل عند القيام بالمهام الإدارية، إذ أنهم غالبا لا يتكلمون الفرنسية بشكل كاف يسمح لهم بفهم الإجراءات الإدارية بوضوح، فإذا كنتم تتكلمون الانجليزية مثلا، فذلك رائع! حيث معظم اللاجئيين تتكلم الانجليزية."
                 },
                 "Support in studies": {
-                    "fr": "Support dans les études"
+                    "fr": "Support dans les études",
+                    "ar": "الدعم الدراسي"
                 },
                 "Explanations-support-in-studies": {
                     "fr": "Si vous maitriser un domaine tel que les mathématique, la physique, etc... Accepteriez vous d'aider un réfugié dans ses études ?",
-                    "en": "if you master a domain like mathematic, physics, ... would you accept to help refugees in their studies ?"
+                    "en": "if you master a domain like mathematic, physics, ... would you accept to help refugees in their studies ?",
+                    "ar": "إذا كنتم تتقنون مجالا معيّناً كالرياضيات، أو الفيزياء... فهل تقبلون مساعدة اللاجئين في دراستهم"
                 },
 
 

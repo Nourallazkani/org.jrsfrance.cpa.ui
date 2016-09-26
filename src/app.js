@@ -16,25 +16,28 @@ export class App {
 
   error;
 
+  setUserLanguage(newLanguage) {
+    this.userDetails.language = newLanguage;
+    this.bindingSignaler.signal('language-change');
+    if (newLanguage == "ar" || newLanguage == "prs") {
+      document.body.style.direction = "rtl";
+    }
+    else {
+      document.body.style.direction = "ltr";
+    }
+  }
+
   constructor(httpClient, router, ea, bindingEngine, bindingSignaler, userDetails, appConfig, i18nMessages, referenceData) {
 
     this.moment = moment;
     this.httpClient = httpClient;
     this.ea = ea;
     this.userDetails = userDetails;
+    this.bindingSignaler = bindingSignaler;
 
-    bindingEngine
-      .propertyObserver(userDetails, 'language')
-      .subscribe((newLanguage) => {
-        bindingSignaler.signal('language-change');
-        if (newLanguage == "ar" || newLanguage == "prs") {
-          document.body.style.direction = "rtl";
-        }
-        else {
-          document.body.style.direction = "ltr";
-        }
-      });
-
+    if(userDetails.language=="ar" || userDetails.language=="prs"){
+      document.body.style.direction = "rtl";
+    }
     this.i18n = (key) => i18nMessages.getMessage("app", key, userDetails.language);
 
 
@@ -106,9 +109,8 @@ export class App {
       this.httpClient
         .fetch("authz/signIn", { method: "POST", body: json({ accessKey: accessKey }) })
         .then(x => x.json()).then(account => {
-
           this.userDetails.account = account;
-        });
+        }).catch(() => localStorage.removeItem("accessKey"));
     }
   }
 

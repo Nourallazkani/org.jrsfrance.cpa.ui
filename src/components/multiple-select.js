@@ -36,10 +36,10 @@ export class MultipleSelectCustomElement {
     }
 
 
-    clickEventListener;
+    bodyClickEventListener;
+    inputClickEventListener;
 
     attached() {
-        console.log("inside attached " + (this.selection == null))
         this.input = this.element.children[0];
         this.ul = this.element.children[1];
 
@@ -55,21 +55,26 @@ export class MultipleSelectCustomElement {
 
         this.input.addEventListener("focus", this.input.blur);
 
-        this.input.addEventListener("click", (e) => {
+        
+        this.inputClickEventListener = (e) => {
             this.input.blur();
+            console.log("click in input (" + this.ul.style.display + ")")
             this.ul.style.display = this.ul.style.display == "block" ? "none" : "block";
-        });
+        };
+        
+        this.input.addEventListener("click", this.inputClickEventListener);
 
-
-        this.clickEventListener = (e) => {
+        this.bodyClickEventListener = (e) => {
             if (e.target.parentNode != this.ul && e.target != this.input) {
+                console.log("hide list")
                 this.ul.style.display = "none";
             }
         };
-        document.body.addEventListener('click', this.clickEventListener);
+        document.body.addEventListener('click', this.bodyClickEventListener);
     }
 
     detached() {
         document.body.removeEventListener('click', this.clickEventListener);
+        this.input.removeEventListener("click", this.inputClickEventListener);
     }
 }

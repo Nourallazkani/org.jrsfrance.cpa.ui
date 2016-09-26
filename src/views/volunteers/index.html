@@ -8,21 +8,26 @@
       <a route-href="route: volunteers/events">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-event.svg" />
       </a>
-      <figcaption>Events</figcaption>
+      <figcaption>Evenements</figcaption>
     </figure>
-
+    <figure id="menu-item-libraries" class="${router.currentInstruction.config.name=='refugees/libraries' ? 'active' : ''}">
+      <a route-href="route: refugees/libraries">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-library.svg" />
+      </a>
+      <figcaption>Méthodes pour enseigner</figcaption>
+    </figure>    
     <figure id="menu-item-profile" class="${router.currentInstruction.config.name=='volunteers/profile' ? 'active' : ''}">
       <a route-href="route: volunteers/profile">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-volunteer-event.svg" />
       </a>
-      <figcaption>My profile</figcaption>
+      <figcaption>Mon profil</figcaption>
     </figure>
 
     <figure id="menu-item-meeting-requests" class="${router.currentInstruction.config.name=='volunteers/meeting-requests' ? 'active' : ''}">
       <a route-href="route: volunteers/meeting-requests">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-interpreter.svg" />
       </a>
-      <figcaption>Meeting requests</figcaption>
+      <figcaption>Demande de rendez vous</figcaption>
     </figure>     
 
   </div>

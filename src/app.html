@@ -10,7 +10,7 @@
   <require from="./views/_components/user-form"></require>
 
   <!-- sign-in-modal for refugees -->
-  <div if.bind="userDetails.profile=='R'" class="modal ${userDetails.account==null && authzAction=='sign-in' ? 'modal-visible' : 'modal-hidden'}">
+  <div if.bind="userDetails.profile=='R' && authzAction=='sign-in' && userDetails.account==null" class="modal modal-visible">
     <div class="modal-dialog">
       <div class="modal-dialog-header">
         <div>Connexion</div>
@@ -27,7 +27,7 @@
   <!-- end sign-in-modal for refugees-->
 
   <!-- sign-up-modal for refugees -->
-  <div if.bind="userDetails.profile=='R'" class="modal ${authzAction=='sign-up' ? 'modal-visible' : 'modal-hidden'}">
+  <div if.bind="userDetails.profile=='R' && authzAction=='sign-up'" class="modal modal-visible">
     <div class="modal-dialog" style="width:800px">
       <div class="modal-dialog-header">
         <div>Inscription</div>
@@ -36,9 +36,7 @@
         </div>
       </div>
       <div class="modal-dialog-body">
-        <!--
         <user-form action="sign-up" show-credentials="true" show-identity="true" show-details="true"></user-form>
-        -->
       </div>
       <div class="modal-dialog-footer"></div>
     </div>
@@ -66,10 +64,10 @@
 
   <header class="main-menu">
     <div class="languages" ltr-left rtl-right>
-      <a class="circle ${userDetails.language=='fr' ? 'active' : ''}" click.delegate="userDetails.language='fr'"> FR </a>
-      <a class="circle ${userDetails.language=='en' ? 'active' : ''}" click.delegate="userDetails.language='en'"> EN </a>
-      <a class="circle ${userDetails.language=='ar' ? 'active' : ''}" click.delegate="userDetails.language='ar'"> ع </a>
-      <a class="circle ${userDetails.language=='prs' ? 'active' : ''}" click.delegate="userDetails.language='prs'"> درى </a>
+      <a class="circle ${userDetails.language=='fr' ? 'active' : ''}" click.delegate="setUserLanguage('fr')"> FR </a>
+      <a class="circle ${userDetails.language=='en' ? 'active' : ''}" click.delegate="setUserLanguage('en')"> EN </a>
+      <a class="circle ${userDetails.language=='ar' ? 'active' : ''}" click.delegate="setUserLanguage('ar')"> ع </a>
+      <a class="circle ${userDetails.language=='prs' ? 'active' : ''}" click.delegate="setUserLanguage('prs')"> درى </a>
     </div>
 
     <div class="logo">

@@ -14,7 +14,7 @@ export class UserForm {
     @bindable successRoute;
     @bindable action; // sign-up or update-profile
 
-    input = {};
+    input = { languages: [] };
     outcome;
 
     constructor(fetchClient, router, compositionTransaction, userDetails, referenceData, i18nMessages) {
@@ -22,9 +22,11 @@ export class UserForm {
         this.router = router;
         this.userDetails = userDetails;
         this.referenceData = referenceData;
-        this.compositionTransactionNotifier = compositionTransaction.enlist();
         this.i18n = (key) => i18nMessages.getMessage("user-form", key, userDetails.language);
-
+        // here we use compositionTransaction because if user has account then input should be bound before the component is rendered.
+        // otherwise <multilple-select></multiple-select> start working with a null input, which causes issues with selection.bind.
+        // So created must explictely call this.compositionTransactionNotifier.done() to trigger the attachement of the custom element.
+        this.compositionTransactionNotifier = compositionTransaction.enlist();
     }
 
     created() {
@@ -37,22 +39,28 @@ export class UserForm {
                     this.compositionTransactionNotifier.done();
                 });
         }
-        else{
+        else {
             this.compositionTransactionNotifier.done();
         }
     }
 
 
     attached() {
+        if (!this.userDetails.account) {
+            // to avoid prefilled form if :
+            // user signed up, then sign out, then try to sign up again
+            // user start to fill the form then close it then start to sign up again
+            this.input = { languages: [] };
+        }
+        this.outcome = null;
         this.showCredentials = (this.showCredentials === true || "true" == this.showCredentials);
         this.showDetails = (this.showDetails === true || "true" == this.showDetails);
         this.showIdentity = (this.showIdentity === true || "true" == this.showIdentity);
     }
 
     signUp() {
-        this.input.profile = this.userDetails.profile;
-        
-        this.fetchClient.fetch("authz/signUp", { body: json(this.input), method: "post" })
+        let uri = this.userDetails.profile == "R" ? "refugees" : "volunteers";
+        this.fetchClient.fetch(uri, { body: json(this.input), method: "post" })
             .then(x => x.json())
             .then(account => {
                 this.userDetails.account = account;
@@ -62,10 +70,18 @@ export class UserForm {
                     this.router.navigate(this.successRoute);
                 }
                 else {
+
                     this.outcome = "success";
                 }
-            })
+            }).catch(e => {
+                this.outcome = 'failure';
+                if (e.status == 409) {
+                    // duplicate email
+                }
+            });
     }
+
+
 
     retry() {
         this.outcome = null;

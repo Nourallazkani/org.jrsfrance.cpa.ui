@@ -31,6 +31,8 @@ form .multiple-select-items{
 form .multiple-select-items > li{
     cursor:pointer;
     padding-left:10px;
+    padding-top:3px;
+    padding-bottom:3px;
 }
 
 form .multiple-select-items > li:hover, form .multiple-select-items > li.selected{

@@ -1,7 +1,5 @@
 <template>
 
-    <require from="./place-autocomplete"></require>
-
 
     <form class="split-lg-30-70 label-right" submit.delegate="action=='sign-up' ? signUp() : updateProfile()" if.bind="outcome==null">
         <div if.bind="showCredentials">
@@ -86,10 +84,10 @@
         </div>
     </form>
     <div if.bind="outcome=='success'" style="text-align:center">
-        Thank you, your profile has been successfully updated
+        ${action=='sign-up' ? "Merci pour votre inscription, vous êtes désormais connecté" : "Merci, votre profil a été mis à jour."}
     </div>
     <div if.bind="outcome=='failure'" style="text-align:center">
-        <div if.bind="action='sign-up'">
+        <div if.bind="action=='sign-up'">
             <div class="red-alert" style="margin-bottom:25px">
                 L'inscription a échoué a échouée.
             </div>
@@ -98,7 +96,7 @@
                 <li style="margin:20px auto"><a click.delegate="retry()">Réessayer avec une autre adresse mail</a></li>
             </ul>
         </div>
-        <div if.bind="action='update-profile'">
+        <div if.bind="action=='update-profile'">
             <div class="red-alert" style="margin-bottom:25px">
                 La modification du profil a échoué
             </div>

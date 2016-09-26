@@ -163,6 +163,27 @@ export class I18n {
             },
 
             "refugees/index": {
+                "French courses": {
+                    "fr": "Apprentissage du français"
+                },
+                "University studies ": {
+                    "fr": "Etudes supérieures"
+                },
+                "Professional training": {
+                    "fr": "Formation professionelles"
+                },
+                "Workshops": {
+                    "fr": "Ateliers sociaux linguistiques"
+                },
+                "Events": {
+                    "fr": "Evenements"
+                },
+                "Self learning": {
+                    "fr": "Auto apprentissage"
+                },
+                "Meet a volunteer": {
+                    "fr": "Rencontrer un bénévole"
+                }
 
             },
             "refugees/welcome": {
@@ -269,7 +290,7 @@ export class I18n {
                 "Explanations-address": {
                     "fr": "Indiquer votre ville nous permettra de ne vous soliciter que pour les réfugiés qui habitent à proximité. Elle ne sera jamais divuglée sur le site ni communiqué à des tiers. Si vous le souhaitez vous pouvez n'inscrire que votre ville ou votre code postal",
                     "en": "Telling us the city where you leave will help us to sollicate you help only for refugees who leave in your area. It will <u>never</u> be displayed on the site or given to anyone. If you prefer you can give us only your city or your postal code",
-                    "ar":" إخبارنا بعنوان سكنكم يسمح لنا بطلب مساعدتكم في حال احتياجها من قبل لاجئ يسكن بالقرب منكم. لن تظهر هذه المعلومات أبدا ولن نرسلها لأي شخص كان!. يمكنكم إذا أردتم أن تزودنا فقط باسم مدينتكم أو برمزها البريدي."
+                    "ar": " إخبارنا بعنوان سكنكم يسمح لنا بطلب مساعدتكم في حال احتياجها من قبل لاجئ يسكن بالقرب منكم. لن تظهر هذه المعلومات أبدا ولن نرسلها لأي شخص كان!. يمكنكم إذا أردتم أن تزودنا فقط باسم مدينتكم أو برمزها البريدي."
                 },
                 "Interpreting": {
                     "fr": "Interprétariat",

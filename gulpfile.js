@@ -6,6 +6,15 @@ var browserSync = require('browser-sync');
 var historyApiFallback = require('connect-history-api-fallback')
 var s3 = require('gulp-s3-upload')({ accessKeyId: "AKIAJWC3S7GZQQJHTLEA", secretAccessKey: "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" });
 
+var env = {
+  "dev":{
+    "apiEndpoint":"http://localhost:8080/api"
+  },
+  "aws" : {
+    "apiEndpoint":"http://localhost:8080/api"
+  }
+}
+
 var config = {
   force: true,
   baseURL: '.',                   // baseURL of the application

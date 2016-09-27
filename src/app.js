@@ -17,12 +17,7 @@ export class App {
   setUserLanguage(newLanguage) {
     this.userDetails.language = newLanguage;
     this.bindingSignaler.signal('language-change');
-    if (newLanguage == "ar" || newLanguage == "prs") {
-      document.body.style.direction = "rtl";
-    }
-    else {
-      document.body.style.direction = "ltr";
-    }
+
   }
 
   constructor(httpClient, router, ea, bindingEngine, bindingSignaler, compositionTransaction, userDetails, appConfig, i18nMessages, referenceData) {
@@ -37,6 +32,18 @@ export class App {
     if (userDetails.language == "ar" || userDetails.language == "prs") {
       document.body.style.direction = "rtl";
     }
+
+    bindingEngine
+      .propertyObserver(userDetails, 'language')
+      .subscribe((newLanguage) => {
+        if (newLanguage == "ar" || newLanguage == "prs") {
+          document.body.style.direction = "rtl";
+        }
+        else {
+          document.body.style.direction = "ltr";
+        }
+      });
+
     this.i18n = (key) => i18nMessages.getMessage("app", key, userDetails.language);
 
 
@@ -117,7 +124,7 @@ export class App {
           this.compositionTransactionNotifier.done();
         });
     }
-    else{
+    else {
       this.compositionTransactionNotifier.done();
     }
   }

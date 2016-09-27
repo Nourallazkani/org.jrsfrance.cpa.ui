@@ -2,33 +2,32 @@
 
   <require from="/assets/css/specific/index.css"></require>
 
-  <div id="menu" class="menu"  if.bind="userDetails.lastAction!='sign-up'">
+  <div id="menu" class="menu" if.bind="userDetails.lastAction!='sign-up'">
 
+    <figure id="menu-item-events" class="${router.currentInstruction.config.name=='volunteers/availabilities' ? 'active' : ''}">
+      <a route-href="route: volunteers/availabilities">
+        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-volunteer-event.svg" />
+      </a>
+      <figcaption>Disponibilités</figcaption>
+    </figure>
     <figure id="menu-item-events" class="${router.currentInstruction.config.name=='volunteers/events' ? 'active' : ''}">
       <a route-href="route: volunteers/events">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-event.svg" />
       </a>
-      <figcaption>Evenements</figcaption>
+      <figcaption>Evenements pour les bénévoles</figcaption>
     </figure>
-    <figure id="menu-item-libraries" class="${router.currentInstruction.config.name=='refugees/libraries' ? 'active' : ''}">
-      <a route-href="route: refugees/libraries">
+    <figure id="menu-item-libraries">
+      <a>
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-library.svg" />
       </a>
       <figcaption>Méthodes pour enseigner</figcaption>
-    </figure>    
-    <figure id="menu-item-profile" class="${router.currentInstruction.config.name=='volunteers/profile' ? 'active' : ''}">
-      <a route-href="route: volunteers/profile">
-        <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-volunteer-event.svg" />
-      </a>
-      <figcaption>Mon profil</figcaption>
     </figure>
-
     <figure id="menu-item-meeting-requests" class="${router.currentInstruction.config.name=='volunteers/meeting-requests' ? 'active' : ''}">
       <a route-href="route: volunteers/meeting-requests">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-interpreter.svg" />
       </a>
       <figcaption>Demande de rendez vous</figcaption>
-    </figure>     
+    </figure>
 
   </div>
 

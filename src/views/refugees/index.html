@@ -1,29 +1,7 @@
 <template>
 
   <require from="/assets/css/specific/index.css"></require>
-<!--
- "French courses": {
-                    "fr": "Apprentissage du français"
-                },
-                "University studies ": {
-                    "fr": "Etudes supérieures"
-                },
-                "Professional training": {
-                    "fr": "Formation professionelles"
-                },
-                "Workshops": {
-                    "fr": "Ateliers sociaux linguistiques"
-                },
-                "Events": {
-                    "fr": "Evenements"
-                },
-                "Self learning": {
-                    "fr": "Auto apprentissage"
-                },
-                "Meet a volunteer": {
-                    "fr": "Rencontrer un bénévole"
-                },  
--->
+${router.currentInstruction.config.name}
   <div id="menu" class="menu">
     <figure id="menu-item-language-programs" class="${router.currentInstruction.config.name=='refugees/language-programs' ? 'active' : ''}">
       <a route-href="route: refugees/language-programs">

@@ -1,6 +1,5 @@
 <template>
 
-
     <form class="split-lg-30-70 label-right" submit.delegate="action=='sign-up' ? signUp() : updateProfile()" if.bind="outcome==null">
         <div if.bind="showCredentials">
             <div class="horizontal">
@@ -21,12 +20,12 @@
                 <label>${i18n("Last name")  & signal : 'language-change'}</label>
                 <input type="text" value.bind="input.lastName" />
             </div>
-        </div>
-        <div if.bind="showDetails">
             <div class="horizontal">
                 <label>${i18n("City or postal code")  & signal : 'language-change'}</label>
                 <input type="text" placeholder="" place-autocomplete="target.bind : input" /><br/>
             </div>
+        </div>
+        <div if.bind="showDetails">
             <div class="horizontal">
                 <label>${i18n("Phone")  & signal : 'language-change'}</label>
                 <input type="tel" value.bind="input.phoneNumber" placeholder="" />
@@ -43,41 +42,6 @@
                 <multiple-select style="width:70%" source.bind="referenceData.language.all" selection.bind="input.languages"></multiple-select>
             </div>
             
-            <div class="horizontal" if.bind="userDetails.profile=='V'">
-                <label>${i18n("I can offer")  & signal : 'language-change'}</label>
-                <div class="vertical  width-lg-70">
-                    <div class="horizontal width-lg-100">
-                        <div style="width:40%;line-height:35px">
-                            <input type="checkbox" checked.bind="input.availableForConversation" />${i18n("French lessons")  & signal : 'language-change'}<br/>
-                        </div>
-                    </div>
-                    <div class="horizontal width-lg-100">
-                        <div style="width:40%;line-height:35px">
-                            <input type="checkbox" checked.bind="input.availableForInterpreting" />${i18n("Interpreting")  & signal : 'language-change'}<br/>
-                        </div>
-                        <div style="width:60%;line-height:35px" if.bind="input.availableForInterpreting">
-                            <multiple-select source.bind="referenceData.language.all" placeholder="les langues que vous maitrisez..." selection.bind="input.languages"></multiple-select>
-                        </div>
-                    </div>
-                    <div class="horizontal width-lg-100">
-                        <div style="width:40%;line-height:35px">
-                            <input type="checkbox" checked.bind="input.availableForSupportInStudies" />${i18n("Support in studies")  & signal : 'language-change'}<br/>
-                        </div>
-                        <div style="width:60%;line-height:35px" if.bind="input.availableForSupportInStudies">
-                            <multiple-select source.bind="referenceData.fieldOfStudy.all" selection.bind="input.fieldsOfStudy"></multiple-select>
-                        </div>
-                    </div>
-                    <div class="horizontal width-lg-100">
-                        <div style="width:40%;line-height:35px">
-                            <input type="checkbox" checked.bind="input.availableForActivities" />${i18n("Cultural or sport activities")  & signal : 'language-change'}<br/>
-                        </div>
-                        <div style="width:60%;line-height:35px" if.bind="input.availableForActivities">                            
-                            <input type="text" placeholder="Theater, sports..." value.bind="input.activities"/>
-                        </div>
-                    </div>                                   
-                </div>
-            </div>
-            
         </div>
         <div class="horizontal">
             <button class="offset-lg-30" style="margin-bottom:50px">${action=="sign-up" ?  i18n("Sign up") : i18n("Update profile")  & signal : 'language-change'}</button>
@@ -88,7 +52,6 @@
             <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/>
             ${action=='sign-up' ? "Merci pour votre inscription, vous êtes désormais connecté" : "Merci, votre profil a été mis à jour."}
         </div>        
-        
     </div>
     <div if.bind="outcome=='failure'" style="text-align:center">
         <div if.bind="action=='sign-up'">

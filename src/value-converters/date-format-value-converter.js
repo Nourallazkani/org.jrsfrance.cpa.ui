@@ -24,6 +24,6 @@ export class MyDateFormatValueConverter {
     }
     
     let formater = this.formaters[format];
-    return moment(value).locale(locale).format(formater || defaultFormat);
+    return moment(value).locale(locale).format(formater || this.defaultFormat);
   }
 }

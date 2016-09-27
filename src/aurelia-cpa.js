@@ -6,7 +6,8 @@ export function configure(aurelia) {
         .globalResources('components/place-autocomplete')
         .globalResources('components/dynamic-text-align')
         .globalResources('components/always-visible')
-        .globalResources('value-converters/object-keys-value-converter');
+        .globalResources('value-converters/object-keys-value-converter')
+        .globalResources('value-converters/date-format-value-converter');
     if (true) {
         aurelia.use.developmentLogging();
     }

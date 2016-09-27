@@ -1,6 +1,5 @@
 import {bindable, customElement, inject} from 'aurelia-framework'
 
-
 @inject(Element)
 export class MultipleSelectCustomElement {
 
@@ -58,7 +57,6 @@ export class MultipleSelectCustomElement {
         
         this.inputClickEventListener = (e) => {
             this.input.blur();
-            console.log("click in input (" + this.ul.style.display + ")")
             this.ul.style.display = this.ul.style.display == "block" ? "none" : "block";
         };
         
@@ -66,7 +64,6 @@ export class MultipleSelectCustomElement {
 
         this.bodyClickEventListener = (e) => {
             if (e.target.parentNode != this.ul && e.target != this.input) {
-                console.log("hide list")
                 this.ul.style.display = "none";
             }
         };

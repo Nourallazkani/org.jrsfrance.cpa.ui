@@ -1,0 +1,74 @@
+<template>
+
+    <div if.bind="outcome==null" class="width-lg-50" style="margin:auto;padding:5px;text-align:justify">
+        <div style="margin-bottom:40px;margin-top: 25px;" if.bind="userDetails.lastAction=='sign-up'">
+            <div style="text-align:center;margin-bottom:20px;font-weight:bold">
+                <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/> 
+                ${i18n("Thanks for your registration") & signal : 'language-change'} !
+            </div>
+            <div style="text-align:center;font-weight:bold">
+                ${i18n("Could you complete your profile by telling us how you wish to help the refugees ?") & signal : 'language-change'}
+            </div>
+        </div>
+
+        <form class="vertical offset-lg-5 split-lg-30-70 label-right">
+            <div style="padding-bottom:30px;padding-top:30px;border-bottom:1px black solid">
+                <b>${i18n("French lessons") & signal : 'language-change'}</b> : ${i18n("Explanations-french-lessons") & signal : 'language-change'}
+                <div class="horizontal" style="margin-top:20px">
+                    <div class="width-lg-100">
+                        <button class="${input.availableForConversation ? 'btn-orange' : ''}" click.delegate="input.availableForConversation=true">${i18n('yes')  & signal : 'language-change'}</button>
+                        <button class="${input.availableForConversation ? '' : 'btn-orange'}" click.delegate="input.availableForConversation=false">${i18n('no')  & signal : 'language-change'}</button>
+                    </div>        
+                </div>
+            </div>
+
+            <div style="padding-bottom:30px;padding-top:30px;border-bottom:1px black solid">
+                <b>${i18n("Interpreting") & signal : 'language-change'} </b> : ${i18n("Explanations-interpreting") & signal : 'language-change'} 
+                <div class="horizontal" style="margin-top:20px">
+                    <div class="width-lg-20">
+                        <button class="${input.availableForInterpreting ? 'btn-orange' : ''}" click.delegate="input.availableForInterpreting=true">${i18n('yes')  & signal : 'language-change'}</button>
+                        <button class="${input.availableForInterpreting ? '' : 'btn-orange'}" click.delegate="input.availableForInterpreting=false">${i18n('no')  & signal : 'language-change'}</button>
+                    </div>
+                    <div class="width-lg-80" if.bind="input.availableForInterpreting">
+                        <multiple-select source.bind="referenceData.language.all" placeholder="les langues que vous maitrisez..." selection.bind="input.languages"></multiple-select>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-bottom:30px;padding-top:30px;border-bottom:1px black solid">
+                <b>${i18n("Support in studies") & signal : 'language-change'}</b> : ${i18n("Explanations-support-in-studies") & signal : 'language-change'} 
+                <div class="horizontal" style="margin-top:20px">
+                    <div class="width-lg-20">
+                        <button class="${input.availableForSupportInStudies ? 'btn-orange' : ''}" click.delegate="input.availableForSupportInStudies=true">${i18n('yes')  & signal : 'language-change'}</button>
+                        <button class="${input.availableForSupportInStudies ? '' : 'btn-orange'}" click.delegate="input.availableForSupportInStudies=false">${i18n('no')  & signal : 'language-change'}</button>
+                    </div>
+                    <div class="width-lg-80" if.bind="input.availableForSupportInStudies">
+                        <multiple-select source.bind="referenceData.fieldOfStudy.all" selection.bind="input.fieldsOfStudy"></multiple-select>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom:30px;padding-top:30px">
+                <b>${i18n("Cultural or sport activities") & signal : 'language-change'} </b> : ${i18n("Explanations-activities") & signal : 'language-change'} 
+                <div class="horizontal" style="margin-top:20px">
+                    <div class="width-lg-20">
+                        <button class="${input.availableForActivities ? 'btn-orange' : ''}" click.delegate="input.availableForActivities=true">${i18n('yes')  & signal : 'language-change'}</button>
+                        <button class="${input.availableForActivities ? '' : 'btn-orange'}" click.delegate="input.availableForActivities=false">${i18n('no')  & signal : 'language-change'}</button>
+                    </div>
+                    <div class="width-lg-80" if.bind="input.availableForActivities">
+                        <input type="text" placeholder="Theater, sports..." value.bind="input.activities" style="width:100%" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="horizontal">
+                <button class="offset-lg-40 btn-orange" style="margin-bottom:50px" click.delegate="update()">${i18n("Update availabilities")  & signal : 'language-change'}</button>
+            </div>            
+        </form>
+    </div>
+    <div if.bind="outcome=='success'" style="text-align:center">
+        <div style="text-align:center;margin-bottom:20px;font-weight:bold">
+            <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/>
+            Merci, vos disponibilités ont été mises à jour.
+        </div>        
+    </div>    
+</template>

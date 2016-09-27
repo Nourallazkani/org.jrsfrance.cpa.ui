@@ -57,9 +57,14 @@ export class SignInForm {
                     this.router.navigate(this.successRoute);
                 }
             })
-            .catch(err => {
-                this.outcome = "failure";
-            });
+            .catch(e => {
+                if (e.status == 401) {
+                    this.outcome = { status: "unauthorized" };
+                }
+                else {
+                    return e.json().then(x => this.outcome = { status: "failure", errors: x });
+                }
+            })
     }
 
     retrySignIn() {
@@ -77,7 +82,7 @@ export class SignInForm {
     processPasswordRecoveryRequest() {
         this.httpClient
             .fetch("authz/passwordRecovery", { method: "POST", body: json(this.input) })
-            .then(() => this.outcome = "accepted")
+            .then(() => this.outcome = { status: "accepted" })
     }
 
     cancelSignIn() {

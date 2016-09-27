@@ -65,10 +65,13 @@
             </div>            
         </form>
     </div>
-    <div if.bind="outcome=='success'" style="text-align:center">
-        <div style="text-align:center;margin-bottom:20px;font-weight:bold">
+    <div if.bind="outcome.status=='ok'" style="text-align:center">
+        <div style="text-align:center;margin-bottom:20px">
             <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/>
             Merci, vos disponibilités ont été mises à jour.
         </div>        
+    </div>
+    <div if.bind="outcome.status=='failure'" style="text-align:center">
+        Problème...     
     </div>    
 </template>

@@ -7,13 +7,9 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 @inject(HttpClient, CompositionTransaction, UserDetails, ReferenceData, I18n)
 export class Availabilities {
 
-    @bindable showCredentials;
-    @bindable showDetails;
-    @bindable showIdentity;
-    @bindable successRoute;
-    @bindable action; // sign-up or update-profile
 
     input = { languages: [] };
+
     outcome;
 
     constructor(fetchClient, compositionTransaction, userDetails, referenceData, i18nMessages) {
@@ -41,8 +37,9 @@ export class Availabilities {
         let uri = `volunteers/${this.userDetails.account.id}`
         this.fetchClient.fetch(uri, { body: json(this.input), method: "put" })
             .then(x => {
-                this.userDetails.lastAction=null;
-                this.outcome = "success";
-            });
-    }    
+                this.userDetails.lastAction = null;
+                this.outcome = { status: "ok" }
+            })
+            .catch(e => e.json().then(x => this.outcome = { status: "failure", errors: x }))
+    }
 }

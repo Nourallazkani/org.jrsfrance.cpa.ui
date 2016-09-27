@@ -1,20 +1,20 @@
 export class ApplicationConfig {
-    apiEndpoint= "http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";
-    //apiEndpoint = "http://localhost:8080/api/";
+    //apiEndpoint= "http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";
+    apiEndpoint = "http://localhost:8080/api/";
 }
 
 export class ReferenceData {
 
     load(source) {
-        for(let p in source){
+        for (let p in source) {
             this[p] = source[p];
         }
     }
 
-    refreshAll(source){
+    refreshAll(source) {
         this.load(source)
     }
-    refresh(domain, source){
+    refresh(domain, source) {
         this[domain] = source;
     }
 }
@@ -79,6 +79,13 @@ export function getUri(path, params) {
         }
     }
 };
+
+export function getQueryParam(paramName, url) {
+    let href = url ? url : window.location.href;
+    let reg = new RegExp( '[?&]' + paramName + '=([^&#]*)', 'i' );
+    let string = reg.exec(href);
+    return string ? string[1] : null;
+}
 
 if (typeof (Number.prototype.toRad) === "undefined") {
     Number.prototype.toRad = function () {

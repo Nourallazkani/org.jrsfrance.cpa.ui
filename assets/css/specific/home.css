@@ -43,3 +43,7 @@
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
+
+.home-welcome-organisation-panel form, .home-welcome-volunteer-panel form{
+    font-size:18px
+}

@@ -59,10 +59,12 @@ export class UserForm {
     }
 
     signUp() {
+        this.state = "saving";
         let uri = this.userDetails.profile == "R" ? "refugees" : "volunteers";
         this.fetchClient.fetch(uri, { body: json(this.input), method: "post" })
             .then(x => x.json())
             .then(account => {
+                this.state = null;
                 this.userDetails.account = account;
                 localStorage.setItem("accessKey", account.accessKey);
                 this.userDetails.lastAction = "sign-up";
@@ -70,34 +72,40 @@ export class UserForm {
                     this.router.navigate(this.successRoute);
                 }
                 else {
-
-                    this.outcome = "success";
+                    this.outcome = { status: "ok" };
                 }
-            }).catch(e => {
-                this.outcome = 'failure';
+            })
+            .catch(e => {
+                this.state = null;
                 if (e.status == 409) {
-                    // duplicate email
+                    this.outcome = { status: "conflict" };
                 }
-            });
+                else {
+                    return e.json().then(x => this.outcome = { status: "failure", errors: x });
+                }
+            })
     }
 
-
-
-    retry() {
-        this.outcome = null;
-        if (this.action == "sign-up") {
-            this.input.mailAddress = null;
-        }
-    }
 
     updateProfile() {
+        this.state = "saving";
         let uri = `${this.userDetails.account.profile == "R" ? "refugees" : "volunteers"}/${this.userDetails.account.id}`
         this.fetchClient.fetch(uri, { body: json(this.input), method: "put" })
             .then(x => {
-                this.outcome = "success";
+                this.state = null;
+                this.outcome = { status: "ok" };
                 if (this.userDetails.lastAction == "sign-up") {
                     this.userDetails.lastAction = "update-profile";
                 }
-            });
+            })
+            .catch(e => {
+                this.state = null;
+                if (e.status == 409) {
+                    this.outcome = { status: "conflict" };
+                }
+                else {
+                    return e.json().then(x => this.outcome = { status: "failure", errors: x });
+                }
+            })
     }
 }

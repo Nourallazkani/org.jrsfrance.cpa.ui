@@ -1,16 +1,6 @@
 <template>
 
-    <form class="split-lg-30-70 label-right" submit.delegate="action=='sign-up' ? signUp() : updateProfile()" if.bind="outcome==null">
-        <div if.bind="showCredentials">
-            <div class="horizontal">
-                <label>${i18n("Mail address")  & signal : 'language-change'}</label>
-                <input type="email" value.bind="input.mailAddress" />
-            </div>
-            <div class="horizontal">
-                <label>${i18n("Password")  & signal : 'language-change'}</label>
-                <input type="password" value.bind="input.password" />
-            </div>
-        </div>
+    <form if.bind="outcome.status!='ok'" class="split-lg-30-70 label-right" submit.delegate="action=='sign-up' ? signUp() : updateProfile()">
         <div if.bind="showIdentity">
             <div class="horizontal">
                 <label>${i18n("First name")  & signal : 'language-change'}</label>
@@ -23,6 +13,16 @@
             <div class="horizontal">
                 <label>${i18n("City or postal code")  & signal : 'language-change'}</label>
                 <input type="text" placeholder="" place-autocomplete="target.bind : input" /><br/>
+            </div>
+        </div>
+        <div if.bind="showCredentials">
+            <div class="horizontal">
+                <label>${i18n("Mail address")  & signal : 'language-change'}</label>
+                <input type="email" value.bind="input.mailAddress" change.delegate="outcome=null" />
+            </div>
+            <div class="horizontal">
+                <label>${i18n("Password")  & signal : 'language-change'}</label>
+                <input type="password" value.bind="input.password" />
             </div>
         </div>
         <div if.bind="showDetails">
@@ -43,34 +43,21 @@
             </div>
             
         </div>
-        <div class="horizontal">
-            <button class="offset-lg-30" style="margin-bottom:50px">${action=="sign-up" ?  i18n("Sign up") : i18n("Update profile")  & signal : 'language-change'}</button>
+        <div class="horizontal" if.bind="state==null">
+            <button class="offset-lg-30" style="margin-bottom:50px">
+                ${action=="sign-up" ?  i18n("Sign up") : i18n("Update profile")  & signal : 'language-change'}</button>
+            <span if.bind="outcome.status=='conflict'" class="red-alert" style="margin:0px 10px">
+                ${i18n('Another acccout is linked to this address') & signal : 'language-change'}
+            </span>
+        </div>
+        <div class="offset-lg-30" if.bind="state=='saving'">
+            Enregistrement en cours...
         </div>
     </form>
-    <div if.bind="outcome=='success'" style="text-align:center">
+    <div if.bind="outcome.status=='ok'" style="text-align:center">
         <div style="text-align:center;margin-bottom:20px;font-weight:bold">
             <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/>
             ${action=='sign-up' ? "Merci pour votre inscription, vous êtes désormais connecté" : "Merci, votre profil a été mis à jour."}
         </div>        
-    </div>
-    <div if.bind="outcome=='failure'" style="text-align:center">
-        <div if.bind="action=='sign-up'">
-            <div class="red-alert" style="margin-bottom:25px">
-                L'inscription a échoué a échouée.
-            </div>
-            Voulez vous :
-            <ul style="text-align:left">
-                <li style="margin:20px auto"><a click.delegate="retry()">Réessayer avec une autre adresse mail</a></li>
-            </ul>
-        </div>
-        <div if.bind="action=='update-profile'">
-            <div class="red-alert" style="margin-bottom:25px">
-                La modification de votre profil a échoué
-            </div>
-            Voulez vous :
-            <ul style="text-align:left">
-                <li style="margin:20px auto"><a click.delegate="retry()">Réessayer avec une autre adresse mail</a></li>
-            </ul>
-        </div>
     </div>
 </template>

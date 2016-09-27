@@ -1,4 +1,4 @@
-import {UserDetails, ApplicationConfig, ReferenceData} from 'common'
+import {UserDetails, ApplicationConfig, ReferenceData, getQueryParam} from 'common'
 import {I18n} from 'i18n'
 
 import {inject, BindingEngine, CompositionTransaction} from 'aurelia-framework';
@@ -61,28 +61,14 @@ export class App {
             }
             if (userDetails.language) {
               request.headers.set("Accept-Language", userDetails.language);
-              /*
-              if (userDetails.language == "en") {
-                request.headers.set("Accept-Language", userDetails.language + ",fr");
-              }
-              else if (userDetails.language == "fr") {
-                request.headers.set("Accept-Language", "fr");
-              }
-              else {
-                request.headers.set("Accept-Language", userDetails.language + ",en,fr");
-              }*/
             }
             return request;
           },
           response(response) {
-
-            console.log(`Received ${response.status} ${response.url}`);
-
             if (response.status >= 400 && response.status <= 599) {
               if (response.url.indexOf("authz/signIn") == -1 && response.url.indexOf("authz/signUp") == -1) {
                 ea.publish("error", response);
               }
-
               throw response;
             }
             else {
@@ -113,7 +99,7 @@ export class App {
   created() {
     if (localStorage.getItem("accessKey") != null || window.location.href.split("ak=").length == 2) {
 
-      let accessKey = localStorage.getItem("accessKey") || window.location.href.split("ak=")[1]
+      let accessKey = localStorage.getItem("accessKey") || getQueryParam("ak") 
       this.httpClient
         .fetch("authentication", { method: "POST", body: json({ accessKey: accessKey }) })
         .then(x => x.json()).then(account => {

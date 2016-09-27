@@ -108,7 +108,17 @@ export class I18n {
                 "Sign in": {
                     "fr": "Connexion",
                     "ar": "تسجيل الدخول"
-                }
+                },
+                "Invalid mail address or password":{/*TODO */
+                    "fr":"Adresse mail ou mot de passe invalide" 
+                },
+                "Reset my password":{/*TODO */
+                    "fr":"Réinitialiser mon mot de passe" 
+                },
+                "Recover password confirmation":{ /*TODO */
+                    "fr":"Un mail vous a été envoyé, il contient un lien permettant de réinitialiser votre mot de passe.",
+                    "en" : "An email has been sent, which contains a link to reset your password"
+                }            
             },
 
             "user-form": {
@@ -167,6 +177,9 @@ export class I18n {
                 "Update profile": {
                     "fr": "Mettre à jour mon profil",
                     "ar": "تحديث ملفّي الشخصي"
+                },
+                "Another acccout is linked to this address":{
+                    "fr":"Un autre compte est associé à cette adresse" /*TODO */
                 }
             },
 

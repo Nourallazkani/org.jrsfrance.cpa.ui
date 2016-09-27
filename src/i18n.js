@@ -87,8 +87,8 @@ export class I18n {
             "home": {
                 "Refugee or asylum seeker": {
                     "fr": "Réfugié ou demandeur d'asile",
-                    "ar": "لاجئ/طالب لجوء",
-                    "prs": "های پناهندگان/یک پناهجو"
+                    "ar": "لاجئ أو طالب لجوء",
+                    "prs": "های پناهندگان یا یک پناهجو"
                 }
             },
 
@@ -215,7 +215,7 @@ export class I18n {
                 },
                 "Workshops": {
                     "fr": "Ateliers qui visent à développer les compétences de communication pour la vie quotidienne.",
-                    "ar":"البحث عن ورشات عمل لتطوير مهارات التواصل اللّغوية الضرورية من أجل شؤون الحياة اليومية."
+                    "ar":"البحث عن ورشات عمل لتطوير مهارات التواصل اللّغوية الضرورية من أجل شؤون الحياة اليومية الاجتماعية."
                 },
                 "Events": {
                     "fr": "Evenements",
@@ -223,7 +223,7 @@ export class I18n {
                 },
                 "Self learning": {
                     "fr": "Annuaire des bibliothèques qui proposent et conseillent des méthodes d’auto-apprentissage.",
-                    "ar":"عناوين المكتبات التي تقترح و توفّر و تنصح بطرق لتعلّم الفرنسية بشكلٍ ذاتي."
+                    "ar":"عناوين المكتبات التي تقترح و توفّر طرق لتعلّم الفرنسية بشكلٍ ذاتي."
                 },
                 "Meet a volunteer": {
                     "fr": "Entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, l’interprétariat, ou d’autres formations.",

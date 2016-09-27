@@ -2,7 +2,7 @@ import {UserDetails} from 'common';
 
 import {inject} from 'aurelia-framework'
 import moment from 'moment';
-import {FrLocale} from 'moment-locales'
+import {FrLocale, ArLocale, PrsLocale} from 'moment-locales'
 
 // sera utilisation sous le nom myDateFormat
 @inject(UserDetails, FrLocale)

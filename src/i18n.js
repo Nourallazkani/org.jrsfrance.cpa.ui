@@ -317,7 +317,7 @@ export class I18n {
                     "ar": "محادثة فرنسية"
                 },
                 "Explanations-french-lessons": {
-                    "fr": "des séances de conversation d'une heure, durant lesquels vous aider les réfugiés à améliorer leur français.",
+                    "fr": "des cours de français, donnés à un réfugié dans les centre d'accueil de demandeurs d'asile (où autre lieu à décidé entre vous et le réfugié). Si vous n'avez jamais enseigné le français à des etrangers n'hésitez pas à consulter la rubrique 'Evenements pour les bénévoles', qui recensent notamment les cours FLE (français langue étrangère). Vous pouvez aussi trouver des méthodes de langues dans la rubrique 'méthodes pour enseigner'",
                     "en": "french conversations sessions (+/- 1 hour), where you can help a refugee to improve their french",
                     "ar": "جلسات محادثة فرنسية تدوم لـ (+/- ساعة)، بهدف مساعدة لاجئ لتحسين فرنسيته"
                 },
@@ -348,7 +348,8 @@ export class I18n {
                     "fr": "Activites culturelles ou sportives"
                 },
                 "Explanations-activities": {
-                    "fr": ""
+                    "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    "en":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                 },
                 "Update availabilities" : {
                     "fr" : "Mettre à jour mes disponibilités"

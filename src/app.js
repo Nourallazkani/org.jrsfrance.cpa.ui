@@ -1,17 +1,15 @@
 import {UserDetails, ApplicationConfig, ReferenceData} from 'common'
 import {I18n} from 'i18n'
 
-import {inject, BindingEngine} from 'aurelia-framework';
+import {inject, BindingEngine, CompositionTransaction} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import {BindingSignaler} from 'aurelia-templating-resources';
 
-
 import moment from 'moment';
 
-
-@inject(HttpClient, Router, EventAggregator, BindingEngine, BindingSignaler, UserDetails, ApplicationConfig, I18n, ReferenceData)
+@inject(HttpClient, Router, EventAggregator, BindingEngine, BindingSignaler, CompositionTransaction, UserDetails, ApplicationConfig, I18n, ReferenceData)
 export class App {
 
   error;
@@ -27,15 +25,16 @@ export class App {
     }
   }
 
-  constructor(httpClient, router, ea, bindingEngine, bindingSignaler, userDetails, appConfig, i18nMessages, referenceData) {
+  constructor(httpClient, router, ea, bindingEngine, bindingSignaler, compositionTransaction, userDetails, appConfig, i18nMessages, referenceData) {
 
     this.moment = moment;
     this.httpClient = httpClient;
     this.ea = ea;
     this.userDetails = userDetails;
     this.bindingSignaler = bindingSignaler;
+    this.compositionTransactionNotifier = compositionTransaction.enlist();
 
-    if(userDetails.language=="ar" || userDetails.language=="prs"){
+    if (userDetails.language == "ar" || userDetails.language == "prs") {
       document.body.style.direction = "rtl";
     }
     this.i18n = (key) => i18nMessages.getMessage("app", key, userDetails.language);
@@ -102,15 +101,24 @@ export class App {
     this.httpClient.fetch("referenceData")
       .then(x => x.json())
       .then(x => referenceData.load(x));
+  }
 
+  created() {
     if (localStorage.getItem("accessKey") != null || window.location.href.split("ak=").length == 2) {
-      
+
       let accessKey = localStorage.getItem("accessKey") || window.location.href.split("ak=")[1]
       this.httpClient
         .fetch("authentication", { method: "POST", body: json({ accessKey: accessKey }) })
         .then(x => x.json()).then(account => {
           this.userDetails.account = account;
-        }).catch(() => localStorage.removeItem("accessKey"));
+          this.compositionTransactionNotifier.done();
+        }).catch(() => {
+          localStorage.removeItem("accessKey");
+          this.compositionTransactionNotifier.done();
+        });
+    }
+    else{
+      this.compositionTransactionNotifier.done();
     }
   }
 

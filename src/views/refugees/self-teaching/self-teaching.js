@@ -7,9 +7,9 @@ import {HttpClient} from 'aurelia-fetch-client';
 import moment from 'moment';
 
 @inject(HttpClient, UserDetails, I18n, ReferenceData)
-export class ProfessionalPrograms {
+export class SelfTeachings {
 
-  filter = { includeClosedEvents: false }
+  filter = { }
   results = []
   view = "list";
 
@@ -21,7 +21,7 @@ export class ProfessionalPrograms {
     this.viewItinerary = viewItinerary;
     this.referenceData = referenceData;
 
-    this.i18n = (key) => i18nMessages.getMessage("refugees/professional-programs", key, userDetails.language);
+    this.i18n = (key) => i18nMessages.getMessage("refugees/self-teachings", key, userDetails.language);
 
     this.find();
   }
@@ -31,11 +31,10 @@ export class ProfessionalPrograms {
       this.view = view;
     }
     this.fetchClient
-      .fetch(getUri("learnings/professional-programs", this.filter))
+      .fetch(getUri("libraries", this.filter))
       .then(response => response.json())
       .then(json => json
         .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))
-        .sort((x, y) => moment(x.item.startDate) - moment(y.item.startDate))
       )
       .then(results => this.results = results);
   }

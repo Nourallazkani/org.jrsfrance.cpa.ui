@@ -7,22 +7,19 @@ export class PlaceAutocompleteCustomAttribute {
     @bindable target;
     @bindable userSelectionBinding;
     @bindable targetProperty;
+    @bindable restriction;
     element;
     autocomplete;
 
     constructor(element) {
         this.element = element;
-        this.autocomplete = new google.maps.places.Autocomplete(this.element, { types: ['geocode'] });
-        /*
-        let geolocation = {
-            lat: 46.1350784,
-            lng: -2.2886214
+        // types : cities
+        let options = {
+            types: ['geocode'],
+            componentRestrictions: { country: "fr" },
         };
-        let circle = new google.maps.Circle({
-            center: geolocation
-        });
-        this.autocomplete.setBounds(circle.getBounds());
-        */
+        this.autocomplete = new google.maps.places.Autocomplete(this.element, options);
+
 
 
         if (navigator.geolocation) {

@@ -5,7 +5,8 @@ export function configure(aurelia) {
         .globalResources('components/gmap')
         .globalResources('components/place-autocomplete')
         .globalResources('components/dynamic-text-align')
-        .globalResources('components/always-visible');
+        .globalResources('components/always-visible')
+        .globalResources('value-converters/object-keys-value-converter');
     if (true) {
         aurelia.use.developmentLogging();
     }

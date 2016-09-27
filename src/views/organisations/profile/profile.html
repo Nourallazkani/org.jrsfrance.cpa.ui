@@ -1,3 +1,52 @@
 <template>
-    work in progress
+
+    <form class="width-lg-60 split-lg-30-70 label-right" style="margin:auto" submit.delegate="update()" if.bind="outcome==null">
+
+
+
+        <div class="horizontal">
+            <label>${i18n("Name")}</label>
+            <input type="text" value.bind="input.name" autofocus />
+        </div>
+
+        <div class="horizontal">
+            <label>${i18n("Address")  & signal : 'language-change'}</label>
+            <div class="width-lg-70 width-md-70  inputs-container">
+                <input type="text" value.bind="input.address.street1" placeholder=""  /><br/>
+                <input type="text" value.bind="input.address.street2" placeholder="Complément d'adresse'"/><br/>
+                <input type="text" value.bind="input.address.postalCode" />
+                <input type="text" value.bind="input.address.locality" />
+            </div>
+        </div>
+        <div class="horizontal">
+            <label>${i18n("Contact")  & signal : 'language-change'}</label>
+            <div class="width-lg-70 width-md-70 inputs-container">
+                <input type="text" value.bind="input.contact.name" placeholder="" /><br/>
+                <input type="text" value.bind="input.contact.mailAddress" placeholder="" /><br/>
+                <input type="text" value.bind="input.contact.phoneNumber" /><br/>
+            </div>
+        </div>
+        <div class="horizontal" repeat.for="i of input.additionalInformations | objectKeys">
+            <label>${i}</label>
+            <input type="text" value.bind="input.additionalInformations[i]" />
+        </div>
+        <div class="horizontal">
+            <label>${i18n("Mail address for login")  & signal : 'language-change'}</label>
+            <input type="email" value.bind="input.mailAddress" />
+        </div>
+        <div class="horizontal">
+            <label>${i18n("Password")  & signal : 'language-change'}</label>
+            <input type="password" value.bind="input.password" />
+        </div>
+
+        <div class="horizontal">
+            <button class="offset-lg-30" style="margin-bottom:50px">Mettre à jour mon profil</button>
+        </div>
+    </form>
+    <div if.bind="outcome=='success'" style="text-align:center">
+        <div style="text-align:center;margin-bottom:20px;font-weight:bold">
+            <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/> Merci, votre profil
+            a été mis à jour.
+        </div>
+    </div>
 </template>

@@ -203,8 +203,28 @@
     background-color: #706E69;
     /*border-radius: 10px;*/
 }
+
 ._edit-container > form fieldset {
+    border-color: white;
+    color: white;
+    border-width: 1px 0px 0px 0px;
+    padding: 0px;
+    font-family: SegoeUiSlim;
+    margin-bottom: 25px;
     margin: 0% 3% ;
+}
+
+._edit-container > form fieldset legend {
+    padding-right: 25px;
+    line-height: 40px;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+._edit-container > form fieldset input, fieldset select, fieldset textarea{
+    margin-bottom:8px;
+    color: black;
 }
 
 ._edit-container._edit-container-hidden {   

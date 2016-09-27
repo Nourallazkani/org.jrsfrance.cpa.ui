@@ -1,23 +1,29 @@
+import {UserDetails} from 'common';
+
+import {inject} from 'aurelia-framework'
 import moment from 'moment';
+import {FrLocale} from 'moment-locales'
 
 // sera utilisation sous le nom myDateFormat
+@inject(UserDetails, FrLocale)
 export class MyDateFormatValueConverter {
 
-  formaters = {event:"D/M/YYYY h:mm:ss a"}
+  formaters = { event: "D/M/YYYY h:mm:ss a" }
   defaultFormat = "D/M/YYYY"
 
-  toView(value,format) {
-    if(format==null){
-      console.log("use default formater")
-      return moment(value).format(this.defaultFormat);
+  constructor(userDetails, frLocale) {
+    this.userDetails = userDetails;
+    moment.locale("fr", frLocale);
+  }
+
+  toView(value, format) {
+    let locale = moment.locales().includes(this.userDetails.language) ? this.userDetails.language : "en";
+    
+    if (format == null) {
+      return moment(value).locale(locale).format(this.defaultFormat);
     }
-    var formater= this.formaters[format];
-    if(formater!=null){
-      console.log(`there is predefined formater for ${format} : ${formater}`)
-      return moment(value).format(formater);
-    }
-    else{
-      return moment(value).format(format);
-    }
+    
+    let formater = this.formaters[format];
+    return moment(value).locale(locale).format(formater || defaultFormat);
   }
 }

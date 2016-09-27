@@ -101,8 +101,8 @@ export class I18n {
                     "fr": "Mot de passe",
                     "ar": "كلمة المرور"
                 },
-                "Remember me": {
-                    "fr": "Se souvenir de moi",
+                "remember me": {
+                    "fr": "se souvenir de moi",
                     "ar": "تذكّرني"
                 },
                 "Sign in": {

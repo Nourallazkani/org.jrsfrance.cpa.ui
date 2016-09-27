@@ -80,31 +80,13 @@ form.label-right label {
 
 /* specific styles when input are in a fieldset */
 
-fieldset {
-    border-color: white;
-    color: white;
-    border-width: 1px 0px 0px 0px;
-    padding: 0px;
-    font-family: SegoeUiSlim;
-    margin-bottom: 25px;
-}
-
-fieldset legend {
-    padding-right: 25px;
-    line-height: 40px;
-    font-size: 20px;
-    color: white;
-    margin-bottom: 10px;
-}
-
-fieldset input, fieldset select, fieldset textarea{
-    margin-bottom:8px;
-    color: black;
-}
-
-
 fieldset input{
     font-style: italic;
+}
+
+form .inputs-container > input{
+    width:100% !important;
+    margin-bottom:8px;
 }
 
 @media(min-width:960px){

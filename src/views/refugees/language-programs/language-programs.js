@@ -9,7 +9,7 @@ import moment from 'moment';
 @inject(HttpClient, UserDetails, I18n, ReferenceData)
 export class LanguagePrograms {
 
-  filter = { includeFutureEvents: true, includePastEvents: false, openForRegistration: true }
+  filter = { includeClosedEvents: false }
   results = []
   view = "list";
 

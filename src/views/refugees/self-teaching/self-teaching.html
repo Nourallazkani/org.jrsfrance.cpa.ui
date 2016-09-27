@@ -1,0 +1,94 @@
+<template>
+
+
+  
+  <require from="views/_formatters/date-format"></require>
+
+  <form class="search-inline-form" always-visible>
+
+    <select value.bind="filter.city">
+      <option value="">${i18n("City") & signal : 'language-change'}</option>
+      <option repeat.for="x of referenceData.city.languageLearningProgram">${x}</option>
+    </select>
+
+    <button class="btn-orange" click.trigger="find('list')" class="${view=='list' ? 'button-active' : ''}">${i18n("view list") & signal : 'language-change'}</button>
+    <button class="btn-orange" click.trigger="find('map')" class="${view=='map' ? 'button-active' : ''}">${i18n("view map") & signal : 'language-change'}</button>
+  </form>
+
+  <div class="_results" if.bind="results.length>0 && view=='map'">
+    <gmap center.bind="userDetails.address" places.bind="results" placesFor.bind="teachings"></gmap>
+  </div>
+
+  <div class="_results" if.bind="results.length>0 && view=='list'">
+    <div style="text-align:right;margin-bottom:25px">
+      <form class="inline-form" submit.delegate="sortByDistance()">
+        <input type="text" placeholder="Votre adresse" place-autocomplete="target.bind: userDetails" />
+        <button>${i18n("Sort by distance") & signal : 'language-change'}</button>
+      </form>
+    </div>
+
+    <div class="_result" repeat.for="r of results">
+      <div class="_result-header horizontal">
+        <div class="width-lg-80 width-md-80" style="text-align:left" rtl-right ltr-left>
+          ${r.item.name} - ${r.item.address.locality}
+        </div>
+        <div class="width-lg-20 width-md-20" style="text-align:right" if.bind="r.distance" rtl-left ltr-right>
+          <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
+            <img src="/assets/img/common/icon-compass.svg" style="width:30px;vertical-align:middle"> ${r.distance} km
+          </a>
+        </div>
+      </div>
+      <div class="_result-body horizontal">
+
+        <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
+
+        </div>
+
+        <div class="vertical _infos-container">
+          <a class="link-big link-bottom" style="right:5%;" href="${r.item.link}" target="_blank" if.bind="r.item.link">
+            <img src="/assets/img/common/icon-external-link.svg" />
+          </a>
+
+          <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
+
+          <div class="horizontal">
+            <div class="width-lg-40 info-title">
+              <img src="/assets/img/common/icon-contact.svg" /> ${i18n("Contact") & signal : 'language-change'}
+            </div>
+            <div class="width-lg-60 info-text">
+              ${r.item.contact.name} <br/> 
+              ${r.item.contact.phoneNumber} <br/>
+              <a href="mailto:${r.contact.mailAddress}">${r.item.contact.mailAddress}</a>
+            </div>
+          </div>      
+          <div class="horizontal">
+            <div class="width-lg-40 info-title">
+              <a click.delegate="viewLocation(r.item.address)">
+                <img src="/assets/img/common/icon-address.svg" /> ${i18n("Address") & signal : 'language-change'}
+              </a>
+            </div>
+            <div class="width-lg-60 info-text">
+              ${r.item.address.street1}<br/> ${r.item.address.street2}
+              <br if.bind="r.item.address.street2 != null " /> ${r.item.address.postalCode} ${r.item.address.locality}
+              <br/>
+            </div>
+          </div>
+
+        </div>
+      </div>
+       <div class="_result-body">
+         <div repeat.for="i of r.item.additionalInformations | objectKeys">
+            ${i} : ${r.item.additionalInformations[i]}
+        </div>
+       </div>
+
+
+      <div class="_result-footer">
+
+      </div>
+
+
+    </div>
+
+
+</template>

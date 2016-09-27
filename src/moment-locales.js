@@ -58,7 +58,7 @@ export class FrLocale {
     }
 };
 
-export class EnLocale {
+export class ArLocale {
 
     months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
     monthsShort = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];

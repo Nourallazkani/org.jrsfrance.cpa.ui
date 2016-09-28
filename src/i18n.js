@@ -109,15 +109,18 @@ export class I18n {
                     "fr": "Connexion",
                     "ar": "تسجيل الدخول"
                 },
-                "Invalid mail address or password":{/*TODO */
-                    "fr":"Adresse mail ou mot de passe invalide" 
+                "Invalid mail address or password":{
+                    "fr":"Adresse mail ou mot de passe invalide",
+                    "ar":" عنوان البريدأو كلمة المرور غير صالح"
                 },
-                "Reset my password":{/*TODO */
-                    "fr":"Réinitialiser mon mot de passe" 
+                "Reset my password":{
+                    "fr":"Réinitialiser mon mot de passe",
+                    "ar":"إعادة تعيين كلمة مروري"
                 },
-                "Recover password confirmation":{ /*TODO */
+                "Recover password confirmation":{
                     "fr":"Un mail vous a été envoyé, il contient un lien permettant de réinitialiser votre mot de passe.",
-                    "en" : "An email has been sent, which contains a link to reset your password"
+                    "en" : "An email has been sent, which contains a link to reset your password.",
+                    "ar":"تم إرسال رسالة الكترونية (إيميل) تحتوي على رابط إعادة تعيين كلمة مروركم."
                 }            
             },
 
@@ -179,7 +182,8 @@ export class I18n {
                     "ar": "تحديث ملفّي الشخصي"
                 },
                 "Another acccout is linked to this address":{
-                    "fr":"Un autre compte est associé à cette adresse" /*TODO */
+                    "fr":"Un autre compte est associé à cette adresse",
+                    "ar":"يوجد حساب آخر مرتبط بهذا العنوان."
                 }
             },
 

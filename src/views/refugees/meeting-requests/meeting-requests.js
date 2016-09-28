@@ -52,9 +52,7 @@ export class MeetingRequests {
 
   new() {
     if (this.results.length == 0 || this.results[0].action != 'new') {
-      console.log(this.userDetails.address);
       let newItem = {
-        reason: "INTERPRETING",
         refugeeLocation: this.userDetails.address,
         refugee: {
           mailAddress: this.refugee.mailAddress,
@@ -62,10 +60,7 @@ export class MeetingRequests {
         }
       };
 
-      this.fetchClient
-        .fetch(`refugees/${this.userDetails.account.id}`)
-        .then(response => response.json())
-        .then(r => this.results.unshift({ item: newItem, action: 'new' }));
+     this.results.unshift({ item: newItem, action: 'new' })
     }
   }
 

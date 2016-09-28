@@ -19,8 +19,10 @@ export class Events {
         this.moment = moment;
         this.viewLocation = viewLocation;
         this.referenceData = referenceData;
+    }
 
-        this.filter.organisationId = userDetails.account.id;
+    created() {
+        this.filter.organisationId = this.userDetails.account.id;
         this.find();
     }
 

@@ -1,4 +1,4 @@
-import {bindable, customElement, inject} from 'aurelia-framework'
+import {bindable, inject} from 'aurelia-framework'
 
 @inject(Element)
 export class MultipleSelectCustomElement {

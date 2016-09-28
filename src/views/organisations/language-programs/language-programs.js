@@ -19,8 +19,10 @@ export class LanguagePrograms {
     this.moment = moment;
     this.viewLocation = viewLocation;
     this.referenceData = referenceData;
-    this.filter.organisationId=userDetails.account.id;
+  }
 
+  created() {
+    this.filter.organisationId = this.userDetails.account.id;
     this.find();
   }
 
@@ -45,7 +47,7 @@ export class LanguagePrograms {
       if (responseBody) {
         model.item = responseBody;
       }
-      this.ea.publish("referenceDataUpdate", {domain:"cities"})
+      this.ea.publish("referenceDataUpdate", { domain: "cities" })
     }
 
     if (model.action == 'new') {

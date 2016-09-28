@@ -20,12 +20,12 @@ export class MyDateFormatValueConverter {
 
   toView(value, format) {
     let locale = moment.locales().includes(this.userDetails.language) ? this.userDetails.language : "en";
-    
-    if (format == null) {
-      return moment(value).locale(locale).format(this.defaultFormat);
+    if (format != null) {
+      return moment(value).locale(locale).format(format);
     }
-    
-    let formater = this.formaters[format];
-    return moment(value).locale(locale).format(formater || this.defaultFormat);
+    else {
+      let formater = this.formaters[format];
+      return moment(value).locale(locale).format(formater || this.defaultFormat);
+    }
   }
 }

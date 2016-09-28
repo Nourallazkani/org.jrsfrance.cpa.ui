@@ -2,11 +2,11 @@
     <div if.bind="action=='sign-in'">
         <form class="split-lg-30-70 label-right" submit.delegate="processSignIn()" if.bind="outcome.status!='ok'">
             <div class="horizontal">
-                <label>${i18n("Mail address")  & signal : 'language-change'}</label>
+                <label class="${outcome.errors.mailAddress ? 'error':''}">${i18n("Mail address")  & signal : 'language-change'}</label>
                 <input type="email" value.bind="input.mailAddress" autofocus  change.delegate="outcome=null" />
             </div>
             <div class="horizontal">
-                <label>${i18n("Password")  & signal : 'language-change'}</label>
+                <label class="${outcome.errors.password ? 'error':''}">${i18n("Password")  & signal : 'language-change'}</label>
                 <input type="password" value.bind="input.password" change.delegate="outcome=null" />
             </div>
             <div class="horizontal" style="align-items:baseline">

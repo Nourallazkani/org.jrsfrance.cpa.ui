@@ -7,20 +7,30 @@ export class PlaceAutocompleteCustomAttribute {
     @bindable target;
     @bindable userSelectionBinding;
     @bindable targetProperty;
-    @bindable restriction;
+    @bindable restrictions;
     element;
     autocomplete;
 
     constructor(element) {
         this.element = element;
-        // types : cities
+    }
+
+    created() {
+        if(!this.restrictions){
+            this.restrictions = ["geocode"];
+        }
+        else if(this.restrictions=='regions'){
+           this.restrictions=["(regions)"]; 
+        }
+    }
+
+    attached() {
+        
         let options = {
-            types: ['geocode'],
+           types: this.restrictions,
             componentRestrictions: { country: "fr" },
         };
         this.autocomplete = new google.maps.places.Autocomplete(this.element, options);
-
-
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
@@ -35,9 +45,6 @@ export class PlaceAutocompleteCustomAttribute {
                 this.autocomplete.setBounds(circle.getBounds());
             });
         }
-    }
-
-    attached() {
         this.targetProperty = [this.targetProperty || "address"];
         if (this.target[this.targetProperty] && this.target[this.targetProperty].formattedAddress) {
             this.element.value = this.target[this.targetProperty].formattedAddress;

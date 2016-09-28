@@ -3,25 +3,25 @@
     <form if.bind="outcome.status!='ok'" class="split-lg-30-70 label-right" submit.delegate="action=='sign-up' ? signUp() : updateProfile()">
         <div if.bind="showIdentity">
             <div class="horizontal">
-                <label>${i18n("First name")  & signal : 'language-change'}</label>
+                <label class="${outcome.errors.firstName ? 'error':''}">${i18n("First name")  & signal : 'language-change'}</label>
                 <input type="text" value.bind="input.firstName" autofocus />
             </div>
             <div class="horizontal">
-                <label>${i18n("Last name")  & signal : 'language-change'}</label>
+                <label class="${outcome.errors.lastName ? 'error':''}">${i18n("Last name")  & signal : 'language-change'}</label>
                 <input type="text" value.bind="input.lastName" />
             </div>
             <div class="horizontal">
-                <label>${i18n("City or postal code")  & signal : 'language-change'}</label>
-                <input type="text" placeholder="" place-autocomplete="target.bind : input" /><br/>
+                <label class="${outcome.errors.address ? 'error':''}">${i18n("City or postal code")  & signal : 'language-change'}</label>
+                <input type="text" placeholder="" place-autocomplete="target.bind : input; restrictions:regions" /><br/>
             </div>
         </div>
         <div if.bind="showCredentials">
             <div class="horizontal">
-                <label>${i18n("Mail address")  & signal : 'language-change'}</label>
+                <label class="${outcome.errors.mailAddress ? 'error':''}">${i18n("Mail address")  & signal : 'language-change'}</label>
                 <input type="email" value.bind="input.mailAddress" change.delegate="outcome=null" />
             </div>
             <div class="horizontal">
-                <label>${i18n("Password")  & signal : 'language-change'}</label>
+                <label class="${outcome.errors.password ? 'error':''}">${i18n("Password")  & signal : 'language-change'}</label>
                 <input type="password" value.bind="input.password" />
             </div>
         </div>

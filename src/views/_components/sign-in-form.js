@@ -29,7 +29,6 @@ export class SignInForm {
         this.httpClient = httpClient;
         this.router = router;
         this.userDetails = userDetails;
-        this.initialize();
 
         this.i18n = (key) => i18nMessages.getMessage("sign-in", key, userDetails.language);
 
@@ -40,6 +39,10 @@ export class SignInForm {
                     this.initialize();
                 }
             });
+    }
+
+    attached(){
+        this.initialize();
     }
 
     processSignIn() {
@@ -62,7 +65,7 @@ export class SignInForm {
                     this.outcome = { status: "unauthorized" };
                 }
                 else {
-                    return e.json().then(x => this.outcome = { status: "failure", errors: x });
+                    e.json().then(x => this.outcome = { status: "failure", errors: x });
                 }
             })
     }

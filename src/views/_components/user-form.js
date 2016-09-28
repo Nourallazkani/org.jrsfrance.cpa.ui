@@ -31,7 +31,17 @@ export class UserForm {
 
     created() {
         if (this.userDetails.account && this.userDetails.account.accessKey) {
-            let uri = (this.userDetails.account.profile == "R" ? "refugees/" : "volunteers/") + this.userDetails.account.id;
+            let uri;
+            if (this.userDetails.account.profile == "R") {
+                uri = "refugees/" + this.userDetails.account.id;;
+            }
+            else if (this.userDetails.account.profile == "O") {
+                uri = "organisations/" + this.userDetails.account.id;;
+            }
+            if (this.userDetails.account.profile == "V") {
+                uri = "volunteers/" + this.userDetails.account.id;;
+            }
+            if (!uri) return;
             this.fetchClient.fetch(uri)
                 .then(x => x.json())
                 .then(x => {
@@ -81,7 +91,7 @@ export class UserForm {
                     this.outcome = { status: "conflict" };
                 }
                 else {
-                    return e.json().then(x => this.outcome = { status: "failure", errors: x });
+                    e.json().then(x => this.outcome = { status: "failure", errors: x });
                 }
             })
     }

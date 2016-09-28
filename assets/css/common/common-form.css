@@ -66,6 +66,11 @@ form label{
     box-sizing: border-box
 }
 
+form label.error{    
+    color:red;
+    font-weight:bold;
+}
+
 form div.horizontal{
     margin-bottom: 15px;
 }

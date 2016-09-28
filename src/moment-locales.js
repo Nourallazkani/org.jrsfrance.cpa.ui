@@ -60,8 +60,8 @@ export class FrLocale {
 
 export class ArLocale {
 
-    months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-    monthsShort = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
+    months = ["كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول"];
+    monthsShort = ["كا ثاني.", "شبط.", "آذر", "نيس.", "أيا", "حزير", "تمو.", "آب", "أيلو.", "تش أول.", "تش ثاني.", "كا أول."];
     weekdays = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
     weekdaysShort = ["أحد.", "اثن.", "ثلات.", "أرب.", "خمس.", "جمع.", "سبت."];
     weekdaysMin = ["ح", "ن", "ث", "ر", "خ", "ج", "س"];

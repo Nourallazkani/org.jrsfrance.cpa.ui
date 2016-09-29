@@ -42,6 +42,7 @@ export class Events {
 
     save(model) {
         model.state = "saving";
+        
         let afterSave = (responseBody) => {
             model.action = null;
             model.state = null;
@@ -55,12 +56,14 @@ export class Events {
             this.fetchClient
                 .fetch("events", { method: "POST", body: json(model.item) })
                 .then(response => response.json())
-                .then(x => afterSave(x));
+                .then(x => afterSave(x))
+                .catch(e => e.json().then(x => model.errors = x));
         }
         else {
             this.fetchClient
                 .fetch(`events/${model.item.id}`, { method: "PUT", body: json(model.item) })
-                .then(response => afterSave());
+                .then(response => afterSave())
+                .catch(e => e.json().then(x => model.errors = x));
         }
     }
 

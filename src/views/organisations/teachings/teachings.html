@@ -87,14 +87,14 @@
             <fieldset class="width-lg-50">
               <legend>Informations principales</legend>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Niveau </label>
+                <label class="width-lg-20 ${r.errors.languageLevelRequired ? 'error' : ''}"> Niveau </label>
                 <select class="width-lg-80" value.bind="r.item.languageLevelRequired">
                   <option if.bind="r.action=='new'"></option>
                   <option repeat.for="l of referenceData.level.all">${l.name}</option>
                 </select>
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Discipline </label>
+                <label class="width-lg-20 ${r.errors.fieldOfStudy ? 'error' : ''}"> Discipline </label>
                 <select class="width-lg-80" value.bind="r.item.fieldOfStudy">
                   <option if.bind="r.action=='new'"></option>
                   <option repeat.for="l of referenceData.fieldOfStudy.all">${l.name}</option>
@@ -115,11 +115,11 @@
             <fieldset class="width-lg-50">
               <legend>Inscription</legend>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Début </label>
+                <label class="width-lg-20 ${r.errors.registrationOpeningDate ? 'error' : ''}"> Début </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationOpeningDate" />
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Fin </label>
+                <label class="width-lg-20 ${r.errors.registrationClosingDate ? 'error' : ''}"> Fin </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationClosingDate" />
               </div>
               <div class="horizontal">
@@ -130,8 +130,8 @@
 
           </div>
           <div class="horizontal">
-            <fieldset class="width-lg-50">
-              <legend>Contact</legend>
+            <fieldset class="width-lg-50 ${r.errors.contact ? 'error' : ''}">
+              <legend class="${r.errors.contact ? 'error' : ''}">Contact</legend>
               <input class="width-lg-100" type="text" placeholder="Nom" value.bind="r.item.contact.name" />
               <input class="width-lg-100" type="tel" name="telephone" id="telephone" placeholder="telephone" value.bind="r.item.contact.phoneNumber"
               />

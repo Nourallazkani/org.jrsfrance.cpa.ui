@@ -95,19 +95,19 @@
               <legend>Informations principales</legend>
 
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Date </label>
+                <label class="width-lg-20 ${r.errors.startDate || r.errors.endDate  ? 'error' : ''}"> Date </label>
                 <input class="width-lg-35" type="date" value.bind="r.item.startDate" />
                 <input class="width-lg-35 offset-lg-10" type="date" value.bind="r.item.endDate" />
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Domaine </label>
+                <label class="width-lg-20 ${r.errors.domain  ? 'error' : ''}"> Domaine </label>
                 <select class="width-lg-80" value.bind="r.item.domain">
                     <option if.bind="r.action=='new'"></option>
                     <option repeat.for="x of referenceData.professionalLearningProgramDomain.all" value.bind="x.name">${x.name}</option>
                 </select>
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Niveau </label>
+                <label class="width-lg-20 ${r.errors.level  ? 'error' : ''}"> Niveau </label>
                 <select class="width-lg-80" value.bind="r.item.level">
                     <option if.bind="r.action=='new'"></option>
                     <option repeat.for="x of referenceData.level.all" value.bind="x.name">${x.name}</option>
@@ -118,11 +118,11 @@
             <fieldset class="width-lg-50">
               <legend>Inscription</legend>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Début </label>
+                <label class="width-lg-20 ${r.errors.registrationOpeningDate  ? 'error' : ''}"> Début </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationOpeningDate" />
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20"> Fin </label>
+                <label class="width-lg-20 ${r.errors.registrationClosingDate  ? 'error' : ''}"> Fin </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationClosingDate" />
               </div>
               <div class="horizontal no-margin">
@@ -136,7 +136,7 @@
           </div>
           <div class="horizontal">
             <fieldset class="width-lg-50">
-              <legend>Adresse</legend>
+              <legend class="${r.errors.address  ? 'error' : ''}">Adresse</legend>
               <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"
               />
               <input class="width-lg-100" type="text" placeholder="complement d'adresse" value.bind="r.item.address.street2" />
@@ -145,7 +145,7 @@
             </fieldset>
 
             <fieldset class="width-lg-50">
-              <legend>Contact</legend>
+              <legend class="${r.errors.contact  ? 'error' : ''}">Contact</legend>
               <input class="width-lg-100" type="text" value.bind="r.item.contact.name" placeholder="nom du contact" />
               <input class="width-lg-100" type="tel" value.bind="r.item.contact.phoneNumber" placeholder="telephone" />
               <input class="width-lg-100" type="email" value.bind="r.item.contact.mailAddress" placeholder="adresse email" />

@@ -13,11 +13,9 @@ export class Profile {
         this.userDetails = userDetails;
 
         this.i18n = (key) => i18nMessages.getMessage("organisations/profile", key, userDetails.language);
+    }
 
-        let map = new Map();
-        map.set("Alaric", "Paris");
-        map.set("Carla", "Paris");
-        console.log(JSON.stringify(map))
+    created() {
         let uri = "organisations/" + this.userDetails.account.id;
         this.fetchClient.fetch(uri)
             .then(x => x.json())
@@ -26,6 +24,7 @@ export class Profile {
 
     update() {
         this.fetchClient.fetch("organisations/" + this.userDetails.account.id, { method: "put", body: json(this.input) })
-            .then(x => this.outcome = "success");
+            .then(x => { this.outcome = "success", this.errors = null })
+            .catch(e => e.json().then(x => this.errors = x));;
     }
 }

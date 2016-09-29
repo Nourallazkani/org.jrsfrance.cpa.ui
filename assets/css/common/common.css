@@ -87,6 +87,11 @@ button{
     font-weight: bold;color:red
 }
 
+.error{    
+    color:red !important;
+    font-weight:bold;
+}
+
 .close:before {
     content: "\2716";
     font-size: 18px;

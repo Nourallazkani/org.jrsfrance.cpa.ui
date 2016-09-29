@@ -55,12 +55,14 @@ export class Workshops {
       this.fetchClient
         .fetch("workshops", { method: "POST", body: json(model.item) })
         .then(response => response.json())
-        .then(x => afterSave(x));
+        .then(x => afterSave(x))
+        .catch(e => e.json().then(x => model.errors = x));
     }
     else {
       this.fetchClient
         .fetch(`workshops/${model.item.id}`, { method: "PUT", body: json(model.item) })
-        .then(response => afterSave());
+        .then(response => afterSave())
+        .catch(e => e.json().then(x => model.errors = x));
     }
   }
 

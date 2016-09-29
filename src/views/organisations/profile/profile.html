@@ -3,12 +3,12 @@
     <form class="width-lg-60 split-lg-30-70 label-right" style="margin:auto" submit.delegate="update()" if.bind="outcome==null">
 
         <div class="horizontal">
-            <label>${i18n("Name")}</label>
+            <label class="${errors.name ? 'error' : ''}">${i18n("Name")}</label>
             <input type="text" value.bind="input.name" autofocus />
         </div>
 
         <div class="horizontal">
-            <label>${i18n("Address")  & signal : 'language-change'}</label>
+            <label class="${errors.address ? 'error' : ''}">${i18n("Address")  & signal : 'language-change'}</label>
             <div class="width-lg-70 width-md-70  inputs-container">
                 <input type="text" value.bind="input.address.street1" placeholder=""  /><br/>
                 <input type="text" value.bind="input.address.street2" placeholder="Complément d'adresse'"/><br/>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="horizontal">
-            <label>${i18n("Contact")  & signal : 'language-change'}</label>
+            <label class="${errors.contact ? 'error' : ''}">${i18n("Contact")  & signal : 'language-change'}</label>
             <div class="width-lg-70 width-md-70 inputs-container">
                 <input type="text" value.bind="input.contact.name" placeholder="" /><br/>
                 <input type="text" value.bind="input.contact.mailAddress" placeholder="" /><br/>
@@ -29,7 +29,7 @@
             <input type="text" value.bind="input.additionalInformations[i]" />
         </div>
         <div class="horizontal">
-            <label>${i18n("Mail address for login")  & signal : 'language-change'}</label>
+            <label class="${errors.mailAddress ? 'error' : ''}">${i18n("Mail address for login")  & signal : 'language-change'}</label>
             <input type="email" value.bind="input.mailAddress" />
         </div>
         <div class="horizontal">

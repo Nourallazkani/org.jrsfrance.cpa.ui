@@ -116,17 +116,17 @@
               <fieldset class="width-lg-50">
                 <legend>Informations principales</legend>
                 <div class="horizontal no-margin">
-                  <label class="width-lg-20"> Début </label>
+                  <label class="width-lg-20 ${r.errors.startDate ? 'error' : ''}"> Début </label>
                   <div class="width-lg-80">
                     <date-time-input target.bind="r.item" target-property="startDate"></date-time-input>
                   </div>
                 </div>
                 <div class="horizontal no-margin">
-                  <label class="width-lg-20"> Fin </label>
+                  <label class="width-lg-20 ${r.errors.endDate ? 'error' : ''}"> Fin </label>
                   <date-time-input target.bind="r.item" target-property="endDate"></date-time-input>
                 </div>
                 <div class="horizontal no-margin" if.bind="filter.stereotype!='WORKSHOP'">
-                  <label class="width-lg-20">Public </label>
+                  <label class="width-lg-20 ${r.errors.audience ? 'error' : ''}">Public </label>
                   <select class="width-lg-80" type="text" value.bind="r.item.audience">
                     <option if.bind="r.action=='new'"></option>
                     <option value="REFUGEE">Réfugié</option>
@@ -137,11 +137,11 @@
               <fieldset class="width-lg-50">
                 <legend>Inscription</legend>
                 <div class="horizontal no-margin">
-                  <label class="width-lg-20">Début</label>
+                  <label class="width-lg-20 ${r.errors.registrationOpeningDate ? 'error' : ''}">Début</label>
                   <input class="width-lg-80" type="date" value.bind="r.item.registrationOpeningDate" />
                 </div>
                 <div class="horizontal no-margin">
-                  <label class="width-lg-20">Fin</label>
+                  <label class="width-lg-20 ${r.errors.registrationClosingDate ? 'error' : ''}">Fin</label>
                   <input class="width-lg-80" type="date" value.bind="r.item.registrationClosingDate" />
                 </div>
                 <!--
@@ -152,7 +152,7 @@
             </div>
             <div class="horizontal">
               <fieldset class="width-lg-50">
-                <legend>Adresse</legend>
+                <legend class="${r.errors.address ? 'error' : ''}">Adresse</legend>
                 <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"
                 />
                 <input class="width-lg-100" type="text" placeholder="complement d'adresse" value.bind="r.item.address.street2" />
@@ -161,7 +161,7 @@
               </fieldset>
 
               <fieldset class="width-lg-50">
-                <legend>Contact</legend>
+                <legend class="${r.errors.contact ? 'error' : ''}">Contact</legend>
                 <input class="width-lg-100" type="text" placeholder="Nom" value.bind="r.item.contact.name" />
                 <input class="width-lg-100" type="tel" name="telephone" id="telephone" placeholder="telephone" value.bind="r.item.contact.phoneNumber"/>
                 <input class="width-lg-100" type="email" name="mailaddress" id="mailaddress" placeholder="Mail Adresse" value.bind="r.item.contact.mailAddress"/>
@@ -171,11 +171,11 @@
               <fieldset class="width-lg-100">
                 <legend>Sujet et description</legend>
                 <div class="horizontal">
-                  <label class="width-lg-10">Sujet</label>
+                  <label class="width-lg-10 ${r.errors.subject ? 'error' : ''}">Sujet</label>
                   <input class="width-lg-90" type="text" value.bind="r.item.subject" />
                 </div>
                 <div class="horizontal">
-                  <label class="width-lg-10">Description</label>
+                  <label class="width-lg-10 ${r.errors.description ? 'error' : ''}">Description</label>
                   <textarea class="width-lg-90" value.bind="r.item.description"></textarea>
                 </div>
                 <div class="horizontal">

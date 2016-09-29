@@ -46,6 +46,7 @@ export class Events {
         let afterSave = (responseBody) => {
             model.action = null;
             model.state = null;
+            model.errors = null;
             if (responseBody) {
                 model.item = responseBody;
             }

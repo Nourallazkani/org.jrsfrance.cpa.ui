@@ -18,101 +18,109 @@
 
         <div class="_result" repeat.for="r of results" style="margin-bottom:70px">
 
-        <!-- new block -->
+            <!-- new block -->
 
-        <div class="_edit-container" if.bind="r.action=='new'">
-            <div style="text-align:right;padding-right:10px;padding-top:10px">
-                <a click.delegate="cancel()" class="close"></a>
-            </div>
+            <div class="_edit-container" if.bind="r.action=='new'">
+                <div style="text-align:right;padding-right:10px;padding-top:10px">
+                    <a click.delegate="cancel()" class="close"></a>
+                </div>
 
-            <form class="split-lg-30-70 label-right" submit.delegate="save(r)" if.bind="r.action=='new'">
-                <fieldset>
-                    <legend>Ma demande</legend>
-                    <div class="horizontal">
-                        <label>Type de demande</label>
-                        <div class="horizontal  width-lg-70">
-                            <div style="flex:1;margin-top:7px">
-                                <input type="radio" name="reason" checked.bind="r.item.reason" value="INTERPRETING">Interprétariat
-                                <br/> (${refugee.languages.join(', ')})
-                            </div>
-                            <div style="flex:1;margin-top:7px">
-                                <input type="radio" name="reason" checked.bind="r.item.reason" value="SUPPORT_IN_STUDIES">Soutien
-                                dans les études <br/> (${refugee.fieldOfStudy})
-                            </div>
-                            <div style="flex:1;margin-top:7px">
-                                <input type="radio" name="reason" checked.bind="r.item.reason" value.bind="CONVERSATION">Leçons
-                                de français
+                <form class="split-lg-30-70 label-right" submit.delegate="save(r)" if.bind="r.action=='new'">
+                    <fieldset>
+                        <legend>Ma demande</legend>
+                        <div class="horizontal">
+                            <label class="${r.errors.reason ? 'error' : ''}">Type de demande</label>
+                            <div class="horizontal  width-lg-70">
+                                <div style="flex:1;margin-top:7px">
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value="INTERPRETING">Interprétariat
+                                    <br/> (${refugee.languages.join(', ')})
+                                </div>
+                                <div style="flex:1;margin-top:7px">
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value="SUPPORT_IN_STUDIES">Soutien
+                                    dans les études <br/> (${refugee.fieldOfStudy})
+                                </div>
+                                <div style="flex:1;margin-top:7px">
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value.bind="CONVERSATION">Leçons
+                                    de français
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="horizontal">
-                        <label>Informations complémentaires</label>
-                        <input type="text" value.bind="r.item.additionalInformations" />
-                    </div>
-                    <div class="horizontal">
-                        <label>Date </label>
-                        <input type="text" value.bind="r.item.dateConstraint" />
-                    </div>
-                    <div class="horizontal">
-                        <label>Ville ou code postal</label>
-                        <input type="text" placeholder="" place-autocomplete="target.bind : r.item;target-property.bind:'refugeeLocation'" /><br/>
-                    </div>
+                        <div class="horizontal">
+                            <label>Informations complémentaires</label>
+                            <input type="text" value.bind="r.item.additionalInformations" />
+                        </div>
+                        <div class="horizontal">
+                            <label>Date </label>
+                            <input type="text" value.bind="r.item.dateConstraint" />
+                        </div>
+                        <div class="horizontal">
+                            <label>Ville ou code postal</label>
+                            <input type="text" placeholder="" place-autocomplete="target.bind : r.item;target-property.bind:'refugeeLocation'" /><br/>
+                        </div>
 
-                </fieldset>
-                <fieldset>
-                    <legend>Pour vous contacter</legend>
-                    <div class="horizontal">
-                        <label>Téléphone</label>
-                        <input type="tel" value.bind="r.item.refugee.phoneNumber" /><br/>
-                    </div>
-                    <div class="horizontal">
-                        <label>Adresse mail</label>
-                        <input type="tel" value.bind="r.item.refugee.mailAddress" /><br/>
-                    </div>
-                    <div class="horizontal">
-                        <button class="offset-lg-30">Envoyer ma demande</button>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-        <!--new block -->
+                    </fieldset>
+                    <fieldset>
+                        <legend>Pour vous contacter</legend>
+                        <div class="horizontal">
+                            <label>Téléphone</label>
+                            <input type="tel" value.bind="r.item.refugee.phoneNumber" /><br/>
+                        </div>
+                        <div class="horizontal">
+                            <label>Adresse mail</label>
+                            <input type="tel" value.bind="r.item.refugee.mailAddress" /><br/>
+                        </div>
+                        <div class="horizontal">
+                            <button class="offset-lg-30">Envoyer ma demande</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <!--new block -->
 
 
 
             <!-- result block -->
-            <div class="width-lg-100 vertical"  if.bind="!r.action" >
-                <div class="_result-header horizontal"  rtl-right ltr-left>
-                        Accepté Par : Irinda 
+            <div class="width-lg-100 vertical" if.bind="!r.action">
+                <div class="_result-header horizontal" rtl-right ltr-left>
+                    Accepté Par : ${r.item.volunteer.name}
                 </div>
                 <div class="_result-body horizontal">
 
                     <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
-                        <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()>0">
-                            ${i18n("Registration opening") & signal : 'language-change'} : ${r.item.registrationOpeningDate | myDateFormat:'DD/MM'}
+                        <div if.bind="r.item.reason == 'INTERPRETING'">
+                            <div class="fit-to-content">
+                                Pour : Interpreting (${r.item.languages.join(' ou ')})
+                            </div>
                         </div>
-                        <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()<0">
-                            ${i18n("Registration closing") & signal : 'language-change'} : ${r.item.registrationClosingDate | myDateFormat:'DD/MM'}
+                        <div if.bind="r.item.reason == 'SUPPORT_IN_STUDIES'">
+                            <div class="fit-to-content">
+                                Pour : Support (${r.item.fieldOfStudy})
+                            </div>
                         </div>
-
+                        <div if.bind="r.item.reason == 'CONVERSATION'">
+                            <div class="fit-to-content">
+                                Pour : conversation
+                            </div>                            
+                        </div>
+                        <div>
+                            <div class="fit-to-content">
+                                Posted from the : ${r.item.post | myDateFormat:'DD/MM'}
+                            </div>
+                        </div>
+                        <div class="fit-to-content" if.bind="r.item.volunteer">
+                            Accepted the :${r.item.accept} <!-- TODO -->
+                        </div>
                     </div>
 
                     <div class="vertical _infos-container">
 
                         <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
                         <div class="horizontal">
-                            <div class="width-lg-40 info-title">
-                                <img src="/assets/img/common/icon-dates.svg" /> Pour :
-                            </div>
-                            <div class="width-lg-60 info-text">
-                                 Soutien dans les études (Informatiques)
-                            </div>
-                        </div>
-                        <div class="horizontal">
                             <div class="width-lg-40 info-title" left-or-right>
-                                <img src="/assets/img/common/icon-date.svg"/> Date :
+                                <img src="/assets/img/common/icon-date.svg" /> Date :
                             </div>
                             <div class="width-lg-60 info-text">
-                                le 20/01/2017
+                                ${r.item.dateConstraint}
                             </div>
                         </div>
                         <div class="horizontal">
@@ -120,20 +128,18 @@
                                 <img src="/assets/img/common/icon-address.svg" /> Région :
                             </div>
                             <div class="width-lg-60 info-text">
-                                    Paris 75018
+                                ${r.item.refugeeLocation}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="_result-body">
-                    <div style="background-color:#e7e9e8;padding:5px" class="width-lg-100">
+                    <div style="background-color:#e7e9e8;padding:5px;box-sizing: border-box;" class="width-lg-100">
                         Informations complémentaires
                         <div style="font-family:SegoeUiSlim;text-align:justify;padding:10px">
                             <p>
-                                Allé à la mairie (urgant)!<br/>
-                                Contact :<br/>
-                                Telephone : 07123456 <br/>
-                                address mail : rrrr@rrrrrr.rrr
+                                ${r.item.additionalInformations}<br/> Contact :<br/> Telephone : ${r.item.refugee.phoneNumber}
+                                <br/> address mail : ${r.item.refugee.mailAddress}
                             </p>
 
                         </div>

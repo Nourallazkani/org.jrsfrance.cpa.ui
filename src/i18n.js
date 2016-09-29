@@ -190,73 +190,87 @@ export class I18n {
             "refugees/index": {
                 "French courses": {
                     "fr": "Apprentissage du français",
-                    "ar": "تعلّم الفرنسية"
+                    "ar": "تعلّم الفرنسية",
+                    "prs": "آموزش زبان فرانسوی"
                 },
                 "University studies": {
                     "fr": "Etudes supérieures",
-                    "ar": "دراسة جامعية"
+                    "ar": "دراسة جامعية",
+                    "prs": "تحصیلات عالی"
                 },
                 "Professional training": {
                     "fr": "Formation professionelles",
-                    "ar": "تدريب مهني"
+                    "ar": "تدريب مهني",
+                    "prs": "آموزش های مسلکی"
                 },
                 "Workshops": {
                     "fr": "Ateliers sociaux linguistiques",
-                    "ar": "وُرَش سوسيولغوية"
+                    "ar": "ورشات سوسيولغوية",
+                    "prs": "کار گاه های زبانی ـ اجتماعی"
                 },
                 "Events": {
                     "fr": "Evenements",
-                    "ar": "فعّاليات"
+                    "ar": "فعّاليات",
+                    "prs": "برنامه ها"
                 },
                 "Self learning": {
                     "fr": "Auto apprentissage",
-                    "ar": "تعليم ذاتي"
+                    "ar": "تعليم ذاتي",
+                    "prs": "روش های خود آموزی زبان"
                 },
                 "Meet a volunteer": {
                     "fr": "Rencontrer un bénévole",
-                    "ar": "التقي متطوعاً"
+                    "ar": "التقي متطوعاً",
+                    "prs": "رضا کاران"
                 },
             },
             "refugees/welcome": {
                 "French courses": {
                     "fr": "Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie quotidienne)",
-                    "ar": "البحث عن عروض لتعلم اللغة الفرنسية حسب الحاجة ( الفرنسية لمتابعة التعليم العالي، الفرنسية للمهنين، الفرنسية للحياة اليومية)."
+                    "ar": "البحث عن عروض لتعلم اللغة الفرنسية حسب الحاجة ( الفرنسية لمتابعة التعليم العالي، الفرنسية للمهنين، الفرنسية للحياة اليومية).",
+                    "prs": "پیشنهاد فراگیری زبان فرانسوی مطابق نیاز مندی ها (زبان فرانسوی برای تحصیلات عالی٬ زبان فرانسوی در بخش آموزش های مسلکی و زبان فرانسوی برای زندگی روزمره)."
                 },
                 "University studies": {
                     "fr": "Des offres d’études supérieures avec accompagnement linguistique",
-                    "ar": "البحث عن عروض لمتابعة التعليم العالي مع مرافقة لغوية"
+                    "ar": "البحث عن عروض لمتابعة التعليم العالي مع مرافقة لغوية",
+                    "prs": "پیشنهاد تحصیلات عالی همراه با همکار زبانی."
                 },
                 "Professional training": {
                     "fr": "Des offres de formations professionnelles avec accompagnement linguistique",
-                    "ar": "البحث عن عروض لتدريبات مهنية مع مرافقة لغوية"
+                    "ar": "البحث عن عروض لتدريبات مهنية مع مرافقة لغوية",
+                    "prs": "پیشنهاد آموزش های مسلکی همراه با همکار زبانی."
                 },
                 "Workshops": {
                     "fr": "Ateliers qui visent à développer les compétences de communication pour la vie quotidienne.",
-                    "ar": "البحث عن ورشات عمل لتطوير مهارات التواصل اللّغوية الضرورية من أجل شؤون الحياة اليومية الاجتماعية."
+                    "ar": "البحث عن ورشات عمل لتطوير مهارات التواصل اللّغوية الضرورية من أجل شؤون الحياة اليومية الاجتماعية.",
+                    "prs": "کارگاه ها٬ برای ارتقای مهارت های ارتباطی در زندگی روزمره."
                 },
                 "Events": {
                     "fr": "Evenements",
-                    "ar": "البحث عن فعّاليات تُعنى باللاجئين"
+                    "ar": "البحث عن فعّاليات تُعنى باللاجئين",
+                    "prs": "رویدادها را"
                 },
                 "Self learning": {
                     "fr": "Annuaire des bibliothèques qui proposent et conseillent des méthodes d’auto-apprentissage.",
-                    "ar": "عناوين المكتبات التي تقترح و توفّر طرق لتعلّم الفرنسية بشكلٍ ذاتي."
+                    "ar": "عناوين المكتبات التي تقترح و توفّر طرق لتعلّم الفرنسية بشكلٍ ذاتي.",
+                    "prs": "فهرست راهنمای کتاب خانه ها برای  پیشنهاد و مشوره دهی در بخش خود آموزی زبان فرانسوی."
                 },
                 "Meet a volunteer": {
                     "fr": "Entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, l’interprétariat, ou d’autres formations.",
-                    "ar": "البحث عن متطوعين للمساعدة أثناء تعلّم الفرنسية أو في مرحلة التعليم العالي أو المرافقة -عند الحاجة- حين مواعيد الحصول على الأأوراق الرسمية)"
+                    "ar": "البحث عن متطوعين للمساعدة أثناء تعلّم الفرنسية أو في مرحلة التعليم العالي أو المرافقة -عند الحاجة- حين مواعيد الحصول على الأأوراق الرسمية)",
+                    "prs": "ایجاد رابطه همراه با یک رضا کار٬ برای همراهی در قسمت فراگیری زبان فرانسوی٬ ترجمه و سایر آموزش ها. "
                 }
             },
             "refugees/teachings": {
                 "Field of study": {
                     "fr": "Domaine",
-                    "ar": "مجال دراسي"
+                    "ar": "مجال الدراسة"
                 }
             },
             "refugees/professional-programs": {
                 "Domain": {
                     "fr": "Domaine",
-                    "ar": "مجال مهني"
+                    "ar": "المجال المهني"
                 }
             },
             "refugees/events": {
@@ -362,14 +376,17 @@ export class I18n {
                     "ar": "إذا كنتم تتقنون مجالا معيّناً كالرياضيات، أو الفيزياء... فهل تقبلون مساعدة اللاجئين في دراستهم ؟"
                 },
                 "Cultural or sport activities": {
-                    "fr": "Activites culturelles ou sportives"
+                    "fr": "Activites culturelles ou sportives",
+                    "ar" : "فعّاليات ثقافية و رياضية"
                 },
                 "Explanations-activities": {
                     "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "en":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    "en":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    "ar" : "أذا كان لديكم الوقت لتنظيم بعض النشاطات الثقافية و الرياضيّة فسيكون ذلك من دواعي سرور اللاجئين."
                 },
                 "Update availabilities" : {
-                    "fr" : "Mettre à jour mes disponibilités"
+                    "fr" : "Mettre à jour mes disponibilités",
+                    "ar" : "تحديث معلوماتي"
                 }
             },
             "volunteers/events": {

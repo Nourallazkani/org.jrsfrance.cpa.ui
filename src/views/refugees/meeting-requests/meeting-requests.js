@@ -19,7 +19,7 @@ export class MeetingRequests {
     this.referenceData = referenceData;
 
     //this.i18n = (key) => i18nMessages.getMessage("refugees/meeting-requests", key, userDetails.language);
-    if (this.userDetails.account && this.userDetails.account.profile=="R") {
+    if (this.userDetails.account && this.userDetails.account.profile == "R") {
       this.initialize();
     }
     else {
@@ -60,7 +60,7 @@ export class MeetingRequests {
         }
       };
 
-     this.results.unshift({ item: newItem, action: 'new' })
+      this.results.unshift({ item: newItem, action: 'new' })
     }
   }
 
@@ -69,6 +69,7 @@ export class MeetingRequests {
   }
 
   save(model) {
+    console.log(model)
     model.state = "saving";
     this.fetchClient
       .fetch(`refugees/${this.userDetails.account.id}/meeting-requests`, { method: "POST", body: json(model.item) })
@@ -77,6 +78,8 @@ export class MeetingRequests {
         model.action = null;
         model.state = null;
         model.item = x;
-      });
+      })
+      .catch(e => e.json().then(x => model.errors = x ))
+      ;
   }
 }

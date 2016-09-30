@@ -18,7 +18,7 @@ export class MeetingRequests {
     this.moment = moment;
     this.referenceData = referenceData;
 
-    //this.i18n = (key) => i18nMessages.getMessage("refugees/meeting-requests", key, userDetails.language);
+    this.i18n = (key) => i18nMessages.getMessage("refugees/meeting-requests", key, userDetails.language);
     if (this.userDetails.account && this.userDetails.account.profile == "R") {
       this.initialize();
     }

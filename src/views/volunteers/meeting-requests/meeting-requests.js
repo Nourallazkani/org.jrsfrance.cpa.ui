@@ -12,6 +12,8 @@ export class MeetingRequests {
         this.fetchClient = fetchClient;
         this.userDetails = userDetails;
         this.bindingEngine = bindingEngine;
+
+        this.i18n = (key) => i18nMessages.getMessage("refugees/meeting-requests", key, userDetails.language);
     }
     /*
         activate(params) {

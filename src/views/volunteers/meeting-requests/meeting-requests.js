@@ -39,6 +39,14 @@ export class MeetingRequests {
         this.find();
     }
 
+    accept(model) {
+        this.fetchClient
+            .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests/${model.item.id}`), { method: 'post' })
+            .then(() => {
+                this.results.splice(this.results.indexOf(model), 1);
+            });
+    }
+
     find() {
         this.fetchClient
             .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests`, this.filter))

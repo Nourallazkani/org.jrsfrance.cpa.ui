@@ -69,7 +69,6 @@ export class MeetingRequests {
   }
 
   save(model) {
-    console.log(model)
     model.state = "saving";
     this.fetchClient
       .fetch(`refugees/${this.userDetails.account.id}/meeting-requests`, { method: "POST", body: json(model.item) })

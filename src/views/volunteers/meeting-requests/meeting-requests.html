@@ -21,7 +21,10 @@
                     </div>
                     <div class="width-lg-50" ltr-right rtl-left if.bind="r.item.volunteer==null">
                         <button click.delegate="accept(r)">Accepter</button>
-                    </div>                    
+                    </div>  
+                    <div class="width-lg-50" ltr-right rtl-left if.bind="r.item.volunteer!=null">
+                        <button click.delegate="cancel(r)">Annuler</button>
+                    </div>                                        
                 </div>
                 <div class="_result-body horizontal">
 

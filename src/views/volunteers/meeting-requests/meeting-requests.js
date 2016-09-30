@@ -47,6 +47,14 @@ export class MeetingRequests {
             });
     }
 
+    cancel(model) {
+        this.fetchClient
+            .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests/${model.item.id}`), { method: 'delete' })
+            .then(() => {
+                this.results.splice(this.results.indexOf(model), 1);
+            });
+    }    
+
     find() {
         this.fetchClient
             .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests`, this.filter))

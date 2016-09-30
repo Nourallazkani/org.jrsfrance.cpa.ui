@@ -70,6 +70,10 @@
             <img src="/assets/img/common/icon-checked.svg" style="width:80px;margin-bottom:20px"><br/>
             Merci, vos disponibilités ont été mises à jour.
         </div>        
+        <div if.bind="userDetails.lastAction=='set-availabilities'" style="text-align:center">
+            Nous vous proposons de consulter les dernières demande d'aide correspondant et ce que vous proposez :<br/><br/>
+            <a route-href="route: volunteers/meeting-requests" style="font-weight:bold">Voir les demandes d'aide</a>
+        </div>
     </div>
     <div if.bind="outcome.status=='failure'" style="text-align:center">
         Problème...     

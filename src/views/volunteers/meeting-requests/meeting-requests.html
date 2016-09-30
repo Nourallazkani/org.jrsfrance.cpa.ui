@@ -1,8 +1,18 @@
 <template>
 
+    <div class="_results">
 
+        <div class="horizontal " style="font-family:SegoeUiSlim;margin-bottom:15px" ltr-right rtl-left>
+            <form class="width-lg-70" style="text-align:left">
+                <input type="radio" name="accepted" checked.bind="filter.accepted" value="true" change.trigger="find()" />
+                Demandes acceptées
+                <input type="radio" checked name="accepted" checked.bind="filter.accepted" value="false" change.trigger="find()" />
+                Demandes en attente
+            </form>
 
-     <div class="_result" repeat.for="r of results" style="margin-bottom:70px">
+        </div>
+
+        <div class="_result" repeat.for="r of results" style="margin-bottom:70px">
 
             <div class="width-lg-100 vertical">
                 <div class="_result-header horizontal" rtl-right ltr-left>
@@ -13,18 +23,18 @@
                     <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
                         <div if.bind="r.item.reason == 'INTERPRETING'">
                             <div class="fit-to-content">
-                                Pour : Interpreting (${r.item.languages.join(' ou ')})
+                                Pour : Interprétariat (${r.item.languages.join(' ou ')})
                             </div>
                         </div>
                         <div if.bind="r.item.reason == 'SUPPORT_IN_STUDIES'">
                             <div class="fit-to-content">
-                                Pour : Support (${r.item.fieldOfStudy})
+                                Pour : Soutien (${r.item.fieldOfStudy})
                             </div>
                         </div>
                         <div if.bind="r.item.reason == 'CONVERSATION'">
                             <div class="fit-to-content">
-                                Pour : conversation
-                            </div>                            
+                                Pour : Leçons de français
+                            </div>
                         </div>
                         <div>
                             <div class="fit-to-content">
@@ -32,7 +42,8 @@
                             </div>
                         </div>
                         <div class="fit-to-content" if.bind="r.item.volunteer">
-                            Accepted the :${r.item.accept} <!-- TODO -->
+                            Accepted the :${r.item.accept}
+                            <!-- TODO -->
                         </div>
                     </div>
 
@@ -70,6 +81,7 @@
                     </div>
                 </div>
             </div>
-     </div>
-     
+        </div>
+
+    </div>
 </template>

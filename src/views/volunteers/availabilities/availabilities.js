@@ -3,8 +3,9 @@ import {I18n} from 'i18n'
 
 import {inject, bindable, CompositionTransaction} from 'aurelia-framework'
 import {HttpClient, json} from 'aurelia-fetch-client';
+import {Router} from 'aurelia-router';
 
-@inject(HttpClient, CompositionTransaction, UserDetails, ReferenceData, I18n)
+@inject(HttpClient, CompositionTransaction, Router, UserDetails, ReferenceData, I18n)
 export class Availabilities {
 
 
@@ -12,7 +13,7 @@ export class Availabilities {
 
     outcome;
 
-    constructor(fetchClient, compositionTransaction, userDetails, referenceData, i18nMessages) {
+    constructor(fetchClient, compositionTransaction, router, userDetails, referenceData, i18nMessages) {
         this.fetchClient = fetchClient;
         this.userDetails = userDetails;
         this.referenceData = referenceData;
@@ -21,6 +22,7 @@ export class Availabilities {
         // otherwise <multilple-select></multiple-select> starts working with a null input, which causes issues with selection.bind.
         // So 'created'' callback must explictely call this.compositionTransactionNotifier.done() to trigger the attachement of the custom element.
         this.compositionTransactionNotifier = compositionTransaction.enlist();
+        this.router = router;
     }
 
     created() {
@@ -34,10 +36,13 @@ export class Availabilities {
     }
 
     update() {
+
         let uri = `volunteers/${this.userDetails.account.id}`
         this.fetchClient.fetch(uri, { body: json(this.input), method: "put" })
             .then(x => {
-                this.userDetails.lastAction = null;
+                if (this.userDetails.lastAction == 'sign-up') {
+                    this.userDetails.lastAction = 'set-availabilities';
+                }
                 this.outcome = { status: "ok" }
             })
             .catch(e => e.json().then(x => this.outcome = { status: "failure", errors: x }))

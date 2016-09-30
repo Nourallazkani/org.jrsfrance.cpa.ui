@@ -13,24 +13,36 @@ export class MeetingRequests {
         this.userDetails = userDetails;
         this.bindingEngine = bindingEngine;
     }
+    /*
+        activate(params) {
+            if (!(params.id > 0 && params.a == "a" && params.ak)) {
+                return;
+            }
+            if (this.userDetails.account) {
+                let uri = `volunteers/${this.userDetails.account.id}/meeting-requests/${params.id}`;
+                this.fetchClient.fetch(uri, { method: "POST" }).then(() => console.log("ok"));
+            }
+            else {
+                bindingEngine
+                    .propertyObserver(userDetails, 'account')
+                    .subscribe((account) => {
+                        if (account && account.profile == "V") {
+                            let uri = `volunteers/${this.userDetails.account.id}/meeting-requests/${params.id}`;
+                            this.fetchClient.fetch(uri, { method: "POST" }).then(() => console.log("ok"));
+                        }
+                    });
+            }
+        }*/
+    filter = { accepted: false };
 
-    activate(params) {
-        if (!(params.id > 0 && params.a == "a" && params.ak)) {
-            return;
-        }
-        if (this.userDetails.account) {
-            let uri = `volunteers/${this.userDetails.account.id}/meeting-requests/${params.id}`;
-            this.fetchClient.fetch(uri, { method: "POST" }).then(() => console.log("ok"));
-        }
-        else {
-            bindingEngine
-                .propertyObserver(userDetails, 'account')
-                .subscribe((account) => {
-                    if (account && account.profile == "V") {
-                        let uri = `volunteers/${this.userDetails.account.id}/meeting-requests/${params.id}`;
-                        this.fetchClient.fetch(uri, { method: "POST" }).then(() => console.log("ok"));
-                    }
-                });
-        }
+    created() {
+        this.find();
+    }
+
+    find() {
+        this.fetchClient
+            .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests`, this.filter))
+            .then(response => response.json())
+            .then(list => this.results = list.map(x => ({ item: x, action: null })));
     }
 }

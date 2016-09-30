@@ -13,7 +13,7 @@ export class MeetingRequests {
         this.userDetails = userDetails;
         this.bindingEngine = bindingEngine;
 
-        this.i18n = (key) => i18nMessages.getMessage("refugees/meeting-requests", key, userDetails.language);
+        this.i18n = (key) => i18nMessages.getMessage("volunteers/meeting-requests", key, userDetails.language);
     }
     /*
         activate(params) {

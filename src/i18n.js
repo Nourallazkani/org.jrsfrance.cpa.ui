@@ -327,7 +327,26 @@ export class I18n {
 
 
             "volunteers/welcome": {
-
+                 "Availabilities": {
+                    "fr": "Disponibilités",
+                    "ar": "",
+                    "prs":""
+                },
+                "Events for volunteers": {
+                    "fr": "Evenements pour les bénévoles",
+                    "ar": "",
+                    "prs":""
+                },
+                "Methods of teaching": {
+                    "fr": "Méthodes pour enseigner",
+                    "ar": "",
+                    "prs":""
+                },
+                "Meetings": {
+                    "fr": "Demande de rendez vous",
+                    "ar": "",
+                    "prs":""
+                }
             },
             "volunteers/availabilities": {
                 "Thanks for your registration": {

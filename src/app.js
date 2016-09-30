@@ -36,7 +36,8 @@ export class App {
     bindingEngine
       .propertyObserver(userDetails, 'language')
       .subscribe((newLanguage) => {
-        if (newLanguage == "ar" || newLanguage == "prs") {
+        console.log(this.router.currentInstruction.config.name != 'home')
+        if (newLanguage == "ar" || newLanguage == "prs" && this.router.currentInstruction.config.name != 'home' ) {
           document.body.style.direction = "rtl";
         }
         else {

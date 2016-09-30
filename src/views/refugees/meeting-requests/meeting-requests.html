@@ -81,7 +81,8 @@
 
             <!-- result block -->
             <div class="width-lg-100 vertical" if.bind="!r.action">
-                <div class="_result-header horizontal" rtl-right ltr-left>
+                <div class="_result-header horizontal" if.bind="r.item.volunteer" rtl-right ltr-left>
+                    <img src="/assets/img/common/icon-checked.svg" style="width:30px;height:30px;vertical-align:middle;">
                     Accepté Par : ${r.item.volunteer.name}
                 </div>
                 <div class="_result-body horizontal">

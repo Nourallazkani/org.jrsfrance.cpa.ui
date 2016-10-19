@@ -21,6 +21,10 @@
     width :45%;
 }
 
+.image-block img{
+       max-height: 100%;
+}
+
 .bg-yellow{
     background-color: #F4B821;
 }
@@ -36,7 +40,7 @@
     height: inherit;
     box-sizing: border-box;
     white-space: initial;
-    
+    overflow: auto;
     width :55%;
 }
 .text-block > b{
@@ -48,5 +52,5 @@
     font-size: 100pt;
     font-weight: normal;
     text-align: center;
-    margin: 0px auto 30px auto;
+    margin: 0px auto 10px auto;
 }

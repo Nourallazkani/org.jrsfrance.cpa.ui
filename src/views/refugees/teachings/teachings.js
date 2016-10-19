@@ -9,7 +9,7 @@ import moment from 'moment';
 @inject(HttpClient, UserDetails, I18n, ReferenceData)
 export class Teachings {
 
-  filter = { openForRegistration: true }
+  //filter = { openForRegistration: true }
   results = []
   view = "list";
 

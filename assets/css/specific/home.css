@@ -8,6 +8,21 @@
     color:white;
     font-family:SegoeUi ;
 }
+
+._home-menu{
+    width:33.3%;
+    text-align: center;
+    font-size: 30px;
+    font-family:SegoeUi ;
+    color:white;
+    box-sizing:border-box;
+}
+
+._home-menu ul{
+    margin: 0px;
+    list-style-type: none;
+    padding-top: 20px;
+}
 .home-welcome-panel{
     background-color:#333333;
     font-family:SegoeUi ;

@@ -1,13 +1,13 @@
 <template>
 
     <div class="_results" if.bind="userDetails.account.profile!='R'" style="text-align:center">
-        <p>No access, please sign up or sign in</p>
+        <p>${i18n("No access, please sign up or sign in")  & signal : 'language-change'}</p>
     </div>
     <div class="_results" if.bind="userDetails.account && userDetails.account.profile=='R'">
 
 
         <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
-            <a style="font-weight:bold" click.delegate="new()">Nouvelle demande de rendez vous</a>
+            <a style="font-weight:bold" click.delegate="new()"> ${i18n("New appointment request")  & signal : 'language-change'}</a>
         </div>
 
         <hr style="margin:30px 0px" />
@@ -27,50 +27,49 @@
 
                 <form class="split-lg-30-70 label-right" submit.delegate="save(r)" if.bind="r.action=='new'">
                     <fieldset>
-                        <legend>Ma demande</legend>
+                        <legend>${i18n("My request")  & signal : 'language-change'}</legend>
                         <div class="horizontal">
-                            <label class="${r.errors.reason ? 'error' : ''}">Type de demande</label>
+                            <label class="${r.errors.reason ? 'error' : ''}">${i18n("Request type *")  & signal : 'language-change'}</label>
                             <div class="horizontal  width-lg-70">
                                 <div style="flex:1;margin-top:7px">
-                                    <input type="radio" name="reason" checked.bind="r.item.reason" value="INTERPRETING">Interprétariat
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value="INTERPRETING">${i18n("Interpreting")  & signal : 'language-change'}
                                     <br/> (${refugee.languages.join(', ')})
                                 </div>
                                 <div style="flex:1;margin-top:7px">
-                                    <input type="radio" name="reason" checked.bind="r.item.reason" value="SUPPORT_IN_STUDIES">Soutien
-                                    dans les études <br/> (${refugee.fieldOfStudy})
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value="SUPPORT_IN_STUDIES">${i18n("Support in studies")  & signal : 'language-change'}
+                                    <br/> (${refugee.fieldOfStudy})
                                 </div>
                                 <div style="flex:1;margin-top:7px">
-                                    <input type="radio" name="reason" checked.bind="r.item.reason" value.bind="CONVERSATION">Leçons
-                                    de français
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value.bind="CONVERSATION">${i18n("French lessons")  & signal : 'language-change'}
                                 </div>
                             </div>
                         </div>
                         <div class="horizontal">
-                            <label>Informations complémentaires</label>
+                            <label>${i18n("Additional information")  & signal : 'language-change'}</label>
                             <input type="text" value.bind="r.item.additionalInformations" />
                         </div>
                         <div class="horizontal">
-                            <label>Date </label>
+                            <label>${i18n("Date")  & signal : 'language-change'} </label>
                             <input type="text" value.bind="r.item.dateConstraint" />
                         </div>
                         <div class="horizontal">
-                            <label>Ville ou code postal</label>
+                            <label>${i18n("City or postal code")  & signal : 'language-change'}</label>
                             <input type="text" placeholder="" place-autocomplete="target.bind : r.item;target-property.bind:'refugeeLocation'" /><br/>
                         </div>
 
                     </fieldset>
                     <fieldset>
-                        <legend>Pour vous contacter</legend>
+                        <legend>${i18n("To contact you")  & signal : 'language-change'}</legend>
                         <div class="horizontal">
-                            <label>Téléphone</label>
+                            <label>${i18n("Telephone")  & signal : 'language-change'}</label>
                             <input type="tel" value.bind="r.item.refugee.phoneNumber" /><br/>
                         </div>
                         <div class="horizontal">
-                            <label>Adresse mail</label>
+                            <label>${i18n("Mail address")  & signal : 'language-change'}</label>
                             <input type="tel" value.bind="r.item.refugee.mailAddress" /><br/>
                         </div>
                         <div class="horizontal">
-                            <button class="offset-lg-30">Envoyer ma demande</button>
+                            <button class="offset-lg-30">${i18n("Send my request")  & signal : 'language-change'}</button>
                         </div>
                     </fieldset>
                 </form>
@@ -84,28 +83,28 @@
                 <div class="_result-header horizontal" if.bind="r.item.volunteer" rtl-right ltr-left>
                     <img src="/assets/img/common/icon-checked.svg" style="width:30px;height:30px;vertical-align:middle;">
                     <span style="padding-left:15px;padding-right:15px">
-                        Accepté par : ${r.item.volunteer.name} le ${r.item.acceptedDate | myDateFormat:'DD MMMM'}
+                        ${i18n("Accepted by")  & signal : 'language-change'} : ${r.item.volunteer.name} le ${r.item.acceptedDate | myDateFormat:'DD MMMM'}
                     </span>
                 </div>
                 <div class="_result-header horizontal" if.bind="!r.item.volunteer" rtl-right ltr-left>
-                    Posté le ${r.item.postDate | myDateFormat:'DD MMMM'}
+                     ${i18n("Posted the")  & signal : 'language-change'} ${r.item.postDate | myDateFormat:'DD MMMM'}
                 </div>                
                 <div class="_result-body horizontal">
 
                     <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
                         <div if.bind="r.item.reason == 'INTERPRETING'">
                             <div class="fit-to-content">
-                                Pour : Interprétariat (${r.item.languages.join(' ou ')})
+                                 ${i18n("For")  & signal : 'language-change'} :  ${i18n("Interpreting")  & signal : 'language-change'} (${r.item.languages.join(' ou ')})
                             </div>
                         </div>
                         <div if.bind="r.item.reason == 'SUPPORT_IN_STUDIES'">
                             <div class="fit-to-content">
-                                Pour : Soutien (${r.item.fieldOfStudy})
+                                 ${i18n("For")  & signal : 'language-change'} :  ${i18n("Support in studies")  & signal : 'language-change'} (${r.item.fieldOfStudy})
                             </div>
                         </div>
                         <div if.bind="r.item.reason == 'CONVERSATION'">
                             <div class="fit-to-content">
-                                Pour : Leçons de français
+                                 ${i18n("For")  & signal : 'language-change'} :  ${i18n("French lessons")  & signal : 'language-change'}
                             </div>                            
                         </div>
                     </div>
@@ -115,7 +114,7 @@
                         <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
                         <div class="horizontal">
                             <div class="width-lg-40 info-title" left-or-right>
-                                <img src="/assets/img/common/icon-date.svg" /> Date :
+                                <img src="/assets/img/common/icon-date.svg" /> ${i18n("Date")  & signal : 'language-change'} :
                             </div>
                             <div class="width-lg-60 info-text">
                                 ${r.item.dateConstraint}
@@ -123,7 +122,7 @@
                         </div>
                         <div class="horizontal">
                             <div class="width-lg-40 info-title" left-or-right>
-                                <img src="/assets/img/common/icon-address.svg" /> Région :
+                                <img src="/assets/img/common/icon-address.svg" /> ${i18n("Region")  & signal : 'language-change'} :
                             </div>
                             <div class="width-lg-60 info-text">
                                 ${r.item.refugeeLocation}
@@ -133,11 +132,12 @@
                 </div>
                 <div class="_result-body">
                     <div style="background-color:#e7e9e8;padding:5px;box-sizing: border-box;" class="width-lg-100">
-                        Informations complémentaires : ${r.item.additionalInformations}
+                        ${i18n("Additional information")  & signal : 'language-change'} : ${r.item.additionalInformations}
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+     <br/>
 </template>

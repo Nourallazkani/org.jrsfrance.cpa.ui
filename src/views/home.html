@@ -4,7 +4,10 @@
     <require from="views/_components/user-form"></require>
     <require from="views/_components/sign-in-form"></require>
 
+
+    <!-- old model
     <div class="horizontal" style="height:700px">
+       
         <div class="home-menu" style="margin-right:auto;background-color:#0FCFBC;" if.bind="userDetails.profile=='V' || userDetails.profile==null">
             <p style="text-align:center">
                 <a route-href="route:volunteers"><img src="/assets/img/home/profile-volunteer.png" /></a>
@@ -67,19 +70,151 @@
             </div>
         </div>
 
-
-
-        <div class="home-menu" style="background-color:#F45652;margin-left:5%;margin-right:5%" if.bind="userDetails.profile==null">
-            <p style="text-align:center">
-                <a route-href="route:refugees"><img src="/assets/img/home/profile-refugee.png" /></a>
-            </p>
+        <div class="home-menu" style="background-color:#F45652;" if.bind="userDetails.profile==null">
+            
             <ul ltr-left rtl-right>
                 <li style="height:80px"><a click.delegate="setUserDetails('R', 'fr')">${i18n("Refugee or asylum seeker","fr")}</a></li>
                 <li style="height:80px"><a click.delegate="setUserDetails('R', 'ar')">${i18n("Refugee or asylum seeker", "ar")}</a></li>
                 <li style="height:80px"><a click.delegate="setUserDetails('R', 'en')">${i18n("Refugee or asylum seeker", "en")}</a></li>
                 <li style="height:80px"><a click.delegate="setUserDetails('R', 'prs')">${i18n("Refugee or asylum seeker", "prs")}</a></li>
             </ul>
+            <p style="text-align:center">
+                <a route-href="route:refugees"><img src="/assets/img/home/profile-refugee.png" /></a>
+            </p>
+        </div>
+        
 
+        <div class="home-welcome-panel home-welcome-organisation-panel" if.bind="userDetails.profile=='O'">
+            <img src="/assets/img/common/arrow-left-saif.svg" style="position:absolute; width:50px;height:50px; left:100%; bottom:25%;">
+            <div if.bind="action==null">
+                <div style="text-align:right">
+                    <a click.delegate="setUserDetails(null)" class="close"></a>
+                </div>
+                <p>
+                    Je peux présenter mes offres de formation pour les réfugiés afin qu’ils retrouvent celles qui sont les plus adaptées à leurs
+                    besoins.
+                </p>
+                <div class="horizontal" style="text-align:center">
+                    <div style="flex-grow:1">
+                        <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
+                    </div>
+                    <div style="flex-grow:1">
+                        <a click.delegate="action='sign-in'">
+                            <img src="/assets/img/home/icon-signin.svg" class="icon"> Je me connecte
+                        </a>
+                    </div>
+                    <div style="flex-grow:1">
+                        <a click.delegate="action='sign-up'">
+                            <img src="/assets/img/home/icon-signup.svg" class="icon"> Je m'inscris
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div if.bind="action=='sign-in'">
+                <div style="text-align:left">
+                    <a click.delegate="action=null">
+                        < Retour</a>
+                </div>
+                <div style="margin-top:50px">
+                    <sign-in-form success-route="/organisations"></sign-in-form>
+                </div>
+            </div>
+            <div if.bind="action=='sign-up'">
+                <div style="text-align:left">
+                    <a click.delegate="action=null">
+                        < Retour</a>
+                </div>
+                Explication de la procédure d'inscription
+            </div>
+        </div>
+        
+        <div class="home-menu" style="background-color:#F7CF52;margin-left: auto;" if.bind="userDetails.profile=='O' || userDetails.profile==null">
+            <p style="text-align:center">
+                <img src="/assets/img/home/profile-organisation.png" />
+            </p>
+            <ul ltr-left rtl-right>
+                <li style="height:80px"><a click.delegate="setUserDetails('O', 'fr')">Je repr&eacute;sente une institution</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('O', 'ar')">أنا أمثّل منظمة</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('O', 'en')">I represent an institution</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('O', 'prs')">من نماینده یک موسسه</a></li>
+            </ul>
+        </div>
+        
+    </div> -->
+
+    <div class="horizontal" style="height:700px">
+        <div class="vertical _home-menu" style="margin-right:auto;background-color:#0FCFBC;" if.bind="userDetails.profile=='V' || userDetails.profile==null">
+            <div style="height:50%;overflow:hidden;">
+                <img style="width:100%" src="/assets/img/home/voulnteer.jpg" />
+            </div>
+            <div style="height:50%;">  <ul>
+                <li style="height:80px"><a click.delegate="setUserDetails('V', 'fr')">Je suis b&eacute;n&eacute;vole</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V', 'ar')">أنا متطوع</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V', 'en')">I'm a Volunteer</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V', 'prs')">من یک داوطلب هستم</a></li>
+            </ul></div>
+        </div>
+
+        <div class="home-welcome-panel home-welcome-volunteer-panel" if.bind="userDetails.profile=='V'">
+            <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:50px;height:50px; right:100%; bottom:25%;">
+            <div if.bind="action==null">
+                <div style="text-align:right">
+                    <a click.delegate="setUserDetails(null)" class="close"></a>
+                </div>
+                <p>
+                    Je peux donner un peu de mon temps selon mes disponibilités pour :
+                    <ul>
+                        <li>aider dans l’apprentissage de français.</li>
+                        <li>le soutien pour certaines formations.</li>
+                        <li>l’interprétariat</li>
+                    </ul>
+                </p>
+                <div class="horizontal" style="text-align:center">
+                    <div style="flex-grow:1">
+                        <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
+                    </div>
+                    <div style="flex-grow:1">
+                        <a click.delegate="action='sign-in'">
+                            <img src="/assets/img/home/icon-signin.svg" class="icon"> Je me connecte
+                        </a>
+                    </div>
+                    <div style="flex-grow:1">
+                        <a click.delegate="action='sign-up'">
+                            <img src="/assets/img/home/icon-signup.svg" class="icon"> Je m'inscris
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div if.bind="action=='sign-in'">
+                <div style="text-align:left">
+                    <a click.delegate="action=null">
+                        < Retour</a>
+                </div>
+                <div style="margin-top:50px">
+                    <sign-in-form success-route="/volunteers"></sign-in-form>
+                </div>
+            </div>
+            <div if.bind="action=='sign-up'">
+                <div>
+                    <a click.delegate="action=null">
+                        < Retour</a>
+                </div>
+                <div style="margin-top:50px">
+                    <user-form show-credentials="true" show-identity="true" show-details="false" action="sign-up" success-route="/volunteers/availabilities"></user-form>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical _home-menu" style="background-color:#F45652;" if.bind="userDetails.profile==null">
+            <div style="height:50%;"> <ul>
+                <li style="height:80px"><a click.delegate="setUserDetails('R', 'fr')">${i18n("Refugee or asylum seeker","fr")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R', 'ar')">${i18n("Refugee or asylum seeker", "ar")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R', 'en')">${i18n("Refugee or asylum seeker", "en")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('R', 'prs')">${i18n("Refugee or asylum seeker", "prs")}</a></li>
+            </ul></div>
+             <div style="height:50%;overflow:hidden;">
+                <img style="width:100%" src="/assets/img/home/refugees.jpg" />
+            </div>
         </div>
 
         <div class="home-welcome-panel home-welcome-organisation-panel" if.bind="userDetails.profile=='O'">
@@ -125,16 +260,17 @@
                 Explication de la procédure d'inscription
             </div>
         </div>
-        <div class="home-menu" style="background-color:#F7CF52;margin-left: auto;" if.bind="userDetails.profile=='O' || userDetails.profile==null">
-            <p style="text-align:center">
-                <img src="/assets/img/home/profile-organisation.png" />
-            </p>
-            <ul ltr-left rtl-right>
+
+        <div class="vertical _home-menu" style="background-color:#F7CF52;" if.bind="userDetails.profile=='O' || userDetails.profile==null">
+            <div style="height:50%; overflow:hidden;" >
+                <img style="width:100%" src="/assets/img/home/organistion.jpg" />
+            </div>
+            <div style="height:50%;"> <ul>
                 <li style="height:80px"><a click.delegate="setUserDetails('O', 'fr')">Je repr&eacute;sente une institution</a></li>
                 <li style="height:80px"><a click.delegate="setUserDetails('O', 'ar')">أنا أمثّل منظمة</a></li>
                 <li style="height:80px"><a click.delegate="setUserDetails('O', 'en')">I represent an institution</a></li>
                 <li style="height:80px"><a click.delegate="setUserDetails('O', 'prs')">من نماینده یک موسسه</a></li>
-            </ul>
+            </ul></div>
         </div>
     </div>
     <div if.bind="userDetails.language!=null">

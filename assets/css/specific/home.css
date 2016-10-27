@@ -10,7 +10,7 @@
 }
 
 ._home-menu{
-    width:33.3%;
+    flex: 1;
     text-align: center;
     font-size: 30px;
     font-family:SegoeUi ;
@@ -22,6 +22,13 @@
     margin: 0px;
     list-style-type: none;
     padding-top: 20px;
+}
+._home-menu ul li a{
+    transition: all 0.5s ;
+}
+._home-menu ul li a:hover, ._home-menu ul li a:focus{
+    color: #333333;
+    font-size: 33px;
 }
 .home-welcome-panel{
     background-color:#333333;

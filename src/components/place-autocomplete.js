@@ -1,5 +1,5 @@
-import {inject} from 'aurelia-framework';
-import {bindable} from 'aurelia-framework'
+import { inject } from 'aurelia-framework';
+import { bindable } from 'aurelia-framework'
 
 @inject(Element)
 export class PlaceAutocompleteCustomAttribute {
@@ -16,18 +16,25 @@ export class PlaceAutocompleteCustomAttribute {
     }
 
     created() {
-        if(!this.restrictions){
+        if (!this.restrictions) {
             this.restrictions = ["geocode"];
         }
-        else if(this.restrictions=='regions'){
-           this.restrictions=["(regions)"]; 
+        else if (this.restrictions == 'regions') {
+            this.restrictions = ["(regions)"];
         }
     }
 
     attached() {
-        
+
+        google.maps.event.addDomListener(this.element, 'keydown', function (e) {
+            if (e.keyCode == 13) {
+                console.log('enter')
+                e.preventDefault();
+            }
+        });
+
         let options = {
-           types: this.restrictions,
+            types: this.restrictions,
             componentRestrictions: { country: "fr" },
         };
         this.autocomplete = new google.maps.places.Autocomplete(this.element, options);

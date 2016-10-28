@@ -96,7 +96,7 @@ export class MeetingRequests {
             .then(message => {
                 input.from = message.from;
                 input.to = message.to;
-                input.postDate = message.postDate;
+                input.postedDate = message.postedDate;
             });
     }
 }

@@ -1,7 +1,7 @@
 import {UserDetails, ReferenceData, getUri} from 'common'
 
 import {inject, BindingEngine} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 
 import moment from 'moment'
 
@@ -55,12 +55,48 @@ export class MeetingRequests {
             .then(() => {
                 this.results.splice(this.results.indexOf(model), 1);
             });
-    }    
+    }
 
     find() {
         this.fetchClient
             .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests`, this.filter))
             .then(response => response.json())
             .then(list => this.results = list.map(x => ({ item: x, action: null })));
+    }
+
+    viewMessages(result) {
+        this.fetchClient
+            .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests/${result.item.id}/messages`))
+            .then(response => response.json())
+            .then(messages => result.messages = messages);
+    }
+
+    newMessage(result) {
+        if (result.messages.length == 0 || result.messages[0].postDate != null) {
+            result.messages.push({})
+        }
+    }
+
+    cancelNewMessage(listElement) {
+        if (listElement.messages.length == 0){
+            return;
+        }
+        let lastMessage = listElement.messages[listElement.messages.length-1];
+        if (lastMessage.postedDate == null) {
+            listElement.messages.splice(listElement.messages.length-1, 1);
+        }
+    }    
+
+    saveMessage(listElement, input) {
+        let vId = this.userDetails.account.id;
+        let mId = listElement.item.id;
+        this.fetchClient
+            .fetch(getUri(`volunteers/${vId}/meeting-requests/${mId}/messages`), { method: 'post', body: json(input) })
+            .then(response => response.json())
+            .then(message => {
+                input.from = message.from;
+                input.to = message.to;
+                input.postDate = message.postDate;
+            });
     }
 }

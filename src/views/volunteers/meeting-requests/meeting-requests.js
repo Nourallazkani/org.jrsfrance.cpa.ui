@@ -72,8 +72,8 @@ export class MeetingRequests {
     }
 
     newMessage(result) {
-        if (result.messages.length == 0 || result.messages[0].postDate != null) {
-            result.messages.push({})
+        if (listElement.messages.length == 0 || listElement.messages[0].postDate != null) {
+            listElement.messages.push({})
         }
     }
 

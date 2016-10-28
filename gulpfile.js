@@ -1,19 +1,22 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var del = require('del');
+var argv = require('yargs').argv;
 var aureliaBundler = require('aurelia-bundler');
 var browserSync = require('browser-sync');
 var historyApiFallback = require('connect-history-api-fallback')
 var s3 = require('gulp-s3-upload')({ accessKeyId: "AKIAJWC3S7GZQQJHTLEA", secretAccessKey: "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" });
 
-var env = {
-  "dev":{
+var environments = {
+  "local":{
     "apiEndpoint":"http://localhost:8080/api"
   },
   "aws" : {
-    "apiEndpoint":"http://localhost:8080/api"
+    "apiEndpoint":"http://cpa-env-green.eu-west-1.elasticbeanstalk.com/"
   }
 }
+
+var env = environments[argv.env || "aws"]
 
 var config = {
   force: true,

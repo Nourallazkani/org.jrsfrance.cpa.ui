@@ -81,13 +81,13 @@ export class MeetingRequests {
         if (listElement.messages.length == 0){
             return;
         }
-        let lastMessage = listElement.messages[listElement.messages.length-1];
-        if (lastMessage.postedDate == null) {
-            listElement.messages.splice(listElement.messages.length-1, 1);
+        let newMessage = listElement.messages.find(x => !x.postedDate)
+        if (newMessage) {
+            listElement.messages.splice(listElement.messages.indexOf(newMessage), 1);
         }
     }    
 
-    saveMessage(listElement, input) {
+    saveNewMessage(listElement, input) {
         let vId = this.userDetails.account.id;
         let mId = listElement.item.id;
         this.fetchClient

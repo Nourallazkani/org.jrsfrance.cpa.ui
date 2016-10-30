@@ -1,7 +1,7 @@
-import {UserDetails, ReferenceData, getUri} from 'common'
+import { UserDetails, ReferenceData, getUri } from 'common'
 
-import {inject, BindingEngine} from 'aurelia-framework';
-import {HttpClient, json} from 'aurelia-fetch-client';
+import { inject, BindingEngine } from 'aurelia-framework';
+import { HttpClient, json } from 'aurelia-fetch-client';
 
 import moment from 'moment'
 
@@ -41,15 +41,7 @@ export class MeetingRequests {
         this.find();
     }
 
-    accept(model) {
-        this.fetchClient
-            .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests/${model.item.id}`), { method: 'post' })
-            .then(() => {
-                this.results.splice(this.results.indexOf(model), 1);
-            });
-    }
-
-    cancel(model) {
+    delete(model) {
         this.fetchClient
             .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests/${model.item.id}`), { method: 'delete' })
             .then(() => {
@@ -61,7 +53,7 @@ export class MeetingRequests {
         this.fetchClient
             .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests`, this.filter))
             .then(response => response.json())
-            .then(list => this.results = list.map(x => ({ item: x, action: null })));
+            .then(list => this.results = list.map(x => ({ item: x, action: null, showMessages: false, messages: null })));
     }
 
     viewMessages(result) {
@@ -71,32 +63,26 @@ export class MeetingRequests {
             .then(messages => result.messages = messages);
     }
 
-    newMessage(result) {
-        if (listElement.messages.length == 0 || listElement.messages[0].postDate != null) {
-            listElement.messages.push({})
-        }
+    startAccept(result) {
+        this.viewMessages(result);
+        result.action = "accept";
     }
 
-    cancelNewMessage(listElement) {
-        if (listElement.messages.length == 0){
-            return;
-        }
-        let newMessage = listElement.messages.find(x => !x.postedDate)
-        if (newMessage) {
-            listElement.messages.splice(listElement.messages.indexOf(newMessage), 1);
-        }
-    }    
+    hideMessages(result) {
+        result.messages = null;
+    }
 
-    saveNewMessage(listElement, input) {
+    saveNewMessage(listElement, newMessage) {
+        console.log(newMessage)
         let vId = this.userDetails.account.id;
         let mId = listElement.item.id;
+
         this.fetchClient
-            .fetch(getUri(`volunteers/${vId}/meeting-requests/${mId}/messages`), { method: 'post', body: json(input) })
+            .fetch(getUri(`volunteers/${vId}/meeting-requests/${mId}/messages`), { method: 'post', body: json(newMessage) })
             .then(response => response.json())
             .then(message => {
-                input.from = message.from;
-                input.to = message.to;
-                input.postedDate = message.postedDate;
+                newMessage.text = null;
+                listElement.messages.push(message);
             });
     }
 }

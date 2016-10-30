@@ -157,7 +157,7 @@ export class I18n {
                 },
                 "Phone": {
                     "fr": "Téléphone",
-                    "ar": "البريد الالكتروني",
+                    "ar": "الهاتف",
                     "prs": ""
                 },
                 "Password": {
@@ -432,18 +432,7 @@ export class I18n {
                     "fr": "Pas d'accès, veuillez s'inscrire ou se connecter",
                     "ar": "للوصول لهذه الخدمة، تفضّلوا بإنشاء حساب أو بتسجيل الدخول.",
                     "prs":""
-                 },
-                 "": {
-                    "fr": "",
-                    "ar": "",
-                    "prs":""
-                 },
-                 "": {
-                    "fr": "",
-                    "ar": "",
-                    "prs":""
-                 },
-                 
+                 }
             },
 
 

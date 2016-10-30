@@ -1,6 +1,5 @@
 export class ApplicationConfig {
-    //apiEndpoint= "http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";
-    apiEndpoint = "http://localhost:8080/api/";
+    apiEndpoint= window.location.href.indexOf('localhost')>0 ? "http://localhost:8080/api/" : "http://cpa-env-green.eu-west-1.elasticbeanstalk.com/";
 }
 
 export class ReferenceData {

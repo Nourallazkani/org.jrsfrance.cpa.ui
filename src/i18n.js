@@ -131,22 +131,22 @@ export class I18n {
                     "ar": "تسجيل الدخول",
                     "prs": ""
                 },
-                "Invalid mail address or password":{
-                    "fr":"Adresse mail ou mot de passe invalide",
-                    "ar":" عنوان البريدأو كلمة المرور غير صالح",
+                "Invalid mail address or password": {
+                    "fr": "Adresse mail ou mot de passe invalide",
+                    "ar": " عنوان البريدأو كلمة المرور غير صالح",
                     "prs": ""
                 },
-                "Reset my password":{
-                    "fr":"Réinitialiser mon mot de passe",
-                    "ar":"إعادة تعيين كلمة مروري",
+                "Reset my password": {
+                    "fr": "Réinitialiser mon mot de passe",
+                    "ar": "إعادة تعيين كلمة مروري",
                     "prs": ""
                 },
-                "Recover password confirmation":{
-                    "fr":"Un mail vous a été envoyé, il contient un lien permettant de réinitialiser votre mot de passe.",
-                    "en" : "An email has been sent, which contains a link to reset your password.",
-                    "ar":"تم إرسال رسالة الكترونية (إيميل) تحتوي على رابط إعادة تعيين كلمة مروركم.",
+                "Recover password confirmation": {
+                    "fr": "Un mail vous a été envoyé, il contient un lien permettant de réinitialiser votre mot de passe.",
+                    "en": "An email has been sent, which contains a link to reset your password.",
+                    "ar": "تم إرسال رسالة الكترونية (إيميل) تحتوي على رابط إعادة تعيين كلمة مروركم.",
                     "prs": ""
-                }            
+                }
             },
 
             "user-form": {
@@ -220,9 +220,9 @@ export class I18n {
                     "ar": "تحديث ملفّي الشخصي",
                     "prs": ""
                 },
-                "Another acccout is linked to this address":{
-                    "fr":"Un autre compte est associé à cette adresse",
-                    "ar":"يوجد حساب آخر مرتبط بهذا العنوان.",
+                "Another acccout is linked to this address": {
+                    "fr": "Un autre compte est associé à cette adresse",
+                    "ar": "يوجد حساب آخر مرتبط بهذا العنوان.",
                     "prs": ""
                 }
             },
@@ -343,96 +343,96 @@ export class I18n {
 
             },
             "refugees/meeting-requests": {
-                 "New appointment request": {
+                "New appointment request": {
                     "fr": "Nouvelle demande de rendez vous",
                     "ar": "طلب موعد جديد",
-                    "prs":""
-                 },
-                 "Request type *": {
+                    "prs": ""
+                },
+                "Request type *": {
                     "fr": "Type de demande *",
                     "ar": "نوع الموعد *",
-                    "prs":""
-                 },
-                 "Interpreting": {
+                    "prs": ""
+                },
+                "Interpreting": {
                     "fr": "Interprétariat",
                     "ar": "ترجمة فورية",
-                    "prs":""
-                 },
-                 "Support in studies": {
+                    "prs": ""
+                },
+                "Support in studies": {
                     "fr": "Soutien dans les études",
                     "ar": " دعم الدراسي",
-                    "prs":""
-                 },
-                 "French lessons": {
+                    "prs": ""
+                },
+                "French lessons": {
                     "fr": "Leçons de français",
                     "ar": "دروس الفرنسية ",
-                    "prs":""
-                 },
-                 "Additional information": {
+                    "prs": ""
+                },
+                "Additional information": {
                     "fr": "Informations complémentaires",
                     "ar": "معلومات إضافية",
-                    "prs":""
-                 },
-                 "Date": {
+                    "prs": ""
+                },
+                "Date": {
                     "fr": "Date",
                     "ar": "التاريخ",
-                    "prs":""
-                 },
-                 "City or postal code": {
+                    "prs": ""
+                },
+                "City or postal code": {
                     "fr": "Ville ou code postal",
                     "ar": "البلد أو الرمز البريدي",
-                    "prs":""
-                 },
-                 "To contact you": {
+                    "prs": ""
+                },
+                "To contact you": {
                     "fr": "Pour vous contacter",
                     "ar": "للتواصل معكم",
-                    "prs":""
-                 },
-                 "Telephone": {
+                    "prs": ""
+                },
+                "Telephone": {
                     "fr": "Téléphone",
                     "ar": "الهاتف",
-                    "prs":""
-                 },
-                 "Mail address": {
+                    "prs": ""
+                },
+                "Mail address": {
                     "fr": "Adresse mail",
                     "ar": "العنوان البريدي",
-                    "prs":""
-                 },
-                 "Send my request": {
+                    "prs": ""
+                },
+                "Send my request": {
                     "fr": "Envoyer ma demande",
                     "ar": "إرسال طلبي",
-                    "prs":""
-                 },
-                 "Accepted by": {
+                    "prs": ""
+                },
+                "Accepted by": {
                     "fr": "Accepté par ",
                     "ar": "قُبِلَ من:",
-                    "prs":""
-                 },
-                 "Posted the": {
+                    "prs": ""
+                },
+                "Posted the": {
                     "fr": "Posté le ",
                     "ar": "وُضِع في ",
-                    "prs":""
-                 },
-                 "For": {
+                    "prs": ""
+                },
+                "For": {
                     "fr": "Pour ",
                     "ar": "من أجل",
-                    "prs":""
-                 },
-                 "Region": {
+                    "prs": ""
+                },
+                "Region": {
                     "fr": "Région",
                     "ar": "المنطقة",
-                    "prs":""
-                 },
-                 "My request": {
+                    "prs": ""
+                },
+                "My request": {
                     "fr": "Ma demande",
                     "ar": "طلبي",
-                    "prs":""
-                 },
-                 "No access, please sign up or sign in": {
+                    "prs": ""
+                },
+                "No access, please sign up or sign in": {
                     "fr": "Pas d'accès, veuillez s'inscrire ou se connecter",
                     "ar": "للوصول لهذه الخدمة، تفضّلوا بإنشاء حساب أو بتسجيل الدخول.",
-                    "prs":""
-                 }
+                    "prs": ""
+                }
             },
 
 
@@ -462,25 +462,25 @@ export class I18n {
 
 
             "volunteers/welcome": {
-                 "Availabilities": {
+                "Availabilities": {
                     "fr": "Disponibilités",
                     "ar": "متاح لـ",
-                    "prs":""
+                    "prs": ""
                 },
                 "Events for volunteers": {
                     "fr": "Evenements pour les bénévoles",
                     "ar": "فعاليات للمتطوعين",
-                    "prs":""
+                    "prs": ""
                 },
                 "Methods of teaching": {
                     "fr": "Méthodes pour enseigner",
                     "ar": "مناهج من أجل التعليم",
-                    "prs":""
+                    "prs": ""
                 },
                 "Meetings": {
                     "fr": "Demande de rendez vous",
                     "ar": "طلبات المواعيد",
-                    "prs":""
+                    "prs": ""
                 }
             },
             "volunteers/availabilities": {
@@ -541,18 +541,18 @@ export class I18n {
                 },
                 "Cultural or sport activities": {
                     "fr": "Activites culturelles ou sportives",
-                    "ar" : "فعّاليات ثقافية و رياضية",
+                    "ar": "فعّاليات ثقافية و رياضية",
                     "prs": ""
                 },
                 "Explanations-activities": {
                     "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "en":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "ar" : "أذا كان لديكم الوقت لتنظيم بعض النشاطات الثقافية و الرياضيّة فسيكون ذلك من دواعي سرور اللاجئين.",
+                    "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    "ar": "أذا كان لديكم الوقت لتنظيم بعض النشاطات الثقافية و الرياضيّة فسيكون ذلك من دواعي سرور اللاجئين.",
                     "prs": ""
                 },
-                "Update availabilities" : {
-                    "fr" : "Mettre à jour mes disponibilités",
-                    "ar" : "تحديث معلوماتي",
+                "Update availabilities": {
+                    "fr": "Mettre à jour mes disponibilités",
+                    "ar": "تحديث معلوماتي",
                     "prs": ""
                 }
             },
@@ -623,7 +623,21 @@ export class I18n {
 
             },
             "volunteers/meeting-requests": {
-
+                "I can answer to this request": {
+                    "fr": "Je peux répondre à cette demande",
+                    "ar": "",
+                    "prs": ""
+                },
+                "I cannot answer to this request": {
+                    "fr": "Je ne peux pas répondre à cette demande",
+                    "ar": "",
+                    "prs": ""
+                },
+                "View messages": {
+                    "fr": "Voir les messages",
+                    "ar": "",
+                    "prs": ""
+                }
             }
         }
     }

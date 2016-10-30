@@ -77,9 +77,9 @@
 					</div>
 				</div>
 				<div class="_result-footer" style="text-align: right">
-					<button click.delegate="viewMessages(r)" if.bind ="r.messages==null"> Voir les messages</button>
-                    <button click.delegate="startAccept(r)" if.bind ="r.messages==null"> Je peux répondre à cette demande</button>
-                    <button click.delegate="delete(r)">Je ne peux pas répondre à cette demande</button>
+					<button click.delegate="viewMessages(r)" if.bind="r.messages == null">${i18n("View messages")}</button>
+                    <button click.delegate="startAccept(r)" if.bind="r.messages == null">${i18n("I can answer to this request")}</button>
+                    <button click.delegate="delete(r)" if.bind="r.messages == null">${i18n("I cannot answer to this request")}</button>
 				</div>
 				<div class="conversations" style="background-color:#e7e9e8;" if.bind="r.messages">
 					<div style="text-align:right;padding-right:10px;padding-top:10px">

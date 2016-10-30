@@ -1,14 +1,15 @@
 import { UserDetails, ReferenceData, getUri } from 'common'
+import {I18n} from 'i18n'
 
 import { inject, BindingEngine } from 'aurelia-framework';
 import { HttpClient, json } from 'aurelia-fetch-client';
 
 import moment from 'moment'
 
-@inject(HttpClient, BindingEngine, UserDetails)
+@inject(HttpClient, BindingEngine, UserDetails, I18n)
 export class MeetingRequests {
 
-    constructor(fetchClient, bindingEngine, userDetails) {
+    constructor(fetchClient, bindingEngine, userDetails, i18nMessages) {
         this.fetchClient = fetchClient;
         this.userDetails = userDetails;
         this.bindingEngine = bindingEngine;

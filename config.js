@@ -24,6 +24,7 @@ System.config({
     "core-js": "npm:core-js@1.2.7",
     "moment": "npm:moment@2.15.0",
     "text": "github:systemjs/plugin-text@0.0.8",
+    "whatwg-fetch": "npm:whatwg-fetch@1.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },

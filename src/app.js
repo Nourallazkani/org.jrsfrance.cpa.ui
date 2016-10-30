@@ -1,10 +1,12 @@
+import 'whatwg-fetch';
+
 import {UserDetails, ApplicationConfig, ReferenceData, getQueryParam} from 'common'
 import {I18n} from 'i18n'
 
 import {inject, BindingEngine, CompositionTransaction} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {HttpClient, json} from 'aurelia-fetch-client';
-import { EventAggregator } from 'aurelia-event-aggregator';
+import {EventAggregator} from 'aurelia-event-aggregator';
 import {BindingSignaler} from 'aurelia-templating-resources';
 
 import moment from 'moment';
@@ -37,7 +39,7 @@ export class App {
       .propertyObserver(userDetails, 'language')
       .subscribe((newLanguage) => {
         console.log(this.router.currentInstruction.config.name != 'home')
-        if (newLanguage == "ar" || newLanguage == "prs" && this.router.currentInstruction.config.name != 'home' ) {
+        if (newLanguage == "ar" || newLanguage == "prs" && this.router.currentInstruction.config.name != 'home') {
           document.body.style.direction = "rtl";
         }
         else {
@@ -100,7 +102,7 @@ export class App {
   created() {
     if (localStorage.getItem("accessKey") != null || window.location.href.split("ak=").length == 2) {
 
-      let accessKey = localStorage.getItem("accessKey") || getQueryParam("ak") 
+      let accessKey = localStorage.getItem("accessKey") || getQueryParam("ak")
       this.httpClient
         .fetch("authentication", { method: "POST", body: json({ accessKey: accessKey }) })
         .then(x => x.json()).then(account => {

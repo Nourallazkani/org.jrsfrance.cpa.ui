@@ -2,11 +2,12 @@ var gulp = require('gulp');
 var watch = require('gulp-watch');
 var del = require('del');
 var argv = require('yargs').argv;
+var fs = require('fs');
 //var replace = require('gulp-replace');
 var aureliaBundler = require('aurelia-bundler');
 var browserSync = require('browser-sync');
 var historyApiFallback = require('connect-history-api-fallback')
-var s3 = require('gulp-s3-upload')({ accessKeyId: "AKIAJWC3S7GZQQJHTLEA", secretAccessKey: "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" });
+var s3 = require('gulp-s3-upload');
 
 var environments = {
   "local": {
@@ -102,25 +103,40 @@ gulp.task('serve', ['unbundle'], function (done) {
     .pipe(gulp.dest(destination));
 
 });
+gulp.task('x', function(){
+   if (argv.assets) {
+    console.log("deploy assets")
+  }
+  if (argv.vendor) {
+    console.log("deploy vendor")
+  }
+  if (argv.jspm) {
+    console.log("deploy jspm")
+  }
+    var uploader = s3(JSON.parse(fs.readFileSync('awsaccess.json')))
+console.log(uploader)
+})
 
 gulp.task("deploy", ['bundle'], function () {
-
   var app = ["./index.html", "./config.js", "./dist/app-build.js"];
   var assets = "./assets/**/**";
   var vendor = "./dist/vendor-build.js";
   var jspm = "./jspm_packages/**/**";
 
   var toUpload = app;
-  if (true) {
+  if (argv.assets) {
     toUpload.push(assets);
   }
-  if (false) {
+  if (argv.vendor) {
     toUpload.push(vendor);
   }
-  if (false) {
+  if (argv.jspm) {
     toUpload.push(jspm);
   }
+
+  var uploader = s3(JSON.parse(fs.readFileSync('awsaccess.json')))
+  
   gulp.src(toUpload, { base: './' })
-    .pipe(s3({ Bucket: 'jrs-cpa-test', ACL: 'public-read' }, { maxRetries: 5, region: "eu-west-1" }));
+    .pipe(uploader({ Bucket: 'jrs-cpa-test', ACL: 'public-read' }, { maxRetries: 5, region: "eu-west-1" }));
   ;
 });

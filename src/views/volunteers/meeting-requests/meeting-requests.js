@@ -36,10 +36,26 @@ export class MeetingRequests {
                     });
             }
         }*/
-    filter = { accepted: false };
+    filter = { accepted: "false" };
 
     created() {
         this.find();
+    }
+
+    find() {
+        this.fetchClient
+            .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests`, this.filter))
+            .then(response => response.json())
+            .then(list => this.results = list.map(x => ({ item: x, action: null, showMessages: false, messages: null })));
+    }
+
+    accept(listElement, firstContact) {
+        let uri = `volunteers/${this.userDetails.account.id}/meeting-requests/${listElement.item.id}?firstContact=${firstContact}`;
+        this.fetchClient
+            .fetch(uri, { method: "POST" })
+            .then(() => {
+                this.results.splice(this.results.indexOf(listElement), 1);
+            });        
     }
 
     delete(model) {
@@ -50,13 +66,7 @@ export class MeetingRequests {
             });
     }
 
-    find() {
-        this.fetchClient
-            .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests`, this.filter))
-            .then(response => response.json())
-            .then(list => this.results = list.map(x => ({ item: x, action: null, showMessages: false, messages: null })));
-    }
-
+    /*
     viewMessages(result) {
         this.fetchClient
             .fetch(getUri(`volunteers/${this.userDetails.account.id}/meeting-requests/${result.item.id}/messages`))
@@ -85,5 +95,5 @@ export class MeetingRequests {
                 newMessage.text = null;
                 listElement.messages.push(message);
             });
-    }
+    }*/
 }

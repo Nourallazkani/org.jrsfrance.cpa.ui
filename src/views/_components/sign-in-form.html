@@ -12,15 +12,18 @@
             <div class="horizontal" style="align-items:baseline">
                 <input class="offset-lg-30" type="checkbox" checked.bind="userDetails.rememberMe" /> ${i18n("remember me")  & signal : 'language-change'}
             </div>
-            <div class="horizontal">
+            <div>
                 <button class="offset-lg-30">${i18n("Sign in")  & signal : 'language-change'}</button>
                 <span if.bind="outcome.status=='unauthorized'" class="red-alert" style="font-size:smaller;margin:0px 10px">
                     ${i18n("Invalid mail address or password") & signal : 'language-change'} 
                 </span>
-                <span if.bind="outcome.status=='unauthorized'" style="font-size:smaller">
-                    (<a click.delegate="startPasswordRecoveryRequest()">${i18n("Reset my password") & signal : 'language-change'}</a>)
-                </span>
                 
+                <br/>
+                
+                <a class="offset-lg-30" click.delegate="startPasswordRecoveryRequest()" style="font-size:smaller;margin-top:15px;display:block">
+                    ${i18n("Reset my password") & signal : 'language-change'}
+                </a>
+
             </div>
         </form>
     </div>

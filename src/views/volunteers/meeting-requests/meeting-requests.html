@@ -15,16 +15,33 @@
 
 			<div class="width-lg-100 vertical">
 				<div class="_result-header horizontal" rtl-right ltr-left style="height:40px">
-					<div class="${r.item.volunteer ? 'width-lg-50' : 'width-lg-100'}" ltr-left rtl-right>
+					<div class="width-lg-70" ltr-left rtl-right>
 						Demandé par : ${r.item.refugee.name}
 					</div>
-					<div class="width-lg-50" ltr-right rtl-left if.bind="r.item.volunteer==null">
-						<button click.delegate="accept(r)">Accepter</button>
+					<div class="width-lg-30" ltr-right rtl-left if.bind="r.item.volunteer==null">
+						<button click.delegate="r.action='accept'">Accepter</button>
+						<button click.delegate="delete(r)">Refuser</button>
 					</div>
-					<div class="width-lg-50" ltr-right rtl-left if.bind="r.item.volunteer!=null">
+					<div class="width-lg-30" ltr-right rtl-left if.bind="r.item.volunteer!=null">
 						<button click.delegate="cancel(r)">Annuler</button>
 					</div>
 				</div>
+				<div class="_result-body" style="padding:5px" if.bind="r.action=='accept'">
+					Préférez vous contacter le/la réfugié(e), ou souhaitez vous qu'il/elle vous contacte ?<br/>
+					<p class="offset-lg-5" style="font-family:SegoeUI;line-height:35px">
+						<input type="radio" name="firstContact" checked.bind="firstContact" value="VOLUNTEER_TO_REFUGEE">
+						Je préfère le/la contacter, mon adresse mail et mon numéro de lui seront pas divuglés
+						<br/>
+						<input type="radio" name="firstContact" checked.bind="firstContact" value="REFUGEE_TO_VOLUNTEER">
+						Je préfère qu'il/elle me contacte et accepte que mon adresse mail et mon numéro de téléphone lui soit transmis(e)
+					</p>
+					<p class="offset-lg-5">
+						<button click.delegate="accept(r, firstContact)">Valider</button> 
+						<button click.delegate="r.action=null">Annuler</button>
+					</p>
+					
+				</div>
+
 				<div class="_result-body horizontal">
 
 					<div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">
@@ -76,11 +93,13 @@
 						Informations complémentaires : ${r.item.additionalInformations}<br/><br/> Contraintes de date : ${r.item.dateConstraint}
 					</div>
 				</div>
+				<!--
 				<div class="_result-footer" style="text-align: right">
 					<button click.delegate="viewMessages(r)" if.bind="r.messages == null">${i18n("View messages")}</button>
                     <button click.delegate="startAccept(r)" if.bind="r.messages == null">${i18n("I can answer to this request")}</button>
                     <button click.delegate="delete(r)" if.bind="r.messages == null">${i18n("I cannot answer to this request")}</button>
 				</div>
+
 				<div class="conversations" style="background-color:#e7e9e8;" if.bind="r.messages">
 					<div style="text-align:right;padding-right:10px;padding-top:10px">
 						<a click.delegate="hideMessages(r)" class="close"></a>
@@ -132,6 +151,7 @@
                         <button click.delegate="saveNewMessage(r, newMessage)"> Envoyer </button>
 					</div>
 				</div>
+				-->
 			</div>
 		</div>
 

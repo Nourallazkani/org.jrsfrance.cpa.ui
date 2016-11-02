@@ -53,7 +53,7 @@
                             <input type="text" value.bind="r.item.dateConstraint" />
                         </div>
                         <div class="horizontal">
-                            <label>${i18n("City or postal code")  & signal : 'language-change'}</label>
+                            <label class="${r.errors.refugeeLocation ? 'error' : ''}">${i18n("City or postal code")  & signal : 'language-change'}</label>
                             <input type="text" placeholder="" place-autocomplete="target.bind : r.item;target-property.bind:'refugeeLocation'" /><br/>
                         </div>
 
@@ -79,16 +79,42 @@
 
 
             <!-- result block -->
-            <div class="width-lg-100 vertical" if.bind="!r.action">
-                <div class="_result-header horizontal" if.bind="r.item.volunteer" rtl-right ltr-left>
-                    <img src="/assets/img/common/icon-checked.svg" style="width:30px;height:30px;vertical-align:middle;">
-                    <span style="padding-left:15px;padding-right:15px">
-                        ${i18n("Accepted by")  & signal : 'language-change'} : ${r.item.volunteer.name} le ${r.item.acceptedDate | myDateFormat:'DD MMMM'}
-                    </span>
+            <div class="width-lg-100 vertical" if.bind="r.action!='new'">
+                 
+                <div class="_result-header horizontal" if.bind="r.item.volunteer" rtl-right ltr-left> <!-- the meeting request has been accepted -->
+                    <div class="width-lg-70" ltr-left rtl-right>
+                        <img src="/assets/img/common/icon-checked.svg" style="width:30px;height:30px;vertical-align:middle;">
+                        <span style="padding-left:15px;padding-right:15px">
+                            ${i18n("Accepted by")  & signal : 'language-change'} : ${r.item.volunteer.name} le ${r.item.acceptedDate | myDateFormat:'DD MMMM'}
+                        </span>
+					</div>
+					<div class="width-lg-30" ltr-right rtl-left if.bind="r.action==null">
+						<button click.delegate="r.action='confirm'">Confirmer</button>
+						<button click.delegate="r.action='reSubmit'">Resoumettre</button>
+					</div>
                 </div>
-                <div class="_result-header horizontal" if.bind="!r.item.volunteer" rtl-right ltr-left>
+
+                <div class="_result-header horizontal" if.bind="!r.item.volunteer" rtl-right ltr-left> <!-- the meeting request has been not been accepted yet -->
                      ${i18n("Posted the")  & signal : 'language-change'} ${r.item.postDate | myDateFormat:'DD MMMM'}
-                </div>                
+                </div>     
+
+				<div class="_result-body" style="padding:5px" if.bind="r.action=='confirm' || r.action=='reSubmit'">
+					 ${r.item.volunteer.name} a accepté votre demande de RDV. Vous pouvez : <br/>
+					<p class="offset-lg-5" style="font-family:SegoeUI;line-height:35px">
+						<input type="radio" name="action" checked.bind="r.action" value="confirm">
+						Confirmer, après avoir été en contact avec le bénévole par mail ou par téléphone, que la rencontre va bien avoir lieu.
+                        <br/>
+						<input type="radio" name="action" checked.bind="r.action" value="reSubmit">
+						Resoumettre la demande à d'autre bénévole, si vous n'avez pas été en contact avec le bénévole ou si celui-ci ne peut finalement pas accepter la demande
+					</p>
+					<p class="offset-lg-5">
+                        <button if.bind="r.action=='confirm'" click.delegate="confirm(r)">Confirmer</button>
+						<button if.bind="r.action=='reSubmit'" click.delegate="reSubmit(r)">Resoumettre</button>
+                        <button click.delegate="r.action=null">Annuler</button>
+						
+					</p>
+					
+				</div>                           
                 <div class="_result-body horizontal">
 
                     <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">

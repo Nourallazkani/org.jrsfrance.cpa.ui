@@ -68,6 +68,14 @@ export class MeetingRequests {
     this.results.splice(0, 1);
   }
 
+  confirm(){
+    console.log("confirm")
+  }
+  
+  reSubmit(){
+    console.log("resubmit");
+  }
+
   save(model) {
     model.state = "saving";
     this.fetchClient

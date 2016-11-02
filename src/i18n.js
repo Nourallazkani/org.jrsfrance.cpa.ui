@@ -625,17 +625,17 @@ export class I18n {
             "volunteers/meeting-requests": {
                 "I can answer to this request": {
                     "fr": "Je peux répondre à cette demande",
-                    "ar": "",
+                    "ar": "أستطيع الردّ على هذا الطلب",
                     "prs": ""
                 },
                 "I cannot answer to this request": {
                     "fr": "Je ne peux pas répondre à cette demande",
-                    "ar": "",
+                    "ar": "لا أستطيع الردّ على هذا الطلب",
                     "prs": ""
                 },
                 "View messages": {
                     "fr": "Voir les messages",
-                    "ar": "",
+                    "ar": "رؤية الرسائل",
                     "prs": ""
                 }
             }

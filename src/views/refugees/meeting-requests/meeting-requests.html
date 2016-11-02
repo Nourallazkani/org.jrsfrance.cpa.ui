@@ -85,10 +85,10 @@
                     <div class="width-lg-70" ltr-left rtl-right>
                         <img src="/assets/img/common/icon-checked.svg" style="width:30px;height:30px;vertical-align:middle;">
                         <span style="padding-left:15px;padding-right:15px">
-                            ${i18n("Accepted by")  & signal : 'language-change'} : ${r.item.volunteer.name} le ${r.item.acceptedDate | myDateFormat:'DD MMMM'}
+                            ${i18n("Accepted by")  & signal : 'language-change'} : ${r.item.volunteer.name} le ${r.item.acceptationDate | myDateFormat:'DD MMMM'}
                         </span>
 					</div>
-					<div class="width-lg-30" ltr-right rtl-left if.bind="r.action==null">
+					<div class="width-lg-30" ltr-right rtl-left if.bind="r.action==null && r.item.confirmationDate==null">
 						<button click.delegate="r.action='confirm'">Confirmer</button>
 						<button click.delegate="r.action='reSubmit'">Resoumettre</button>
 					</div>

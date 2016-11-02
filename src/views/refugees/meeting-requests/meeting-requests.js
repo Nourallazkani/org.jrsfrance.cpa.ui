@@ -68,12 +68,25 @@ export class MeetingRequests {
     this.results.splice(0, 1);
   }
 
-  confirm(){
-    console.log("confirm")
-  }
-  
-  reSubmit(){
-    console.log("resubmit");
+  confirm(listElement) {
+    let uri = `refugees/${this.userDetails.account.id}/meeting-requests/${listElement.item.id}?confirmed=true`;
+    this.fetchClient
+      .fetch(uri, { method: "POST" })
+      .then(resp => resp.json())
+      .then(mr => {
+        listElement.item = mr;
+        listElement.action = null;
+      });  }
+
+  reSubmit(listElement) {
+    let uri = `refugees/${this.userDetails.account.id}/meeting-requests/${listElement.item.id}?confirmed=false`;
+    this.fetchClient
+      .fetch(uri, { method: "POST" })
+      .then(resp => resp.json())
+      .then(mr => {
+        listElement.item = mr;
+        listElement.action = null;
+      });
   }
 
   save(model) {
@@ -86,7 +99,7 @@ export class MeetingRequests {
         model.state = null;
         model.item = x;
       })
-      .catch(e => e.json().then(x => model.errors = x ))
+      .catch(e => e.json().then(x => model.errors = x))
       ;
   }
 }

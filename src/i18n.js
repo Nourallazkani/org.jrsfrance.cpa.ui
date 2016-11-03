@@ -244,7 +244,7 @@ export class I18n {
                     "prs": "آموزش های مسلکی"
                 },
                 "Workshops": {
-                    "fr": "Ateliers sociaux linguistiques",
+                    "fr": "Ateliers socio linguistiques",
                     "ar": "ورشات سوسيولغوية",
                     "prs": "کار گاه های زبانی ـ اجتماعی"
                 },

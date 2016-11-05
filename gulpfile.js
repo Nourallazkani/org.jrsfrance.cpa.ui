@@ -124,13 +124,13 @@ gulp.task("deploy", ['bundle'], function () {
   var jspm = "./jspm_packages/**/**";
 
   var toUpload = app;
-  if (argv.assets) {
+  if (argv.assets || argv.all) {
     toUpload.push(assets);
   }
-  if (argv.vendor) {
+  if (argv.vendor || argv.all) {
     toUpload.push(vendor);
   }
-  if (argv.jspm) {
+  if (argv.jspm || argv.all) {
     toUpload.push(jspm);
   }
 

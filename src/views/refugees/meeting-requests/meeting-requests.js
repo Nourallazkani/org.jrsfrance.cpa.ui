@@ -78,7 +78,7 @@ export class MeetingRequests {
       .catch(e => e.json().then(x => model.errors = x))
       ;
   }
-  
+
   cancelNew() {
     this.results.splice(0, 1);
   }

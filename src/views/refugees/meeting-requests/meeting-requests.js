@@ -9,6 +9,7 @@ import moment from 'moment';
 @inject(HttpClient, BindingEngine, UserDetails, I18n, ReferenceData)
 export class MeetingRequests {
 
+  filter = { accepted: "false" }
   results = []
   refugee;
 
@@ -44,7 +45,7 @@ export class MeetingRequests {
 
   find() {
     this.fetchClient
-      .fetch(getUri(`refugees/${this.userDetails.account.id}/meeting-requests`))
+      .fetch(getUri(`refugees/${this.userDetails.account.id}/meeting-requests`, this.filter))
       .then(response => response.json())
       .then(list => this.results = list.map(x => ({ item: x, action: null })));
   }
@@ -64,31 +65,6 @@ export class MeetingRequests {
     }
   }
 
-  cancel() {
-    this.results.splice(0, 1);
-  }
-
-  confirm(listElement) {
-    let uri = `refugees/${this.userDetails.account.id}/meeting-requests/${listElement.item.id}?confirmed=true`;
-    this.fetchClient
-      .fetch(uri, { method: "POST" })
-      .then(resp => resp.json())
-      .then(mr => {
-        listElement.item = mr;
-        listElement.action = null;
-      });  }
-
-  reSubmit(listElement) {
-    let uri = `refugees/${this.userDetails.account.id}/meeting-requests/${listElement.item.id}?confirmed=false`;
-    this.fetchClient
-      .fetch(uri, { method: "POST" })
-      .then(resp => resp.json())
-      .then(mr => {
-        listElement.item = mr;
-        listElement.action = null;
-      });
-  }
-
   save(model) {
     model.state = "saving";
     this.fetchClient
@@ -101,5 +77,36 @@ export class MeetingRequests {
       })
       .catch(e => e.json().then(x => model.errors = x))
       ;
+  }
+  
+  cancelNew() {
+    this.results.splice(0, 1);
+  }
+
+
+  confirm(listElement) {
+    let uri = `refugees/${this.userDetails.account.id}/meeting-requests/${listElement.item.id}?confirmed=true`;
+    this.fetchClient
+      .fetch(uri, { method: "POST" })
+      .then(resp => resp.json())
+      .then(mr => {
+        listElement.item = mr;
+        listElement.action = null;
+      });
+  }
+
+  reSubmit(listElement) {
+    let uri = `refugees/${this.userDetails.account.id}/meeting-requests/${listElement.item.id}?confirmed=false`;
+    this.fetchClient
+      .fetch(uri, { method: "POST" })
+      .then(resp => resp.json())
+      .then(mr => {
+        listElement.item = mr;
+        listElement.action = null;
+      });
+  }
+
+  reportProblem(listElement){
+    listElement.action = null;
   }
 }

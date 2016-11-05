@@ -6,13 +6,18 @@
     <div class="_results" if.bind="userDetails.account && userDetails.account.profile=='R'">
 
 
-        <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
-            <a style="font-weight:bold" click.delegate="new()"> ${i18n("New appointment request")  & signal : 'language-change'}</a>
-        </div>
+		<div class="horizontal " style="font-family:SegoeUiSlim;margin-bottom:15px" ltr-right rtl-left>
+			<form class="width-lg-70" style="text-align:left">
+				<input type="radio" name="accepted" checked.bind="filter.accepted" value="true" change.trigger="find()" /> Demandes acceptées
+				<input type="radio" name="accepted" checked.bind="filter.accepted" value="false" change.trigger="find()" /> Demandes
+				en attente
+			</form>
+            <div class="width-lg-30" style="font-family:SegoeUiSlim;text-align:right">
+                <a style="font-weight:bold" click.delegate="new()"> ${i18n("New appointment request")  & signal : 'language-change'}</a>
+            </div>            
+		</div>
 
         <hr style="margin:30px 0px" />
-
-
 
         <!-- results block -->
 
@@ -22,7 +27,7 @@
 
             <div class="_edit-container" if.bind="r.action=='new'">
                 <div style="text-align:right;padding-right:10px;padding-top:10px">
-                    <a click.delegate="cancel()" class="close"></a>
+                    <a click.delegate="cancelNew()" class="close"></a>
                 </div>
 
                 <form class="split-lg-30-70 label-right" submit.delegate="save(r)" if.bind="r.action=='new'">
@@ -92,12 +97,16 @@
 						<button click.delegate="r.action='confirm'">Confirmer</button>
 						<button click.delegate="r.action='reSubmit'">Resoumettre</button>
 					</div>
+					<div class="width-lg-30" ltr-right rtl-left if.bind="r.action==null && r.item.confirmationDate!=null">
+						<button click.delegate="r.action='report-problem'">Report problem</button>
+					</div>                    
                 </div>
 
                 <div class="_result-header horizontal" if.bind="!r.item.volunteer" rtl-right ltr-left> <!-- the meeting request has been not been accepted yet -->
                      ${i18n("Posted the")  & signal : 'language-change'} ${r.item.postDate | myDateFormat:'DD MMMM'}
                 </div>     
 
+                <!-- confirm or cancel -->
 				<div class="_result-body" style="padding:5px" if.bind="r.action=='confirm' || r.action=='reSubmit'">
 					 ${r.item.volunteer.name} a accepté votre demande de RDV. Vous pouvez : <br/>
 					<p class="offset-lg-5" style="font-family:SegoeUI;line-height:35px">
@@ -111,10 +120,17 @@
                         <button if.bind="r.action=='confirm'" click.delegate="confirm(r)">Confirmer</button>
 						<button if.bind="r.action=='reSubmit'" click.delegate="reSubmit(r)">Resoumettre</button>
                         <button click.delegate="r.action=null">Annuler</button>
-						
 					</p>
-					
-				</div>                           
+				</div>
+
+                <!-- report problem -->
+				<div class="_result-body" style="padding:5px" if.bind="r.action=='report-problem'">
+					 <textarea class="width-lg-100" style="height:10em" autofocus></textarea><br/>
+                     <button click.delegate="reportProblem(r)">Envoyer</button>
+                     <button click.delegate="r.action=null">Annuler</button>
+
+				</div>
+
                 <div class="_result-body horizontal">
 
                     <div class="_image-container" style="background-image:url('/assets/img/saif/teaching.svg')">

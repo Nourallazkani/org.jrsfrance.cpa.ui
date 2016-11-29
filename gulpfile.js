@@ -76,10 +76,16 @@ gulp.task('bundle', function () {
   gulp.src(source + '/**/*', { base: source }).pipe(gulp.dest(destination));
 
   // delete app-build.js and vendor-build.js from dist
+  
   del(['dist/app-build.js', 'dist/vendor-build.js']);
 
   return aureliaBundler.unbundle(config)
     .then(() => aureliaBundler.bundle(config));
+  /*
+  del(['dist/app-build.js', 'dist/vendor-build.js'])
+    .then(() => aureliaBundler.unbundle(config))
+    .then(() => aureliaBundler.bundle(config));
+    */
 });
 
 gulp.task('unbundle', function () {
@@ -103,19 +109,7 @@ gulp.task('serve', ['unbundle'], function (done) {
     .pipe(gulp.dest(destination));
 
 });
-gulp.task('x', function(){
-   if (argv.assets) {
-    console.log("deploy assets")
-  }
-  if (argv.vendor) {
-    console.log("deploy vendor")
-  }
-  if (argv.jspm) {
-    console.log("deploy jspm")
-  }
-    var uploader = s3(JSON.parse(fs.readFileSync('awsaccess.json')))
-console.log(uploader)
-})
+
 
 gulp.task("deploy", ['bundle'], function () {
   var app = ["./index.html", "./config.js", "./dist/app-build.js"];
@@ -135,8 +129,10 @@ gulp.task("deploy", ['bundle'], function () {
   }
 
   var uploader = s3(JSON.parse(fs.readFileSync('awsaccess.json')))
-  
+
+  var target = argv.target || 'jrs-cpa-test';
+
   gulp.src(toUpload, { base: './' })
-    .pipe(uploader({ Bucket: 'jrs-cpa-test', ACL: 'public-read' }, { maxRetries: 5, region: "eu-west-1" }));
+    .pipe(uploader({ Bucket: target, ACL: 'public-read' }, { maxRetries: 5, region: "eu-west-1" }));
   ;
 });

@@ -171,7 +171,9 @@
                 </p>
                 <div class="horizontal" style="text-align:center">
                     <div style="flex-grow:1">
-                        <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
+                        <a click.delegate="action='watch-video'">
+                            <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
+                        </a>
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-in'">
@@ -185,6 +187,15 @@
                     </div>
                 </div>
             </div>
+            <div if.bind="action=='watch-video'">
+                <div style="text-align:left">
+                    <a click.delegate="action=null">
+                        < Retour</a>
+                </div>
+                <div style="margin-top:50px">
+                    video
+                </div>
+            </div>
             <div if.bind="action=='sign-in'">
                 <div style="text-align:left">
                     <a click.delegate="action=null">
@@ -193,7 +204,7 @@
                 <div style="margin-top:50px">
                     <sign-in-form success-route="/volunteers"></sign-in-form>
                 </div>
-            </div>
+            </div>            
             <div if.bind="action=='sign-up'">
                 <div>
                     <a click.delegate="action=null">
@@ -229,7 +240,9 @@
                 </p>
                 <div class="horizontal" style="text-align:center">
                     <div style="flex-grow:1">
-                        <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
+                        <a click.delegate="action='watch-video'">
+                            <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
+                        </a>
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-in'">
@@ -242,6 +255,20 @@
                         </a>
                     </div>
                 </div>
+            </div>
+            <div if.bind="action=='watch-video'">
+                <div style="text-align:left">
+                    <a click.delegate="action=null">
+                        < Retour</a>
+                </div>
+                <div style="text-align:center;margin-top:15px">
+                    
+                    <video controls>
+                        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.mp4"/>
+                        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.webm"/>
+                    </video>
+                </div>
+                
             </div>
             <div if.bind="action=='sign-in'">
                 <div style="text-align:left">

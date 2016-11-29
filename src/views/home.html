@@ -264,10 +264,14 @@
                 </div>
                 <div style="text-align:center;margin-top:15px">
                     
-                    <video controls>
-                        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.mp4"/>
-                        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.webm"/>
+                    <video controls if.bind="userDetails.language=='fr'">
+                        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.fr.mp4"/>
+                        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.fr.webm"/>
                     </video>
+                    <video controls if.bind="userDetails.language!='fr'">
+                        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.en.mp4"/>
+                        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.en.webm"/>
+                    </video>                    
                 </div>
                 
             </div>

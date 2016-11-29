@@ -265,37 +265,37 @@ export class I18n {
                 },
             },
             "refugees/welcome": {
-                "French courses": {
+                "French courses adapted to your needs (higher education, professional French, French for daily life)": {
                     "fr": "Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie quotidienne)",
                     "ar": "البحث عن عروض لتعلم اللغة الفرنسية حسب الحاجة ( الفرنسية لمتابعة التعليم العالي، الفرنسية للمهنين، الفرنسية للحياة اليومية).",
                     "prs": "پیشنهاد فراگیری زبان فرانسوی مطابق نیاز مندی ها (زبان فرانسوی برای تحصیلات عالی٬ زبان فرانسوی در بخش آموزش های مسلکی و زبان فرانسوی برای زندگی روزمره)."
                 },
-                "University studies": {
+                "Higher education offers with linguistic support": {
                     "fr": "Des offres d’études supérieures avec accompagnement linguistique",
                     "ar": "البحث عن عروض لمتابعة التعليم العالي مع مرافقة لغوية",
                     "prs": "پیشنهاد تحصیلات عالی همراه با همکار زبانی."
                 },
-                "Professional training": {
+                "Professional trainings with linguistic support": {
                     "fr": "Des offres de formations professionnelles avec accompagnement linguistique",
                     "ar": "البحث عن عروض لتدريبات مهنية مع مرافقة لغوية",
                     "prs": "پیشنهاد آموزش های مسلکی همراه با همکار زبانی."
                 },
-                "Workshops": {
+                "Workshops to develop communication skills for daily life": {
                     "fr": "Ateliers qui visent à développer les compétences de communication pour la vie quotidienne.",
                     "ar": "البحث عن ورشات عمل لتطوير مهارات التواصل اللّغوية الضرورية من أجل شؤون الحياة اليومية الاجتماعية.",
                     "prs": "کارگاه ها٬ برای ارتقای مهارت های ارتباطی در زندگی روزمره."
                 },
-                "Events": {
+                "Cultural, sport or recreational activities to improve your French": {
                     "fr": "Activités culturelles, sportives ou ludiques en vue de progresser en français",
                     "ar": " فعاليات ثقافية أو رياضية أو للترفيه معنية بتعلم الفرنسية",
                     "prs": "رویدادها را"
                 },
-                "Self learning": {
+                "Directory of all the libraries offering self-learning methods": {
                     "fr": "Annuaire des bibliothèques qui proposent et conseillent des méthodes d’auto-apprentissage.",
                     "ar": "عناوين المكتبات التي تقترح و توفّر طرق لتعلّم الفرنسية بشكلٍ ذاتي.",
                     "prs": "فهرست راهنمای کتاب خانه ها برای  پیشنهاد و مشوره دهی در بخش خود آموزی زبان فرانسوی."
                 },
-                "Meet a volunteer": {
+                "Get in touch with a volunteer for support in learning French, interpreting or other trainings": {
                     "fr": "Entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, l’interprétariat, ou d’autres formations.",
                     "ar": "البحث عن متطوعين للمساعدة أثناء تعلّم الفرنسية أو في مرحلة التعليم العالي أو المرافقة -عند الحاجة- حين مواعيد الحصول على الأأوراق الرسمية)",
                     "prs": "ایجاد رابطه همراه با یک رضا کار٬ برای همراهی در قسمت فراگیری زبان فرانسوی٬ ترجمه و سایر آموزش ها. "

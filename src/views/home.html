@@ -223,9 +223,10 @@
                 <li style="height:80px"><a click.delegate="setUserDetails('R', 'en')">${i18n("Refugee or asylum seeker", "en")}</a></li>
                 <li style="height:80px"><a click.delegate="setUserDetails('R', 'prs')">${i18n("Refugee or asylum seeker", "prs")}</a></li>
             </ul></div>
-             <div style="height:50%;overflow:hidden;">
-                <img style="width:100%" src="/assets/img/home/refugees.jpg" />
+               <div style="height:50%;overflow:hidden;position: relative;">
+                <img style="width:100%;position: absolute;bottom: 0px;left: 0px;" src="/assets/img/home/refugees.jpg" />
             </div>
+
         </div>
 
         <div class="home-welcome-panel home-welcome-organisation-panel" if.bind="userDetails.profile=='O'">

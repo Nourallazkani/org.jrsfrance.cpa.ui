@@ -107,6 +107,18 @@ export class I18n {
                     "fr": "Réfugié ou demandeur d'asile",
                     "ar": "لاجئ أو طالب لجوء",
                     "prs": "های پناهندگان یا یک پناهجو"
+                },
+                "Sign in": {
+                    "fr" : "Je me connecte"
+                },
+                "Sign up": {
+                    "fr" : "Je m'inscris"
+                },
+                "Watch video": {
+                    "fr" : "Voir la vidéo"
+                },
+                "Back": {
+                    "fr" : "Retour"
                 }
             },
 

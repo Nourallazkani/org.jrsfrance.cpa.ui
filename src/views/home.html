@@ -172,17 +172,17 @@
                 <div class="horizontal" style="text-align:center">
                     <div style="flex-grow:1">
                         <a click.delegate="action='watch-video'">
-                            <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
+                            <img src="/assets/img/home/icon-video.svg" class="icon"> ${i18n('Watch video')  & signal : 'language-change'}
                         </a>
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-in'">
-                            <img src="/assets/img/home/icon-signin.svg" class="icon"> Je me connecte
+                            <img src="/assets/img/home/icon-signin.svg" class="icon"> ${i18n('Sign in')  & signal : 'language-change'}
                         </a>
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-up'">
-                            <img src="/assets/img/home/icon-signup.svg" class="icon"> Je m'inscris
+                            <img src="/assets/img/home/icon-signup.svg" class="icon"> ${i18n('Sign up')  & signal : 'language-change'}
                         </a>
                     </div>
                 </div>
@@ -190,16 +190,16 @@
             <div if.bind="action=='watch-video'">
                 <div style="text-align:left">
                     <a click.delegate="action=null">
-                        < Retour</a>
+                        < ${i18n('Back')  & signal : 'language-change'}</a>
                 </div>
-                <div style="margin-top:50px">
-                    video
+                <div style="margin-top:15px">
+                    
                 </div>
             </div>
             <div if.bind="action=='sign-in'">
                 <div style="text-align:left">
                     <a click.delegate="action=null">
-                        < Retour</a>
+                        < ${i18n('Back')  & signal : 'language-change'}</a>
                 </div>
                 <div style="margin-top:50px">
                     <sign-in-form success-route="/volunteers"></sign-in-form>
@@ -208,7 +208,7 @@
             <div if.bind="action=='sign-up'">
                 <div>
                     <a click.delegate="action=null">
-                        < Retour</a>
+                        < ${i18n('Back')  & signal : 'language-change'}</a>
                 </div>
                 <div style="margin-top:50px">
                     <user-form show-credentials="true" show-identity="true" show-details="false" action="sign-up" success-route="/volunteers/availabilities"></user-form>
@@ -242,17 +242,17 @@
                 <div class="horizontal" style="text-align:center">
                     <div style="flex-grow:1">
                         <a click.delegate="action='watch-video'">
-                            <img src="/assets/img/home/icon-video.svg" class="icon"> Je regarde la vidéo<br/> de présentation
+                            <img src="/assets/img/home/icon-video.svg" class="icon"> ${i18n('Watch video')  & signal : 'language-change'}
                         </a>
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-in'">
-                            <img src="/assets/img/home/icon-signin.svg" class="icon"> Je me connecte
+                            <img src="/assets/img/home/icon-signin.svg" class="icon"> ${i18n('Sign in')  & signal : 'language-change'}
                         </a>
                     </div>
                     <div style="flex-grow:1">
                         <a click.delegate="action='sign-up'">
-                            <img src="/assets/img/home/icon-signup.svg" class="icon"> Je m'inscris
+                            <img src="/assets/img/home/icon-signup.svg" class="icon"> ${i18n('Sign up')  & signal : 'language-change'}
                         </a>
                     </div>
                 </div>
@@ -260,7 +260,7 @@
             <div if.bind="action=='watch-video'">
                 <div style="text-align:left">
                     <a click.delegate="action=null">
-                        < Retour</a>
+                        < ${i18n('Back')  & signal : 'language-change'}</a>
                 </div>
                 <div style="text-align:center;margin-top:15px">
                     
@@ -278,7 +278,7 @@
             <div if.bind="action=='sign-in'">
                 <div style="text-align:left">
                     <a click.delegate="action=null">
-                        < Retour</a>
+                        < ${i18n('Back')  & signal : 'language-change'}</a>
                 </div>
                 <div style="margin-top:50px">
                     <sign-in-form success-route="/organisations"></sign-in-form>
@@ -287,7 +287,7 @@
             <div if.bind="action=='sign-up'">
                 <div style="text-align:left">
                     <a click.delegate="action=null">
-                        < Retour</a>
+                        < ${i18n('Back')  & signal : 'language-change'}</a>
                 </div>
                 Explication de la procédure d'inscription
             </div>

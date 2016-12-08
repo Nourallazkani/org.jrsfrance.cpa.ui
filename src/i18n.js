@@ -84,14 +84,14 @@ export class I18n {
                     "ar": "التاريخ",
                     "prs": "تاریخ"
                 },
-                "Start": {
+                "From": {
                     "fr": "Début",
-                    "ar": "البدء",
+                    "ar": "من",
                     "prs": ""
                 },
-                "End": {
+                "To": {
                     "fr": "Fin",
-                    "ar": "الانتهاء",
+                    "ar": "إلى",
                     "prs": ""
                 },
                 "Hour": {
@@ -139,7 +139,7 @@ export class I18n {
                     "ar": "حذف",
                     "prs": ""
                 },
-                 "Are you sure you want to delete this offer? ": {
+                 "Are you sure you want to delete this offer?": {
                     "fr": "Etes vous sûr de vouloir supprimer ce offre ?",
                     "ar": "هل أنتم متأكّدون من حذف هذه العرض؟",
                     "prs": ""
@@ -154,6 +154,16 @@ export class I18n {
                     "ar": "النوع",
                     "prs": ""
                 },
+                 "Type": {
+                    "fr": "Type",
+                    "ar": "النوع",
+                    "prs": ""
+                },
+                "Field of study": {
+                    "fr": "Domaine d'etude",
+                    "ar": "مجال الدراسة",
+                    "prs": "رشته تحصیلی"
+                }
             },
 
 

@@ -118,11 +118,11 @@
             <fieldset class="width-lg-50">
               <legend>${i18n("Registration") & signal : 'language-change'}</legend>
               <div class="horizontal no-margin">
-                <label class="width-lg-20 ${r.errors.registrationOpeningDate ? 'error' : ''}"> ${i18n("Start") & signal : 'language-change'} </label>
+                <label class="width-lg-20 ${r.errors.registrationOpeningDate ? 'error' : ''}"> ${i18n("From") & signal : 'language-change'} </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationOpeningDate" />
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20 ${r.errors.registrationClosingDate ? 'error' : ''}"> ${i18n("End") & signal : 'language-change'} </label>
+                <label class="width-lg-20 ${r.errors.registrationClosingDate ? 'error' : ''}"> ${i18n("To") & signal : 'language-change'} </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationClosingDate" />
               </div>
               <div class="horizontal no-margin">

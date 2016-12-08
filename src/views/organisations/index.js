@@ -1,15 +1,17 @@
 import {UserDetails, viewLocation, viewItinerary} from 'common'
 import {inject} from 'aurelia-framework';
+import {I18n} from 'i18n';
 
-@inject(UserDetails)
+@inject(UserDetails, I18n)
 export class Index {
 
-  constructor(userDetails) {
+  constructor(userDetails, i18nMessages) {
     if (userDetails.profile == null) {
       userDetails.profile = "O";
     }
     this.viewLocation = viewLocation;
     this.viewItinerary = viewItinerary;
+    this.i18n = (key) => i18nMessages.getMessage("organisations/index", key, userDetails.language);
   }
   configureRouter(config, router) {
     config.map([

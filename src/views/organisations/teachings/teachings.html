@@ -1,8 +1,10 @@
 <template>
 
   <div class="_results">
-    <div class="offset-lg-15 " style="font-family:SegoeUiSlim;text-align:right">
-      <a style="font-weight:bold" click.delegate="new()">Créer un nouvel enseignement</a>
+    <div style="font-family:SegoeUiSlim;text-align:right"  ltr-right rtl-left>
+      <a style="font-weight:bold" click.delegate="new()">
+        ${i18n("Create a new teaching") & signal : 'language-change'}
+      </a>
     </div>
 
     <hr style="margin:30px 0px" />
@@ -19,7 +21,7 @@
             Ouverture des inscriptions le ${r.item.registrationOpeningDate | myDateFormat:'DD/MM'}
           </div>
           <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()<0">
-            Cloture des inscriptions le ${r.item.registrationClosingDate | myDateFormat:'DD/MM'}
+             ${i18n("Registration opening") & signal : 'language-change'} ${r.item.registrationClosingDate | myDateFormat:'DD/MM'}
           </div>
           <br/>
           <div class="fit-to-content" if.bind="r.item.languageLevelRequired">

@@ -38,7 +38,7 @@
                 </select>
             </div>                        
             <div class="horizontal" if.bind="userDetails.profile=='R'">
-                <label>Langues maitrisées</label>
+                <label>${i18n("Mastered languages")  & signal : 'language-change'}</label>
                 <multiple-select style="width:70%" source.bind="referenceData.language.all" selection.bind="input.languages"></multiple-select>
             </div>
             

@@ -3,15 +3,17 @@
   <div class="_results">
 
     <div class="horizontal " style="font-family:SegoeUiSlim">
-      <form class="width-lg-70" style="text-align:left">
-        <input type="checkbox" checked.bind="filter.includeFutureEvents" change.trigger="find()" /> Inclure les ${filter.stereotype=='WORKSHOP'
-        ? 'ateliers' : 'évenements'} futurs
-        <input type="checkbox" checked.bind="filter.includePastEvents" change.trigger="find()" /> Inclure les ${filter.stereotype=='WORKSHOP'
-        ? 'ateliers' : 'évenements'} passés
+      <form class="width-lg-70" style="text-align:left" ltr-left rtl-right>
+        <input type="checkbox" checked.bind="filter.includeFutureEvents" change.trigger="find()" />
+        ${i18n("Include") & signal : 'language-change'} ${filter.stereotype=='WORKSHOP' ? 'workshop' : 'events'} ${i18n("future") & signal : 'language-change'}
+        <input type="checkbox" checked.bind="filter.includePastEvents" change.trigger="find()" /> 
+        ${i18n("Include") & signal : 'language-change'} ${filter.stereotype=='WORKSHOP' ? 'workshop' : 'events'}  ${i18n("past") & signal : 'language-change'}
       </form>
 
-      <div class="width-lg-30" style="text-align:right">
-        <a style="font-weight:bold" click.delegate="new()">Créer un nouvel ${filter.stereotype=='WORKSHOP' ? 'atelier' : 'évenement'}</a>
+      <div class="width-lg-30" style="text-align:right" ltr-right rtl-left>
+        <a style="font-weight:bold" click.delegate="new()">
+          ${i18n("Create a new") & signal : 'language-change'} ${filter.stereotype=='WORKSHOP' ? 'workshop' : 'event'}
+        </a>
       </div>
 
     </div>

@@ -2,13 +2,13 @@
 
   <div class="_results">
     <div class="horizontal " style="font-family:SegoeUiSlim">
-      <form class="width-lg-70" style="text-align:left">
-        <input type="checkbox" checked.bind="filter.includeFutureEvents" change.trigger="find()" />Inclure les cours futurs
-        <input type="checkbox" checked.bind="filter.includePastEvents" change.trigger="find()" />Inclure les cours  passés
+      <form class="width-lg-70" style="text-align:left" ltr-left rtl-right >
+        <input type="checkbox" checked.bind="filter.includeFutureEvents" change.trigger="find()" />${i18n("Include future courses") & signal : 'language-change'}
+        <input type="checkbox" checked.bind="filter.includePastEvents" change.trigger="find()" />${i18n("Include past courses") & signal : 'language-change'}
       </form>
 
-      <div class="width-lg-30" style="text-align:right">
-        <a style="font-weight:bold" click.delegate="new()">Créer un nouveau cours de français</a>
+      <div class="width-lg-30" style="text-align:right" ltr-right rtl-left>
+        <a style="font-weight:bold" click.delegate="new()">${i18n("Create a new French course") & signal : 'language-change'}</a>
       </div>
     </div>
 
@@ -25,14 +25,14 @@
           <div class="fit-to-content">${r.item.type}</div>
           <br/>
           <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()>0">
-            Ouverture des inscriptions le ${r.item.registrationOpeningDate | myDateFormat:'DD/MM/YYYY'}
+            ${i18n("Registration opening") & signal : 'language-change'} ${r.item.registrationOpeningDate | myDateFormat:'DD/MM/YYYY'}
           </div>
           <div class="fit-to-content" if.bind="moment(r.item.registrationOpeningDate).diff()<0">
-            Cloture des inscriptions le ${r.item.registrationClosingDate | myDateFormat:'DD/MM/YYYY'}
+            ${i18n("Registration closing") & signal : 'language-change'} ${r.item.registrationClosingDate | myDateFormat:'DD/MM/YYYY'}
           </div>
           <br/>
           <div class="fit-to-content">
-            Niveau : ${r.item.level}
+           ${i18n("Required level") & signal : 'language-change'} : ${r.item.level}
           </div>
         </div>
 
@@ -43,7 +43,7 @@
           <img src="/assets/img/common/arrow-right-saif.svg" style="position:absolute; width:30px;height:30px; right:100%; bottom:25%;">
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <img src="/assets/img/common/icon-date.svg" /> Date
+              <img src="/assets/img/common/icon-date.svg" />  ${i18n("Date") & signal : 'language-change'}
             </div>
             <div class="width-lg-60 info-text">
               Du ${r.item.startDate | myDateFormat:'DD/MM/YYYY'}<br/> Au ${r.item.endDate | myDateFormat:'DD/MM/YYYY'}
@@ -51,7 +51,7 @@
           </div>
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <img src="/assets/img/common/icon-contact.svg" /> Contact
+              <img src="/assets/img/common/icon-contact.svg" /> ${i18n("Contact") & signal : 'language-change'}
             </div>
             <div class="width-lg-60 info-text">
               ${r.item.contact.name} <br/> ${r.item.contact.phoneNumber} <br/>
@@ -60,7 +60,7 @@
           </div>
           <div class="horizontal">
             <div class="width-lg-40 info-title">
-              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/common/icon-address.svg" /> Adresse </a>
+              <a click.delegate="viewLocation(r.item.address)"> <img src="/assets/img/common/icon-address.svg" /> ${i18n("Address") & signal : 'language-change'} </a>
             </div>
             <div class="width-lg-60 info-text">
               ${r.item.address.street1}<br/> ${r.item.address.street2}
@@ -74,13 +74,13 @@
 
       <div class="_result-footer" style="text-align: right" if.bind="r.action!='new'">
         <div if.bind="r.action==null">
-          <button click.delegate="r.action='edit'" onclick="doScroll(this, '_result')">Modifier</button>
-          <button click.delegate="r.action='delete'">Supprimer</button>
+          <button click.delegate="r.action='edit'" onclick="doScroll(this, '_result')">${i18n("Modify") & signal : 'language-change'}</button>
+          <button click.delegate="r.action='delete'">${i18n("Delete") & signal : 'language-change'}</button>
         </div>
         <div if.bind="r.action=='delete'">
-          Etes vous sûr de vouloir supprimer ce cours ?
-          <button click.delegate="delete(r)">Oui</button>
-          <button click.delegate="cancelAction(r)">Non</button>
+          ${i18n("Are you sure you want to delete this offer?") & signal : 'language-change'}
+          <button click.delegate="delete(r)">${i18n("yes") & signal : 'language-change'}</button>
+          <button click.delegate="cancelAction(r)">${i18n("no") & signal : 'language-change'}</button>
         </div>
       </div>
 
@@ -92,22 +92,22 @@
         <form class="vertical">
           <div class="horizontal">
             <fieldset class="width-lg-50">
-              <legend>Informations principales</legend>
+              <legend>${i18n("Main Information") & signal : 'language-change'}</legend>
 
               <div class="horizontal no-margin">
-                <label class="width-lg-20 ${r.errors.startDate || r.errors.endDate  ? 'error' : ''}"> Date </label>
+                <label class="width-lg-20 ${r.errors.startDate || r.errors.endDate  ? 'error' : ''}"> ${i18n("Date") & signal : 'language-change'} </label>
                 <input class="width-lg-35" type="date" value.bind="r.item.startDate" />
                 <input class="width-lg-35 offset-lg-10" type="date" value.bind="r.item.endDate" />
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20 ${r.errors.type ? 'error' : ''}"> Type </label>
+                <label class="width-lg-20 ${r.errors.type ? 'error' : ''}"> ${i18n("Type") & signal : 'language-change'} </label>
                 <select class="width-lg-80" value.bind="r.item.type">
                     <option if.bind="r.action=='new'"></option>
                     <option repeat.for="x of referenceData.languageLearningProgramType.all" value.bind="x.name">${x.name}</option>
                 </select>
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20 ${r.errors.level ? 'error' : ''}"> Niveau </label>
+                <label class="width-lg-20 ${r.errors.level ? 'error' : ''}"> ${i18n("Required level") & signal : 'language-change'} </label>
                 <select class="width-lg-80" value.bind="r.item.level">
                     <option if.bind="r.action=='new'"></option>
                     <option repeat.for="x of referenceData.level.all" value.bind="x.name">${x.name}</option>
@@ -116,17 +116,17 @@
 
             </fieldset>
             <fieldset class="width-lg-50">
-              <legend>Inscription</legend>
+              <legend>${i18n("Registration") & signal : 'language-change'}</legend>
               <div class="horizontal no-margin">
-                <label class="width-lg-20 ${r.errors.registrationOpeningDate ? 'error' : ''}"> Début </label>
+                <label class="width-lg-20 ${r.errors.registrationOpeningDate ? 'error' : ''}"> ${i18n("Start") & signal : 'language-change'} </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationOpeningDate" />
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20 ${r.errors.registrationClosingDate ? 'error' : ''}"> Fin </label>
+                <label class="width-lg-20 ${r.errors.registrationClosingDate ? 'error' : ''}"> ${i18n("End") & signal : 'language-change'} </label>
                 <input class="width-lg-80" type="date" value.bind="r.item.registrationClosingDate" />
               </div>
               <div class="horizontal no-margin">
-                <label class="width-lg-20">Lien </label>
+                <label class="width-lg-20">${i18n("Link") & signal : 'language-change'} </label>
                 <input class="width-lg-80" type="url" value.bind="r.item.link" placeholder="http://" />
               </div>              
               <!--
@@ -137,14 +137,14 @@
           </div>
           <div class="horizontal">
             <fieldset class="width-lg-50">
-              <legend class="${r.errors.address ? 'error' : ''}">Adresse</legend>
+              <legend class="${r.errors.address ? 'error' : ''}">${i18n("Address") & signal : 'language-change'}</legend>
               <input class="width-lg-100" type="text" placeholder="Adresse" value.bind="r.item.address.street1" place-autocomplete="target.bind: r.item ; user-selection-binding.bind:'street1'"/>
               <input class="width-lg-100" type="text" placeholder="complement d'adresse" value.bind="r.item.address.street2" />
               <input class="width-lg-45" type="text" value.bind="r.item.address.postalCode" /><input class="width-lg-45 offset-lg-10" type="text" value.bind="r.item.address.locality" />
             </fieldset>
 
             <fieldset class="width-lg-50">
-              <legend class="${r.errors.contact ? 'error' : ''}">Contact</legend>
+              <legend class="${r.errors.contact ? 'error' : ''}">${i18n("Contact") & signal : 'language-change'}</legend>
               <input class="width-lg-100" type="text" value.bind="r.item.contact.name" placeholder="nom du contact" />
               <input class="width-lg-100" type="tel" value.bind="r.item.contact.phoneNumber" placeholder="telephone" />
               <input class="width-lg-100" type="email" value.bind="r.item.contact.mailAddress" placeholder="adresse email" />
@@ -155,8 +155,8 @@
 
 
         <div style="text-align:center;padding:20px 0px">
-          <button click.delegate="cancelAction(r)">Annuler</button>
-          <button class="btn-orange" click.delegate="save(r)">Enregistrer</button>
+          <button click.delegate="cancelAction(r)">${i18n("Cancel") & signal : 'language-change'}</button>
+          <button class="btn-orange" click.delegate="save(r)">${i18n("Save") & signal : 'language-change'}</button>
         </div>
       </div>
     </div>

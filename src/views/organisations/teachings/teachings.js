@@ -3,22 +3,22 @@ import {UserDetails, ReferenceData, getUri, viewLocation} from 'common'
 import {inject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import { EventAggregator } from 'aurelia-event-aggregator';
-
+import {I18n} from 'i18n';
 import moment from 'moment';
 
-@inject(HttpClient, EventAggregator, UserDetails, ReferenceData)
+@inject(HttpClient, EventAggregator, UserDetails, ReferenceData, I18n)
 export class Teachings {
 
   filter = { includeFutureEvents: true, includePastEvents: false }
   results = []
 
-  constructor(fetchClient, ea, userDetails, referenceData) {
+  constructor(fetchClient, ea, userDetails, referenceData, i18nMessages) {
     this.fetchClient = fetchClient;
     this.ea = ea;
     this.userDetails = userDetails;
     this.moment = moment;
     this.viewLocation = viewLocation;
-
+    this.i18n = (key) => i18nMessages.getMessage("organisations/teachings", key, userDetails.language);
     this.referenceData = referenceData;
   }
 

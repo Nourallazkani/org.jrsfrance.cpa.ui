@@ -6,13 +6,12 @@
     <div class="_results" if.bind="userDetails.account && userDetails.account.profile=='R'">
 
 
-		<div class="horizontal " style="font-family:SegoeUiSlim;margin-bottom:15px" ltr-right rtl-left>
-			<form class="width-lg-70" style="text-align:left">
-				<input type="radio" name="accepted" checked.bind="filter.accepted" value="true" change.trigger="find()" /> Demandes acceptées
-				<input type="radio" name="accepted" checked.bind="filter.accepted" value="false" change.trigger="find()" /> Demandes
-				en attente
+		<div class="horizontal " style="font-family:SegoeUiSlim;margin-bottom:15px" >
+			<form class="width-lg-70" style="text-align:left" ltr-left rtl-right>
+				<input type="radio" name="accepted" checked.bind="filter.accepted" value="true" change.trigger="find()" />  ${i18n("Accepted requests")  & signal : 'language-change'}
+				<input type="radio" name="accepted" checked.bind="filter.accepted" value="false" change.trigger="find()" />  ${i18n("On Wating requests")  & signal : 'language-change'}
 			</form>
-            <div class="width-lg-30" style="font-family:SegoeUiSlim;text-align:right">
+            <div class="width-lg-30" style="font-family:SegoeUiSlim;text-align:right" ltr-right rtl-left>
                 <a style="font-weight:bold" click.delegate="new()"> ${i18n("New appointment request")  & signal : 'language-change'}</a>
             </div>            
 		</div>
@@ -34,7 +33,7 @@
                     <fieldset>
                         <legend>${i18n("My request")  & signal : 'language-change'}</legend>
                         <div class="horizontal">
-                            <label class="${r.errors.reason ? 'error' : ''}">${i18n("Request type *")  & signal : 'language-change'}</label>
+                            <label class="${r.errors.reason ? 'error' : ''}">${i18n("Request type")  & signal : 'language-change'} *</label>
                             <div class="horizontal  width-lg-70">
                                 <div style="flex:1;margin-top:7px">
                                     <input type="radio" name="reason" checked.bind="r.item.reason" value="INTERPRETING">${i18n("Interpreting")  & signal : 'language-change'}
@@ -50,15 +49,15 @@
                             </div>
                         </div>
                         <div class="horizontal">
-                            <label>${i18n("Additional information")  & signal : 'language-change'}</label>
-                            <input type="text" value.bind="r.item.additionalInformations" />
+                            <label>${i18n("Additional information")  & signal : 'language-change'} <i>(${i18n("optional")  & signal : 'language-change'})</i></label>
+                            <input type="text" value.bind="r.item.additionalInformations"  />
                         </div>
                         <div class="horizontal">
-                            <label>${i18n("Date")  & signal : 'language-change'} </label>
+                            <label>${i18n("Date")  & signal : 'language-change'} <i>(${i18n("optional")  & signal : 'language-change'})</i></label>
                             <input type="text" value.bind="r.item.dateConstraint" />
                         </div>
                         <div class="horizontal">
-                            <label class="${r.errors.refugeeLocation ? 'error' : ''}">${i18n("City or postal code")  & signal : 'language-change'}</label>
+                            <label class="${r.errors.refugeeLocation ? 'error' : ''}">${i18n("City or postal code")  & signal : 'language-change'} *</label>
                             <input type="text" placeholder="" place-autocomplete="target.bind : r.item;target-property.bind:'refugeeLocation'" /><br/>
                         </div>
 
@@ -66,7 +65,7 @@
                     <fieldset>
                         <legend>${i18n("To contact you")  & signal : 'language-change'}</legend>
                         <div class="horizontal">
-                            <label>${i18n("Telephone")  & signal : 'language-change'}</label>
+                            <label>${i18n("Telephone")  & signal : 'language-change'} <i>(${i18n("optional")  & signal : 'language-change'})</i></label>
                             <input type="tel" value.bind="r.item.refugee.phoneNumber" /><br/>
                         </div>
                         <div class="horizontal">

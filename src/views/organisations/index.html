@@ -7,31 +7,31 @@
       <a route-href="route: organisations/language-programs">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-language-program.svg" />
       </a>
-      <figcaption>Apprentissage du français</figcaption>
+      <figcaption>${i18n("French courses") & signal : 'language-change'}</figcaption>
     </figure>
     <figure id="menu-item-teachings" class="${router.currentInstruction.config.name=='organisations/teachings' ? 'active' : ''}">
       <a route-href="route: organisations/teachings">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-teaching.svg" />
       </a>
-      <figcaption> &Eacute;tudes sup&eacute;rieurs </figcaption>
+      <figcaption>${i18n("University studies") & signal : 'language-change'}</figcaption>
     </figure>
     <figure id="menu-item-professional-programs" class="${router.currentInstruction.config.name=='organisations/professional-programs' ? 'active' : ''}">
       <a route-href="route: organisations/professional-programs">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-professional-program.svg" />
       </a>
-      <figcaption> Formation professionelle </figcaption>
+      <figcaption> ${i18n("Professional training") & signal : 'language-change'} </figcaption>
     </figure>
     <figure id="menu-item-workshops" class="${router.currentInstruction.config.name=='organisations/workshops' ? 'active' : ''}">
       <a route-href="route: organisations/workshops">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-workshop.svg" />
       </a>
-      <figcaption> Ateliers socio linguistiques </figcaption>
+      <figcaption>${i18n("Workshops") & signal : 'language-change'}</figcaption>
     </figure>
     <figure id="menu-item-events" class="${router.currentInstruction.config.name=='organisations/events' ? 'active' : ''}">
       <a route-href="route: organisations/events">
         <img class="size-150-lg size-100-md" src="/assets/img/menu/icon-event.svg" />
       </a>
-      <figcaption> &Eacute;v&egrave;nements </figcaption>
+      <figcaption>${i18n("Events") & signal : 'language-change'}</figcaption>
     </figure>
 
   </div>

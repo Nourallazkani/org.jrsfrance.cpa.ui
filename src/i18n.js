@@ -9,27 +9,27 @@ export class I18n {
                 "Sign in": {
                     "fr": "Connexion",
                     "ar": "تسجيل الدخول",
-                    "prs": ""
+                    "prs": "ورود"
                 },
                 "Sign up": {
                     "fr": "Inscription",
                     "ar": "إنشاء حساب",
-                    "prs": ""
+                    "prs": "نام نویسی"
                 },
                 "About": {
                     "fr": "A propos",
                     "ar": "حول",
-                    "prs": ""
+                    "prs": "در باره"
                 },
                 "Sign out": {
                     "fr": "Déconnexion",
                     "ar": "تسجيل الخروج",
-                    "prs": ""
+                    "prs": "خروج"
                 },
                 "My profile": {
                     "fr": "Mon profil",
                     "ar": "ملفّّي الشخصي",
-                    "prs": ""
+                    "prs": "نمایه من"
                 }
             },
 
@@ -42,7 +42,7 @@ export class I18n {
                 "view map": {
                     "fr": "Voir carte",
                     "ar": "رؤية الخريطة",
-                    "prs": "دیدن کارت"
+                    "prs": "دیدن نقشه"
                 },
                 "City": {
                     "fr": "Ville",
@@ -52,22 +52,27 @@ export class I18n {
                 "Required level": {
                     "fr": "Niveau requis",
                     "ar": "المستوى المطلوب",
-                    "prs": "سطح"
+                    "prs": "سطح مورد نیاز"
                 },
                 "Registration opening": {
                     "fr": "Ouverture des inscriptions",
                     "ar": "افتتاح التسجيل",
-                    "prs": ""
+                    "prs": "آغاز ثبت نام"
                 },
                 "Registration closing": {
                     "fr": "Cloture des inscriptions",
                     "ar": "إنتهاء التسجيل",
-                    "prs": "ختم ثبت نام در"
+                    "prs": "ختم ثبت نام"
+                },
+                 "Registration": {
+                    "fr": "inscriptions",
+                    "ar": "التسجيل",
+                    "prs": "ثبت نام"
                 },
                 "Sort by distance": {
                     "fr": "Classer par proximité",
                     "ar": "ترتيب بحسب القرب",
-                    "prs": "ترتیب بر مبنای نزدیکی"
+                    "prs": "مرتب سازی بر اساس فاصله"
                 },
                 "Address": {
                     "fr": "Adresse",
@@ -77,7 +82,17 @@ export class I18n {
                 "Date": {
                     "fr": "Date",
                     "ar": "التاريخ",
-                    "prs": "تاریخ "
+                    "prs": "تاریخ"
+                },
+                "Start": {
+                    "fr": "Début",
+                    "ar": "البدء",
+                    "prs": ""
+                },
+                "End": {
+                    "fr": "Fin",
+                    "ar": "الانتهاء",
+                    "prs": ""
                 },
                 "Hour": {
                     "fr": "Heure",
@@ -92,13 +107,53 @@ export class I18n {
                 "yes": {
                     "fr": "oui",
                     "ar": "نعم",
-                    "prs": ""
+                    "prs": "بلی"
                 },
                 "no": {
                     "fr": "non",
                     "ar": "لا",
+                    "prs": "نخیر"
+                },
+                "Cancel": {
+                    "fr": "Annuler",
+                    "ar": "إلغاء",
                     "prs": ""
-                }
+                },
+                "Save": {
+                    "fr": "Enregistrer",
+                    "ar": "حفظ",
+                    "prs": ""
+                },
+                 "Modify": {
+                    "fr": "Modifier",
+                    "ar": "تعديل",
+                    "prs": ""
+                },
+                "Link": {
+                    "fr": "Lien",
+                    "ar": "رابط",
+                    "prs": ""
+                },
+                 "Delete": {
+                    "fr": "Supprimer",
+                    "ar": "حذف",
+                    "prs": ""
+                },
+                 "Are you sure you want to delete this offer? ": {
+                    "fr": "Etes vous sûr de vouloir supprimer ce offre ?",
+                    "ar": "هل أنتم متأكّدون من حذف هذه العرض؟",
+                    "prs": ""
+                },
+                "Main Information": {
+                    "fr": "Informations principales",
+                    "ar": "معلومات أساسيّة",
+                    "prs": ""
+                },
+                "Type": {
+                    "fr": "Type",
+                    "ar": "النوع",
+                    "prs": ""
+                },
             },
 
 
@@ -106,19 +161,57 @@ export class I18n {
                 "Refugee or asylum seeker": {
                     "fr": "Réfugié ou demandeur d'asile",
                     "ar": "لاجئ أو طالب لجوء",
-                    "prs": "های پناهندگان یا یک پناهجو"
+                    "prs": "پناهنده یا پناهجو"
+                },
+                "I'm a Volunteer": {
+                    "fr": "Je suis bénévole",
+                    "ar": "أنا متطوع",
+                    "prs": "من یک داوطلب هستم"
+                },
+                "I can help according to my availability in ": {
+                    "fr": "Je peux aider selon mes disponibilités par",
+                    "ar": "يمكنني أن أساعد بحسبب وقتي المتاح في ",
+                    "prs": ""
+                },
+                "Learning French language": {
+                    "fr": "L’apprentissage de français",
+                    "ar": "تعلّم اللغة الفرنسية",
+                    "prs": ""
+                },
+                 "Support in certain hight study formations": {
+                    "fr": "le soutien pour certaines formations supérieures",
+                    "ar": "الدعم لبعض مجالات التعليم العالي",
+                    "prs": ""
+                },
+                 "Interpreting": {
+                    "fr": "l’interprétariat",
+                    "ar": "الترجمة الفورية",
+                    "prs": ""
+                },
+                "I can present my offers for the refugees so they can find the ones that are most adapted to their needs": {
+                    "fr": "Je peux présenter mes offres de formation pour les réfugiés afin qu’ils retrouvent celles qui sont les plus adaptées à leurs besoins",
+                    "ar": "يمكنني أن أنشر عروضي المخصصة للاجئين من أجل أن يختاروا منها ما يناسب حاجاتهم ",
+                    "prs": ""
                 },
                 "Sign in": {
-                    "fr" : "Je me connecte"
+                    "fr" : "Je me connecte",
+                    "ar": "أُسجّلُ الدّخول",
+                    "prs": ""
                 },
                 "Sign up": {
-                    "fr" : "Je m'inscris"
+                    "fr" : "Je m'inscris",
+                    "ar": "أَطلبُ التسجيل",
+                    "prs": ""
                 },
                 "Watch video": {
-                    "fr" : "Voir la vidéo"
+                    "fr" : "Voir la vidéo",
+                    "ar": "أُشاهد الفيديو",
+                    "prs": ""
                 },
                 "Back": {
-                    "fr" : "Retour"
+                    "fr" : "Retour",
+                    "ar": "رجوع",
+                    "prs": ""
                 }
             },
 
@@ -126,38 +219,38 @@ export class I18n {
                 "Mail address": {
                     "fr": "Adresse mail",
                     "ar": "البريد الالكتروني",
-                    "prs": ""
+                    "prs": "آدرس ایمیل"
                 },
                 "Password": {
                     "fr": "Mot de passe",
                     "ar": "كلمة المرور",
-                    "prs": ""
+                    "prs": "رمز عبور"
                 },
                 "remember me": {
                     "fr": "se souvenir de moi",
                     "ar": "تذكّرني",
-                    "prs": ""
+                    "prs": "من را به یاد داشته باش"
                 },
                 "Sign in": {
                     "fr": "Connexion",
                     "ar": "تسجيل الدخول",
-                    "prs": ""
+                    "prs": "ورود"
                 },
                 "Invalid mail address or password": {
                     "fr": "Adresse mail ou mot de passe invalide",
                     "ar": " عنوان البريدأو كلمة المرور غير صالح",
-                    "prs": ""
+                    "prs": "آدرس ایمیل یا رمز عبور نادرست است"
                 },
                 "Reset my password": {
                     "fr": "Réinitialiser mon mot de passe",
                     "ar": "إعادة تعيين كلمة مروري",
-                    "prs": ""
+                    "prs": "تنظیم جدید رمز عبور"
                 },
                 "Recover password confirmation": {
                     "fr": "Un mail vous a été envoyé, il contient un lien permettant de réinitialiser votre mot de passe.",
                     "en": "An email has been sent, which contains a link to reset your password.",
                     "ar": "تم إرسال رسالة الكترونية (إيميل) تحتوي على رابط إعادة تعيين كلمة مروركم.",
-                    "prs": ""
+                    "prs": "برای تنظیم مجدد رمز عبور، برای شما یک ایمیل شامل یک لینک فرستاده شد"
                 }
             },
 
@@ -165,77 +258,82 @@ export class I18n {
                 "Mail address": {
                     "fr": "Adresse mail",
                     "ar": "البريد الالكتروني",
-                    "prs": ""
+                    "prs": "آدرس ایمیل"
                 },
                 "Phone": {
                     "fr": "Téléphone",
                     "ar": "الهاتف",
-                    "prs": ""
+                    "prs": "تیلیفون"
+                },
+                "Mastered languages": {
+                    "fr": "Langues maitrisées",
+                    "ar": "الّلغات المتقنة",
+                    "prs": "زبان"
                 },
                 "Password": {
                     "fr": "Mot de passe",
                     "ar": "كلمة المرور",
-                    "prs": ""
+                    "prs": "رمز عبور"
                 },
                 "First name": {
                     "fr": "Prénom",
                     "ar": "الاسم",
-                    "prs": ""
+                    "prs": "نام"
                 },
                 "Last name": {
                     "fr": "Nom",
                     "ar": "اسم العائلة",
-                    "prs": ""
+                    "prs": "نام خانوادگی"
                 },
                 "City or postal code": {
                     "fr": "Ville ou code postal",
                     "ar": "المدينة أو رمز المنطقة",
-                    "prs": ""
+                    "prs": "شهر یا کد پستی"
                 },
                 "I can offer": {
                     "fr": "Je peux proposer",
                     "ar": "يمكن أن أقدِّم",
-                    "prs": ""
+                    "prs": "میتوانم پیشنهاد دهم"
                 },
                 "I am interested in": {
                     "fr": "Je suis intéressé par",
                     "ar": "أنا مهتمّ بِـ",
-                    "prs": ""
+                    "prs": "من علاقه مند هستم در"
                 },
                 "French lessons": {
                     "fr": "Leçons de français",
                     "ar": "محادثة فرنسية",
-                    "prs": ""
+                    "prs": "درس های فرانسوی"
                 },
                 "Support in studies": {
                     "fr": "Support dans les études",
                     "ar": "دعم دراسي",
-                    "prs": ""
+                    "prs": "پشتیبانی در مطالعات"
                 },
                 "Interpreting": {
                     "fr": "Interprétariat",
                     "ar": "الترجمة الفورية",
-                    "prs": ""
+                    "prs": "ترجمه"
                 },
                 "Cultural or sport activities": {
                     "fr": "Activités culturelles ou sportives",
                     "ar": "نشاطات ثقافيّة و رياضيّة",
-                    "prs": ""
+                    "prs": "فعالیت های فرهنگی یا ورزشی"
                 },
                 "Sign up": {
                     "fr": "Je m'inscris",
                     "ar": "إنشاء حساب",
-                    "prs": ""
+                    "prs": "نام نویسی"
                 },
                 "Update profile": {
                     "fr": "Mettre à jour mon profil",
                     "ar": "تحديث ملفّي الشخصي",
-                    "prs": ""
+                    "prs": "به روز رسانی نمایه من"
                 },
                 "Another acccout is linked to this address": {
                     "fr": "Un autre compte est associé à cette adresse",
                     "ar": "يوجد حساب آخر مرتبط بهذا العنوان.",
-                    "prs": ""
+                    "prs": "یک حساب دیگر با این آدرس مرتبط است"
                 }
             },
 
@@ -253,7 +351,7 @@ export class I18n {
                 "Professional training": {
                     "fr": "Formation professionelles",
                     "ar": "تدريب مهني",
-                    "prs": "آموزش های مسلکی"
+                    "prs": "آموزش های حرفه ای"
                 },
                 "Workshops": {
                     "fr": "Ateliers socio linguistiques",
@@ -273,58 +371,58 @@ export class I18n {
                 "Meet a volunteer": {
                     "fr": "Rencontrer un bénévole",
                     "ar": "التقي متطوعاً",
-                    "prs": "رضا کاران"
+                    "prs": "دیدار با یک داوطلب"
                 },
             },
             "refugees/welcome": {
                 "French courses adapted to your needs (higher education, professional French, French for daily life)": {
                     "fr": "Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie quotidienne)",
                     "ar": "البحث عن عروض لتعلم اللغة الفرنسية حسب الحاجة ( الفرنسية لمتابعة التعليم العالي، الفرنسية للمهنين، الفرنسية للحياة اليومية).",
-                    "prs": "پیشنهاد فراگیری زبان فرانسوی مطابق نیاز مندی ها (زبان فرانسوی برای تحصیلات عالی٬ زبان فرانسوی در بخش آموزش های مسلکی و زبان فرانسوی برای زندگی روزمره)."
+                    "prs": "(زبان فرانسوی مطابق نیاز مندی ها  شما (زبان فرانسوی برای تحصیلات عالی، زبان فرانسوی در بخش آموزش های حرفه ای و زبان فرانسوی برای زندگی روزمره"
                 },
                 "Higher education offers with linguistic support": {
                     "fr": "Des offres d’études supérieures avec accompagnement linguistique",
                     "ar": "البحث عن عروض لمتابعة التعليم العالي مع مرافقة لغوية",
-                    "prs": "پیشنهاد تحصیلات عالی همراه با همکار زبانی."
+                    "prs": "پیشنهاد تحصیلات عالی همراه با پشتیبانی زبانی"
                 },
                 "Professional trainings with linguistic support": {
                     "fr": "Des offres de formations professionnelles avec accompagnement linguistique",
                     "ar": "البحث عن عروض لتدريبات مهنية مع مرافقة لغوية",
-                    "prs": "پیشنهاد آموزش های مسلکی همراه با همکار زبانی."
+                    "prs": "پیشنهاد آموزش های حرفه ای همراه با پشتیبانی زبانی"
                 },
                 "Workshops to develop communication skills for daily life": {
                     "fr": "Ateliers qui visent à développer les compétences de communication pour la vie quotidienne.",
                     "ar": "البحث عن ورشات عمل لتطوير مهارات التواصل اللّغوية الضرورية من أجل شؤون الحياة اليومية الاجتماعية.",
-                    "prs": "کارگاه ها٬ برای ارتقای مهارت های ارتباطی در زندگی روزمره."
+                    "prs": "کارگاه های آموزشی برای ارتقای مهارت های ارتباطی در زندگی روزمره"
                 },
                 "Cultural, sport or recreational activities to improve your French": {
                     "fr": "Activités culturelles, sportives ou ludiques en vue de progresser en français",
                     "ar": " فعاليات ثقافية أو رياضية أو للترفيه معنية بتعلم الفرنسية",
-                    "prs": "رویدادها را"
+                    "prs": "فعالیت های فرهنگی، ورزشی و یا تفریحی برای بهبود یادگیری زبان فرانسوی"
                 },
                 "Directory of all the libraries offering self-learning methods": {
                     "fr": "Annuaire des bibliothèques qui proposent et conseillent des méthodes d’auto-apprentissage.",
                     "ar": "عناوين المكتبات التي تقترح و توفّر طرق لتعلّم الفرنسية بشكلٍ ذاتي.",
-                    "prs": "فهرست راهنمای کتاب خانه ها برای  پیشنهاد و مشوره دهی در بخش خود آموزی زبان فرانسوی."
+                    "prs": "راهنمای کتاب خانه ها برای یاد گیری خود آموزی زبان فرانسوی"
                 },
                 "Get in touch with a volunteer for support in learning French, interpreting or other trainings": {
                     "fr": "Entrer en relation avec un bénévole pour un accompagnement dans l’apprentissage du français, l’interprétariat, ou d’autres formations.",
                     "ar": "البحث عن متطوعين للمساعدة أثناء تعلّم الفرنسية أو في مرحلة التعليم العالي أو المرافقة -عند الحاجة- حين مواعيد الحصول على الأأوراق الرسمية)",
-                    "prs": "ایجاد رابطه همراه با یک رضا کار٬ برای همراهی در قسمت فراگیری زبان فرانسوی٬ ترجمه و سایر آموزش ها. "
+                    "prs": "ایجاد رابطه همراه با یک داوطلب برای همراهی در قسمت فراگیری زبان فرانسوی، ترجمه و سایر آموزش های حرفه ای"
                 }
             },
             "refugees/teachings": {
                 "Field of study": {
-                    "fr": "Domaine",
+                    "fr": "Domaine d'etude",
                     "ar": "مجال الدراسة",
                     "prs": "رشته تحصیلی"
                 }
             },
             "refugees/professional-programs": {
                 "Domain": {
-                    "fr": "Domaine",
+                    "fr": "Domaine pro",
                     "ar": "المجال المهني",
-                    "prs": "رشته"
+                    "prs": "بخش"
                 }
             },
             "refugees/events": {
@@ -343,12 +441,12 @@ export class I18n {
                 "Organised by": {
                     "fr": "Organisé par",
                     "ar": "منظمة من قِبل",
-                    "prs": ""
+                    "prs": "ترتیب و تنظیم توسط"
                 },
                 "More": {
                     "fr": "En savoir plus",
                     "ar": "معرفة المزيد",
-                    "prs": ""
+                    "prs": "برای معلومات بیشتر"
                 }
             },
             "refugees/profile": {
@@ -358,114 +456,243 @@ export class I18n {
                 "New appointment request": {
                     "fr": "Nouvelle demande de rendez vous",
                     "ar": "طلب موعد جديد",
+                    "prs": "درخواست جدید برای وعده ملاقات"
+                },
+                "Accepted requests": {
+                    "fr": "Demandes acceptées",
+                    "ar": "الطلبات التي قُبِلت",
                     "prs": ""
                 },
-                "Request type *": {
-                    "fr": "Type de demande *",
-                    "ar": "نوع الموعد *",
+                "On Wating requests": {
+                    "fr": "Demandes en attente",
+                    "ar": "الطلبات قيد الانتظار",
                     "prs": ""
+                },
+                "Request type": {
+                    "fr": "Type de demande",
+                    "ar": "نوع الموعد",
+                    "prs": "نوع درخواست"
                 },
                 "Interpreting": {
                     "fr": "Interprétariat",
                     "ar": "ترجمة فورية",
-                    "prs": ""
+                    "prs": "ترجمه"
                 },
                 "Support in studies": {
                     "fr": "Soutien dans les études",
                     "ar": " دعم الدراسي",
-                    "prs": ""
+                    "prs": "پشتیبانی در مطالعات"
                 },
                 "French lessons": {
                     "fr": "Leçons de français",
                     "ar": "دروس الفرنسية ",
-                    "prs": ""
+                    "prs": "درس های زبان فرانسوی"
                 },
                 "Additional information": {
                     "fr": "Informations complémentaires",
                     "ar": "معلومات إضافية",
-                    "prs": ""
+                    "prs": "معلومات بیشتر"
+                },
+                "optional": {
+                    "fr": "facultatif",
+                    "ar": "اختياري",
+                    "prs": "اختیاری"
                 },
                 "Date": {
                     "fr": "Date",
                     "ar": "التاريخ",
-                    "prs": ""
+                    "prs": "تاریخ"
                 },
                 "City or postal code": {
                     "fr": "Ville ou code postal",
                     "ar": "البلد أو الرمز البريدي",
-                    "prs": ""
+                    "prs": "شهر یا کد پستی"
                 },
                 "To contact you": {
                     "fr": "Pour vous contacter",
                     "ar": "للتواصل معكم",
-                    "prs": ""
+                    "prs": "برای تماس با شما"
                 },
                 "Telephone": {
                     "fr": "Téléphone",
                     "ar": "الهاتف",
-                    "prs": ""
+                    "prs": "تیلیفون"
                 },
                 "Mail address": {
                     "fr": "Adresse mail",
                     "ar": "العنوان البريدي",
-                    "prs": ""
+                    "prs": "آدرس ایمیل"
                 },
                 "Send my request": {
                     "fr": "Envoyer ma demande",
                     "ar": "إرسال طلبي",
-                    "prs": ""
+                    "prs": "فرستادن درخواست من"
                 },
                 "Accepted by": {
                     "fr": "Accepté par ",
                     "ar": "قُبِلَ من:",
-                    "prs": ""
+                    "prs": "پذیرفته شده توسط"
                 },
                 "Posted the": {
                     "fr": "Posté le ",
-                    "ar": "وُضِع في ",
-                    "prs": ""
+                    "ar": "طُلِب في ",
+                    "prs": "فرستاده شده در"
                 },
                 "For": {
                     "fr": "Pour ",
                     "ar": "من أجل",
-                    "prs": ""
+                    "prs": "برای"
                 },
                 "Region": {
                     "fr": "Région",
                     "ar": "المنطقة",
-                    "prs": ""
+                    "prs": "منطقه"
                 },
                 "My request": {
                     "fr": "Ma demande",
                     "ar": "طلبي",
-                    "prs": ""
+                    "prs": "درخواست من"
                 },
                 "No access, please sign up or sign in": {
                     "fr": "Pas d'accès, veuillez s'inscrire ou se connecter",
                     "ar": "للوصول لهذه الخدمة، تفضّلوا بإنشاء حساب أو بتسجيل الدخول.",
-                    "prs": ""
+                    "prs": "قابل دسترس نیست، لطفن نام نویسی کنید و یا متصل شودید"
                 }
             },
 
 
 
             "organisations/welcome": {
+                "French courses adapted to your needs (higher education, professional French, French for daily life)": {
+                    "fr": "Des cursus de français selon les besoins (enseignement supérieur, français à visée professionnelle, français pour la vie quotidienne)",
+                    "ar": "البحث عن عروض لتعلم اللغة الفرنسية حسب الحاجة ( الفرنسية لمتابعة التعليم العالي، الفرنسية للمهنين، الفرنسية للحياة اليومية).",
+                    "prs": "(زبان فرانسوی مطابق نیاز مندی ها  شما (زبان فرانسوی برای تحصیلات عالی، زبان فرانسوی در بخش آموزش های حرفه ای و زبان فرانسوی برای زندگی روزمره"
+                },
+                "Higher education offers with linguistic support": {
+                    "fr": "Des offres d’études supérieures avec accompagnement linguistique",
+                    "ar": "البحث عن عروض لمتابعة التعليم العالي مع مرافقة لغوية",
+                    "prs": "پیشنهاد تحصیلات عالی همراه با پشتیبانی زبانی"
+                },
+                "Professional trainings with linguistic support": {
+                    "fr": "Des offres de formations professionnelles avec accompagnement linguistique",
+                    "ar": "البحث عن عروض لتدريبات مهنية مع مرافقة لغوية",
+                    "prs": "پیشنهاد آموزش های حرفه ای همراه با پشتیبانی زبانی"
+                },
+                "Workshops to develop communication skills for daily life": {
+                    "fr": "Ateliers qui visent à développer les compétences de communication pour la vie quotidienne.",
+                    "ar": "البحث عن ورشات عمل لتطوير مهارات التواصل اللّغوية الضرورية من أجل شؤون الحياة اليومية الاجتماعية.",
+                    "prs": "کارگاه های آموزشی برای ارتقای مهارت های ارتباطی در زندگی روزمره"
+                },
+                "Cultural, sport or recreational activities to improve your French": {
+                    "fr": "Activités culturelles, sportives ou ludiques en vue de progresser en français",
+                    "ar": " فعاليات ثقافية أو رياضية أو للترفيه معنية بتعلم الفرنسية",
+                    "prs": "فعالیت های فرهنگی، ورزشی و یا تفریحی برای بهبود یادگیری زبان فرانسوی"
+                }
+            },
+            "organisations/index": {
+                 "French courses": {
+                    "fr": "Apprentissage du français",
+                    "ar": "تعلّم الفرنسية",
+                    "prs": "آموزش زبان فرانسوی"
+                },
+                "University studies": {
+                    "fr": "Etudes supérieures",
+                    "ar": "دراسة جامعية",
+                    "prs": "تحصیلات عالی"
+                },
+                "Professional training": {
+                    "fr": "Formation professionelles",
+                    "ar": "تدريب مهني",
+                    "prs": "آموزش های حرفه ای"
+                },
+                "Workshops": {
+                    "fr": "Ateliers socio linguistiques",
+                    "ar": "ورشات سوسيولغوية",
+                    "prs": "کار گاه های زبانی ـ اجتماعی"
+                },
+                "Events": {
+                    "fr": "Evenements",
+                    "ar": "فعّاليات",
+                    "prs": "برنامه ها"
+                },
 
             },
             "organisations/teachings": {
-
+                 "Create a new teaching": {
+                    "fr": "Créer un nouvel enseignement",
+                    "ar": "إنشاء فرصة تعليم جديدة",
+                    "prs": ""
+                },
             },
             "organisations/language-programs": {
-
+                 "Include future courses": {
+                    "fr": "Inclure les cours futurs",
+                    "ar": "تَضمّن الدروس المستقبلية",
+                    "prs": ""
+                },
+                 "Include past courses": {
+                    "fr": "Inclure les cours passés",
+                    "ar": "تَضمّن الدروس الفائتة",
+                    "prs": ""
+                },
+                 "Create a new French course": {
+                    "fr": "Créer un nouveau cours de français",
+                    "ar": "إنشاء درس فرنسيّة جديد",
+                    "prs": ""
+                },
             },
             "organisations/professional-programs": {
-
+                 "Include future trainings": {
+                    "fr": "Inclure les formation futures",
+                    "ar": "تَضمّن التدريبات المستقبلية",
+                    "prs": ""
+                },
+                 "Include past trainings": {
+                    "fr": "Inclure les formation passées",
+                    "ar": "تَضمّن التدريبات الفائتة",
+                    "prs": ""
+                },
+                 "Create new professional training": {
+                    "fr": "Créer une nouvelle formation professionnelle",
+                    "ar": "إنشاء تدريب مهني جديد",
+                    "prs": ""
+                },
             },
             "organisations/events": {
+                 "Include": {
+                    "fr": "Inclure",
+                    "ar": "تَضمّن",
+                    "prs": ""
+                },
+                 "the workshops": {
+                    "fr": "les ateliers",
+                    "ar": "الورشات",
+                    "prs": ""
+                },
+                 "the events": {
+                    "fr": "les évenements",
+                    "ar": "الفعّاليّات",
+                    "prs": ""
+                },
+                  "future": {
+                    "fr": "futurs",
+                    "ar": "المستقبلية",
+                    "prs": ""
+                },
+                  "past": {
+                    "fr": "passés",
+                    "ar": "الفائتة",
+                    "prs": ""
+                },
+                 "Create a new": {
+                    "fr": "Créer un nouvel",
+                    "ar": "إنشاء",
+                    "prs": ""
+                },
 
             },
             "organisations/workshops": {
-
+                 
             },
             "organisations/profile": {
 
@@ -477,95 +704,95 @@ export class I18n {
                 "Availabilities": {
                     "fr": "Disponibilités",
                     "ar": "متاح لـ",
-                    "prs": ""
+                    "prs": "دسترسی"
                 },
                 "Events for volunteers": {
                     "fr": "Evenements pour les bénévoles",
                     "ar": "فعاليات للمتطوعين",
-                    "prs": ""
+                    "prs": "برنامه ها برای داوطلبان"
                 },
                 "Methods of teaching": {
                     "fr": "Méthodes pour enseigner",
                     "ar": "مناهج من أجل التعليم",
-                    "prs": ""
+                    "prs": "روش تدریس"
                 },
                 "Meetings": {
                     "fr": "Demande de rendez vous",
                     "ar": "طلبات المواعيد",
-                    "prs": ""
+                    "prs": "درخواست وعده ملاقات"
                 }
             },
             "volunteers/availabilities": {
                 "Thanks for your registration": {
                     "fr": "Merci pour votre inscription",
                     "ar": "شكرا لتسجيلكم",
-                    "prs": ""
+                    "prs": "تشکر از ثبت نام شما"
                 },
                 "Could you complete your profile by telling us how you wish to help the refugees ?": {
                     "fr": "Pourriez vous compléter votre profil en indiquant comment vous souhaitez aider les réfugiés ?",
                     "ar": "هل بإمكانكم إكمال حسابكم الشخصي لإخبارنا كيف ترغبون مساعدة اللاجئين ؟",
-                    "prs": ""
+                    "prs": "آیا می توانید نمایه تان را تکمیل نموده و تذکر دهید که چگونه می خواهید پناهندگان را کمک کنید؟"
                 },
                 "Explanations": {
                     "fr": "Explications",
                     "ar": "توضيح",
-                    "prs": ""
+                    "prs": "توضیحات"
                 },
 
                 "French lessons": {
                     "fr": "Leçons de français",
                     "ar": "محادثة فرنسية",
-                    "prs": ""
+                    "prs": "درس های زبان فرانسوی"
                 },
                 "Explanations-french-lessons": {
                     "fr": "des cours de français, donnés à un réfugié dans les centre d'accueil de demandeurs d'asile (où autre lieu à décidé entre vous et le réfugié). Si vous n'avez jamais enseigné le français à des etrangers n'hésitez pas à consulter la rubrique 'Evenements pour les bénévoles', qui recensent notamment les cours FLE (français langue étrangère). Vous pouvez aussi trouver des méthodes de langues dans la rubrique 'méthodes pour enseigner'",
                     "en": "french conversations sessions (+/- 1 hour), where you can help a refugee to improve their french",
                     "ar": "جلسات محادثة فرنسية تدوم لـ (+/- ساعة)، بهدف مساعدة لاجئ لتحسين فرنسيته",
-                    "prs": ""
+                    "prs": "جلسات مهاوره به زبان فرانسوی (+/- ۱ ساعت)،‌ فرصتی که می توانید برای بهبود زبان فرانسوی یک پناهنده کمک کنید"
                 },
-                "Explanations-address": {
+                "Explanations-address":{
                     "fr": "Indiquer votre ville nous permettra de ne vous soliciter que pour les réfugiés qui habitent à proximité. Elle ne sera jamais divuglée sur le site ni communiqué à des tiers. Si vous le souhaitez vous pouvez n'inscrire que votre ville ou votre code postal",
-                    "en": "Telling us the city where you leave will help us to sollicate you help only for refugees who leave in your area. It will <u>never</u> be displayed on the site or given to anyone. If you prefer you can give us only your city or your postal code",
+                    "en": "Telling us the city where you live will help us to sollicate you help only for refugees who leave in your area. It will <u>never</u> be displayed on the site or given to anyone. If you prefer you can give us only your city or your postal code",
                     "ar": " إخبارنا بعنوان سكنكم يسمح لنا بطلب مساعدتكم في حال احتياجها من قبل لاجئ يسكن بالقرب منكم. لن تظهر هذه المعلومات أبدا ولن نرسلها لأي شخص كان!. يمكنكم إذا أردتم أن تزودنا فقط باسم مدينتكم أو برمزها البريدي.",
-                    "prs": ""
+                    "prs": "تذکر شهر برای ما اجازه خواهد داد تا شما بتوانید برای پناهندگان نزدیک شما کمک نمایید، هرگز در سایت منتشر و یا با شخص سومی در میان گذاشته نخواهد شد. اگر خواستید می توانید تنها اسم شهر یا کد پستی تان را بنویسید"
                 },
                 "Interpreting": {
                     "fr": "Interprétariat",
                     "ar": "الترجمة الفورية",
-                    "prs": ""
+                    "prs": "تذکر شهر برای ما اجازه خواهد داد تا شما بتوانید برای پناهندگان نزدیک شما کمک نمایید، هرگز در سایت منتشر و یا با شخص سومی در میان گذاشته نخواهد شد. اگر خواستید می توانید تنها اسم شهر یا کد پستی تان را بنویسید"
                 },
                 "Explanations-interpreting": {
                     "fr": "Si vous maitrisez une langue étrangère cela peut beaucoup aider les réfugiés, notamment lorsqu'ils ont besoin de se faire comprendre dans l'accomplissement d'une démarche administrative. Même si vous parlez anglais cela peut-être d'une grande aide car beaucoup de réfugiés parlent anglais aussi.",
                     "en": "if you master another language it could be a great help for refugees,especially when they need to do an administrative task. Very often they don't speak french well enough to understand clearly the administrative procedure. If you speak english it can be of a great  help since many refugees can speak english as well.",
                     "ar": "إذا كنتم تتقنون لغة أخرى فهذا قد يساعد جداً اللاجئين، خصوصا حينما يحتاجون التواصل عند القيام بالمهام الإدارية، إذ أنهم غالبا لا يتكلمون الفرنسية بشكل كاف يسمح لهم بفهم الإجراءات الإدارية بوضوح، فإذا كنتم تتكلمون الانجليزية مثلا، فذلك رائع! حيث معظم اللاجئيين تتكلم الانجليزية.",
-                    "prs": ""
+                    "prs": "گر آشنایی به یک زبان بیرونی دارید،‌ می تواند پناهندگان را خیلی کمک می کند، به ویژه در  پیشبرد امور اداری. حتا اگر به زبان انگلیسی دسترسی دارید می تواند پناهندگان را کمک زیاد نماید چون بیشتر پناهندگان با زبان انگلسی آشنایی دارند"
                 },
                 "Support in studies": {
                     "fr": "Support dans les études",
                     "ar": "الدعم الدراسي",
-                    "prs": ""
+                    "prs": "پشتیبانی در مطالعات"
                 },
                 "Explanations-support-in-studies": {
                     "fr": "Si vous maitriser un domaine tel que les mathématique, la physique, etc... Accepteriez vous d'aider un réfugié dans ses études ?",
                     "en": "if you master a domain like mathematic, physics, ... would you accept to help refugees in their studies ?",
                     "ar": "إذا كنتم تتقنون مجالا معيّناً كالرياضيات، أو الفيزياء... فهل تقبلون مساعدة اللاجئين في دراستهم ؟",
-                    "prs": ""
+                    "prs": "اگر آشنایی در یک رشته خاص دارید مانند ریاضی، فیزیک و غیره، آیا می توانید یک پناهنده را در قسمت درس هایش کمک کنید؟"
                 },
                 "Cultural or sport activities": {
                     "fr": "Activites culturelles ou sportives",
                     "ar": "فعّاليات ثقافية و رياضية",
-                    "prs": ""
+                    "prs": "فعالیت های فرهنگی و یا ورزشی"
                 },
                 "Explanations-activities": {
                     "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    "en": "If you have some time to organise some culture and sport activities for the refugees, then it'll be great!",
                     "ar": "أذا كان لديكم الوقت لتنظيم بعض النشاطات الثقافية و الرياضيّة فسيكون ذلك من دواعي سرور اللاجئين.",
                     "prs": ""
                 },
                 "Update availabilities": {
                     "fr": "Mettre à jour mes disponibilités",
                     "ar": "تحديث معلوماتي",
-                    "prs": ""
+                    "prs": "به روز سازی دسترسی های من"
                 }
             },
             "volunteers/events": {
@@ -575,80 +802,78 @@ export class I18n {
                 "Thanks for your registration": {
                     "fr": "Merci pour votre inscription",
                     "ar": "شكرا لتسجيلكم",
-                    "prs": ""
+                    "prs": "تشکر از نام نویسی شما"
                 },
                 "Could you complete your profile by telling us how you wish to help the refugees ?": {
                     "fr": "Pourriez vous compléter votre profil en indiquant comment vous souhaitez aider les réfugiés ?",
                     "ar": "هل بإمكانكم إكمال حسابكم الشخصي لإخبارنا كيف ترغبون مساعدة اللاجئين ؟",
-                    "prs": ""
+                    "prs": "آیا می توانید نمایه تان را تکمیل نموده با اشاره به این که چگونه می خواهید یک پناهنده را کمک کنید؟"
                 },
                 "Explanations": {
                     "fr": "Explications",
                     "ar": "توضيح",
-                    "prs": ""
+                    "prs": "توضیح"
                 },
                 "Your address": {
                     "fr": "Votre adresse",
                     "ar": "عنوانكم",
-                    "prs": ""
+                    "prs": "آدرس شما"
                 },
                 "French lessons": {
                     "fr": "Leçons de français",
                     "ar": "محادثة فرنسية",
-                    "prs": ""
+                    "prs": "درس های زبان فرانسوی"
                 },
                 "Explanations-french-lessons": {
                     "fr": "des séances de conversation d'une heure, durant lesquels vous aider les réfugiés à améliorer leur français.",
                     "en": "french conversations sessions (+/- 1 hour), where you can help a refugee to improve their french",
                     "ar": "جلسات محادثة فرنسية تدوم لـ (+/- ساعة)، بهدف مساعدة لاجئ لتحسين فرنسيته",
-                    "prs": ""
+                    "prs": "جلسات مهاوره به زبان فرانسوی (+/- ۱ ساعت)،‌ فرصتی که می توانید برای بهبود زبان فرانسوی یک پناهنده کمک کنید"
                 },
                 "Explanations-address": {
                     "fr": "Indiquer votre ville nous permettra de ne vous soliciter que pour les réfugiés qui habitent à proximité. Elle ne sera jamais divuglée sur le site ni communiqué à des tiers. Si vous le souhaitez vous pouvez n'inscrire que votre ville ou votre code postal",
                     "en": "Telling us the city where you leave will help us to sollicate you help only for refugees who leave in your area. It will <u>never</u> be displayed on the site or given to anyone. If you prefer you can give us only your city or your postal code",
                     "ar": " إخبارنا بعنوان سكنكم يسمح لنا بطلب مساعدتكم في حال احتياجها من قبل لاجئ يسكن بالقرب منكم. لن تظهر هذه المعلومات أبدا ولن نرسلها لأي شخص كان!. يمكنكم إذا أردتم أن تزودنا فقط باسم مدينتكم أو برمزها البريدي.",
-                    "prs": ""
+                    "prs": "تذکر شهر برای ما اجازه خواهد داد تا شما بتوانید برای پناهندگان نزدیک شما کمک نمایید، هرگز در سایت منتشر و یا با شخص سومی منتشر یا در میان گذاشته نخواهد شد. اگر خواستید می توانید تنها اسم شهر یا کد پستی تان را بنویسید"
                 },
                 "Interpreting": {
                     "fr": "Interprétariat",
                     "ar": "الترجمة الفورية",
-                    "prs": ""
+                    "prs": "ترجمه"
                 },
                 "Explanations-interpreting": {
                     "fr": "Si vous maitrisez une langue étrangère cela peut beaucoup aider les réfugiés, notamment lorsqu'ils ont besoin de se faire comprendre dans l'accomplissement d'une démarche administrative. Même si vous parlez anglais cela peut-être d'une grande aide car beaucoup de réfugiés parlent anglais aussi.",
                     "en": "if you master another language it could be a great help for refugees,especially when they need to do an administrative task. Very often they don't speak french well enough to understand clearly the administrative procedure. If you speak english it can be of a great  help since many refugees can speak english as well.",
                     "ar": "إذا كنتم تتقنون لغة أخرى فهذا قد يساعد جداً اللاجئين، خصوصا حينما يحتاجون التواصل عند القيام بالمهام الإدارية، إذ أنهم غالبا لا يتكلمون الفرنسية بشكل كاف يسمح لهم بفهم الإجراءات الإدارية بوضوح، فإذا كنتم تتكلمون الانجليزية مثلا، فذلك رائع! حيث معظم اللاجئيين تتكلم الانجليزية.",
-                    "prs": ""
+                    "prs": "اگر آشنایی به یک زبان بیرونی دارید،‌ می تواند پناهندگان را خیلی کمک می کند، به ویژه در  پیشبرد امور اداری شان. حتا اگر به زبان انگلیسی دسترسی دارید می تواند پناهندگان را کمک زیاد نماید چون بیشتر پناهندگان با زبان انگلیسی آشنایی دارند"
                 },
                 "Support in studies": {
                     "fr": "Support dans les études",
                     "ar": "الدعم الدراسي",
-                    "prs": ""
+                    "prs": "پشتیبانی در مطالعات"
                 },
                 "Explanations-support-in-studies": {
                     "fr": "Si vous maitriser un domaine tel que les mathématique, la physique, etc... Accepteriez vous d'aider un réfugié dans ses études ?",
                     "en": "if you master a domain like mathematic, physics, ... would you accept to help refugees in their studies ?",
                     "ar": "إذا كنتم تتقنون مجالا معيّناً كالرياضيات، أو الفيزياء... فهل تقبلون مساعدة اللاجئين في دراستهم ؟",
-                    "prs": ""
-                },
-
-
+                    "prs": "اگر آشنایی در یک رشته خاص دارید مانند ریاضی، فیزیک و غیره، آیا می توانید یک پناهنده را در قسمت درس هایش کمک کنید؟"
+                }
             },
             "volunteers/meeting-requests": {
                 "I can answer to this request": {
                     "fr": "Je peux répondre à cette demande",
                     "ar": "أستطيع الردّ على هذا الطلب",
-                    "prs": ""
+                    "prs": "می توانم به این درخواست پاسخ بگویم"
                 },
                 "I cannot answer to this request": {
                     "fr": "Je ne peux pas répondre à cette demande",
                     "ar": "لا أستطيع الردّ على هذا الطلب",
-                    "prs": ""
+                    "prs": "نمی توانم به این درخواست پاسخ بگویم"
                 },
                 "View messages": {
                     "fr": "Voir les messages",
                     "ar": "رؤية الرسائل",
-                    "prs": ""
+                    "prs": "دیدن پیام ها"
                 }
             }
         }

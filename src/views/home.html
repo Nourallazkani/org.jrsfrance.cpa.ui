@@ -148,10 +148,10 @@
                 <img style="width:100%" src="/assets/img/home/voulnteer.jpg" />
             </div>
             <div style="height:50%;">  <ul>
-                <li style="height:80px"><a click.delegate="setUserDetails('V', 'fr')">Je suis b&eacute;n&eacute;vole</a></li>
-                <li style="height:80px"><a click.delegate="setUserDetails('V', 'ar')">أنا متطوع</a></li>
-                <li style="height:80px"><a click.delegate="setUserDetails('V', 'en')">I'm a Volunteer</a></li>
-                <li style="height:80px"><a click.delegate="setUserDetails('V', 'prs')">من یک داوطلب هستم</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V', 'fr')">${i18n("I'm a Volunteer","fr")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V', 'ar')">${i18n("I'm a Volunteer","ar")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V', 'en')">${i18n("I'm a Volunteer","en")}</a></li>
+                <li style="height:80px"><a click.delegate="setUserDetails('V', 'prs')">${i18n("I'm a Volunteer","prs")}</a></li>
             </ul></div>
         </div>
 
@@ -162,11 +162,11 @@
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
                 <p>
-                    Je peux donner un peu de mon temps selon mes disponibilités pour :
+                     ${i18n('I can help according to my availability in ')  & signal : 'language-change'} :
                     <ul>
-                        <li>aider dans l’apprentissage de français.</li>
-                        <li>le soutien pour certaines formations.</li>
-                        <li>l’interprétariat</li>
+                        <li> ${i18n('Learning French language')  & signal : 'language-change'}.</li>
+                        <li> ${i18n('Support in certain hight study formations')  & signal : 'language-change'}.</li>
+                        <li> ${i18n('Interpreting')  & signal : 'language-change'}.</li>
                     </ul>
                 </p>
                 <div class="horizontal" style="text-align:center">
@@ -236,8 +236,7 @@
                     <a click.delegate="setUserDetails(null)" class="close"></a>
                 </div>
                 <p>
-                    Je peux présenter mes offres de formation pour les réfugiés afin qu’ils retrouvent celles qui sont les plus adaptées à leurs
-                    besoins.
+                    ${i18n('I can present my offers for the refugees so they can find the ones that are most adapted to their needs')  & signal : 'language-change'}.
                 </p>
                 <div class="horizontal" style="text-align:center">
                     <div style="flex-grow:1">

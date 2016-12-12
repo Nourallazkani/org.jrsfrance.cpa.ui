@@ -18,8 +18,11 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUfIhO_I4sk4Ib-1DsShMzbYtasFqTPnk&libraries=places,map"></script>
 
     <script type="text/javascript">
-    function onSubmit(){
-    
+    function signUp(){
+        document.getElementById('form').style.display='none';
+        document.getElementById('success').style.display='block';
+
+        return;
         var input = {
             name:document.getElementById('name').value,
             category:parseInt(document.querySelector('input[name="category"]:checked').value),
@@ -110,7 +113,7 @@
         <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.fr.webm" />
     </video>
 
-    <form onsubmit="return false" name="frm">
+    <form onsubmit="return false" id="form">
         <fieldset>
             <legend>Informations principales</legend>
             Catégorie : 
@@ -145,8 +148,12 @@
             <textarea id="additionalInformations"></textarea>        
         </fieldset>        
         
-        <button onclick="onSubmit();">Ok</button>
+        <button onclick="signUp();">Ok</button>
     </form>
+
+    <div id="success">
+        Inscription bien reçue, vous allez recevoir très bientôt vos identifiants et être contacté par ... qui va vous aider à effectuer vos premier pas sur CPA.
+    </div>    
 </body>
 
 </html>

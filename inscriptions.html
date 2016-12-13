@@ -18,16 +18,22 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUfIhO_I4sk4Ib-1DsShMzbYtasFqTPnk&libraries=places,map"></script>
 
     <script type="text/javascript">
-    function signUp(){
-        document.getElementById('form').style.display='none';
-        document.getElementById('success').style.display='block';
+    
+    function onSignUpSuccess(){
+        document.getElementById('input-errors').style.display='none';
+        document.getElementById('conflict').style.display='none';
+        document.getElementById('form').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+    }
 
-        return;
+    function signUp(){
+        var selectedCategory = document.querySelector('input[name="category"]:checked');
+        
         var input = {
             name:document.getElementById('name').value,
-            category:parseInt(document.querySelector('input[name="category"]:checked').value),
+            category: selectedCategory == null ? null : parseInt(selectedCategory.value),
             mailAddress:document.getElementById('mailAddress').value,
-            additionalInformations:document.getElementById('additionalInformations').value,
+            
             address:{
                 street1:document.getElementById('address.street1').value,
                 street2:document.getElementById('address.street2').value,
@@ -36,7 +42,7 @@
                 country:"France",
             },
             contact:{
-                name:document.getElementById('contact.name').value,
+                name:document.getElementById('contact.firstname').value+" "+document.getElementById('contact.lastname').value,
                 phoneNumber:document.getElementById('contact.phoneNumber').value,
                 mailAddress:document.getElementById('contact.mailAddress').value,
             }
@@ -45,8 +51,20 @@
         var xhr = new XMLHttpRequest();
        
         xhr.onreadystatechange = function() {
-            if (xhr.readyState == 201) {
-                console.log(xhr.responseText);
+            if(xhr.readyState != 4){
+                return;
+            }
+            document.getElementById('conflict').style.display='none';
+            document.getElementById('input-errors').style.display='none';
+            
+            if (xhr.status == 201) {
+                onSignUpSuccess();
+            }
+            else if(xhr.status == 409){
+                document.getElementById('conflict').style.display='inline';
+            }
+            else if(xhr.status == 400 && xhr.responseText != null){
+                document.getElementById('input-errors').style.display='inline';
             }
         }
         xhr.open('POST', 'http://127.0.0.1:8080/api/organisations', true);
@@ -56,8 +74,8 @@
     } 
 
     document.addEventListener("DOMContentLoaded", function() {
-        var element = document.getElementById('address.street1');
-        google.maps.event.addDomListener(element, 'keydown', function (e) {
+        var street1Element = document.getElementById('address.street1');
+        google.maps.event.addDomListener(street1Element, 'keydown', function (e) {
             if (e.keyCode == 13) {
                 e.preventDefault();
             }
@@ -68,7 +86,7 @@
             componentRestrictions: { country: "fr" },
         };
     
-        var autocomplete = new google.maps.places.Autocomplete(element, options);
+        var autocomplete = new google.maps.places.Autocomplete(street1Element, options);
         
         autocomplete.addListener('place_changed', function() {
             var place = autocomplete.getPlace();
@@ -109,23 +127,19 @@
 <body>
 
     <video controls if.bind="userDetails.language=='fr'">
-        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.fr.mp4" />
-        <source src="http://assets.cpafrance.fr.s3-website-eu-west-1.amazonaws.com/video-organisation.480.fr.webm" />
+        <source src="http://assets.cpafrance.fr/video-organisation.480.fr.mp4" />
+        <source src="http://assets.cpafrance.fr/video-organisation.480.fr.webm" />
     </video>
 
     <form onsubmit="return false" id="form">
         <fieldset>
             <legend>Informations principales</legend>
-            Catégorie : 
-                <input type="radio" value="1" name="category">
-                <input type="radio" value="2" name="category">
-                <input type="radio" value="3" name="category">
-                <input type="radio" value="4" name="category"><br/>
-            Nom : <input type="text" id="name" />
-        </fieldset>
-        <fieldset>
-            <legend>Vos identifiants</legend>
-            Addresse mail : <input type="text" id="mailAddress" />
+            Catégorie :
+            <input type="radio" value="1" name="category"> Université
+            <input type="radio" value="2" name="category"> Bibliothèque
+            <input type="radio" value="3" name="category"> Association<br/> 
+            Nom : <input type="text" id="name" /><br/>
+            Identifiant <input type="text" id="mailAddress" placeholder="adresse mail" />
         </fieldset>
 
         <fieldset>
@@ -138,22 +152,26 @@
 
         <fieldset>
             <legend>Contact</legend>
-            <input type="text" id="contact.name" /><br/>
-            <input type="text" id="contact.mailAddress" /><br/>
-            <input type="text" id="contact.phoneNumber" />        
+            <input type="text" id="contact.firstname" placeholder="prénom" /> <input type="text" id="contact.lastname" placeholder="nom" /><br/>
+            <input type="text" id="contact.mailAddress" placeholder="adresse email"  /><br/>
+            <input type="text" id="contact.phoneNumber" placeholder="numéro de téléphone"  />
         </fieldset>
 
         <fieldset>
             <legend>Informations complémentaires</legend>
-            <textarea id="additionalInformations"></textarea>        
-        </fieldset>        
-        
+            <textarea id="additionalInformations"></textarea>
+        </fieldset>
+
+        <button onclick="onSignUpSuccess();">Ok (test)</button>
         <button onclick="signUp();">Ok</button>
+        <span id="input-errors" style="display:none">Certains champs ne sont pas renseignés</span>
+        <span id="conflict" style="display:none">Il existe déjà un compte associé à cette adresse mail</span>
     </form>
 
-    <div id="success">
-        Inscription bien reçue, vous allez recevoir très bientôt vos identifiants et être contacté par ... qui va vous aider à effectuer vos premier pas sur CPA.
-    </div>    
+    <div id="success" style="display:none">
+        Inscription bien reçue, vous allez recevoir très bientôt vos identifiants et être contacté par ... qui va vous aider à effectuer
+        vos premier pas sur CPA.
+    </div>
 </body>
 
 </html>

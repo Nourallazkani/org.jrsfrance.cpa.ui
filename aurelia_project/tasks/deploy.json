@@ -1,0 +1,11 @@
+{
+  "name": "deploy",
+  "description": "Deploy to production environment",
+  "flags": [
+    {
+      "name": "target",
+      "description": "set the s3 bucket",
+      "type": "string"
+    }
+  ]
+}

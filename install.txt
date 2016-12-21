@@ -1,50 +1,7 @@
-*********** prerequisite *********** 
+stub:false dans aurelia.json pour la propriété build>loader>plugins(name=text)
 
-package manager : jspm (npm install jspm -g or npm install jspm)
-superstatic : http-server (npm install superstatic -g or npm install superstatic)
-task runner : gulp (npm install gulp)
-
-
-*********** installation ***********
-
-On a new empty directory : 
-
-1) Configure project for jspm :
-jspm init -y
-
-2) Add mandatory dependencies :
-  mandatory dependencies :
-  jspm install aurelia-bootstrapper aurelia-fetch-client text
-
-  mandatory dependencies for production
-  jspm install text
-
-  other dependencies
-  jspm install moment
-
-4) Customize config.js :
-babelOptions: {
-    "optional": [
-      "es7.decorators",
-      "es7.classProperties"
-    ]
-  }
-
-paths: {
-    "*": "src/*",
-    "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
-  }
-
-
-*********** run locally ***********
-
-Start the server : superstatic
-
-
-*********** bundle and deploy ***********
-
-1) add libs for tasks
-npm install gulp gulp-watch del browser-sync aurelia-bundler  --save-dev
-
-2) run gulp serve for local dev, gulp gulp deploy for deployment
+npm install aurelia-fetch-client whatwg-fetch --save
+puis dans la définition du bundle 'vendor-bundle.js' :
+    - ajout de whatwg-fetch dans prepend ("node_modules/whatwg-fetch/fetch.js")
+    - ajout de aurelia-fetch-client dans dependencies ("aurelia-fetch-client")
+Voir : http://ilikekillnerds.com/2016/08/adding-aurelia-fetch-client-aurelia-cli-project/

@@ -2,9 +2,8 @@
 <html>
 
 <head>
-  <title>CPA</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
   <meta http-equiv="cache-control" content="max-age=0" />
   <meta http-equiv="cache-control" content="no-cache" />
@@ -13,25 +12,15 @@
   <meta http-equiv="pragma" content="no-cache" />
 
   <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-  <script type="text/javascript">
-      function doScroll(source, targetClass){
-        let element = source;
-        while ((element = element.parentElement) && !element.classList.contains(targetClass));
-        setTimeout(() => element.scrollIntoView({block: "start", behavior: "smooth"}), 100)
-      }
-  </script>
+  <title>CPA</title>
+  <base href="/" />
 </head>
 
-<body aurelia-app="aurelia-cpa">
-  <script src="/jspm_packages/system.js"></script>
-  <script src="/config.js"></script>
-  <script>
-      SystemJS.import('aurelia-bootstrapper');
-  </script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUfIhO_I4sk4Ib-1DsShMzbYtasFqTPnk&libraries=places,map" async
-    defer></script>
-
+<body aurelia-app="main">
+  <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
 </body>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUfIhO_I4sk4Ib-1DsShMzbYtasFqTPnk&libraries=places,map" async
+  defer></script>
 
 </html>

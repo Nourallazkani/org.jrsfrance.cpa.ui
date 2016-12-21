@@ -1,4 +1,4 @@
-import 'whatwg-fetch';
+//import 'whatwg-fetch';
 
 import {UserDetails, ApplicationConfig, ReferenceData, getQueryParam} from 'common'
 import {I18n} from 'i18n'
@@ -23,7 +23,7 @@ export class App {
   }
 
   constructor(httpClient, router, ea, bindingEngine, bindingSignaler, compositionTransaction, userDetails, appConfig, i18nMessages, referenceData) {
-
+    //console.log("xx")
     this.moment = moment;
     this.httpClient = httpClient;
     this.ea = ea;
@@ -58,7 +58,6 @@ export class App {
         })
         .withInterceptor({
           request(request) {
-            console.log(`Requesting ${request.method} ${request.url}`);
             if (userDetails.account && userDetails.account.accessKey) {
               request.headers.set("AccessKey", userDetails.account.accessKey);
             }

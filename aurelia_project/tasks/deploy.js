@@ -7,9 +7,6 @@ export default function deploy(done) {
     var awsCredentials = JSON.parse(fs.readFileSync('./awscredentials.json'))
 
     var toUpload = ["./index.html", "./scripts/**/**", "./assets/**/**"];
-    if (CLIOptions.instance.args.includes('--withlibs')) {
-        toUpload.push("./node_modules/**/**");
-    }
     
     let target;
     if (CLIOptions.instance.args.includes('--target')) {

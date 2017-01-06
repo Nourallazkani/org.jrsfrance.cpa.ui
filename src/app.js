@@ -23,7 +23,6 @@ export class App {
   }
 
   constructor(httpClient, router, ea, bindingEngine, bindingSignaler, compositionTransaction, userDetails, appConfig, i18nMessages, referenceData) {
-    //console.log("xx")
     this.moment = moment;
     this.httpClient = httpClient;
     this.ea = ea;
@@ -38,7 +37,6 @@ export class App {
     bindingEngine
       .propertyObserver(userDetails, 'language')
       .subscribe((newLanguage) => {
-        console.log(this.router.currentInstruction.config.name != 'home')
         if (newLanguage == "ar" || newLanguage == "prs" && this.router.currentInstruction.config.name != 'home') {
           document.body.style.direction = "rtl";
         }

@@ -25,7 +25,6 @@ export class SignInForm {
     }
 
     constructor(httpClient, router, bindingEngine, userDetails, i18nMessages) {
-        console.log("inside ctor")
         this.httpClient = httpClient;
         this.router = router;
         this.userDetails = userDetails;

@@ -6,11 +6,6 @@
       "name": "target",
       "description": "set the s3 bucket",
       "type": "string"
-    },
-    {
-      "name": "withlibs",
-      "description": "deploy node_modules",
-      "type": "none"
     }
   ]
 }

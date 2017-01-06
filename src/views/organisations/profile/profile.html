@@ -10,7 +10,7 @@
         <div class="horizontal">
             <label class="${errors.address ? 'error' : ''}">${i18n("Address")  & signal : 'language-change'}</label>
             <div class="width-lg-70 width-md-70  inputs-container">
-                <input type="text" value.bind="input.address.street1" placeholder=""  /><br/>
+                <input type="text" value.bind="input.address.street1" placeholder="" place-autocomplete="target.bind:input"  /><br/>
                 <input type="text" value.bind="input.address.street2" placeholder="Complément d'adresse'"/><br/>
                 <input type="text" value.bind="input.address.postalCode" />
                 <input type="text" value.bind="input.address.locality" />

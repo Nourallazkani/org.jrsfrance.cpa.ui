@@ -3,7 +3,6 @@ import {I18n} from 'i18n'
 
 import {inject, BindingEngine} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
-//import {BindingSignaler} from 'aurelia-templating-resources';
 
 import moment from 'moment';
 
@@ -28,7 +27,7 @@ export class Events {
 
     bindingEngine
       .propertyObserver(userDetails, 'language')
-      .subscribe((newValue, oldValue) => this.find(this.view, newValue));
+      .subscribe((newValue, oldValue) => this.find());
   }
 
   find(view, language) {

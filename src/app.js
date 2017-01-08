@@ -1,5 +1,3 @@
-//import 'whatwg-fetch';
-
 import {UserDetails, ApplicationConfig, ReferenceData, getQueryParam} from 'common'
 import {I18n} from 'i18n'
 
@@ -87,7 +85,7 @@ export class App {
       else {
         this.httpClient.fetch(`referenceData?noCache=true`)
           .then(resp => resp.json())
-          .then(results => referenceData.refreshAll(x))
+          .then(results => referenceData.refreshAll(results))
       }
     });
 

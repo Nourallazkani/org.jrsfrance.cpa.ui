@@ -29,7 +29,7 @@ export class Workshops {
 
     bindingEngine
       .propertyObserver(userDetails, 'language')
-      .subscribe((newValue, oldValue) => this.find(this.view, newValue));
+      .subscribe((newValue, oldValue) => this.find());
   }
 
   find(view) {

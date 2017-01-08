@@ -3,8 +3,8 @@
   "description": "Deploy to production environment",
   "flags": [
     {
-      "name": "target",
-      "description": "set the s3 bucket",
+      "name": "buckets",
+      "description": "set the s3 buckets (if many, each of them must be separated by a comma)",
       "type": "string"
     }
   ]

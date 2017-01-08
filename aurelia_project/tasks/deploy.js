@@ -7,18 +7,28 @@ export default function deploy(done) {
     var awsCredentials = JSON.parse(fs.readFileSync('./awscredentials.json'))
 
     var toUpload = ["./index.html", "./scripts/**/**", "./assets/**/**"];
-    
-    let target;
-    if (CLIOptions.instance.args.includes('--target')) {
-        target = CLIOptions.instance.args[CLIOptions.instance.args.indexOf("--target") + 1];
-    }
-    else{
-        target = "jrs-cpa.templates";
-    }
-    console.log(`deploy ${toUpload.join(', ')} to ${target}`)
-    var uploader = s3(awsCredentials);
 
-    gulp.src(toUpload, { base: './' })
-        .pipe(uploader({ Bucket: target, ACL: 'public-read' }, { maxRetries: 5, region: "eu-west-1" }))
-        .on('end', () => done());
+    var uploader = s3(awsCredentials);
+    let uploaderOptions = { maxRetries: 5, region: "eu-west-1" };
+    if (CLIOptions.instance.args.includes('--target')) {
+        let target = CLIOptions.instance.args[CLIOptions.instance.args.indexOf("--target") + 1];
+        console.log(`deploy ${toUpload.join(', ')} to ${target}`)
+        gulp.src(toUpload, { base: './' })
+            .pipe(uploader({ Bucket: target, ACL: 'public-read' }, uploaderOptions))
+            .on('end', () => done());
+    }
+    else {
+        console.log(`deploy ${toUpload.join(', ')} to www2.comprendrepourapprendre.org`)
+        gulp.src(toUpload, { base: './' })
+            .pipe(uploader({ Bucket: 'www2.comprendrepourapprendre.org', ACL: 'public-read' }, uploaderOptions))
+            .on('end', () => {
+                console.log(`deploy ${toUpload.join(', ')} to www2.cpafrance.fr`)
+                gulp.src(toUpload, { base: './' })
+                    .pipe(uploader({ Bucket: 'www2.cpafrance.fr', ACL: 'public-read' }, uploaderOptions))
+                    .on('end', () => {
+                        console.log("done");
+                        done()
+                    })
+            });
+    }
 }

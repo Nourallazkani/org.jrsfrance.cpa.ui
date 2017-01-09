@@ -3,6 +3,13 @@
     <form if.bind="outcome.status!='ok'" class="split-lg-30-70 label-right" submit.delegate="action=='sign-up' ? signUp() : updateProfile()">
         <div if.bind="showIdentity">
             <div class="horizontal">
+                <label class="${outcome.errors.civility ? 'error':''}">${i18n("Civility")  & signal : 'language-change'}</label>
+                <select value.bind="input.civility">
+                    <option></option>
+                    <option repeat.for="x of referenceData.civility.all">${x.name}</option>
+                </select> 
+            </div>            
+            <div class="horizontal">
                 <label class="${outcome.errors.firstName ? 'error':''}">${i18n("First name")  & signal : 'language-change'}</label>
                 <input type="text" value.bind="input.firstName" autofocus />
             </div>

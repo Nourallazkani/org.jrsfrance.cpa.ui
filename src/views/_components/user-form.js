@@ -1,9 +1,9 @@
-import {UserDetails, ReferenceData} from 'common'
-import {I18n} from 'i18n'
+import { UserDetails, ReferenceData } from 'common'
+import { I18n } from 'i18n'
 
-import {inject, bindable, CompositionTransaction} from 'aurelia-framework'
-import {Router} from 'aurelia-router';
-import {HttpClient, json} from 'aurelia-fetch-client';
+import { inject, bindable, CompositionTransaction } from 'aurelia-framework'
+import { Router } from 'aurelia-router';
+import { HttpClient, json } from 'aurelia-fetch-client';
 
 @inject(HttpClient, Router, CompositionTransaction, UserDetails, ReferenceData, I18n)
 export class UserForm {

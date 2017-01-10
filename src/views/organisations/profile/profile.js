@@ -11,7 +11,7 @@ export class Profile {
         this.fetchClient = fetchClient;
         this.referenceData = referenceData;
         this.userDetails = userDetails;
-
+        
         this.i18n = (key) => i18nMessages.getMessage("organisations/profile", key, userDetails.language);
     }
 

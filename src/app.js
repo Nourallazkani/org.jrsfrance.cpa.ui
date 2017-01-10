@@ -100,8 +100,10 @@ export class App {
       let accessKey = localStorage.getItem("accessKey") || getQueryParam("ak")
       this.httpClient
         .fetch("authentication", { method: "POST", body: json({ accessKey: accessKey }) })
-        .then(x => x.json()).then(account => {
+        .then(x => x.json())
+        .then(account => {
           this.userDetails.account = account;
+          console.log("done")
           this.compositionTransactionNotifier.done();
         }).catch(() => {
           localStorage.removeItem("accessKey");

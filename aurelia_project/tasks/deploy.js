@@ -11,7 +11,7 @@ var awsCredentials = JSON.parse(fs.readFileSync('./awscredentials.json'))
 var uploader = s3(awsCredentials);
 let uploaderOptions = { maxRetries: 5, region: "eu-west-1" };
 
-let buckets = CLIOptions.hasFlag('buckets') ? CLIOptions.getFlagValue("buckets").split(",") : ["www2.comprendrepourapprendre.org", "www2.cpafrance.fr"];
+let buckets = CLIOptions.hasFlag('destination') ? CLIOptions.getFlagValue("destination").split(",") : ["www2.comprendrepourapprendre.org", "www2.cpafrance.fr"];
 
 var toUpload = [`./${aureliaProject.platform.index}`, `./${aureliaProject.platform.output}/**/**.js`, "./assets/**/**"];
 

@@ -211,7 +211,7 @@
                         < ${i18n('Back')  & signal : 'language-change'}</a>
                 </div>
                 <div style="margin-top:50px">
-                    <user-form show-credentials="true" show-identity="true" show-details="false" action="sign-up" success-route="/volunteers/availabilities"></user-form>
+                    <user-form show-credentials.bind="true" show-identity.bind="true" show-details.bind="false" action="sign-up" success-route="/volunteers/availabilities"></user-form>
                 </div>
             </div>
         </div>

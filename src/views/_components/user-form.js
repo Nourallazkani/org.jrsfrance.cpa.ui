@@ -13,6 +13,7 @@ export class UserForm {
     @bindable showIdentity;
     @bindable successRoute;
     @bindable action; // sign-up or update-profile
+    @bindable x;
 
     input = { languages: [] };
     outcome;
@@ -63,9 +64,6 @@ export class UserForm {
             this.input = { languages: [] };
         }
         this.outcome = null;
-        this.showCredentials = (this.showCredentials === true || "true" == this.showCredentials);
-        this.showDetails = (this.showDetails === true || "true" == this.showDetails);
-        this.showIdentity = (this.showIdentity === true || "true" == this.showIdentity);
     }
 
     signUp() {

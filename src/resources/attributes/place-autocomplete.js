@@ -52,9 +52,16 @@ export class PlaceAutocompleteCustomAttribute {
                 this.autocomplete.setBounds(circle.getBounds());
             });
         }
+        
         this.targetProperty = [this.targetProperty || "address"];
-        if (this.target[this.targetProperty] && this.target[this.targetProperty].formattedAddress) {
-            this.element.value = this.target[this.targetProperty].formattedAddress;
+        let address = this.target[this.targetProperty]
+        if (address) {
+            if(address.formattedAddress){
+                this.element.value = address.formattedAddress;
+            }
+            else{
+                this.element.value = [address.street1, address.street2, address.postalCode+" "+address.locality].filter(x=>x!=null).join(', ');
+            }
         }
 
         this.autocomplete.addListener('place_changed', () => {

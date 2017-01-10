@@ -4,6 +4,8 @@ import gulp from 'gulp';
 import build from './build';
 import {CLIOptions} from 'aurelia-cli';
 
+import aureliaProject from '../aurelia.json';
+
 var awsCredentials = JSON.parse(fs.readFileSync('./awscredentials.json'))
 
 var uploader = s3(awsCredentials);
@@ -11,7 +13,7 @@ let uploaderOptions = { maxRetries: 5, region: "eu-west-1" };
 
 let buckets = CLIOptions.hasFlag('buckets') ? CLIOptions.getFlagValue("buckets").split(",") : ["www2.comprendrepourapprendre.org", "www2.cpafrance.fr"];
 
-var toUpload = ["./index.html", "./scripts/**/**.js", "./assets/**/**"];
+var toUpload = [`./${aureliaProject.platform.index}`, `./${aureliaProject.platform.output}/**/**.js`, "./assets/**/**"];
 
 let functions = buckets.map(bucket => function (_done) {
     console.log(`Starting upload of ${toUpload.join(', ')} to ${bucket}...`);

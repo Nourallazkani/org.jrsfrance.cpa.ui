@@ -1,11 +1,11 @@
-import {UserDetails, ApplicationConfig, ReferenceData, getQueryParam} from 'common'
-import {I18n} from 'i18n'
+import { UserDetails, ApplicationConfig, ReferenceData, getQueryParam } from 'common'
+import { I18n } from 'i18n'
 
-import {inject, BindingEngine, CompositionTransaction} from 'aurelia-framework';
-import {Router} from 'aurelia-router';
-import {HttpClient, json} from 'aurelia-fetch-client';
-import {EventAggregator} from 'aurelia-event-aggregator';
-import {BindingSignaler} from 'aurelia-templating-resources';
+import { inject, BindingEngine, CompositionTransaction } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
+import { HttpClient, json } from 'aurelia-fetch-client';
+import { EventAggregator } from 'aurelia-event-aggregator';
+import { BindingSignaler } from 'aurelia-templating-resources';
 
 import moment from 'moment';
 
@@ -78,7 +78,7 @@ export class App {
 
     this.ea.subscribe("referenceDataUpdate", (x) => {
       if (x && x.domain) {
-        this.httpClient.fetch(`referenceData?noCache=true`)
+        this.httpClient.fetch(`referenceData/${x.domain}?noCache=true`)
           .then(resp => resp.json())
           .then(results => referenceData.refresh(x.domain, results))
       }
@@ -103,7 +103,6 @@ export class App {
         .then(x => x.json())
         .then(account => {
           this.userDetails.account = account;
-          console.log("done")
           this.compositionTransactionNotifier.done();
         }).catch(() => {
           localStorage.removeItem("accessKey");

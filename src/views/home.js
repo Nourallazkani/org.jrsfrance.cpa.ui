@@ -1,8 +1,8 @@
-import {inject} from 'aurelia-framework';
-import {Router} from 'aurelia-router';
+import { inject } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
 
-import {UserDetails} from 'common'
-import {I18n} from 'i18n'
+import { UserDetails } from 'common'
+import { I18n } from 'i18n'
 
 @inject(UserDetails, I18n, Router)
 export class Home {

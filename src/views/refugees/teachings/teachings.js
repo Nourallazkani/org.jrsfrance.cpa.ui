@@ -37,7 +37,7 @@ export class Teachings {
         .map(x => ({ item: x, distance: getDistance(x.address, this.userDetails.address) }))
         .sort((x, y) => moment(x.item.startDate) - moment(y.item.startDate))
       )
-      .then(results => this.results = results);
+      .then(results => this.results = results)
   }
 
   sortByDistance() {

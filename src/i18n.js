@@ -184,13 +184,13 @@ export class I18n {
                     "prs": ""
                 },
                 "Learning French language": {
-                    "fr": "L’apprentissage de français",
+                    "fr": "l’apprentissage du français",
                     "ar": "تعلّم اللغة الفرنسية",
                     "prs": ""
                 },
                  "Support in certain hight study formations": {
-                    "fr": "le soutien pour certaines formations supérieures",
-                    "ar": "الدعم لبعض مجالات التعليم العالي",
+                    "fr": "le soutien scolaire dans le cadre des formations supérieures",
+                    "ar": "الدعم الدراسي فيما يخصّ التعليم العالي",
                     "prs": ""
                 },
                  "Interpreting": {
@@ -311,8 +311,8 @@ export class I18n {
                     "prs": "من علاقه مند هستم در"
                 },
                 "French lessons": {
-                    "fr": "Leçons de français",
-                    "ar": "محادثة فرنسية",
+                    "fr": "Aide à l’apprentissage du français",
+                    "ar": "مساعدة في تعلّم الفرنسية",
                     "prs": "درس های فرانسوی"
                 },
                 "Support in studies": {
@@ -359,7 +359,7 @@ export class I18n {
                     "prs": "تحصیلات عالی"
                 },
                 "Professional training": {
-                    "fr": "Formation professionelles",
+                    "fr": "Formations professionnelles",
                     "ar": "تدريب مهني",
                     "prs": "آموزش های حرفه ای"
                 },
@@ -369,7 +369,7 @@ export class I18n {
                     "prs": "کار گاه های زبانی ـ اجتماعی"
                 },
                 "Events": {
-                    "fr": "Evenements",
+                    "fr": "Evènements",
                     "ar": "فعّاليات",
                     "prs": "برنامه ها"
                 },
@@ -493,9 +493,9 @@ export class I18n {
                     "ar": " دعم الدراسي",
                     "prs": "پشتیبانی در مطالعات"
                 },
-                "French lessons": {
-                    "fr": "Leçons de français",
-                    "ar": "دروس الفرنسية ",
+                "Help in learning French": {
+                    "fr": "Aide à l’apprentissage du français",
+                    "ar": "مساعدة في تعلّم الفرنسية ",
                     "prs": "درس های زبان فرانسوی"
                 },
                 "Additional information": {
@@ -717,7 +717,7 @@ export class I18n {
                     "prs": "دسترسی"
                 },
                 "Events for volunteers": {
-                    "fr": "Evenements pour les bénévoles",
+                    "fr": "Evènements pour les bénévoles",
                     "ar": "فعاليات للمتطوعين",
                     "prs": "برنامه ها برای داوطلبان"
                 },
@@ -727,7 +727,7 @@ export class I18n {
                     "prs": "روش تدریس"
                 },
                 "Meetings": {
-                    "fr": "Demande de rendez vous",
+                    "fr": "Demande de rendez-vous",
                     "ar": "طلبات المواعيد",
                     "prs": "درخواست وعده ملاقات"
                 }
@@ -749,15 +749,15 @@ export class I18n {
                     "prs": "توضیحات"
                 },
 
-                "French lessons": {
-                    "fr": "Leçons de français",
-                    "ar": "محادثة فرنسية",
+                "Help in learning French": {
+                    "fr": "Aide à l’apprentissage du français",
+                    "ar": "مساعدة في تعلّم الفرنسية",
                     "prs": "درس های زبان فرانسوی"
                 },
                 "Explanations-french-lessons": {
-                    "fr": "des cours de français, donnés à un réfugié dans les centre d'accueil de demandeurs d'asile (où autre lieu à décidé entre vous et le réfugié). Si vous n'avez jamais enseigné le français à des etrangers n'hésitez pas à consulter la rubrique 'Evenements pour les bénévoles', qui recensent notamment les cours FLE (français langue étrangère). Vous pouvez aussi trouver des méthodes de langues dans la rubrique 'méthodes pour enseigner'",
+                    "fr": "Rencontrer un(e) réfugié(e) ou un(e) demandeur(se) d’asile, pour discuter de sujets variés  et éventuellement l’accompagner dans sa compréhension des règles importantes de la langue française. Si vous n'avez jamais enseigné le français à des étrangers, n'hésitez pas à consulter la rubrique 'Evènements pour les bénévoles', qui recensent parfois des cours FLE (français langue étrangère). Vous pouvez aussi trouver des méthodes de langues dans la rubrique 'méthodes pour enseigner'",
                     "en": "french conversations sessions (+/- 1 hour), where you can help a refugee to improve their french",
-                    "ar": "جلسات محادثة فرنسية تدوم لـ (+/- ساعة)، بهدف مساعدة لاجئ لتحسين فرنسيته",
+                    "ar": "التفي لاجئـ اً/ةً أو طالبـ اَ/ةً للجوء من أجل التحدّث حول موضوعات مختلفة و بنفس الوقت مرافقتـ ـه/ها في استيعاب اللغة الفرنسية. إذا لم تمارس تعليم الفرنسية قبل. فلا تتردّد في النظر ضمن أيقونة ( فعّاليات من أجل المتطوعين) التي تضمّ من حين لآخر بعض فعاليات (الفرنسية للأجانب). و يمكنكم أيضاً الاستعانة ببعض المناهج الموجودة في الانترنت ضمن المحتوى (مناهج للتّعليم)",
                     "prs": "جلسات مهاوره به زبان فرانسوی (+/- ۱ ساعت)،‌ فرصتی که می توانید برای بهبود زبان فرانسوی یک پناهنده کمک کنید"
                 },
                 "Explanations-address":{
@@ -772,9 +772,9 @@ export class I18n {
                     "prs": "تذکر شهر برای ما اجازه خواهد داد تا شما بتوانید برای پناهندگان نزدیک شما کمک نمایید، هرگز در سایت منتشر و یا با شخص سومی در میان گذاشته نخواهد شد. اگر خواستید می توانید تنها اسم شهر یا کد پستی تان را بنویسید"
                 },
                 "Explanations-interpreting": {
-                    "fr": "Si vous maitrisez une langue étrangère cela peut beaucoup aider les réfugiés, notamment lorsqu'ils ont besoin de se faire comprendre dans l'accomplissement d'une démarche administrative. Même si vous parlez anglais cela peut-être d'une grande aide car beaucoup de réfugiés parlent anglais aussi.",
+                    "fr": "Si vous maitrisez une langue étrangère, cela pourrait être utile aux réfugié(e)s ou aux demandeur(se)s d’asile notamment lorsqu'ils ont besoin de se faire comprendre dans l'accomplissement d'une démarche administrative.",
                     "en": "if you master another language it could be a great help for refugees,especially when they need to do an administrative task. Very often they don't speak french well enough to understand clearly the administrative procedure. If you speak english it can be of a great  help since many refugees can speak english as well.",
-                    "ar": "إذا كنتم تتقنون لغة أخرى فهذا قد يساعد جداً اللاجئين، خصوصا حينما يحتاجون التواصل عند القيام بالمهام الإدارية، إذ أنهم غالبا لا يتكلمون الفرنسية بشكل كاف يسمح لهم بفهم الإجراءات الإدارية بوضوح، فإذا كنتم تتكلمون الانجليزية مثلا، فذلك رائع! حيث معظم اللاجئيين تتكلم الانجليزية.",
+                    "ar":"إذا كنتم تتقنون لغة أجنبيّة، فذلك يمكن أن يفيد لاجئـ اً/ةً أو طالبـ اَ/ةً للجوء وخصوصا عندما يريدون التفاهم في المعاملات الإداريّة.",
                     "prs": "گر آشنایی به یک زبان بیرونی دارید،‌ می تواند پناهندگان را خیلی کمک می کند، به ویژه در  پیشبرد امور اداری. حتا اگر به زبان انگلیسی دسترسی دارید می تواند پناهندگان را کمک زیاد نماید چون بیشتر پناهندگان با زبان انگلسی آشنایی دارند"
                 },
                 "Support in studies": {
@@ -783,9 +783,9 @@ export class I18n {
                     "prs": "پشتیبانی در مطالعات"
                 },
                 "Explanations-support-in-studies": {
-                    "fr": "Si vous maitriser un domaine tel que les mathématique, la physique, etc... Accepteriez vous d'aider un réfugié dans ses études ?",
+                    "fr": "Vous maitrisez les mathématiques ? La physique ? Ou d’autres domaines ?Accepteriez-vous d'aider un(e) réfugié(e) ou un(e) demandeur(se) d’asile dans ses études ?",
                     "en": "if you master a domain like mathematic, physics, ... would you accept to help refugees in their studies ?",
-                    "ar": "إذا كنتم تتقنون مجالا معيّناً كالرياضيات، أو الفيزياء... فهل تقبلون مساعدة اللاجئين في دراستهم ؟",
+                    "ar": "هل تجيدون الرياضيات ؟ الفيزياء ؟ أو أي مجال آخر؟ فإذن، هل تقبلون بمساعدة  لاجئـ ـئٍ/ةً أو طالبـٍ/ةً للجوء في دراستـ ـه/ها ؟",
                     "prs": "اگر آشنایی در یک رشته خاص دارید مانند ریاضی، فیزیک و غیره، آیا می توانید یک پناهنده را در قسمت درس هایش کمک کنید؟"
                 },
                 "Cultural or sport activities": {
@@ -794,9 +794,9 @@ export class I18n {
                     "prs": "فعالیت های فرهنگی و یا ورزشی"
                 },
                 "Explanations-activities": {
-                    "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    "fr": "Etes-vous disponible pour aider des associations à organiser des évènements avec des réfugié(e)s et des demandeur(se)s d’asile ?",
                     "en": "If you have some time to organise some culture and sport activities for the refugees, then it'll be great!",
-                    "ar": "أذا كان لديكم الوقت لتنظيم بعض النشاطات الثقافية و الرياضيّة فسيكون ذلك من دواعي سرور اللاجئين.",
+                    "ar": "هل أنتم متاحون لمساعدة جمعيّات في تنظيم فعّاليات و نشاطات مع لاجئـ يين/ـآت أو طالبـ ي/ـات لجوء ؟",
                     "prs": ""
                 },
                 "Update availabilities": {
@@ -830,8 +830,8 @@ export class I18n {
                     "prs": "آدرس شما"
                 },
                 "French lessons": {
-                    "fr": "Leçons de français",
-                    "ar": "محادثة فرنسية",
+                    "fr": "Aide à l’apprentissage du français",
+                    "ar": "مساعدة في تعلّم الفرنسية",
                     "prs": "درس های زبان فرانسوی"
                 },
                 "Explanations-french-lessons": {

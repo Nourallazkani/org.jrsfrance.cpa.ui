@@ -44,7 +44,7 @@
                                     <br/> (${refugee.fieldOfStudy})
                                 </div>
                                 <div style="flex:1;margin-top:7px">
-                                    <input type="radio" name="reason" checked.bind="r.item.reason" value.bind="CONVERSATION">${i18n("French lessons")  & signal : 'language-change'}
+                                    <input type="radio" name="reason" checked.bind="r.item.reason" value.bind="CONVERSATION">${i18n("Help in learning French")  & signal : 'language-change'}
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                         </div>
                         <div if.bind="r.item.reason == 'CONVERSATION'">
                             <div class="fit-to-content">
-                                 ${i18n("For")  & signal : 'language-change'} :  ${i18n("French lessons")  & signal : 'language-change'}
+                                 ${i18n("For")  & signal : 'language-change'} :  ${i18n("Help in learning French")  & signal : 'language-change'}
                             </div>                            
                         </div>
                     </div>

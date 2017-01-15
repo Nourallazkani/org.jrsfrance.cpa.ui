@@ -72,8 +72,37 @@
         </div>
       </div>
 
-      <div class="_result-footer" style="text-align: right" if.bind="r.action!='new'">
+      <div class="_result-body" if.bind="r.action=='view-registrations'">
+        <div style="text-align:right;padding-right:10px;padding-top:10px">
+          <a click.delegate="cancelAction(r)" class="close"></a>
+        </div>
+        <table style="width:100%">
+          <thead>
+            <tr>
+                <td style="width:50%">Réfugié</td>
+                <td style="width:35%">Coordonnées</td>
+                <td style="width:15%">&nbsp;</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr repeat.for="registration of r.registrations">
+                <td>${registration.refugee.name}</td>
+                <td>${registration.refugee.mailAddress} - ${registration.refugee.phoneNumber}</td>
+                <td if.bind="registration.decisionDate==null">
+                  <button click.delegate="acceptRegistration(r.item, registration)">Accept</button>
+                  <button click.delegate="refuseRegistration(r.item, registration)">Decline</button>
+                </td>
+                <td if.bind="registration.decisionDate!=null">
+                  ${i18n(registration.accepted ? 'Accepted' : 'Refused') & signal : 'language-change'}
+                </td>                
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="_result-footer" style="text-align: right" if.bind="r.action!='new' && r.action!='view-registrations'">
         <div if.bind="r.action==null">
+          <button click.delegate="viewRegistrations(r)" onclick="doScroll(this, '_result')">${i18n("View registrations") & signal : 'language-change'}</button>
           <button click.delegate="r.action='edit'" onclick="doScroll(this, '_result')">${i18n("Modify") & signal : 'language-change'}</button>
           <button click.delegate="r.action='delete'">${i18n("Delete") & signal : 'language-change'}</button>
         </div>

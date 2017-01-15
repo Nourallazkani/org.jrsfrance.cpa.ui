@@ -1,8 +1,8 @@
-import {UserDetails, ReferenceData, getUri, getDistance, viewLocation, viewItinerary} from 'common'
-import {I18n} from 'i18n'
+import { UserDetails, ReferenceData, getUri, getDistance, viewLocation, viewItinerary } from 'common'
+import { I18n } from 'i18n'
 
-import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import { inject } from 'aurelia-framework';
+import { HttpClient } from 'aurelia-fetch-client';
 
 import moment from 'moment';
 
@@ -24,6 +24,26 @@ export class LanguagePrograms {
     this.i18n = (key) => i18nMessages.getMessage("refugees/language-programs", key, userDetails.language);
 
     this.find();
+  }
+  
+  register(entry) {
+    this.fetchClient.fetch(`learnings/language-programs/${entry.item.id}/registrations`, { method: "POST" })
+      .then(response => entry.action.outcome = "success")
+      .catch(e => {
+        if (e.status == 409) {
+          entry.action.outcome = "conflict";
+        }
+      });
+  }
+
+  unregister(entry) {
+    this.fetchClient.fetch(`learnings/language-programs/${entry.item.id}/registrations/${this.userDetails.account.id}`, { method: "DELETE" })
+      .then(response => entry.action.outcome = "success")
+      .catch(e => {
+        if (e.status == 400) {
+          entry.action.outcome = "error";
+        }
+      });
   }
 
   find(view) {

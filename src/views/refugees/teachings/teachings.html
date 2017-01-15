@@ -4,7 +4,7 @@
 
     <select value.bind="filter.city">
       <option value="">${i18n("City") & signal : 'language-change'}</option>
-      <option repeat.for="x of referenceData.city.languageLearningProgram">${x}</option>
+      <option repeat.for="x of referenceData.city.teaching">${x}</option>
     </select>
 
     <select value.bind="filter.levelId">

@@ -1,9 +1,9 @@
-import {UserDetails, ReferenceData, getUri, viewLocation} from 'common'
+import { UserDetails, ReferenceData, getUri, viewLocation } from 'common'
 
-import {inject} from 'aurelia-framework';
-import {HttpClient, json} from 'aurelia-fetch-client';
+import { inject } from 'aurelia-framework';
+import { HttpClient, json } from 'aurelia-fetch-client';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import {I18n} from 'i18n';
+import { I18n } from 'i18n';
 import moment from 'moment';
 
 @inject(HttpClient, EventAggregator, UserDetails, ReferenceData, I18n)
@@ -61,10 +61,34 @@ export class LanguagePrograms {
     }
     else {
       this.fetchClient
-        .fetch("learnings/language-programs/" + model.item.id, { method: "PUT", body: json(model.item) })
+        .fetch(`learnings/language-programs/${model.item.id}`, { method: "PUT", body: json(model.item) })
         .then(response => afterSave())
         .catch(e => e.json().then(x => model.errors = x));
     }
+  }
+
+  viewRegistrations(entry) {
+    entry.action = 'view-registrations';
+    if (!entry.registrations) {
+      this.fetchClient
+        .fetch(`learnings/language-programs/${entry.item.id}/registrations`)
+        .then(response => response.json())
+        .then(x => entry.registrations = x);
+    }
+  }
+
+  acceptRegistration(item, registration) {
+    let uri = `learnings/language-programs/${item.id}/registrations/${registration.id}`;
+    this.fetchClient
+      .fetch(uri, { method: "POST", body: json({ accepted: true }) })
+      .then(response => registration.accepted = true)
+  }
+
+  refuseRegistration(item, registration) {
+    let uri = `learnings/language-programs/${item.id}/registrations/${registration.id}`;
+    this.fetchClient
+      .fetch(uri, { method: "POST", body: json({ accepted: false }) })
+      .then(response => registration.accepted = true)
   }
 
   delete(model) {
@@ -78,7 +102,7 @@ export class LanguagePrograms {
   }
 
   cancelAction(obj) {
-    if (obj.action == 'edit' || obj.action == 'delete') {
+    if (obj.action == 'edit' || obj.action == 'delete' || obj.action == 'view-registrations') {
       obj.action = null;
       obj.state = null;
     }

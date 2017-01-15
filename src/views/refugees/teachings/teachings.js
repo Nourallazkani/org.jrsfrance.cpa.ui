@@ -20,6 +20,7 @@ export class Teachings {
     this.viewLocation = viewLocation;
     this.viewItinerary = viewItinerary;
     this.referenceData = referenceData;
+    console.log(referenceData)
 
     this.i18n = (key) => i18nMessages.getMessage("refugees/teachings", key, userDetails.language);
 

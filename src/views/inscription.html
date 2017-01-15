@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CPA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <link rel="stylesheet" href="http://www2.cpafrance.fr/assets/css/common/common.css" />
+    <link rel="stylesheet" href="http://www2.cpafrance.fr/assets/css/common/common-form.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUfIhO_I4sk4Ib-1DsShMzbYtasFqTPnk&libraries=places,map"></script>
+
+    <script type="text/javascript">
+    
+    function onSignUpSuccess(){
+        document.getElementById('input-errors').style.display='none';
+        document.getElementById('conflict').style.display='none';
+        document.getElementById('form').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+    }
+
+    function signUp(){
+        var selectedCategory = document.querySelector('input[name="category"]:checked');
+        
+        var input = {
+            name:document.getElementById('name').value,
+            category: selectedCategory == null ? null : parseInt(selectedCategory.value),
+            mailAddress:document.getElementById('mailAddress').value,
+            
+            address:{
+                street1:document.getElementById('address.street1').value,
+                street2:document.getElementById('address.street2').value,
+                postalCode:document.getElementById('address.postalCode').value,
+                locality:document.getElementById('address.locality').value,
+                country:"France",
+            },
+            contact:{
+                name:document.getElementById('contact.firstname').value+" "+document.getElementById('contact.lastname').value,
+                phoneNumber:document.getElementById('contact.phoneNumber').value,
+                mailAddress:document.getElementById('contact.mailAddress').value,
+            }
+        }
+
+        var xhr = new XMLHttpRequest();
+       
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState != 4){
+                return;
+            }
+            document.getElementById('conflict').style.display='none';
+            document.getElementById('input-errors').style.display='none';
+            
+            if (xhr.status == 201) {
+                onSignUpSuccess();
+            }
+            else if(xhr.status == 409){
+                document.getElementById('conflict').style.display='inline';
+            }
+            else if(xhr.status == 400 && xhr.responseText != null){
+                document.getElementById('input-errors').style.display='inline';
+            }
+        }
+        xhr.open('POST', 'http://127.0.0.1:8080/api/organisations', true);
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.setRequestHeader("accept", "application/json");        
+        xhr.send(JSON.stringify(input));        
+    } 
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var street1Element = document.getElementById('address.street1');
+        google.maps.event.addDomListener(street1Element, 'keydown', function (e) {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+            }
+        });
+
+        var options = {
+            types: ["geocode"],
+            componentRestrictions: { country: "fr" },
+        };
+    
+        var autocomplete = new google.maps.places.Autocomplete(street1Element, options);
+        
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            
+            var googleObject = { formatted_address: place.formatted_address, placeId: place.place_id };
+            
+            place.address_components.forEach(function(x) {
+                var googlePropertyName = x.types[0];
+                googleObject[googlePropertyName] = x["short_name"];
+            });
+            googleObject.lat = place.geometry.location.lat();
+            googleObject.lng = place.geometry.location.lng();
+
+            var appPlace = {};
+            appPlace.formattedAddress = googleObject.formatted_address;
+
+
+            if (googleObject.street_number || googleObject.route) {
+                appPlace.street1 = googleObject.street_number ? googleObject.street_number + " " + googleObject.route : googleObject.route;
+            }
+            if (googleObject.postal_code) {
+                appPlace.postalCode = googleObject.postal_code;
+            }
+            appPlace.locality = googleObject.locality.indexOf("Paris-") == 0 ? "Paris" : googleObject.locality;
+            appPlace.country = googleObject.country == "FR" ? "France" : googleObject.country;
+
+            appPlace.lat = googleObject.lat
+            appPlace.lng = googleObject.lng;
+            appPlace.googleMapId = googleObject.placeId;
+            document.getElementById('address.street1').value = appPlace.street1;
+            document.getElementById('address.postalCode').value = appPlace.postalCode;
+            document.getElementById('address.locality').value = appPlace.locality;
+        });
+    });
+  </script>
+</head>
+
+<body>
+
+    <video controls if.bind="userDetails.language=='fr'">
+        <source src="http://assets.cpafrance.fr/video-organisation.480.fr.mp4" />
+        <source src="http://assets.cpafrance.fr/video-organisation.480.fr.webm" />
+    </video>
+
+    <form onsubmit="return false" id="form">
+        <fieldset>
+            <legend>Informations principales</legend>
+            Catégorie :
+            <input type="radio" value="1" name="category"> Université
+            <input type="radio" value="2" name="category"> Bibliothèque
+            <input type="radio" value="3" name="category"> Association<br/> 
+            Nom : <input type="text" id="name" /><br/>
+            Identifiant <input type="text" id="mailAddress" placeholder="adresse mail" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Votre adresse</legend>
+            <input type="text" id="address.street1" /><br/>
+            <input type="text" id="address.street2" /><br/>
+            <input type="text" id="address.postalCode" /><br/>
+            <input type="text" id="address.locality" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact</legend>
+            <input type="text" id="contact.firstname" placeholder="prénom" /> <input type="text" id="contact.lastname" placeholder="nom" /><br/>
+            <input type="text" id="contact.mailAddress" placeholder="adresse email"  /><br/>
+            <input type="text" id="contact.phoneNumber" placeholder="numéro de téléphone"  />
+        </fieldset>
+
+        <fieldset>
+            <legend>Informations complémentaires</legend>
+            <textarea id="additionalInformations"></textarea>
+        </fieldset>
+
+        <button onclick="onSignUpSuccess();">Ok (test)</button>
+        <button onclick="signUp();">Ok</button>
+        <span id="input-errors" style="display:none">Certains champs ne sont pas renseignés</span>
+        <span id="conflict" style="display:none">Il existe déjà un compte associé à cette adresse mail</span>
+    </form>
+
+    <div id="success" style="display:none">
+        Inscription bien reçue, vous allez recevoir très bientôt vos identifiants et être contacté par ... qui va vous aider à effectuer
+        vos premier pas sur CPA.
+    </div>
+</body>
+
+</html>

@@ -88,7 +88,7 @@ export class LanguagePrograms {
     let uri = `learnings/language-programs/${item.id}/registrations/${registration.id}`;
     this.fetchClient
       .fetch(uri, { method: "POST", body: json({ accepted: false }) })
-      .then(response => registration.accepted = true)
+      .then(response => registration.accepted = false)
   }
 
   delete(model) {

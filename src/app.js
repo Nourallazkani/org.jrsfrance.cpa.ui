@@ -13,6 +13,7 @@ import moment from 'moment';
 export class App {
 
   error;
+  globalAction;
 
   setUserLanguage(newLanguage) {
     this.userDetails.language = newLanguage;
@@ -74,6 +75,10 @@ export class App {
         });
     })
 
+    this.ea.subscribe("global-action", (x) => {
+      this.globalAction = x;
+    });
+
     this.ea.subscribe("referenceDataUpdate", (x) => {
       if (x && x.domain) {
         this.httpClient.fetch(`referenceData/${x.domain}?noCache=true`)
@@ -91,6 +96,7 @@ export class App {
       .then(x => x.json())
       .then(x => referenceData.load(x));
   }
+
   activate() {
     this.i = 0;
     if (localStorage.getItem("accessKey") != null || window.location.href.split("ak=").length == 2) {
@@ -137,10 +143,26 @@ export class App {
     }
   }
 
+  startSignIn() {
+    this.ea.publish("global-action", "sign-in");
+  }
+
+  cancelSignIn() {
+    this.globalAction = null;
+  }
+
+  startSignUp() {
+    this.ea.publish("global-action", "sign-up");
+  }
+
+  cancelSignUp() {
+    this.globalAction = null;
+  }
+
   signOut() {
     this.userDetails.account = null;
     localStorage.removeItem("accessKey");
-    this.authzAction = null;
+    this.globalAction = null;
     if (this.userDetails.profile != "R") {
       this.userDetails.profile = null;
       this.router.navigateToRoute("home");
@@ -150,5 +172,6 @@ export class App {
         this.router.navigateToRoute("refugees");
       }
     }
+    this.ea.publish('global-events', 'signed-out');
   }
 }

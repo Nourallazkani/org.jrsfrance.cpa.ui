@@ -10,12 +10,12 @@
   <require from="./views/_components/user-form"></require>
 
   <!-- sign-in-modal for refugees -->
-  <div if.bind="userDetails.profile=='R' && authzAction=='sign-in' && userDetails.account==null" class="modal modal-visible">
+  <div if.bind="userDetails.profile=='R' && globalAction=='sign-in' && userDetails.account==null" class="modal modal-visible">
     <div class="modal-dialog">
       <div class="modal-dialog-header">
         <div  rtl-right ltr-left> ${i18n("Sign in")  & signal : 'language-change'} </div>
         <div rtl-left ltr-right>
-          <a click.trigger="authzAction=null" class="close"></a>
+          <a click.trigger="cancelSignIn()" class="close"></a>
         </div>
       </div>
       <div class="modal-dialog-body" style="height:200px">
@@ -27,12 +27,12 @@
   <!-- end sign-in-modal for refugees-->
 
   <!-- sign-up-modal for refugees -->
-  <div if.bind="userDetails.profile=='R' && authzAction=='sign-up'" class="modal modal-visible">
+  <div if.bind="userDetails.profile=='R' && globalAction=='sign-up'" class="modal modal-visible">
     <div class="modal-dialog" style="width:800px">
       <div class="modal-dialog-header">
         <div rtl-right ltr-left>${i18n("Sign up")  & signal : 'language-change'}</div>
         <div rtl-left ltr-right>
-          <a click.trigger="authzAction=null" class="close"></a>
+          <a click.trigger="cancelSignIn()" class="close"></a>
         </div>
       </div>
       <div class="modal-dialog-body">
@@ -83,8 +83,8 @@
     </div>
 
     <div class="menu-items" if.bind="userDetails.account==null && userDetails.profile=='R'" ltr-right rtl-left>
-      <button click.delegate="authzAction='sign-up'">${i18n("Sign up")  & signal : 'language-change'}</button>
-      <button click.delegate="authzAction='sign-in'">${i18n("Sign in")  & signal : 'language-change'}</button>
+      <button click.delegate="startSignUp()">${i18n("Sign up")  & signal : 'language-change'}</button>
+      <button click.delegate="startSignIn()">${i18n("Sign in")  & signal : 'language-change'}</button>
     </div>
   </header>
 

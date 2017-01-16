@@ -1,11 +1,12 @@
 import {inject, bindable, BindingEngine} from 'aurelia-framework'
 import {HttpClient, json} from 'aurelia-fetch-client';
+import { EventAggregator } from 'aurelia-event-aggregator';
 import {Router} from 'aurelia-router';
 
 import {UserDetails} from 'common'
 import {I18n} from 'i18n'
 
-@inject(HttpClient, Router, BindingEngine, UserDetails, I18n)
+@inject(HttpClient, Router, BindingEngine, EventAggregator, UserDetails, I18n)
 export class SignInForm {
 
     action;
@@ -24,9 +25,10 @@ export class SignInForm {
         this.outcome = null;
     }
 
-    constructor(httpClient, router, bindingEngine, userDetails, i18nMessages) {
+    constructor(httpClient, router, bindingEngine, eventAggregator, userDetails, i18nMessages) {
         this.httpClient = httpClient;
         this.router = router;
+        this.eventAggregator = eventAggregator;
         this.userDetails = userDetails;
 
         this.i18n = (key) => i18nMessages.getMessage("sign-in", key, userDetails.language);
@@ -54,10 +56,11 @@ export class SignInForm {
                     localStorage.setItem("accessKey", account.accessKey);
                 }
                 this.action = null;
-
+                this.eventAggregator.publish('global-events', 'signed-in');
                 if (this.successRoute) {
                     this.router.navigate(this.successRoute);
                 }
+
             })
             .catch(e => {
                 if (e.status == 401) {

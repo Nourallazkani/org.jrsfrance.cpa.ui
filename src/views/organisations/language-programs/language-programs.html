@@ -79,8 +79,8 @@
         <table style="width:100%">
           <thead>
             <tr>
-                <td style="width:50%">Réfugié</td>
-                <td style="width:35%">Coordonnées</td>
+                <td style="width:50%">Name</td>
+                <td style="width:35%">Contact</td>
                 <td style="width:15%">&nbsp;</td>
             </tr>
           </thead>
@@ -88,11 +88,11 @@
             <tr repeat.for="registration of r.registrations">
                 <td>${registration.refugee.name}</td>
                 <td>${registration.refugee.mailAddress} - ${registration.refugee.phoneNumber}</td>
-                <td if.bind="registration.decisionDate==null">
+                <td if.bind="registration.accepted==null">
                   <button click.delegate="acceptRegistration(r.item, registration)">Accept</button>
                   <button click.delegate="refuseRegistration(r.item, registration)">Decline</button>
                 </td>
-                <td if.bind="registration.decisionDate!=null">
+                <td if.bind="registration.accepted!==null">
                   ${i18n(registration.accepted ? 'Accepted' : 'Refused') & signal : 'language-change'}
                 </td>                
             </tr>

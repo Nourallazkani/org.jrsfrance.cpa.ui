@@ -31,8 +31,9 @@
     <div class="_result" repeat.for="r of results">
       <div class="_result-header horizontal">
         <div style="text-align:left" class="width-lg-80 width-md-80" rtl-right ltr-left>
-          ${r.item.organisation} 
-          <button click.delegate="r.action={name:'register'}" if.bind="r.action==null">${i18n("Register")  & signal : 'language-change'}</button>
+          ${r.item.organisation}
+          <span if.bind="r.item.alreadyRegistered">- already registered</span>
+          <button click.delegate="r.action={name:'register'}" if.bind="r.action==null && !r.item.alreadyRegistered">${i18n("Register")  & signal : 'language-change'}</button>
         </div>
         <div style="text-align:right" class="width-lg-20 width-md-20" if.bind="r.distance" rtl-left ltr-right>
           <a if.bind="userDetails.address" click.delegate="viewItinerary(userDetails.address, r.item.address)">
@@ -44,7 +45,10 @@
       <!-- registration -->
       <div class="_result-body" if.bind="r.action.name=='register'" style="background-color: lightgrey;padding-bottom: 20px">
         <div if.bind="userDetails.account==null">
-            ${i18n("Please sign in or sign up")  & signal : 'language-change'}
+            ${i18n("Please")  & signal : 'language-change'}
+            <a click.delegate="startSignIn()">${i18n("sign in")  & signal : 'language-change'}</a>
+            ${i18n("or")  & signal : 'language-change'}
+            <a click.delegate="startSignUp()">${i18n("sign up")  & signal : 'language-change'}</a>
         </div>
         <div if.bind="userDetails.account!=null">
             <form if.bind="r.action.outcome==null">
@@ -53,7 +57,7 @@
               <input type="checkbox" value="true" checked.bind="r.action.confirm"/>
               <br/>
               <div style="text-align: center">
-                <button class="btn-orange" disabled.if="!r.action.confirm" click.delegate="register(r)">${i18n("Register")  & signal : 'language-change'}</button>
+                <button class="btn-orange" disabled.bind="!r.action.confirm" click.delegate="register(r)">${i18n("Register")  & signal : 'language-change'}</button>
                 <button class="btn" click.delegate="r.action=null">${i18n("Cancel")  & signal : 'language-change'}</button>
               </div>
             </form>

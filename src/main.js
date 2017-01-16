@@ -32,7 +32,7 @@ export function configure(aurelia) {
   }
 
   if (environment.testing) {
-    environment.apiEndpoint = "http://localhost:8080/api/";
+    environment.apiEndpoint = "http://localhost:8080/";
     aurelia.use.plugin('aurelia-testing');
   }
   else{
